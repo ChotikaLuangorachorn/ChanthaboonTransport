@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="API" />
+        <module name="CTAPI" />
+        <module name="Customer" />
+        <module name="Manager" />
+        <module name="Server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="API" target="1.5" />
+      <module name="ChanthaboonTransport" target="1.5" />
+      <module name="CTAPI" target="1.5" />
+      <module name="Customer" target="1.5" />
+      <module name="Manager" target="1.5" />
+      <module name="Server" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
