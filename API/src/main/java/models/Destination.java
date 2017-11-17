@@ -1,3 +1,5 @@
+package models;
+
 public class Destination {
     private String province;
     private String district;

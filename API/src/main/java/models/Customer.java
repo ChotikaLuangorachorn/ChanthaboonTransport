@@ -1,3 +1,5 @@
+package models;
+
 public class Customer {
     private String citizenId;
     private String firstName, lastName;

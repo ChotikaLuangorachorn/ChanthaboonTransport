@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>CT-Customer</artifactId>
+    <artifactId>CT-models.Customer</artifactId>
 
 
 </project>

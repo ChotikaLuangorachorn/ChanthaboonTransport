@@ -1,3 +1,5 @@
+package models;
+
 public class Van {
     private String regisNumber;
     private String partnerId;

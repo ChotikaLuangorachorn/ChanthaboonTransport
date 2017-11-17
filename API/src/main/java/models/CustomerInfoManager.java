@@ -1,3 +1,5 @@
+package models;
+
 public class CustomerInfoManager {
     private static CustomerInfoManager customerInfoManager;
     private Customer customer;
