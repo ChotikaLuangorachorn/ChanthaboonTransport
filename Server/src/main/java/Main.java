@@ -11,6 +11,7 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception {
         SQLiteExecutor sqLiteExecutor = new SQLiteExecutor();
         Customer customer = sqLiteExecutor.getCustomer("1234567890123", "naruto0068");
-        System.out.println("customer = " + customer);
+        System.out.println("customer %Y = " + customer);
+        System.out.println(String.format("sada %%Y %s", "as"));
     }
 }
