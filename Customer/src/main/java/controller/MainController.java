@@ -4,12 +4,20 @@ import managers.CustomerDatabaseManager;
 import models.Customer;
 import models.Destination;
 import models.Reservation;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Date;
 import java.util.Map;
 
 public class MainController implements CustomerDatabaseManager {
 
+    private CustomerDatabaseManager executor;
+    public MainController() {
+        ApplicationContext bf = new ClassPathXmlApplicationContext("custumer_config.xml");
+        executor = (CustomerDatabaseManager) bf.getBean("CustomerDbManager");
+
+    }
 
     public Customer getCustomer(String citizenId, String pwd) {
         return null;

@@ -1,6 +1,9 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
 import models.Customer;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 public class Main extends Application{
 
@@ -9,9 +12,11 @@ public class Main extends Application{
     }
 
     public void start(Stage primaryStage) throws Exception {
-        SQLiteExecutor sqLiteExecutor = new SQLiteExecutor();
-        Customer customer = sqLiteExecutor.getCustomer("1234567890123", "naruto0068");
-        System.out.println("customer %Y = " + customer);
-        System.out.println(String.format("sada %%Y %s", "as"));
+        ApplicationContext bf = new ClassPathXmlApplicationContext("server_config.xml");
+
+//        SQLiteExecutor sqLiteExecutor = new SQLiteExecutor();
+//        Customer customer = sqLiteExecutor.getCustomer("1234567890123", "naruto0068");
+//        System.out.println("customer %Y = " + customer);
+//        System.out.println(String.format("sada %%Y %s", "as"));
     }
 }
