@@ -11,7 +11,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="452.0" prefWidth="770.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<?import java.lang.Integer?>
+<AnchorPane prefHeight="452.0" prefWidth="770.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ReservationView">
+   <fx:define>
+      <Integer fx:id="minH" fx:value="0" />
+      <Integer fx:id="maxH" fx:value="23" />
+      <Integer fx:id="minM" fx:value="0" />
+      <Integer fx:id="maxM" fx:value="59" />
+      <Integer fx:id="minCar" fx:value="0"/>
+   </fx:define>
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="จุดหมาย">
          <font>
@@ -85,8 +93,8 @@
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <Spinner fx:id="spn_vip" layoutX="562.0" layoutY="85.0" prefHeight="25.0" prefWidth="64.0" />
-      <Spinner fx:id="spn_normal" layoutX="562.0" layoutY="117.0" prefHeight="25.0" prefWidth="64.0" />
+      <Spinner fx:id="spn_vip" layoutX="562.0" layoutY="85.0" prefHeight="25.0" prefWidth="64.0" min="$minCar"/>
+      <Spinner fx:id="spn_normal" layoutX="562.0" layoutY="117.0" prefHeight="25.0" prefWidth="64.0" min="$minCar"/>
       <Label layoutX="631.0" layoutY="120.0" text="คัน">
          <font>
             <Font size="14.0" />
@@ -97,10 +105,10 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Spinner fx:id="spn_start_hr" layoutX="250.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" />
-      <Spinner fx:id="spn_start_min" layoutX="321.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" />
-      <Spinner fx:id="spn_end_hr" layoutX="250.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" />
-      <Spinner fx:id="spn_end_min" layoutX="321.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" />
+      <Spinner fx:id="spn_start_hr" layoutX="250.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" max="$maxH" min="$minH"/>
+      <Spinner fx:id="spn_start_min" layoutX="321.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" max="$maxM" min="$minM"/>
+      <Spinner fx:id="spn_end_hr" layoutX="250.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" max="$maxH" min="$minH"/>
+      <Spinner fx:id="spn_end_min" layoutX="321.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" max="$maxM" min="$minM"/>
       <Label layoutX="216.0" layoutY="294.0" text="เวลา:">
          <font>
             <Font size="14.0" />
