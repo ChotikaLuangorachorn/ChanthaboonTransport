@@ -1,3 +1,5 @@
+package controllers;
+
 import managers.CustomerDatabaseManager;
 import models.Customer;
 import models.Destination;

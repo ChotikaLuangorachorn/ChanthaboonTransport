@@ -14,7 +14,7 @@ public class MainController implements CustomerDatabaseManager {
 
     private CustomerDatabaseManager executor;
     public MainController() {
-        ApplicationContext bf = new ClassPathXmlApplicationContext("custumer_config.xml");
+        ApplicationContext bf = new ClassPathXmlApplicationContext("customer_config.xml");
         executor = (CustomerDatabaseManager) bf.getBean("CustomerDbManager");
 
     }
