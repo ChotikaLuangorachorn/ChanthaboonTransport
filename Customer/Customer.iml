@@ -11,6 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="API" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.0.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.0.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.0.0.RELEASE" level="project" />

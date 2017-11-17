@@ -5,9 +5,8 @@ public class Customer {
     private String firstName, lastName;
     private String address, phone, lineId;
     private String lastReserve;
-    private String pwd;
 
-    public Customer(String citizenId, String firstName, String lastName, String address, String phone, String lineId, String lastReserve, String pwd) {
+    public Customer(String citizenId, String firstName, String lastName, String address, String phone, String lineId, String lastReserve) {
         this.citizenId = citizenId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -15,7 +14,6 @@ public class Customer {
         this.phone = phone;
         this.lineId = lineId;
         this.lastReserve = lastReserve;
-        this.pwd = pwd;
     }
 
     public String getCitizenId() {
@@ -46,7 +44,4 @@ public class Customer {
         return lastReserve;
     }
 
-    public String getPwd() {
-        return pwd;
-    }
 }
