@@ -7,6 +7,7 @@ import models.Reservation;
 import org.springframework.lang.Nullable;
 
 import java.sql.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Date;
@@ -235,9 +236,37 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
 
+                while (resultSet.next()){
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    String id = resultSet.getString("id");
+                    String customerId = resultSet.getString("customer_id");
+                    Date statDate = formatter.parse(resultSet.getString("start_working_date"));
+                    Date endDate = formatter.parse(resultSet.getString("end_working_date"));
+                    Date reserveDate = formatter.parse(resultSet.getString("reserve_date"));
+                    Date meetingDate = formatter.parse(resultSet.getString("meeting_date"));
+                    String province = resultSet.getString("province");
+                    String district = resultSet.getString("district");
+                    String place = resultSet.getString("place");
+                    String meetingPlace = resultSet.getString("meeting_place");
+                    double fee = resultSet.getDouble("fee");
+                    int amtVip = resultSet.getInt("amt_vip");
+                    int amtNormal = resultSet.getInt("amt_normal");
+
+                    Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingDate, fee);
+                    reservations.add(reservation);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }finally {
+            if (connection!=null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
         }
         return reservations;
     }
