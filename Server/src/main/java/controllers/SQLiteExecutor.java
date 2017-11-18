@@ -189,7 +189,36 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
     }
 
     public void editCustomerInfo(Customer customer) {
-
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = String.format("update customer " +
+                                            "set first_name='%s' " +
+                                                "last_name='%s' " +
+                                                "address='%s' " +
+                                                "phone='%s' " +
+                                                "line_id='%s' " +
+                                            "where citizen_id='%s'",
+                                            customer.getFirstName(),
+                                            customer.getLastName(),
+                                            customer.getAddress(),
+                                            customer.getPhone(),
+                                            customer.getLineId(),
+                                            customer.getCitizenId());
+                Statement statement = connection.createStatement();
+                int result = statement.executeUpdate(sql);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
     }
 
     public void deleteReservation(Reservation reservation) {
