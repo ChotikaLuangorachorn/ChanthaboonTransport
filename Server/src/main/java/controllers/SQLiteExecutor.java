@@ -280,6 +280,31 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
         return districts;
     }
 
+    public boolean changeCustomerPassword(String citizenId, String oldPwd, String newPwd) {
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = String.format("update customer " +
+                                            "set pwd='%s' " +
+                                            "where citizen_id='%s' and pwd='%s'", newPwd, citizenId, oldPwd);
+                Statement statement = connection.createStatement();
+                int result = statement.executeUpdate(sql);
+                return result > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+        return false;
+    }
+
     private double getDistance(Destination destination){
         Connection connection = null;
         try {

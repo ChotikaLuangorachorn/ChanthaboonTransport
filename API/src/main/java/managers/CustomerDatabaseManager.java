@@ -21,5 +21,6 @@ public interface CustomerDatabaseManager {
     void deleteReservation(Reservation reservation);
     List<String> getProvinces();
     List<String> getDistricts(String province);
+    boolean changeCustomerPassword(String citizenId, String oldPwd, String newPwd);
 
 }
