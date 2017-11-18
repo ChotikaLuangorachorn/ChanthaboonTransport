@@ -3,13 +3,13 @@ package models;
 import java.util.Date;
 
 public class Reservation {
-    private String reserveId,customerId, meetingPlace;
+    private String reserveId,customerId, meetingPlace, status;
     private int amtVip, amtNormal;
     private Destination destination;
     private Date startDate, endDate, reserveDate, meetingDate;
     private double price;
 
-    public Reservation(String reserveId, String customerId, String meetingPlace, int amtVip, int amtNormal, Destination destination, Date startDate, Date endDate, Date reserveDate, Date meetingDate, double price) {
+    public Reservation(String reserveId, String customerId, String meetingPlace, int amtVip, int amtNormal, Destination destination, Date startDate, Date endDate, Date reserveDate, Date meetingDate, double price, String status) {
         this.reserveId = reserveId;
         this.customerId = customerId;
         this.meetingPlace = meetingPlace;
@@ -21,6 +21,7 @@ public class Reservation {
         this.reserveDate = reserveDate;
         this.meetingDate = meetingDate;
         this.price = price;
+        this.status = status;
     }
 
     public String getReserveId() {
@@ -85,5 +86,37 @@ public class Reservation {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getMeetingPlace() {
+        return meetingPlace;
+    }
+
+    public void setMeetingPlace(String meetingPlace) {
+        this.meetingPlace = meetingPlace;
+    }
+
+    public Date getReserveDate() {
+        return reserveDate;
+    }
+
+    public void setReserveDate(Date reserveDate) {
+        this.reserveDate = reserveDate;
+    }
+
+    public Date getMeetingDate() {
+        return meetingDate;
+    }
+
+    public void setMeetingDate(Date meetingDate) {
+        this.meetingDate = meetingDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
