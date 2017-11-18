@@ -7,6 +7,7 @@ import managers.CustomerDatabaseManager;
 import models.CustomerInfoManager;
 
 public class Mainview {
+    @FXML private InformationView tabInformation;
     private MainController controller;
     private SceneManager sceneManager;
 
@@ -15,8 +16,13 @@ public class Mainview {
 
     }
 
+    public void initTab(){
+        tabInformation.setController(controller);
+    }
+
     public void setController(MainController controller) {
         this.controller = controller;
+        initTab();
     }
 
 
