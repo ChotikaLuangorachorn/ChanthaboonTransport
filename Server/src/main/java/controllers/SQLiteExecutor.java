@@ -225,6 +225,23 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
 
     }
 
+    public List<Reservation> getHistoryReservation(String citizenId) {
+        List<Reservation> reservations = new ArrayList<Reservation>();
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = "select * from reservation where customer_id = '" + citizenId + "'";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return reservations;
+    }
+
     public List<String> getProvinces() {
         List<String> provinces = new ArrayList<String>();
         Connection connection = null;
