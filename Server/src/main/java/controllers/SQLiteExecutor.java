@@ -8,9 +8,8 @@ import org.springframework.lang.Nullable;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 public class SQLiteExecutor implements CustomerDatabaseManager {
     private String url = "vanScheduler.db";
@@ -195,6 +194,61 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
 
     public void deleteReservation(Reservation reservation) {
 
+    }
+
+    public List<String> getProvinces() {
+        List<String> provinces = new ArrayList<String>();
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = "select distinct province from distance";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+
+                while(resultSet.next()){
+                    String province = resultSet.getString("province");
+                    provinces.add(province);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+        return provinces;
+    }
+
+    public List<String> getDistricts(String province) {
+        List<String> districts = new ArrayList<String>();
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = "select district from distance where province='" + province + "'";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+                while (resultSet.next()){
+                    String district = resultSet.getString("district");
+                    districts.add(district);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+        return districts;
     }
 
     private double getDistance(Destination destination){
