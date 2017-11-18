@@ -19,7 +19,7 @@ public class MainApplication extends Application {
         this.controller = new MainController();
         this.sceneManager = new SceneManager();
         this.sceneManager.setStage(primaryStage);
-        this.sceneManager.setController(controller);
+        this.sceneManager.setController(this.controller);
         this.sceneManager.showLoginView();
         primaryStage.show();
     }

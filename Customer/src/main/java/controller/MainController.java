@@ -39,6 +39,7 @@ public class MainController {
     }
 
     public void editCustomerInfo(Customer customer) {
+        executor.editCustomerInfo(customer);
 
     }
 

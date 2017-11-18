@@ -16,6 +16,7 @@ public class SceneManager {
     private MainController controller;
 
     public void setStage(Stage stage){
+
         this.primaryStage = stage;
     }
 
@@ -48,6 +49,7 @@ public class SceneManager {
             loader.setLocation(getClass().getResource("/mainview.fxml"));
             AnchorPane mainViewLayout = loader.load();
             Mainview mainview = loader.getController();
+            System.out.println("controller = " + controller);
             mainview.setController(controller);
             mainview.setSceneManager(this);
 

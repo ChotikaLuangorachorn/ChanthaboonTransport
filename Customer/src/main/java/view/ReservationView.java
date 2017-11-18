@@ -1,5 +1,6 @@
 package view;
 
+import controller.MainController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -16,14 +17,14 @@ public class ReservationView extends AnchorPane implements Initializable{
     @FXML private DatePicker dp_startDate, dp_endStart;
     @FXML private Spinner spn_start_hr, spn_start_min, spn_end_hr, spn_end_min, spn_vip, spn_normal;
     @FXML private RadioButton rd_distance, rd_daily;
-    private CustomerDatabaseManager controller;
+    private MainController controller;
     private CustomerInfoManager customer;
 
 
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-    public void setController(CustomerDatabaseManager controller) {
+    public void setController(MainController controller) {
         this.controller = controller;
     }
 

@@ -26,8 +26,7 @@ public class InformationView extends AnchorPane implements Initializable {
     private MainController controller;
 
     public void initialize(URL location, ResourceBundle resources) {
-        showInformation();
-        onClickEdit();
+
 
     }
     public void showInformation(){
@@ -51,7 +50,9 @@ public class InformationView extends AnchorPane implements Initializable {
                     loader.setLocation(getClass().getResource("/Information_editTab.fxml"));
                     Pane EditLayout = (AnchorPane) loader.load();
                     InformationEditView informationEditView = loader.getController();
+                    System.out.println("controller in info view= " + controller);
                     informationEditView.setController(controller);
+                    informationEditView.setInformationView(InformationView.this);
 
                     // Show the scene containing the root layout.
                     Scene scene = new Scene(EditLayout);
@@ -70,5 +71,7 @@ public class InformationView extends AnchorPane implements Initializable {
 
     public void setController(MainController controller) {
         this.controller = controller;
+        showInformation();
+        onClickEdit();
     }
 }

@@ -1,5 +1,6 @@
 package view;
 
+import controller.MainController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -21,6 +22,7 @@ import java.util.ResourceBundle;
 public class MyReservationView implements Initializable{
     @FXML private TableView table_reserve;
     @FXML private TableColumn col_reserveId,col_reserveDate,col_province,col_district,col_startDate,col_endDate,col_statusReservation;
+    private MainController controller;
 
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
@@ -67,5 +69,9 @@ public class MyReservationView implements Initializable{
         table_reserve.setItems(data);
 
 
+    }
+
+    public void setController(MainController controller) {
+        this.controller = controller;
     }
 }
