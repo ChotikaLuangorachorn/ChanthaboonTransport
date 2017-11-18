@@ -252,7 +252,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                     int amtVip = resultSet.getInt("amt_vip");
                     int amtNormal = resultSet.getInt("amt_normal");
 
-                    Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingDate, fee);
+                    Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingDate, fee, null);
                     reservations.add(reservation);
                 }
             }
