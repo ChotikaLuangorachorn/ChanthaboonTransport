@@ -13,14 +13,14 @@ import java.io.IOException;
 
 public class SceneManager {
     private Stage primaryStage;
-    private CustomerDatabaseManager controller;
+    private MainController controller;
 
     public void setStage(Stage stage){
         this.primaryStage = stage;
     }
 
-    public void setCustomerDatabaseManager(CustomerDatabaseManager customerDatabaseManager) {
-        this.controller = customerDatabaseManager;
+    public void setController(MainController controller) {
+        this.controller = controller;
     }
 
     public void showLoginView(){

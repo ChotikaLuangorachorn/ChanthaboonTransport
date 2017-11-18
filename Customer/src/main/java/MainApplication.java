@@ -6,7 +6,7 @@ import managers.CustomerDatabaseManager;
 
 public class MainApplication extends Application {
     private SceneManager sceneManager;
-    private CustomerDatabaseManager customerDatabaseManager;
+    private MainController controller;
     private Stage primaryStage;
 
     public static void main(String[] args) {
@@ -16,10 +16,10 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.customerDatabaseManager = new MainController();
+        this.controller = new MainController();
         this.sceneManager = new SceneManager();
         this.sceneManager.setStage(primaryStage);
-        this.sceneManager.setCustomerDatabaseManager(customerDatabaseManager);
+        this.sceneManager.setController(controller);
         this.sceneManager.showLoginView();
         primaryStage.show();
     }

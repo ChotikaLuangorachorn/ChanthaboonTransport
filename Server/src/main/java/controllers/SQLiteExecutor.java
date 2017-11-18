@@ -17,6 +17,9 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
 
     @Nullable
     public Customer getCustomer(String citizenId, String pwd) {
+        System.out.println("request getCustomer");
+        System.out.println("citizenId = " + citizenId);
+        System.out.println("pwd = " + pwd);
         Connection connection = null;
         try{
             connection = prepareConnection();

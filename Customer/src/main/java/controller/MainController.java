@@ -10,17 +10,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.Date;
 import java.util.Map;
 
-public class MainController implements CustomerDatabaseManager {
+public class MainController {
 
     private CustomerDatabaseManager executor;
     public MainController() {
         ApplicationContext bf = new ClassPathXmlApplicationContext("customer_config.xml");
         executor = (CustomerDatabaseManager) bf.getBean("CustomerDbManager");
-
     }
 
     public Customer getCustomer(String citizenId, String pwd) {
-        return null;
+        return executor.getCustomer(citizenId, pwd);
     }
 
     public Map<String, Integer> getVanAvailable(Destination destination, Date startDate, Date endDate) {

@@ -36,12 +36,12 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="tf_critizenId" layoutX="322.0" layoutY="229.0">
+      <TextField text="1234567890123" fx:id="tf_critizenId" layoutX="322.0" layoutY="229.0">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="tf_pwd" layoutX="322.0" layoutY="327.0">
+      <PasswordField text="naruto0068" fx:id="tf_pwd" layoutX="322.0" layoutY="327.0">
          <font>
             <Font size="24.0" />
          </font>
