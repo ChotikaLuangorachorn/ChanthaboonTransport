@@ -8,9 +8,8 @@ import org.springframework.lang.Nullable;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 public class SQLiteExecutor implements CustomerDatabaseManager {
     private String url = "vanScheduler.db";
@@ -190,11 +189,120 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
     }
 
     public void editCustomerInfo(Customer customer) {
-
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = String.format("update customer " +
+                                            "set first_name='%s' " +
+                                                "last_name='%s' " +
+                                                "address='%s' " +
+                                                "phone='%s' " +
+                                                "line_id='%s' " +
+                                            "where citizen_id='%s'",
+                                            customer.getFirstName(),
+                                            customer.getLastName(),
+                                            customer.getAddress(),
+                                            customer.getPhone(),
+                                            customer.getLineId(),
+                                            customer.getCitizenId());
+                Statement statement = connection.createStatement();
+                int result = statement.executeUpdate(sql);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
     }
 
     public void deleteReservation(Reservation reservation) {
 
+    }
+
+    public List<String> getProvinces() {
+        List<String> provinces = new ArrayList<String>();
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = "select distinct province from distance";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+
+                while(resultSet.next()){
+                    String province = resultSet.getString("province");
+                    provinces.add(province);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+        return provinces;
+    }
+
+    public List<String> getDistricts(String province) {
+        List<String> districts = new ArrayList<String>();
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = "select district from distance where province='" + province + "'";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+                while (resultSet.next()){
+                    String district = resultSet.getString("district");
+                    districts.add(district);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+        return districts;
+    }
+
+    public boolean changeCustomerPassword(String citizenId, String oldPwd, String newPwd) {
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = String.format("update customer " +
+                                            "set pwd='%s' " +
+                                            "where citizen_id='%s' and pwd='%s'", newPwd, citizenId, oldPwd);
+                Statement statement = connection.createStatement();
+                int result = statement.executeUpdate(sql);
+                return result > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+        return false;
     }
 
     private double getDistance(Destination destination){
