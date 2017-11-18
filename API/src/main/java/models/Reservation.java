@@ -3,13 +3,14 @@ package models;
 import java.util.Date;
 
 public class Reservation {
-    private String customerId, meetingPlace;
+    private String reserveId,customerId, meetingPlace;
     private int amtVip, amtNormal;
     private Destination destination;
     private Date startDate, endDate, reserveDate, meetingDate;
     private double price;
 
-    public Reservation(String customerId, String meetingPlace, int amtVip, int amtNormal, Destination destination, Date startDate, Date endDate, Date reserveDate, Date meetingDate, double price) {
+    public Reservation(String reserveId, String customerId, String meetingPlace, int amtVip, int amtNormal, Destination destination, Date startDate, Date endDate, Date reserveDate, Date meetingDate, double price) {
+        this.reserveId = reserveId;
         this.customerId = customerId;
         this.meetingPlace = meetingPlace;
         this.amtVip = amtVip;
@@ -20,6 +21,14 @@ public class Reservation {
         this.reserveDate = reserveDate;
         this.meetingDate = meetingDate;
         this.price = price;
+    }
+
+    public String getReserveId() {
+        return reserveId;
+    }
+
+    public void setReserveId(String reserveId) {
+        this.reserveId = reserveId;
     }
 
     public String getCustomerId() {
