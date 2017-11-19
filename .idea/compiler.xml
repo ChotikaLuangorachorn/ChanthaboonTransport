@@ -16,7 +16,6 @@
     <bytecodeTargetLevel>
       <module name="API" target="1.5" />
       <module name="ChanthaboonTransport" target="1.5" />
-      <module name="CTAPI" target="1.5" />
       <module name="Customer" target="1.8" />
       <module name="Manager" target="1.5" />
       <module name="Server" target="1.5" />

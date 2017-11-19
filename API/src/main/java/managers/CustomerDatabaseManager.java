@@ -16,7 +16,7 @@ public interface CustomerDatabaseManager {
     Map<String, Integer> getVanAvailable(Destination destination, Date startDate, Date endDate);
     double getPrice(Map<String, Integer> vanAmt, Date startDate, Date endDate);
     double getPrice(Map<String, Integer> vanAmt, Destination destination);
-    void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, double price);
+    void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, Date reserveDate, double price, double deposit);
     void editCustomerInfo(Customer customer);
     void deleteReservation(Reservation reservation);
     List<Reservation> getHistoryReservation(String citizenId);
