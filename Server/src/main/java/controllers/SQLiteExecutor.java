@@ -61,6 +61,9 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
     public Map<String, Integer> getVanAvailable(Destination destination, Date startDate, Date endDate) {
         System.out.println("request getVanAvailable");
         Map<String, Integer> amtMap = new HashMap<String, Integer>();
+        amtMap.put(CustomerDatabaseManager.VIP, 0);
+        amtMap.put(CustomerDatabaseManager.NORMAL, 0);
+
         boolean possible = checkPossibleDay(destination, startDate, endDate);
         System.out.println("possible = " + possible);
         if (possible){
@@ -68,7 +71,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
             try {
                 connection = prepareConnection();
                 if (connection != null){
-                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getFormatter();
                     String start = formatter.format(startDate);
                     String end = formatter.format(endDate);
 
@@ -111,10 +114,6 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                         e.printStackTrace();
                     }
             }
-        } else {
-            amtMap.put(CustomerDatabaseManager.VIP, 0);
-            amtMap.put(CustomerDatabaseManager.NORMAL, 0);
-
         }
         System.out.println("response = " + amtMap);
         return amtMap;
