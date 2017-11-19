@@ -60,6 +60,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
     @Nullable
     public Map<String, Integer> getVanAvailable(Destination destination, Date startDate, Date endDate) {
         System.out.println("request getVanAvailable");
+        Map<String, Integer> amtMap = new HashMap<String, Integer>();
         boolean possible = checkPossibleDay(destination, startDate, endDate);
         System.out.println("possible = " + possible);
         if (possible){
@@ -67,7 +68,6 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
             try {
                 connection = prepareConnection();
                 if (connection != null){
-                    Map<String, Integer> amtMap = new HashMap<String, Integer>();
                     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                     String start = formatter.format(startDate);
                     String end = formatter.format(endDate);
@@ -86,10 +86,11 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                             "        and van.regis_number not in (select van.regis_number\n" +
                             "                                                                        from van\n" +
                             "                                                                        join van_job_schedule\n" +
-                            "                                                                        on van_job_schedule.regis_id = van.regis_number\n" +
+                            "                                                                        on van_job_schedule.regis_number = van.regis_number\n" +
                             "                                                                        where strftime(\"%%Y-%%m-%%d\", van_job_schedule.end_date) >= date(\"%s\") \n" +
                             "                                                                                        and strftime(\"%%Y-%%m-%%d\", van_job_schedule.start_date) <= date(\"%s\"))\n" +
                             "group by type", start, end, start, end);
+                    System.out.println("sql = " + sql);
                     Statement statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(sql);
 
@@ -97,8 +98,8 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                         amtMap.put(resultSet.getString("type"), resultSet.getInt("amt"));
                     }
 
-                    System.out.println("response = " + amtMap);
-                    return amtMap;
+
+
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -110,8 +111,13 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                         e.printStackTrace();
                     }
             }
+        } else {
+            amtMap.put(CustomerDatabaseManager.VIP, 0);
+            amtMap.put(CustomerDatabaseManager.NORMAL, 0);
+
         }
-        return null;
+        System.out.println("response = " + amtMap);
+        return amtMap;
     }
 
     public double getPrice(Map<String, Integer> vanAmt, Date startDate, Date endDate) {
