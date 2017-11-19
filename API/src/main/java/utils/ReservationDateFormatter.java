@@ -14,7 +14,7 @@ public class ReservationDateFormatter {
         return instance;
     }
 
-    public static SimpleDateFormat getFormatter() {
+    public SimpleDateFormat getFormatter() {
         return formatter;
     }
 }
