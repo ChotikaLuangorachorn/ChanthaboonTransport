@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 public class MainController {
@@ -23,7 +24,7 @@ public class MainController {
     }
 
     public Map<String, Integer> getVanAvailable(Destination destination, Date startDate, Date endDate) {
-        return null;
+        return executor.getVanAvailable(destination, startDate, endDate);
     }
 
     public double getPrice(Map<String, Integer> vanAmt, Date startDate, Date endDate) {
@@ -36,6 +37,13 @@ public class MainController {
 
     public void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, double price) {
 
+    }
+    public List<String> getProvince(){
+        return executor.getProvinces();
+    }
+
+    public List<String> getdistrict(String province){
+        return executor.getDistricts(province);
     }
 
     public void editCustomerInfo(Customer customer) {

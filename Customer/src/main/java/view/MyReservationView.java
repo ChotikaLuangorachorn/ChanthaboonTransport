@@ -56,7 +56,7 @@ public class MyReservationView implements Initializable{
                 return new SimpleStringProperty(reservation.getValue().getEndDate().toString());
             }
         });
-        col_statusReservation.setCellValueFactory(new PropertyValueFactory<Reservation,String>("status"));
+        col_statusReservation.setCellValueFactory(new PropertyValueFactory<Reservation,String>("isDeposited"));
 
     }
     public void initData(){
