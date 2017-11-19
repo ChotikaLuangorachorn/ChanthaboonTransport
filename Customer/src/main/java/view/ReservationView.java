@@ -73,21 +73,6 @@ public class ReservationView extends AnchorPane implements Initializable{
     }
 
     public void setOnActionDatePicker(){
-        dp_startDate.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                String province = cbb_province.getValue();
-                String district = cbb_district.getValue();
-                String place = ta_detail.getText();
-                Destination destination = new Destination(province, district, place);
-                LocalDate startLocal = dp_startDate.getValue();
-                LocalDate endLocal = dp_endStart.getValue();
-                Map<String, Integer> amtVan = controller.getVanAvailable(destination, convertToDate(startLocal), convertToDate(endLocal));
-                System.out.println("amtVan = " + amtVan);
-                lb_amtNormalVan.setText(amtVan.get(CustomerDatabaseManager.NORMAL).toString());
-                lb_amtVipVan.setText(amtVan.get(CustomerDatabaseManager.VIP).toString());
-            }
-        });
         dp_endStart.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -98,6 +83,22 @@ public class ReservationView extends AnchorPane implements Initializable{
                 LocalDate startLocal = dp_startDate.getValue();
                 LocalDate endLocal = dp_endStart.getValue();
                 Map<String, Integer> amtVan = controller.getVanAvailable(destination, convertToDate(startLocal), convertToDate(endLocal));
+                System.out.println(amtVan.toString());
+                lb_amtNormalVan.setText(amtVan.get(CustomerDatabaseManager.NORMAL).toString());
+                lb_amtVipVan.setText(amtVan.get(CustomerDatabaseManager.VIP).toString());
+            }
+        });
+        dp_startDate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String province = cbb_province.getValue();
+                String district = cbb_district.getValue();
+                String place = ta_detail.getText();
+                Destination destination = new Destination(province, district, place);
+                LocalDate startLocal = dp_startDate.getValue();
+                LocalDate endLocal = dp_endStart.getValue();
+                Map<String, Integer> amtVan = controller.getVanAvailable(destination, convertToDate(startLocal), convertToDate(endLocal));
+                System.out.println(amtVan.toString());
                 lb_amtNormalVan.setText(amtVan.get(CustomerDatabaseManager.NORMAL).toString());
                 lb_amtVipVan.setText(amtVan.get(CustomerDatabaseManager.VIP).toString());
             }
