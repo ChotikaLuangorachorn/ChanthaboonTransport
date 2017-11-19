@@ -11,22 +11,31 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
+import models.CustomerInfoManager;
 import models.Destination;
 import models.Reservation;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MyReservationView implements Initializable{
     @FXML private TableView table_reserve;
     @FXML private TableColumn col_reserveId,col_reserveDate,col_province,col_district,col_startDate,col_endDate,col_statusReservation;
     private MainController controller;
+    private List<Reservation> reserves;
 
     public void initialize(URL location, ResourceBundle resources) {
-        initCol();
-        initData();
+
+    }
+    public void onDoubleClickReservation(){
+        table_reserve.setOnMouseClicked(even->{
+            if(even.getClickCount() == 2 && (table_reserve.getSelectionModel().getSelectedItems()!=null)){
+                System.out.println("Double Click");
+            }
+        });
     }
 
     public void initCol(){
@@ -61,17 +70,19 @@ public class MyReservationView implements Initializable{
     }
     public void initData(){
         //Test TableView by simple data
-        ArrayList<Reservation> reserves = new ArrayList<Reservation>();
-        reserves.add(new Reservation("01","1","meet1",1,2,new Destination("Testจังหวัด","Testอำเภอ","Testสภานที่"),new Date(),new Date(),new Date(),new Date(),111,"รอยืนยัน"));
-        reserves.add(new Reservation("02","1","meet2",1,2,new Destination("Testจังหวัด","Testอำเภอ","Testสภานที่"),new Date(),new Date(),new Date(),new Date(),111,"รอยืนยัน"));
+//        ArrayList<Reservation> reserves = new ArrayList<Reservation>();
+//        reserves.add(new Reservation("01","1","meet1",1,2,new Destination("Testจังหวัด","Testอำเภอ","Testสภานที่"),new Date(),new Date(),new Date(),new Date(),111,"รอยืนยัน"));
+//        reserves.add(new Reservation("02","1","meet2",1,2,new Destination("Testจังหวัด","Testอำเภอ","Testสภานที่"),new Date(),new Date(),new Date(),new Date(),111,"รอยืนยัน"));
         //Add data to table
         ObservableList<Reservation> data = FXCollections.observableList(reserves);
         table_reserve.setItems(data);
-
-
     }
 
     public void setController(MainController controller) {
         this.controller = controller;
+        onDoubleClickReservation();
+        this.reserves = this.controller.getHistoryReservation(CustomerInfoManager.getInstance().getCustomer().getCitizenId());
+        initCol();
+        initData();
     }
 }

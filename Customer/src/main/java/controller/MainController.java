@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 public class MainController {
@@ -45,5 +46,9 @@ public class MainController {
 
     public void deleteReservation(Reservation reservation) {
 
+    }
+
+    public List<Reservation> getHistoryReservation(String citizenId){
+        return executor.getHistoryReservation(citizenId);
     }
 }

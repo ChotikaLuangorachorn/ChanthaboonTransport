@@ -5,6 +5,7 @@ import models.Customer;
 import models.Destination;
 import models.Reservation;
 import org.springframework.lang.Nullable;
+import utils.ReservationDateFormatter;
 
 import java.sql.*;
 import java.text.ParseException;
@@ -244,13 +245,13 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                 ResultSet resultSet = statement.executeQuery(sql);
 
                 while (resultSet.next()){
-                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getFormatter();
                     String id = resultSet.getString("id");
                     String customerId = resultSet.getString("customer_id");
                     Date statDate = formatter.parse(resultSet.getString("start_working_date"));
                     Date endDate = formatter.parse(resultSet.getString("end_working_date"));
                     Date reserveDate = formatter.parse(resultSet.getString("reserve_date"));
-                    Date meetingDate = formatter.parse(resultSet.getString("meeting_date"));
+                    Date meetingTime = formatter.parse(resultSet.getString("meeting_time"));
                     String province = resultSet.getString("province");
                     String district = resultSet.getString("district");
                     String place = resultSet.getString("place");
@@ -259,7 +260,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                     int amtVip = resultSet.getInt("amt_vip");
                     int amtNormal = resultSet.getInt("amt_normal");
 
-                    Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingDate, fee, null);
+                    Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingTime, fee, null);
                     reservations.add(reservation);
                 }
             }
