@@ -5,6 +5,7 @@ import models.Customer;
 import models.Destination;
 import models.Reservation;
 import org.springframework.lang.Nullable;
+import utils.ReservationDateFormatter;
 
 import java.sql.*;
 import java.text.ParseException;
@@ -58,7 +59,9 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
     }
     @Nullable
     public Map<String, Integer> getVanAvailable(Destination destination, Date startDate, Date endDate) {
+        System.out.println("request getVanAvailable");
         boolean possible = checkPossibleDay(destination, startDate, endDate);
+        System.out.println("possible = " + possible);
         if (possible){
             Connection connection = null;
             try {
@@ -94,6 +97,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                         amtMap.put(resultSet.getString("type"), resultSet.getInt("amt"));
                     }
 
+                    System.out.println("response = " + amtMap);
                     return amtMap;
                 }
             } catch (SQLException e) {
@@ -188,8 +192,26 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
         return 0;
     }
 
-    public void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, double price) {
+    public void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, Date reserveDate, double price, double deposit) {
+        System.out.println("request addReservation");
+        Connection connection = null;
+        SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getFormatter();
+        try{
+            String reserveDateString = formatter.format(reserveDate);
+            String startDateString = formatter.format(startDate);
+            String endDateString = formatter.format(endDate);
 
+            connection = prepareConnection();
+            if (connection != null) {
+                String sql = String.format("insert into reservation (customer_id, reserve_date, start_working_date, end_working_date, fee, province, district, place, isDeposit, isDeposited, deposit_fee, amt_vip, amt_normal) values ('%s', '%s', '%s', '%s', %f, '%s', '%s', '%s', '%s', '%s', %f, %d, %d)",
+                                            customerId, reserveDateString, startDateString, endDateString, price, destination.getProvince(), destination.getDistrict(), destination.getPlace(), "true", "false", deposit, vanAmt.get(CustomerDatabaseManager.VIP), vanAmt.get(CustomerDatabaseManager.NORMAL));
+                Statement statement = connection.createStatement();
+                int result = statement.executeUpdate(sql);
+                System.out.println("result = " + result);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void editCustomerInfo(Customer customer) {
@@ -258,8 +280,9 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                     double fee = resultSet.getDouble("fee");
                     int amtVip = resultSet.getInt("amt_vip");
                     int amtNormal = resultSet.getInt("amt_normal");
+                    String isDeposited = resultSet.getString("isDeposited");
 
-                    Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingDate, fee, null);
+                    Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingDate, fee, isDeposited);
                     reservations.add(reservation);
                 }
             }
