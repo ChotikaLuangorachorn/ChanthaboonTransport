@@ -1,6 +1,8 @@
 package models;
 
-public class Destination {
+import java.io.Serializable;
+
+public class Destination implements Serializable{
     private String province;
     private String district;
     private String place;

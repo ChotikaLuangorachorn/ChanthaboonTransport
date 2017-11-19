@@ -1,8 +1,9 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Reservation {
+public class Reservation implements Serializable{
     private String reserveId,customerId, meetingPlace, status;
     private int amtVip, amtNormal;
     private Destination destination;

@@ -38,6 +38,9 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                     String lineId = resultSet.getString("line_id");
                     int lastReserveId = resultSet.getInt("last_reserve");
                     Customer customer = new Customer(id, firstname, lastname, address, phone, lineId, lastReserveId);
+                    System.out.println("response");
+                    System.out.println("customer = " + customer);
+                    System.out.println();
                     return customer;
                 }
             }
@@ -190,15 +193,17 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
     }
 
     public void editCustomerInfo(Customer customer) {
+        System.out.println("request editCustomerInfo");
+        System.out.println("customer = " + customer);
         Connection connection = null;
         try{
             connection = prepareConnection();
             if (connection != null){
                 String sql = String.format("update customer " +
-                                            "set first_name='%s' " +
-                                                "last_name='%s' " +
-                                                "address='%s' " +
-                                                "phone='%s' " +
+                                            "set first_name='%s' ," +
+                                                "last_name='%s' ," +
+                                                "address='%s' ," +
+                                                "phone='%s' ," +
                                                 "line_id='%s' " +
                                             "where citizen_id='%s'",
                                             customer.getFirstName(),
@@ -209,6 +214,8 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                                             customer.getCitizenId());
                 Statement statement = connection.createStatement();
                 int result = statement.executeUpdate(sql);
+                System.out.println("result = " + result);
+                System.out.println();
             }
         } catch (SQLException e) {
             e.printStackTrace();

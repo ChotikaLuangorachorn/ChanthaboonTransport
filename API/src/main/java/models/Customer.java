@@ -46,6 +46,9 @@ public class Customer implements Serializable{
         return lastReserveId;
     }
 
-
-
+    @Override
+    public String toString() {
+        return String.format("Customer{%s:%s %s, address %s, phone %s, line id %s, last reservation %s}",
+                citizenId, firstName, lastName, address, phone, lineId, lastName);
+    }
 }
