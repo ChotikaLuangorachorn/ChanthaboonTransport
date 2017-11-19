@@ -6,16 +6,24 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import models.CustomerInfoManager;
 import models.Destination;
 import models.Reservation;
 
+import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -32,17 +40,41 @@ public class MyReservationView implements Initializable{
     }
     public void onDoubleClickReservation(){
         table_reserve.setOnMouseClicked(even->{
-            if(even.getClickCount() == 2 && (table_reserve.getSelectionModel().getSelectedItems()!=null)){
-                System.out.println("Double Click");
+            System.out.println();
+            if(even.getClickCount() == 2 && (!table_reserve.getSelectionModel().getSelectedItems().equals(null))){
+                try {
+                    System.out.println("Double Click");
+                    Stage secondStage = new Stage();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/reservation_detail.fxml"));
+                    Pane detailLayout = loader.load();
+                    MyReservationDetailView myReservationDetailView = loader.getController();
+                    Reservation reservation = (Reservation) table_reserve.getSelectionModel().getSelectedItem();
+                    myReservationDetailView.setController(controller);
+                    myReservationDetailView.setReservation(reservation);
+
+                    Scene scene = new Scene(detailLayout);
+                    secondStage.setScene(scene);
+                    secondStage.setResizable(false);
+                    secondStage.setTitle("Reservation detail");
+                    secondStage.initModality(Modality.APPLICATION_MODAL);
+                    secondStage.showAndWait();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
     }
 
     public void initCol(){
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         col_reserveId.setCellValueFactory(new PropertyValueFactory<Reservation,String>("reserveId"));
         col_reserveDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
-                return new SimpleStringProperty(reservation.getValue().getReserveDate().toString());
+                Date reserveDate = reservation.getValue().getReserveDate();
+                return new SimpleStringProperty(formatDate.format(reserveDate)+" น.");
             }
         });
         col_province.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
@@ -57,12 +89,14 @@ public class MyReservationView implements Initializable{
         });
         col_startDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
-                return new SimpleStringProperty(reservation.getValue().getStartDate().toString());
+                Date startDate = reservation.getValue().getStartDate();
+                return new SimpleStringProperty(formatDate.format(startDate) +" น.");
             }
         });
         col_endDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
-                return new SimpleStringProperty(reservation.getValue().getEndDate().toString());
+                Date endDate = reservation.getValue().getEndDate();
+                return new SimpleStringProperty(formatDate.format(endDate)+ " น.");
             }
         });
         col_statusReservation.setCellValueFactory(new PropertyValueFactory<Reservation,String>("isDeposited"));
@@ -84,5 +118,6 @@ public class MyReservationView implements Initializable{
         this.reserves = this.controller.getHistoryReservation(CustomerInfoManager.getInstance().getCustomer().getCitizenId());
         initCol();
         initData();
+
     }
 }
