@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Reservation implements Serializable{
-    private String reserveId,customerId, meetingPlace, status;
+    private String reserveId,customerId, meetingPlace, isDeposited;
     private int amtVip, amtNormal;
     private Destination destination;
     private Date startDate, endDate, reserveDate, meetingDate;
     private double price;
 
-    public Reservation(String reserveId, String customerId, String meetingPlace, int amtVip, int amtNormal, Destination destination, Date startDate, Date endDate, Date reserveDate, Date meetingDate, double price, String status) {
+    public Reservation(String reserveId, String customerId, String meetingPlace, int amtVip, int amtNormal, Destination destination, Date startDate, Date endDate, Date reserveDate, Date meetingDate, double price, String isDeposited) {
         this.reserveId = reserveId;
         this.customerId = customerId;
         this.meetingPlace = meetingPlace;
@@ -22,7 +22,7 @@ public class Reservation implements Serializable{
         this.reserveDate = reserveDate;
         this.meetingDate = meetingDate;
         this.price = price;
-        this.status = status;
+        this.isDeposited = isDeposited;
     }
 
     public String getReserveId() {
@@ -113,11 +113,11 @@ public class Reservation implements Serializable{
         this.meetingDate = meetingDate;
     }
 
-    public String getStatus() {
-        return status;
+    public String getIsDeposited() {
+        return isDeposited;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setIsDeposited(String isDeposited) {
+        this.isDeposited = isDeposited;
     }
 }
