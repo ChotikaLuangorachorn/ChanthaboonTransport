@@ -9,6 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
@@ -39,8 +40,8 @@ public class MainController {
     }
 
     public void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, double price) {
-        LocalDate localDate = LocalDate.now();
-        Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+        LocalDateTime localDate = LocalDateTime.now();
+        Instant instant = Instant.from(localDate.atZone(ZoneId.systemDefault()));
         executor.addReservation(customerId, vanAmt, destination, startDate, endDate, Date.from(instant), price, price/2);
     }
     public List<String> getProvince(){
