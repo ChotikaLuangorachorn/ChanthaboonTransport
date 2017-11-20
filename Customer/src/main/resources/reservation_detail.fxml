@@ -138,58 +138,53 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="583.0" layoutY="115.0" text="บาท">
+      <Label fx:id="lb_price" layoutX="509.0" layoutY="115.0" text="1,000.00 บาท">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lb_price" layoutX="509.0" layoutY="115.0" text="1,000.00">
+      <Label layoutX="403.0" layoutY="206.0" text="การนัดหมาย">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="403.0" layoutY="189.0" text="การนัดหมาย">
+      <Label layoutX="442.0" layoutY="237.0" text="สถานที่:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="442.0" layoutY="220.0" text="สถานที่:">
+      <TextArea fx:id="ta_meetingPlace" editable="false" layoutX="509.0" layoutY="242.0" prefHeight="105.0" prefWidth="225.0" />
+      <Label layoutX="405.0" layoutY="174.0" text="สถานะค่ามัดจำ:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextArea fx:id="ta_meetingPlace" editable="false" layoutX="509.0" layoutY="225.0" prefHeight="105.0" prefWidth="225.0" />
-      <Label layoutX="403.0" layoutY="144.0" text="สถานะการจอง:">
+      <Label fx:id="lb_isDeposited" layoutX="511.0" layoutY="174.0" text="ยังไม่ชำระเงิน">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lb_isDeposited" layoutX="509.0" layoutY="144.0" text="ยังไม่ชำระเงิน">
+      <Label layoutX="442.0" layoutY="363.0" text="วันที่:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="442.0" layoutY="346.0" text="วันที่:">
+      <Label layoutX="608.0" layoutY="363.0" text="เวลา:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="608.0" layoutY="346.0" text="เวลา:">
+      <Label layoutX="687.0" layoutY="363.0" text="น.">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="687.0" layoutY="346.0" text="น.">
+      <Label fx:id="lb_meetingDate" layoutX="509.0" layoutY="363.0" text="19/11/2017">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lb_meetingDate" layoutX="509.0" layoutY="346.0" text="19/11/2017">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lb_meetingTime" layoutX="646.0" layoutY="346.0" text="18:56">
+      <Label fx:id="lb_meetingTime" layoutX="646.0" layoutY="363.0" text="18:56">
          <font>
             <Font size="14.0" />
          </font>
@@ -204,7 +199,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="687.0" layoutY="90.0" text="น.">
+      <Label layoutX="706.0" layoutY="90.0" text="น.">
          <font>
             <Font size="14.0" />
          </font>
@@ -214,7 +209,17 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lb_reserveTime" layoutX="646.0" layoutY="90.0" text="18:56">
+      <Label fx:id="lb_reserveTime" layoutX="646.0" layoutY="90.0" text="18:56:00">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="405.0" layoutY="144.0" text="ราคาค่ามัดจำ:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_deposit" layoutX="509.0" layoutY="144.0" text="1,000.00 บาท">
          <font>
             <Font size="14.0" />
          </font>

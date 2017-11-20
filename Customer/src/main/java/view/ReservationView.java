@@ -26,6 +26,7 @@ public class ReservationView extends AnchorPane implements Initializable{
     @FXML private RadioButton rd_distance, rd_daily;
     @FXML private Button btn_calPrice;
     private MainController controller;
+    private MyReservationView myReservationView;
     private Map<String, Integer> amtVanTotal;
 
 
@@ -148,13 +149,14 @@ public class ReservationView extends AnchorPane implements Initializable{
                 String s = "ยืนยันการจองรถตู้ของคุณ\n"
                         +"จังหวัด:\t\t" + cbb_province.getValue() + "\n"
                         +"อำเภอ/เขต:\t" + cbb_district.getValue() + "\n"
-                        +"จำนวนรถตู้:\tรถธรรมดา(15ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.NORMAL) + " คัน\n\t\t\tรถVIP(9 ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.VIP) + " คัน\n"
+                        +"จำนวนรถตู้:\tรถธรรมดา(15 ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.NORMAL) + " คัน\n\t\t\tรถVIP(9 ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.VIP) + " คัน\n"
                         +"ราคาทั้งหมด:\t" + String.format("%,.2f",price) +" บาท";
                 alert.setContentText(s);
                 Optional<ButtonType> result = alert.showAndWait();
                 if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
                     controller.addReservation(CustomerInfoManager.getInstance().getCustomer().getCitizenId(), amtVanTotal,
                             new Destination(cbb_province.getValue(), cbb_district.getValue(), ta_detail.getText()),convertToDateStart(startLocal), convertToDateEnd(endLocal), price);
+                    myReservationView.refreshReservationTable();
                 }
 
             }
@@ -169,6 +171,9 @@ public class ReservationView extends AnchorPane implements Initializable{
         setDatePicker();
     }
 
+    public void setMyReservationView(MyReservationView myReservationView) {
+        this.myReservationView = myReservationView;
+    }
 }
 
 

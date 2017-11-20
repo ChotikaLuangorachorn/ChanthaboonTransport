@@ -122,4 +122,12 @@ public class Reservation implements Serializable{
     public void setIsDeposited(String isDeposited) {
         this.isDeposited = isDeposited;
     }
+
+    public double getDeposit() {
+        return deposit;
+    }
+
+    public void setDeposit(double deposit) {
+        this.deposit = deposit;
+    }
 }
