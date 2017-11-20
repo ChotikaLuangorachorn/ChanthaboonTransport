@@ -93,8 +93,8 @@
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <Spinner fx:id="spn_vip" layoutX="562.0" layoutY="85.0" prefHeight="25.0" prefWidth="64.0" min="$minCar"/>
-      <Spinner fx:id="spn_normal" layoutX="562.0" layoutY="117.0" prefHeight="25.0" prefWidth="64.0" min="$minCar"/>
+      <Spinner fx:id="spn_normal" layoutX="562.0" layoutY="85.0" prefHeight="25.0" prefWidth="64.0" min="$minCar"/>
+      <Spinner fx:id="spn_vip" layoutX="562.0" layoutY="117.0" prefHeight="25.0" prefWidth="64.0" min="$minCar"/>
       <Label layoutX="631.0" layoutY="120.0" text="คัน">
          <font>
             <Font size="14.0" />
