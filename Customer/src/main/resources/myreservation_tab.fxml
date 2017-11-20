@@ -14,15 +14,15 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="table_reserve" layoutX="14.0" layoutY="69.0" prefHeight="315.0" prefWidth="742.0">
+      <TableView fx:id="table_reserve" editable="true" layoutX="14.0" layoutY="69.0" prefHeight="315.0" prefWidth="742.0">
         <columns>
-          <TableColumn fx:id="col_reserveId" prefWidth="99.0" sortable="false" text="หมายเลขการจอง" />
-          <TableColumn fx:id="col_reserveDate" prefWidth="101.0" sortable="false" text="วันที่จอง" />
-            <TableColumn fx:id="col_province" prefWidth="113.0" sortable="false" text="จังหวัด" />
-            <TableColumn fx:id="col_district" prefWidth="91.0" sortable="false" text="อำเภอ" />
-            <TableColumn fx:id="col_startDate" prefWidth="115.0" sortable="false" text="วันที่ไป" />
-            <TableColumn fx:id="col_endDate" prefWidth="105.0" sortable="false" text="วันที่กลับ" />
-            <TableColumn fx:id="col_statusReservation" prefWidth="117.0" sortable="false" text="สถานะการจอง" />
+          <TableColumn fx:id="col_reserveId" editable="false" prefWidth="99.0" resizable="false" sortable="false" text="หมายเลขการจอง" />
+          <TableColumn fx:id="col_reserveDate" editable="false" prefWidth="115.0" resizable="false" sortable="false" text="วันที่จอง" />
+            <TableColumn fx:id="col_province" editable="false" prefWidth="100.0" resizable="false" sortable="false" text="จังหวัด" />
+            <TableColumn fx:id="col_district" editable="false" prefWidth="95.0" resizable="false" sortable="false" text="อำเภอ" />
+            <TableColumn fx:id="col_startDate" editable="false" prefWidth="115.0" resizable="false" sortable="false" text="วันที่ไป" />
+            <TableColumn fx:id="col_endDate" editable="false" prefWidth="115.0" resizable="false" sortable="false" text="วันที่กลับ" />
+            <TableColumn fx:id="col_statusReservation" editable="false" prefWidth="102.0" resizable="false" sortable="false" text="สถานะการจอง" />
         </columns>
       </TableView>
       <Button fx:id="btn_deleteReserve" layoutX="14.0" layoutY="393.0" mnemonicParsing="false" text="ลบการจอง">
