@@ -273,7 +273,31 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
     }
 
     public void deleteReservation(Reservation reservation) {
+        deleteReservation(reservation.getReserveId());
+    }
 
+    public void deleteReservation(String reservationId){
+        System.out.println("request delete reservation");
+        System.out.println("reservationId = " + reservationId);
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = "delete from reservation where id='" + reservationId + "'";
+                Statement statement = connection.createStatement();
+                int result = statement.executeUpdate(sql);
+                System.out.println("result = " + result);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
     }
 
     public List<Reservation> getHistoryReservation(String citizenId) {

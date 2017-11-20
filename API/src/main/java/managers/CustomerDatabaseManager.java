@@ -19,6 +19,7 @@ public interface CustomerDatabaseManager {
     void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, Date reserveDate, double price, double deposit);
     void editCustomerInfo(Customer customer);
     void deleteReservation(Reservation reservation);
+    void deleteReservation(String reservationId);
     List<Reservation> getHistoryReservation(String citizenId);
     List<String> getProvinces();
     List<String> getDistricts(String province);
