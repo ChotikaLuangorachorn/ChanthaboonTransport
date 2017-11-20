@@ -136,7 +136,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
             Map<String, Double> freeRage = new HashMap<String, Double>();
             connection = prepareConnection();
             if (connection != null){
-                String sql = "select * from price_rate where price_rate.reserve_type = \"distance\"";
+                String sql = "select * from price_rate where price_rate.reserve_type = \"day\"";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
                 while (resultSet.next()){
