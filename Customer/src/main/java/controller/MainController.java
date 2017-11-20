@@ -7,6 +7,9 @@ import models.Reservation;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -28,15 +31,17 @@ public class MainController {
     }
 
     public double getPrice(Map<String, Integer> vanAmt, Date startDate, Date endDate) {
-        return 0;
+        return executor.getPrice(vanAmt, startDate, endDate);
     }
 
     public double getPrice(Map<String, Integer> vanAmt, Destination destination) {
-        return 0;
+        return executor.getPrice(vanAmt, destination);
     }
 
     public void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, double price) {
-
+        LocalDate localDate = LocalDate.now();
+        Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+        executor.addReservation(customerId, vanAmt, destination, startDate, endDate, Date.from(instant), price, price/2);
     }
     public List<String> getProvince(){
         return executor.getProvinces();
