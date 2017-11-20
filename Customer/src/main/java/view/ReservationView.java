@@ -150,7 +150,8 @@ public class ReservationView extends AnchorPane implements Initializable{
                         +"จังหวัด:\t\t" + cbb_province.getValue() + "\n"
                         +"อำเภอ/เขต:\t" + cbb_district.getValue() + "\n"
                         +"จำนวนรถตู้:\tรถธรรมดา(15 ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.NORMAL) + " คัน\n\t\t\tรถVIP(9 ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.VIP) + " คัน\n"
-                        +"ราคาทั้งหมด:\t" + String.format("%,.2f",price) +" บาท";
+                        +"ราคาทั้งหมด:\t" + String.format("%,.2f",price) +" บาท" + "\n"
+                        +"ราคาค่ามัดจำ:\t" + String.format("%,.2f",price/2) +" บาท";
                 alert.setContentText(s);
                 Optional<ButtonType> result = alert.showAndWait();
                 if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
