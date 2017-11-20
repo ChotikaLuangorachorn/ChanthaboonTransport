@@ -9,8 +9,9 @@ public class Reservation implements Serializable{
     private Destination destination;
     private Date startDate, endDate, reserveDate, meetingDate;
     private double price;
+    private double deposit;
 
-    public Reservation(String reserveId, String customerId, String meetingPlace, int amtVip, int amtNormal, Destination destination, Date startDate, Date endDate, Date reserveDate, Date meetingDate, double price, String isDeposited) {
+    public Reservation(String reserveId, String customerId, String meetingPlace, int amtVip, int amtNormal, Destination destination, Date startDate, Date endDate, Date reserveDate, Date meetingDate, double price, String isDeposited, double deposit) {
         this.reserveId = reserveId;
         this.customerId = customerId;
         this.meetingPlace = meetingPlace;
@@ -23,6 +24,7 @@ public class Reservation implements Serializable{
         this.meetingDate = meetingDate;
         this.price = price;
         this.isDeposited = isDeposited;
+        this.deposit = deposit;
     }
 
     public String getReserveId() {
