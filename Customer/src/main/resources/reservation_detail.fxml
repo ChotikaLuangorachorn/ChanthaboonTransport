@@ -32,7 +32,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="52.0" layoutY="115.0" text="อำเภอ:">
+      <Label layoutX="52.0" layoutY="115.0" text="อำเภอ/เขต:">
          <font>
             <Font size="14.0" />
          </font>

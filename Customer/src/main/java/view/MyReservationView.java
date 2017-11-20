@@ -40,7 +40,6 @@ public class MyReservationView implements Initializable{
     }
     public void onDoubleClickReservation(){
         table_reserve.setOnMouseClicked(even->{
-            System.out.println();
             if(even.getClickCount() == 2 && (!table_reserve.getSelectionModel().getSelectedItems().equals(null))){
                 try {
                     System.out.println("Double Click");
@@ -110,6 +109,8 @@ public class MyReservationView implements Initializable{
         //Add data to table
         ObservableList<Reservation> data = FXCollections.observableList(reserves);
         table_reserve.setItems(data);
+        col_reserveId.setComparator(col_reserveId.getComparator().reversed());
+        table_reserve.getSortOrder().add(table_reserve.getColumns().get(1));
     }
 
     public void setController(MainController controller) {
