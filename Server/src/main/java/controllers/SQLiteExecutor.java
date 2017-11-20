@@ -71,7 +71,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
             try {
                 connection = prepareConnection();
                 if (connection != null){
-                    SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getFormatter();
+                    SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
                     String start = formatter.format(startDate);
                     String end = formatter.format(endDate);
 
@@ -200,7 +200,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
     public void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, Date reserveDate, double price, double deposit) {
         System.out.println("request addReservation");
         Connection connection = null;
-        SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getFormatter();
+        SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
         try{
             String reserveDateString = formatter.format(reserveDate);
             String startDateString = formatter.format(startDate);
@@ -271,7 +271,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                 ResultSet resultSet = statement.executeQuery(sql);
 
                 while (resultSet.next()){
-                    SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getFormatter();
+                    SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
                     String id = resultSet.getString("id");
                     String customerId = resultSet.getString("customer_id");
                     Date statDate = formatter.parse(resultSet.getString("start_working_date"));
