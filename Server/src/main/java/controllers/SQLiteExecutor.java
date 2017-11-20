@@ -302,7 +302,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                     int amtVip = resultSet.getInt("amt_vip");
                     int amtNormal = resultSet.getInt("amt_normal");
                     String isDeposited = resultSet.getString("isDeposited");
-                    double deposit = resultSet.getDouble("deposit");
+                    double deposit = resultSet.getDouble("deposit_fee");
 
                     Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingTime, fee, isDeposited, deposit);
                     reservations.add(reservation);
