@@ -145,11 +145,11 @@ public class ReservationView extends AnchorPane implements Initializable{
                 }
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirm reservation");
-                String s = "Confirm to your reservation\n"
-                        +"Province: " + cbb_province.getValue() + "\n"
-                        +"District: " + cbb_district.getValue() + "\n"
-                        +"Amount van: normal " + amtVanTotal.get(CustomerDatabaseManager.NORMAL) + " VIP " + amtVanTotal.get(CustomerDatabaseManager.VIP) + "\n"
-                        +"Total price: " + price;
+                String s = "ยืนยันการจองรถตู้ของคุณ\n"
+                        +"จังหวัด:\t\t" + cbb_province.getValue() + "\n"
+                        +"อำเภอ/เขต:\t" + cbb_district.getValue() + "\n"
+                        +"จำนวนรถตู้:\tรถธรรมดา(15ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.NORMAL) + " คัน\n\t\t\tรถVIP(9 ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.VIP) + " คัน\n"
+                        +"ราคาทั้งหมด:\t" + String.format("%,.2f",price) +" บาท";
                 alert.setContentText(s);
                 Optional<ButtonType> result = alert.showAndWait();
                 if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
