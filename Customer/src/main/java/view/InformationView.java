@@ -89,7 +89,7 @@ public class InformationView extends AnchorPane implements Initializable {
                 grid.add(newPwd, 2, 2);
                 grid.add(text3, 1, 3);
                 grid.add(confirmPwd, 2, 3);
-
+                grid.setVgap(5);
                 alert.getDialogPane().setContent(grid);
 
                 Optional<ButtonType> result = alert.showAndWait();

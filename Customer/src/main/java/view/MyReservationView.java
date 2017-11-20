@@ -90,7 +90,12 @@ public class MyReservationView implements Initializable{
     }
 
     public void initCol(){
-        col_reserveId.setCellValueFactory(new PropertyValueFactory<Reservation,String>("reserveId"));
+        col_reserveId.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
+                String id = String.format("%05d",Integer.parseInt(reservation.getValue().getReserveId()));
+                return new SimpleStringProperty(id);
+            }
+        });
         col_reserveDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
                 Date reserveDate = reservation.getValue().getReserveDate();
@@ -141,6 +146,7 @@ public class MyReservationView implements Initializable{
 //        reserves.add(new Reservation("02","1","meet2",1,2,new Destination("Testจังหวัด","Testอำเภอ","Testสภานที่"),new Date(),new Date(),new Date(),new Date(),111,"รอยืนยัน"));
         //Add data to table
         ObservableList<Reservation> data = FXCollections.observableList(reserves);
+        FXCollections.reverse(data);
         table_reserve.setItems(data);
     }
 

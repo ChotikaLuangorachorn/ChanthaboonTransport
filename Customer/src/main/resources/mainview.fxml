@@ -22,9 +22,9 @@
       </Label>
       <TabPane layoutX="14.0" layoutY="100.0" prefHeight="481.0" prefWidth="770.0" style="-fx-background-color: #84e09dab;" tabClosingPolicy="UNAVAILABLE" tabMinWidth="200.0">
         <tabs>
-          <Tab fx:id="tab_reserve" text="Van reservation" closable="false" />
-          <Tab fx:id="tab_myReserve" text="My reservation" closable="false" />
-          <Tab fx:id="tab_information" text="Information" closable="false" />
+          <Tab fx:id="tab_reserve" closable="false" style="-fx-font-size: 15;" text="จองรถตู้" />
+          <Tab fx:id="tab_myReserve" closable="false" style="-fx-font-size: 15;" text="รายการจองรถตู้" />
+          <Tab fx:id="tab_information" closable="false" style="-fx-font-size: 15;" text="ข้อมูลส่วนตัว" />
         </tabs>
       </TabPane>
    </children>

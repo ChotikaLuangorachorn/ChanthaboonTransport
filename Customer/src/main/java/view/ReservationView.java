@@ -19,7 +19,7 @@ import java.util.*;
 
 public class ReservationView extends AnchorPane implements Initializable{
     @FXML private ComboBox<String> cbb_province, cbb_district;
-    @FXML private TextArea ta_detail;
+    @FXML private TextArea ta_place;
     @FXML private DatePicker dp_startDate, dp_endStart;
     @FXML private Label lb_amtNormalVan, lb_amtVipVan;
     @FXML private Spinner spn_start_hr, spn_start_min, spn_end_hr, spn_end_min, spn_vip, spn_normal;
@@ -78,7 +78,7 @@ public class ReservationView extends AnchorPane implements Initializable{
             public void handle(ActionEvent event) {
                 String province = cbb_province.getValue();
                 String district = cbb_district.getValue();
-                String place = ta_detail.getText();
+                String place = ta_place.getText();
                 Destination destination = new Destination(province, district, place);
                 LocalDate startLocal = dp_startDate.getValue();
                 LocalDate endLocal = dp_endStart.getValue();
@@ -95,7 +95,7 @@ public class ReservationView extends AnchorPane implements Initializable{
             public void handle(ActionEvent event) {
                 String province = cbb_province.getValue();
                 String district = cbb_district.getValue();
-                String place = ta_detail.getText();
+                String place = ta_place.getText();
                 Destination destination = new Destination(province, district, place);
                 LocalDate startLocal = dp_startDate.getValue();
                 LocalDate endLocal = dp_endStart.getValue();
@@ -142,7 +142,7 @@ public class ReservationView extends AnchorPane implements Initializable{
                     price = controller.getPrice(amtVanTotal, convertToDateStart(startLocal), convertToDateEnd(endLocal));
                 }else if(rd_distance.isSelected()){
                     System.out.println("in distance Radio");
-                    price = controller.getPrice(amtVanTotal, new Destination(cbb_province.getValue(), cbb_district.getValue(), ta_detail.getText()));
+                    price = controller.getPrice(amtVanTotal, new Destination(cbb_province.getValue(), cbb_district.getValue(), ta_place.getText()));
                 }
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirm reservation");
@@ -156,7 +156,7 @@ public class ReservationView extends AnchorPane implements Initializable{
                 Optional<ButtonType> result = alert.showAndWait();
                 if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
                     controller.addReservation(CustomerInfoManager.getInstance().getCustomer().getCitizenId(), amtVanTotal,
-                            new Destination(cbb_province.getValue(), cbb_district.getValue(), ta_detail.getText()),convertToDateStart(startLocal), convertToDateEnd(endLocal), price);
+                            new Destination(cbb_province.getValue(), cbb_district.getValue(), ta_place.getText()),convertToDateStart(startLocal), convertToDateEnd(endLocal), price);
                     myReservationView.refreshReservationTable();
                 }
 

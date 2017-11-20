@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 public class MyReservationDetailView implements Initializable
 {
     @FXML private Label lb_reserveId, lb_province, lb_district, lb_startDate, lb_startTime, lb_endDate, lb_endTime, lb_normalAmt, lb_vipAmt, lb_reserveDate, lb_reserveTime, lb_price,lb_deposit,lb_isDeposited, lb_meetingDate, lb_meetingTime;
-    @FXML private TextArea ta_detail, ta_meetingPlace;
+    @FXML private TextArea ta_place, ta_meetingPlace;
     private MainController controller;
     private Reservation reservation;
 
@@ -23,14 +23,14 @@ public class MyReservationDetailView implements Initializable
 
     }
     public void showDetail(){
-        String id = reservation.getReserveId();
+        String id = String.format("%05d",Integer.parseInt(reservation.getReserveId()));
         String province = reservation.getDestination().getProvince();
         String district = reservation.getDestination().getDistrict();
 
         String startDate = ReservationDateFormatter.getInstance().getUiDateFormatter().format(reservation.getStartDate());
         String endDate = ReservationDateFormatter.getInstance().getUiDateFormatter().format(reservation.getEndDate());
         String reserveDate = ReservationDateFormatter.getInstance().getUiDateFormatter().format(reservation.getReserveDate());
-        String meetingDate = (reservation.getMeetingDate()!=null)?ReservationDateFormatter.getInstance().getUiDateFormatter().format(reservation.getMeetingDate()):"--/--/--";
+        String meetingDate = (reservation.getMeetingDate()!=null)?ReservationDateFormatter.getInstance().getUiDateFormatter().format(reservation.getMeetingDate()):"--/--/----";
 
         String startTime = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(reservation.getStartDate());
         String endTime = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(reservation.getEndDate());
@@ -47,7 +47,7 @@ public class MyReservationDetailView implements Initializable
         lb_reserveId.setText(id);
         lb_province.setText(province);
         lb_district.setText(district);
-        ta_detail.setText(place);
+        ta_place.setText(place);
         lb_startDate.setText(startDate);
         lb_startTime.setText(startTime);
         lb_endDate.setText(endDate);

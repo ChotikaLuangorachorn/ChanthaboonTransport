@@ -26,7 +26,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="125.0" text="รายละเอียด:">
+      <Label layoutX="32.0" layoutY="125.0" text="สถานที่:" >
          <font>
             <Font size="14.0" />
          </font>
@@ -68,7 +68,7 @@
       </Label>
       <ComboBox fx:id="cbb_province" layoutX="107.0" layoutY="54.0" prefHeight="25.0" prefWidth="142.0" />
       <ComboBox fx:id="cbb_district" layoutX="108.0" layoutY="90.0" prefHeight="25.0" prefWidth="142.0" />
-      <TextArea fx:id="ta_detail" layoutX="108.0" layoutY="126.0" prefHeight="118.0" prefWidth="292.0">
+      <TextArea fx:id="ta_place" layoutX="108.0" layoutY="126.0" prefHeight="118.0" prefWidth="292.0" promptText="รายละเอียดของสถานที่">
          <font>
             <Font size="14.0" />
          </font>

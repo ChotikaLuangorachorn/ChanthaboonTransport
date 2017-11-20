@@ -35,7 +35,7 @@ public class LoginView {
                     customerInfo.setCustomer(customer);
                     sceneManager.showMainView(customerInfo);
                 }else{
-                    lb_notification.setText("citizen id ro password invalid");
+                    lb_notification.setText("Citizen ID or Password Invalid");
                 }
             }
         });
