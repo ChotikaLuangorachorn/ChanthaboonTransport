@@ -7,9 +7,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -18,16 +18,16 @@ import models.CustomerInfoManager;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class InformationView extends AnchorPane implements Initializable {
     @FXML private Label lb_fname, lb_lname, lb_citizenId, lb_address, lb_phone, lb_line;
-    @FXML private Button btn_editInfo;
+    @FXML private Button btn_editInfo, btn_changePwd;
     private MainController controller;
 
     public void initialize(URL location, ResourceBundle resources) {
-
-
+        onClickChangePassword();
     }
     public void showInformation(){
         Customer customer = CustomerInfoManager.getInstance().getCustomer();
@@ -65,6 +65,40 @@ public class InformationView extends AnchorPane implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+        });
+    }
+
+    public void onClickChangePassword(){
+        btn_changePwd.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Change your password");
+                Label text1 = new Label("Old Password: ");
+                Label text2 = new Label("New Password: ");
+                Label text3 = new Label("Confirm Password: ");
+                PasswordField oldPwd = new PasswordField();
+                PasswordField newPwd = new PasswordField();
+                PasswordField confirmPwd = new PasswordField();
+
+                GridPane grid = new GridPane();
+                grid.add(text1, 1, 1);
+                grid.add(oldPwd, 2, 1);
+                grid.add(text2, 1, 2);
+                grid.add(newPwd, 2, 2);
+                grid.add(text3, 1, 3);
+                grid.add(confirmPwd, 2, 3);
+
+                alert.getDialogPane().setContent(grid);
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if ((result.isPresent()) && (result.get() == ButtonType.OK)){
+                    controller.changeCustomerPassword(CustomerInfoManager.getInstance().getCustomer().getCitizenId(), oldPwd.getText(), confirmPwd.getText());
+
+                }
+
+
             }
         });
     }

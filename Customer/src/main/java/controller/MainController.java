@@ -64,4 +64,8 @@ public class MainController {
     public List<Reservation> getHistoryReservation(String citizenId){
         return executor.getHistoryReservation(citizenId);
     }
+
+    public boolean changeCustomerPassword(String citizenId, String oldPwd, String newPwd){
+        return executor.changeCustomerPassword(citizenId, oldPwd, newPwd);
+    }
 }
