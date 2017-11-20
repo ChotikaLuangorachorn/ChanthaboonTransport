@@ -57,8 +57,8 @@ public class MainController {
 
     }
 
-    public void deleteReservation(Reservation reservation) {
-
+    public void deleteReservation(String reserveId) {
+        executor.deleteReservation(reserveId);
     }
 
     public List<Reservation> getHistoryReservation(String citizenId){
