@@ -120,6 +120,11 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
     }
 
     public double getPrice(Map<String, Integer> vanAmt, Date startDate, Date endDate) {
+        System.out.println("request getPrice");
+        System.out.println("params " + vanAmt + " startDate " + startDate + " endDate " + endDate);
+
+        double price = 0;
+
         int vipAmt = vanAmt.get(VIP);
         int normalAmt = vanAmt.get(NORMAL);
         long diff = endDate.getTime() - startDate.getTime();
@@ -143,7 +148,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                 double normalPrice = base.get(NORMAL) + rate.get(NORMAL)*((days < freeRage.get(NORMAL))?0:(days-freeRage.get(NORMAL)));
                 double vipPrice = base.get(VIP) + rate.get(VIP)*((days < freeRage.get(VIP))?0:(days-freeRage.get(VIP)));
 
-                return normalPrice*normalAmt + vipPrice*vipAmt;
+                price = normalPrice*normalAmt + vipPrice*vipAmt;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -155,10 +160,16 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                     e.printStackTrace();
                 }
         }
-        return 0;
+        System.out.println("response " + price);
+        return price;
     }
 
     public double getPrice(Map<String, Integer> vanAmt, Destination destination) {
+        System.out.println("request getPrice");
+        System.out.println("params " + vanAmt + " destination " + destination);
+
+        double price = 0;
+
         int vipAmt = vanAmt.get(VIP);
         int normalAmt = vanAmt.get(NORMAL);
         Connection connection = null;
@@ -167,10 +178,10 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
             Map<String, Double> base = new HashMap<String, Double>();
             Map<String, Double> freeRage = new HashMap<String, Double>();
             double distance = getDistance(destination);
-
+            System.out.println("distance = " + distance);
             connection = prepareConnection();
             if (connection != null){
-                String sql = "select * from price_rate where price_rate.reserve_type = \"day\"";
+                String sql = "select * from price_rate where price_rate.reserve_type = \"distance\"";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
                 while (resultSet.next()){
@@ -181,8 +192,12 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
 
                 double normalPrice = base.get(NORMAL) + rate.get(NORMAL)*((distance < freeRage.get(NORMAL))?0:(distance-freeRage.get(NORMAL)));
                 double vipPrice = base.get(VIP) + rate.get(VIP)*((distance < freeRage.get(VIP))?0:(distance-freeRage.get(VIP)));
-
-                return normalPrice*normalAmt + vipPrice*vipAmt;
+                System.out.println("base = " + base);
+                System.out.println("rate = " + rate);
+                System.out.println("freeRage = " + freeRage);
+                System.out.println("normalPrice = " + normalPrice);
+                System.out.println("vipPrice = " + vipPrice);
+                price = normalPrice*normalAmt + vipPrice*vipAmt;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -194,7 +209,8 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                     e.printStackTrace();
                 }
         }
-        return 0;
+        System.out.println("response " + price);
+        return price;
     }
 
     public void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, Date reserveDate, double price, double deposit) {
@@ -277,7 +293,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                     Date statDate = formatter.parse(resultSet.getString("start_working_date"));
                     Date endDate = formatter.parse(resultSet.getString("end_working_date"));
                     Date reserveDate = formatter.parse(resultSet.getString("reserve_date"));
-                    Date meetingTime = formatter.parse(resultSet.getString("meeting_time"));
+                    Date meetingTime = (resultSet.getString("meeting_time")!=null)?formatter.parse(resultSet.getString("meeting_time")):null;
                     String province = resultSet.getString("province");
                     String district = resultSet.getString("district");
                     String place = resultSet.getString("place");
