@@ -20,6 +20,7 @@ import javafx.util.Callback;
 import models.CustomerInfoManager;
 import models.Destination;
 import models.Reservation;
+import utils.ReservationDateFormatter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,7 +32,7 @@ import java.util.ResourceBundle;
 
 public class MyReservationView implements Initializable{
     @FXML private TableView table_reserve;
-    @FXML private TableColumn col_reserveId,col_reserveDate,col_province,col_district,col_startDate,col_endDate,col_statusReservation;
+    @FXML private TableColumn col_reserveId,col_reserveDate,col_province,col_district,col_startDate,col_endDate,col_isDeposited;
     private MainController controller;
     private List<Reservation> reserves;
 
@@ -40,7 +41,7 @@ public class MyReservationView implements Initializable{
     }
     public void onDoubleClickReservation(){
         table_reserve.setOnMouseClicked(even->{
-            if(even.getClickCount() == 2 && (!table_reserve.getSelectionModel().getSelectedItems().equals(null))){
+            if(even.getClickCount() == 2 && (table_reserve.getSelectionModel().getSelectedItems()!=null)){
                 try {
                     System.out.println("Double Click");
                     Stage secondStage = new Stage();
@@ -68,12 +69,13 @@ public class MyReservationView implements Initializable{
     }
 
     public void initCol(){
-        SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         col_reserveId.setCellValueFactory(new PropertyValueFactory<Reservation,String>("reserveId"));
         col_reserveDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
                 Date reserveDate = reservation.getValue().getReserveDate();
-                return new SimpleStringProperty(formatDate.format(reserveDate)+" น.");
+                String date = ReservationDateFormatter.getInstance().getUiDateFormatter().format(reserveDate)+" ";
+                String time = ReservationDateFormatter.getInstance().getUiTimeFullFormatter().format(reserveDate)+ " น.";
+                return new SimpleStringProperty(date+time);
             }
         });
         col_province.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
@@ -89,16 +91,26 @@ public class MyReservationView implements Initializable{
         col_startDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
                 Date startDate = reservation.getValue().getStartDate();
-                return new SimpleStringProperty(formatDate.format(startDate) +" น.");
+                String date = ReservationDateFormatter.getInstance().getUiDateFormatter().format(startDate)+" ";
+                String time = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(startDate)+ " น.";
+                return new SimpleStringProperty(date+time);
             }
         });
         col_endDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
                 Date endDate = reservation.getValue().getEndDate();
-                return new SimpleStringProperty(formatDate.format(endDate)+ " น.");
+                String date = ReservationDateFormatter.getInstance().getUiDateFormatter().format(endDate)+" ";
+                String time = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(endDate)+ " น.";
+                return new SimpleStringProperty(date+time);
             }
         });
-        col_statusReservation.setCellValueFactory(new PropertyValueFactory<Reservation,String>("isDeposited"));
+//        col_isDeposited.setCellValueFactory(new PropertyValueFactory<Reservation,String>("isDeposited"));
+        col_isDeposited.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
+                String isDeposited = (reservation.getValue().getIsDeposited().equals("true"))?"ชำระแล้ว":"ยังไม่ชำระ";
+                return new SimpleStringProperty(isDeposited);
+            }
+        });
 
     }
     public void initData(){
@@ -109,16 +121,18 @@ public class MyReservationView implements Initializable{
         //Add data to table
         ObservableList<Reservation> data = FXCollections.observableList(reserves);
         table_reserve.setItems(data);
-        col_reserveId.setComparator(col_reserveId.getComparator().reversed());
-        table_reserve.getSortOrder().add(table_reserve.getColumns().get(1));
     }
 
     public void setController(MainController controller) {
         this.controller = controller;
         onDoubleClickReservation();
-        this.reserves = this.controller.getHistoryReservation(CustomerInfoManager.getInstance().getCustomer().getCitizenId());
+        this.refreshReservationTable();
         initCol();
         initData();
-
     }
+    public void refreshReservationTable(){
+        this.reserves = this.controller.getHistoryReservation(CustomerInfoManager.getInstance().getCustomer().getCitizenId());
+        this.initData();
+    }
+
 }

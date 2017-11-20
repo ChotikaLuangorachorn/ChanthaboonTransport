@@ -47,6 +47,7 @@ public class Mainview {
             tab_reserve.setContent(tabreserve);
             reservationView = loader.getController();
             reservationView.setController(controller);
+            reservationView.setMyReservationView(myReservationView);
 
         } catch (IOException e) {
             e.printStackTrace();
