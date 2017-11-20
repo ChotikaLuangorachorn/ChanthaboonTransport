@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Callback;
 import managers.CustomerDatabaseManager;
 import models.CustomerInfoManager;
 import models.Destination;
@@ -16,10 +15,7 @@ import java.net.URL;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ReservationView extends AnchorPane implements Initializable{
     @FXML private ComboBox<String> cbb_province, cbb_district;
@@ -28,11 +24,14 @@ public class ReservationView extends AnchorPane implements Initializable{
     @FXML private Label lb_amtNormalVan, lb_amtVipVan;
     @FXML private Spinner spn_start_hr, spn_start_min, spn_end_hr, spn_end_min, spn_vip, spn_normal;
     @FXML private RadioButton rd_distance, rd_daily;
+    @FXML private Button btn_calPrice;
     private MainController controller;
+    private Map<String, Integer> amtVanTotal;
 
 
     public void initialize(URL location, ResourceBundle resources) {
         setOnActionDatePicker();
+        onClickCalPrice();
     }
 
     public void setCbb_province(){
@@ -82,10 +81,12 @@ public class ReservationView extends AnchorPane implements Initializable{
                 Destination destination = new Destination(province, district, place);
                 LocalDate startLocal = dp_startDate.getValue();
                 LocalDate endLocal = dp_endStart.getValue();
-                Map<String, Integer> amtVan = controller.getVanAvailable(destination, convertToDate(startLocal), convertToDate(endLocal));
+                Map<String, Integer> amtVan = controller.getVanAvailable(destination, convertToDateStart(startLocal), convertToDateEnd(endLocal));
                 System.out.println(amtVan.toString());
                 lb_amtNormalVan.setText(amtVan.get(CustomerDatabaseManager.NORMAL).toString());
                 lb_amtVipVan.setText(amtVan.get(CustomerDatabaseManager.VIP).toString());
+                spn_normal.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.NORMAL)));
+                spn_vip.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.VIP)));
             }
         });
         dp_startDate.setOnAction(new EventHandler<ActionEvent>() {
@@ -97,17 +98,67 @@ public class ReservationView extends AnchorPane implements Initializable{
                 Destination destination = new Destination(province, district, place);
                 LocalDate startLocal = dp_startDate.getValue();
                 LocalDate endLocal = dp_endStart.getValue();
-                Map<String, Integer> amtVan = controller.getVanAvailable(destination, convertToDate(startLocal), convertToDate(endLocal));
+                Map<String, Integer> amtVan = controller.getVanAvailable(destination, convertToDateStart(startLocal), convertToDateEnd(endLocal));
                 System.out.println(amtVan.toString());
                 lb_amtNormalVan.setText(amtVan.get(CustomerDatabaseManager.NORMAL).toString());
                 lb_amtVipVan.setText(amtVan.get(CustomerDatabaseManager.VIP).toString());
+                spn_normal.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.NORMAL)));
+                spn_vip.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.VIP)));
             }
         });
     }
 
-    public Date convertToDate(LocalDate localDate){
+    public Date convertToDateStart(LocalDate localDate){
         Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
-        return Date.from(instant);
+        Date date = Date.from(instant);
+        date.setHours(Integer.parseInt(spn_start_hr.getValue().toString()));
+        date.setMinutes(Integer.parseInt(spn_start_min.getValue().toString()));
+        return date;
+
+    }
+    public Date convertToDateEnd(LocalDate localDate){
+        Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+        Date date = Date.from(instant);
+        date.setHours(Integer.parseInt(spn_end_hr.getValue().toString()));
+        date.setMinutes(Integer.parseInt(spn_end_min.getValue().toString()));
+        return date;
+
+    }
+
+    public void onClickCalPrice(){
+        btn_calPrice.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                LocalDate startLocal = dp_startDate.getValue();
+                LocalDate endLocal = dp_endStart.getValue();
+                amtVanTotal = new HashMap<>();
+                amtVanTotal.put(CustomerDatabaseManager.NORMAL, Integer.parseInt(spn_normal.getValue().toString()));
+                amtVanTotal.put(CustomerDatabaseManager.VIP, Integer.parseInt(spn_vip.getValue().toString()));
+                double price = 0;
+                if (rd_daily.isSelected()){
+                    System.out.println("in daily Radio");
+                    System.out.println("controller = " + controller);
+                    price = controller.getPrice(amtVanTotal, convertToDateStart(startLocal), convertToDateEnd(endLocal));
+                }else if(rd_distance.isSelected()){
+                    System.out.println("in distance Radio");
+                    price = controller.getPrice(amtVanTotal, new Destination(cbb_province.getValue(), cbb_district.getValue(), ta_detail.getText()));
+                }
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirm reservation");
+                String s = "Confirm to your reservation\n"
+                        +"Province: " + cbb_province.getValue() + "\n"
+                        +"District: " + cbb_district.getValue() + "\n"
+                        +"Amount van: normal " + amtVanTotal.get(CustomerDatabaseManager.NORMAL) + " VIP " + amtVanTotal.get(CustomerDatabaseManager.VIP) + "\n"
+                        +"Total price: " + price;
+                alert.setContentText(s);
+                Optional<ButtonType> result = alert.showAndWait();
+                if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+                    controller.addReservation(CustomerInfoManager.getInstance().getCustomer().getCitizenId(), amtVanTotal,
+                            new Destination(cbb_province.getValue(), cbb_district.getValue(), ta_detail.getText()),convertToDateStart(startLocal), convertToDateEnd(endLocal), price);
+                }
+
+            }
+        });
 
     }
 
