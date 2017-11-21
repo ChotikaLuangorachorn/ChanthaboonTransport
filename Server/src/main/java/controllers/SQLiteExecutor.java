@@ -336,11 +336,11 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
 
     }
 
-    public void confirmDeposit(Reservation reservation) {
+    public void confirmDeposit(Reservation reservation, Date depostDate) {
 
     }
 
-    public void confirmDeposit(String reservationId) {
+    public void confirmDeposit(String reservationId, Date depositDate) {
 
     }
 

@@ -52,6 +52,6 @@ public interface ManagerDatabaseManager {
 
     void addMeeting(String meetingPlace, Date meetingTime);
 
-    void confirmDeposit(Reservation reservation);
-    void confirmDeposit(String reservationId);
+    void confirmDeposit(Reservation reservation, Date depositDate);
+    void confirmDeposit(String reservationId, Date depositDate);
 }
