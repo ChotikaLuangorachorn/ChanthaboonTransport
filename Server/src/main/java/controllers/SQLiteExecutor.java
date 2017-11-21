@@ -481,7 +481,35 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public List<Partner> getPartners() {
-        return null;
+        List<Partner> partners = new ArrayList<Partner>();
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = "select * from partner";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+
+                while (resultSet.next()){
+                    int id = Integer.parseInt(resultSet.getString("id"));
+                    String name = resultSet.getString("name");
+                    String company = resultSet.getString("company");
+                    String companyPhone = resultSet.getString("company_phone");
+                    Partner partner = new Partner(id, name, company, companyPhone);
+                    partners.add(partner);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+        return partners;
     }
 
     public void editPartner(Partner partner) {
