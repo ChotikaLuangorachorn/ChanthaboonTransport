@@ -57,10 +57,6 @@ public class MainController {
 
     }
 
-    public void deleteReservation(String reserveId) {
-        executor.deleteReservation(reserveId);
-    }
-
     public List<Reservation> getHistoryReservation(String citizenId){
         return executor.getHistoryReservation(citizenId);
     }
