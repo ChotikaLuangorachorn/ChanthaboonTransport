@@ -30,11 +30,11 @@
             </Label>
             <TableView fx:id="table_driver" layoutX="95.0" layoutY="65.0" prefHeight="364.0" prefWidth="612.0" style="-fx-fixed-cell-size: 30;">
                <columns>
-                  <TableColumn fx:id="col_fName" prefWidth="140.0" sortable="false" style="-fx-alignment: center_left;" text="ชื่อ" />
-                  <TableColumn fx:id="col_lName" prefWidth="140.0" sortable="false" style="-fx-alignment: center_left;" text="นามสกุล" />
-                  <TableColumn fx:id="col_nName" prefWidth="100.0" sortable="false" style="-fx-alignment: center_left;" text="ชื่อเล่น" />
-                  <TableColumn fx:id="col_phone" prefWidth="115.0" sortable="false" style="-fx-alignment: center_left;" text="หมายเลขโทรศัพท์" />
-                  <TableColumn fx:id="col_license" prefWidth="115.0" sortable="false" style="-fx-alignment: center;" text="เลขใบขับขี่" />
+                  <TableColumn fx:id="col_fName" prefWidth="140.0" resizable="false" style="-fx-alignment: center_left;" text="ชื่อ" />
+                  <TableColumn fx:id="col_lName" prefWidth="140.0" resizable="false" style="-fx-alignment: center_left;" text="นามสกุล" />
+                  <TableColumn fx:id="col_nName" prefWidth="100.0" resizable="false" style="-fx-alignment: center_left;" text="ชื่อเล่น" />
+                  <TableColumn fx:id="col_phone" prefWidth="115.0" resizable="false" style="-fx-alignment: center_left;" text="หมายเลขโทรศัพท์" />
+                  <TableColumn fx:id="col_license" prefWidth="115.0" resizable="false" style="-fx-alignment: center;" text="เลขใบขับขี่" />
                </columns>
             </TableView>
             <Button fx:id="btn_deleteDriver" layoutX="95.0" layoutY="446.0" mnemonicParsing="false" text="ลบข้อมูล">

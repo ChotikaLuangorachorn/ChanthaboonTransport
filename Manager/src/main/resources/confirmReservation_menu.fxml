@@ -42,7 +42,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btn_editeConfirm" layoutX="567.0" layoutY="437.0" mnemonicParsing="false" text="แก้ไขข้อมูล">
+            <Button fx:id="btn_editConfirm" layoutX="567.0" layoutY="437.0" mnemonicParsing="false" text="แก้ไขข้อมูล">
                <font>
                   <Font size="14.0" />
                </font>

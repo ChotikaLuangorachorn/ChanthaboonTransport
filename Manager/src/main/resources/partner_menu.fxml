@@ -30,7 +30,7 @@
             </Label>
             <TableView fx:id="table_partner" layoutX="132.0" layoutY="59.0" prefHeight="364.0" prefWidth="528.0" style="-fx-fixed-cell-size: 30;">
                <columns>
-                  <TableColumn fx:id="col_name1" prefWidth="63.0" resizable="false" style="-fx-alignment: center;" text="ลำดับ" />
+                  <TableColumn fx:id="col_id" prefWidth="63.0" resizable="false" style="-fx-alignment: center;" text="ลำดับ" />
                   <TableColumn fx:id="col_name" prefWidth="150.0" resizable="false" style="-fx-alignment: center_left;" text="ชื่อ" />
                   <TableColumn fx:id="col_company" minWidth="9.0" prefWidth="194.0" resizable="false" style="-fx-alignment: center_left;" text="บริษัท" />
                   <TableColumn fx:id="col_companyPhone" minWidth="0.0" prefWidth="120.0" resizable="false" style="-fx-alignment: center_left;" text="หมายเลขโทรศัพท์" />
@@ -41,7 +41,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btn_editePartner" layoutX="579.0" layoutY="443.0" mnemonicParsing="false" text="แก้ไขข้อมูล">
+            <Button fx:id="btn_editPartner" layoutX="579.0" layoutY="443.0" mnemonicParsing="false" text="แก้ไขข้อมูล">
                <font>
                   <Font size="14.0" />
                </font>
