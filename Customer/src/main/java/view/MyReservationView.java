@@ -49,6 +49,7 @@ public class MyReservationView implements Initializable{
     public void onDoubleClickReservation(){
         table_reserve.setOnMouseClicked(even->{
             Reservation reservation = (Reservation) table_reserve.getSelectionModel().getSelectedItem();
+
             if(even.getClickCount() == 2 && (reservation!=null)){
                 try {
                     System.out.println("Double Click");
@@ -71,6 +72,7 @@ public class MyReservationView implements Initializable{
                     e.printStackTrace();
                 }
             }
+
         });
     }
     public  void onClickDeleteReservation(){
@@ -83,7 +85,6 @@ public class MyReservationView implements Initializable{
                     controller.deleteReservation(reserveId);
                     refreshReservationTable();
                     System.out.println("delete: "+reserve.getReserveId());
-
                 }
             }
         });

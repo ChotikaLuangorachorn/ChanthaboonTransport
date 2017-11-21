@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Date;
 
-public class SQLiteExecutor implements CustomerDatabaseManager {
+public class SQLiteExecutor implements CustomerDatabaseManager{
     private String url = "vanScheduler.db";
 
     @Nullable
