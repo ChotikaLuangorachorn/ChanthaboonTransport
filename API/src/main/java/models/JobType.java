@@ -1,6 +1,8 @@
 package models;
 
-public class JobType {
+import java.io.Serializable;
+
+public class JobType implements Serializable {
     private int id;
     private String description;
 

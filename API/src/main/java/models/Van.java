@@ -1,6 +1,8 @@
 package models;
 
-public class Van {
+import java.io.Serializable;
+
+public class Van implements Serializable {
     private String regisNumber;
     private String partnerId;
     private String type;

@@ -1,8 +1,9 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Driver {
+public class Driver implements Serializable {
     private String citizenId;
     private String driverLicense;
     private Date dateOfBirth;

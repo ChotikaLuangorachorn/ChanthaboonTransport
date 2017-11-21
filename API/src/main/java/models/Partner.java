@@ -1,6 +1,8 @@
 package models;
 
-public class Partner {
+import java.io.Serializable;
+
+public class Partner implements Serializable {
     private int id;
     private String name;
     private String company;
