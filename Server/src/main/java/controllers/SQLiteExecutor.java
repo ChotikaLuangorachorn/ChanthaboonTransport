@@ -336,12 +336,30 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
 
     }
 
-    public void confirmDeposit(Reservation reservation, Date depostDate) {
-
+    public void confirmDeposit(Reservation reservation, Date depositDate) {
+        confirmDeposit(reservation.getReserveId(), depositDate);
     }
 
     public void confirmDeposit(String reservationId, Date depositDate) {
-
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
+                String sql = "update reservation set isDeposited='true', deposit_date='" + formatter.format(depositDate) + "'";
+                Statement statement = connection.createStatement();
+                int result = statement.executeUpdate(sql);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
     }
 
     public List<Reservation> getHistoryReservation(String citizenId) {
