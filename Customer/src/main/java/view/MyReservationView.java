@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -37,18 +38,18 @@ import java.util.ResourceBundle;
 public class MyReservationView implements Initializable{
     @FXML private TableView table_reserve;
     @FXML private TableColumn col_reserveId,col_reserveDate,col_province,col_district,col_startDate,col_endDate,col_isDeposited;
-    @FXML private Button btn_deleteReserve;
+
     private MainController controller;
     private List<Reservation> reserves;
 
     public void initialize(URL location, ResourceBundle resources) {
-        onClickDeleteReservation();
         onDoubleClickReservation();
     }
 
     public void onDoubleClickReservation(){
         table_reserve.setOnMouseClicked(even->{
             Reservation reservation = (Reservation) table_reserve.getSelectionModel().getSelectedItem();
+
             if(even.getClickCount() == 2 && (reservation!=null)){
                 try {
                     System.out.println("Double Click");
@@ -71,21 +72,7 @@ public class MyReservationView implements Initializable{
                     e.printStackTrace();
                 }
             }
-        });
-    }
-    public  void onClickDeleteReservation(){
-        btn_deleteReserve.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Reservation reserve = (Reservation) table_reserve.getSelectionModel().getSelectedItem();
-                if(reserve!=null){
-                    String reserveId = reserve.getReserveId();
-                    controller.deleteReservation(reserveId);
-                    refreshReservationTable();
-                    System.out.println("delete: "+reserve.getReserveId());
 
-                }
-            }
         });
     }
 

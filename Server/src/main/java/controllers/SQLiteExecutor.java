@@ -13,9 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Date;
 
-import static managers.CustomerDatabaseManager.VIP;
-
-public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseManager {
+public class SQLiteExecutor implements CustomerDatabaseManager {
     private String url = "vanScheduler.db";
 
     @Nullable
