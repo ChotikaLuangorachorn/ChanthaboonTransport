@@ -517,11 +517,30 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public void deletePartner(Partner partner) {
-
+        deletePartner(partner.getId());
     }
 
     public void deletePartner(int partnerId) {
-
+        System.out.println("request deletePartner");
+        Connection connection = null;
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = "delete from partner where id='" + partnerId + "'";
+                Statement statement = connection.createStatement();
+                int result = statement.executeUpdate(sql);
+                System.out.println("result");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
     }
 
     public List<Driver> getDrivers() {
