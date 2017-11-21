@@ -78,10 +78,31 @@ public class InformationView extends AnchorPane implements Initializable {
                 Label text1 = new Label("Old Password: ");
                 Label text2 = new Label("New Password: ");
                 Label text3 = new Label("Confirm Password: ");
+                Label errorText = new Label("");
                 PasswordField oldPwd = new PasswordField();
                 PasswordField newPwd = new PasswordField();
                 PasswordField confirmPwd = new PasswordField();
 
+                newPwd.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        System.out.println("in new pwd");
+                        if((!newPwd.getText().equals(confirmPwd.getText())) || ("".equals(newPwd.getText()) || "".equals(confirmPwd.getText()))){
+                            errorText.setStyle("-fx-color: red");
+                            errorText.setText("Password ไม่ตรงกัน");
+                        }
+                    }
+                });
+
+                confirmPwd.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        if((!newPwd.getText().equals(confirmPwd.getText())) || ("".equals(newPwd.getText()) || "".equals(confirmPwd.getText()))){
+                            errorText.setStyle("-fx-color: red");
+                            errorText.setText("Password ไม่ตรงกัน");
+                        }
+                    }
+                });
                 GridPane grid = new GridPane();
                 grid.add(text1, 1, 1);
                 grid.add(oldPwd, 2, 1);
@@ -89,11 +110,17 @@ public class InformationView extends AnchorPane implements Initializable {
                 grid.add(newPwd, 2, 2);
                 grid.add(text3, 1, 3);
                 grid.add(confirmPwd, 2, 3);
+                grid.add(errorText, 2, 4);
                 grid.setVgap(5);
                 alert.getDialogPane().setContent(grid);
 
+
+
                 Optional<ButtonType> result = alert.showAndWait();
+
                 if ((result.isPresent()) && (result.get() == ButtonType.OK)){
+                    System.out.println("oldPwd = " + oldPwd.getText());
+                    System.out.println("newPwd = " + newPwd.getText());
                     controller.changeCustomerPassword(CustomerInfoManager.getInstance().getCustomer().getCitizenId(), oldPwd.getText(), confirmPwd.getText());
 
                 }
