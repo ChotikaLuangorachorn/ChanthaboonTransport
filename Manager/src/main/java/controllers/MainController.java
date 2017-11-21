@@ -1,10 +1,12 @@
 package controllers;
 
 import managers.ManagerDatabaseManager;
+import models.Driver;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Date;
+import java.util.List;
 
 
 public class MainController {
@@ -18,4 +20,9 @@ public class MainController {
         executor.confirmDeposit(reservationId, depositDate);
     }
 
+
+    /**Driver* */
+    public List<Driver> getDrivers(){
+        return executor.getDrivers();
+    }
 }

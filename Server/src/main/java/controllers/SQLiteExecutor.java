@@ -510,13 +510,13 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
                     String citizenId = resultSet.getString("citizen_id");
                     String driverLicense = resultSet.getString("driver_license");
                     Date dateOfBirth = formatter.parse(resultSet.getString("date_of_birth"));
-                    String firstname = resultSet.getString("first_name");
-                    String lastname = resultSet.getString("last_name");
+                    String firstName = resultSet.getString("first_name");
+                    String lastName = resultSet.getString("last_name");
                     String nickname = resultSet.getString("nick_name");
                     String phone = resultSet.getString("phone");
                     String address = resultSet.getString("address");
 
-                    drivers.add(new Driver(citizenId, driverLicense, dateOfBirth, firstname, lastname, nickname, phone, address));
+                    drivers.add(new Driver(citizenId, driverLicense, dateOfBirth, firstName, lastName, nickname, phone, address));
                 }
             }
         } catch (SQLException e) {
