@@ -80,8 +80,8 @@ public class InformationView extends AnchorPane implements Initializable {
                 Label text3 = new Label("Confirm Password: ");
                 Label errorText = new Label("");
                 PasswordField oldPwd = new PasswordField();
-                PasswordField newPwd = new PasswordField();
-                PasswordField confirmPwd = new PasswordField();
+                final PasswordField newPwd = new PasswordField();
+                final PasswordField confirmPwd = new PasswordField();
 
                 newPwd.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
@@ -97,6 +97,7 @@ public class InformationView extends AnchorPane implements Initializable {
                 confirmPwd.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
+                        System.out.println("in confirm pwd");
                         if((!newPwd.getText().equals(confirmPwd.getText())) || ("".equals(newPwd.getText()) || "".equals(confirmPwd.getText()))){
                             errorText.setStyle("-fx-color: red");
                             errorText.setText("Password ไม่ตรงกัน");
@@ -113,8 +114,6 @@ public class InformationView extends AnchorPane implements Initializable {
                 grid.add(errorText, 2, 4);
                 grid.setVgap(5);
                 alert.getDialogPane().setContent(grid);
-
-
 
                 Optional<ButtonType> result = alert.showAndWait();
 
