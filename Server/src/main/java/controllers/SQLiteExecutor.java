@@ -1,9 +1,9 @@
 package controllers;
 
 import managers.CustomerDatabaseManager;
-import models.Customer;
-import models.Destination;
-import models.Reservation;
+import managers.ManagerDatabaseManager;
+import models.*;
+import models.Driver;
 import org.springframework.lang.Nullable;
 import utils.ReservationDateFormatter;
 
@@ -13,7 +13,9 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Date;
 
-public class SQLiteExecutor implements CustomerDatabaseManager {
+import static managers.CustomerDatabaseManager.VIP;
+
+public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseManager {
     private String url = "vanScheduler.db";
 
     @Nullable
@@ -125,8 +127,8 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
 
         double price = 0;
 
-        int vipAmt = vanAmt.get(VIP);
-        int normalAmt = vanAmt.get(NORMAL);
+        int vipAmt = vanAmt.get(CustomerDatabaseManager.VIP);
+        int normalAmt = vanAmt.get(CustomerDatabaseManager.NORMAL);
         long diff = endDate.getTime() - startDate.getTime();
         int days = (int) diff / (24*60*60*1000);
         Connection connection = null;
@@ -145,8 +147,8 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                     freeRage.put(resultSet.getString("van_type"), resultSet.getDouble("free_range"));
                 }
 
-                double normalPrice = base.get(NORMAL) + rate.get(NORMAL)*((days < freeRage.get(NORMAL))?0:(days-freeRage.get(NORMAL)));
-                double vipPrice = base.get(VIP) + rate.get(VIP)*((days < freeRage.get(VIP))?0:(days-freeRage.get(VIP)));
+                double normalPrice = base.get(CustomerDatabaseManager.NORMAL) + rate.get(CustomerDatabaseManager.NORMAL)*((days < freeRage.get(CustomerDatabaseManager.NORMAL))?0:(days-freeRage.get(CustomerDatabaseManager.NORMAL)));
+                double vipPrice = base.get(CustomerDatabaseManager.VIP) + rate.get(CustomerDatabaseManager.VIP)*((days < freeRage.get(CustomerDatabaseManager.VIP))?0:(days-freeRage.get(CustomerDatabaseManager.VIP)));
 
                 price = normalPrice*normalAmt + vipPrice*vipAmt;
             }
@@ -170,8 +172,8 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
 
         double price = 0;
 
-        int vipAmt = vanAmt.get(VIP);
-        int normalAmt = vanAmt.get(NORMAL);
+        int vipAmt = vanAmt.get(CustomerDatabaseManager.VIP);
+        int normalAmt = vanAmt.get(CustomerDatabaseManager.NORMAL);
         Connection connection = null;
         try{
             Map<String, Double> rate = new HashMap<String, Double>();
@@ -190,8 +192,8 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                     freeRage.put(resultSet.getString("van_type"), resultSet.getDouble("free_range"));
                 }
 
-                double normalPrice = base.get(NORMAL) + rate.get(NORMAL)*((distance < freeRage.get(NORMAL))?0:(distance-freeRage.get(NORMAL)));
-                double vipPrice = base.get(VIP) + rate.get(VIP)*((distance < freeRage.get(VIP))?0:(distance-freeRage.get(VIP)));
+                double normalPrice = base.get(CustomerDatabaseManager.NORMAL) + rate.get(CustomerDatabaseManager.NORMAL)*((distance < freeRage.get(CustomerDatabaseManager.NORMAL))?0:(distance-freeRage.get(CustomerDatabaseManager.NORMAL)));
+                double vipPrice = base.get(CustomerDatabaseManager.VIP) + rate.get(CustomerDatabaseManager.VIP)*((distance < freeRage.get(CustomerDatabaseManager.VIP))?0:(distance-freeRage.get(CustomerDatabaseManager.VIP)));
                 System.out.println("base = " + base);
                 System.out.println("rate = " + rate);
                 System.out.println("freeRage = " + freeRage);
@@ -300,6 +302,50 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
         }
     }
 
+    public void assignVan(List<Van> vans, Reservation reservation) {
+
+    }
+
+    public void assignDriver(List<Driver> drivers, Reservation reservation) {
+
+    }
+
+    public List<JobType> getVanJobs() {
+        return null;
+    }
+
+    public void addVanJob(Van van, Date startDate, Date endDate, JobType type) {
+
+    }
+
+    public void deleteVanJob(Van van, Date startDate, Date endDate) {
+
+    }
+
+    public List<JobType> getDriverJobs() {
+        return null;
+    }
+
+    public void addDriverJob(Van van, Date startDate, Date endDate, JobType type) {
+
+    }
+
+    public void deleteDriverJob(Van van, Date startDate, Date endDate) {
+
+    }
+
+    public void addMeeting(String meetingPlace, Date meetingTime) {
+
+    }
+
+    public void confirmDeposit(Reservation reservation) {
+
+    }
+
+    public void confirmDeposit(String reservationId) {
+
+    }
+
     public List<Reservation> getHistoryReservation(String citizenId) {
         List<Reservation> reservations = new ArrayList<Reservation>();
         Connection connection = null;
@@ -400,6 +446,58 @@ public class SQLiteExecutor implements CustomerDatabaseManager {
                 }
         }
         return districts;
+    }
+
+    public List<Van> getVans() {
+        return null;
+    }
+
+    public void editVan(Van van) {
+
+    }
+
+    public void deleteVan(Van van) {
+
+    }
+
+    public void deleteVan(String regisNumber) {
+
+    }
+
+    public List<Partner> getPartners() {
+        return null;
+    }
+
+    public void editPartner(Partner partner) {
+
+    }
+
+    public void deletePartner(Partner partner) {
+
+    }
+
+    public void deletePartner(int partnerId) {
+
+    }
+
+    public List<Driver> getDrivers() {
+        return null;
+    }
+
+    public void editDriver(Driver driver) {
+
+    }
+
+    public void deleteDriver(Driver driver) {
+
+    }
+
+    public void deleteDriver(String citizenId) {
+
+    }
+
+    public void editReservation(Reservation reservation) {
+
     }
 
     public boolean changeCustomerPassword(String citizenId, String oldPwd, String newPwd) {
