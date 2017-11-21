@@ -497,7 +497,41 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public List<Driver> getDrivers() {
-        return null;
+        Connection connection = null;
+        List<Driver> drivers = new ArrayList<Driver>();
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = "select * from driver";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+                SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
+                while (resultSet.next()){
+                    String citizenId = resultSet.getString("citizen_id");
+                    String driverLicense = resultSet.getString("driver_license");
+                    Date dateOfBirth = formatter.parse(resultSet.getString("date_of_birth"));
+                    String firstname = resultSet.getString("first_name");
+                    String lastname = resultSet.getString("last_name");
+                    String nickname = resultSet.getString("nick_name");
+                    String phone = resultSet.getString("phone");
+                    String address = resultSet.getString("address");
+
+                    drivers.add(new Driver(citizenId, driverLicense, dateOfBirth, firstname, lastname, nickname, phone, address));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+        return drivers;
     }
 
     public void editDriver(Driver driver) {
