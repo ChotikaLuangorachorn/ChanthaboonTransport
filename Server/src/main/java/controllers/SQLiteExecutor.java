@@ -469,11 +469,16 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public void deleteVan(Van van) {
-
+        deleteVan(van.getRegisNumber());
     }
 
     public void deleteVan(String regisNumber) {
-
+        System.out.println("request deleteVan");
+        System.out.println("regisNumber = " + regisNumber);
+        String sql = "delete from van where regis_number='" + regisNumber + "'";
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println(result);
     }
 
     public List<Partner> getPartners() {
