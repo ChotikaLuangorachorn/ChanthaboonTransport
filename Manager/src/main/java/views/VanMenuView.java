@@ -1,6 +1,7 @@
 package views;
 
 import controllers.MainController;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import models.Van;
 
 import java.io.IOException;
@@ -24,7 +26,7 @@ import java.util.ResourceBundle;
 
 public class VanMenuView implements Initializable{
     @FXML private TableView table_van;
-    @FXML private TableColumn col_regisNum, col_type, col_jobStatus;
+    @FXML private TableColumn col_regisNum, col_type, col_jobStatus, col_name;
     @FXML private Button btn_deleteVan, btn_editVan;
 
     private List<Van> vans;
@@ -90,6 +92,7 @@ public class VanMenuView implements Initializable{
     }
 
     public void initCol(){
+        col_name.setCellValueFactory(new PropertyValueFactory<Van,String>("name"));
         col_regisNum.setCellValueFactory(new PropertyValueFactory<Van,String>("regisNumber"));
         col_type.setCellValueFactory(new PropertyValueFactory<Van,String>("type"));
 //        col_jobStatus.setCellValueFactory(new PropertyValueFactory<Van,String>("nickname"));
@@ -97,6 +100,7 @@ public class VanMenuView implements Initializable{
     public void initData(){
         ObservableList<Van> data = FXCollections.observableList(vans);
         table_van.setItems(data);
+        table_van.getSortOrder().add(col_name);
     }
 
     public void refreshVanTable(){

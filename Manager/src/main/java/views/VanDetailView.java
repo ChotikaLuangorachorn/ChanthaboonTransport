@@ -36,9 +36,10 @@ public class VanDetailView implements Initializable{
     }
 
     public void showDetail(){
+        String name = van.getName();
         String regis_Number = van.getRegisNumber();
         String type = (van.getType().equals("VIP"))?"VIP (9 ที่นั่ง)":"ธรรมดา (15 ที่นั่ง)";
-
+        lb_name.setText(name);
         lb_regisNum.setText(regis_Number);
         lb_type.setText(type);
 
