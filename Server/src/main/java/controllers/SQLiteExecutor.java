@@ -411,7 +411,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return null;
+        return reservations;
     }
 
     public Reservation getReservation(String reserveId) {

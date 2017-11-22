@@ -45,11 +45,11 @@ public class PartnerMenuView  implements Initializable{
             public void handle(ActionEvent event) {
                 Partner partner = (Partner) table_partner.getSelectionModel().getSelectedItem();
                 if(partner!=null){
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Confirm to Delete");
-                    String s = "ยืนยันการลบข้อมูลพันธมิตร\n"
-                            +"ชื่อ:\t\t" + partner.getName() + "\n"
-                            +"บริษัท:\t" + partner.getCompany() + "\n";
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("ยืนยันการลบข้อมูลพันธมิตร");
+                    alert.setHeaderText("ยืนยันการลบข้อมูลพันธมิตร");
+                    String s = "ชื่อ:\t\t" + partner.getName() + "\n"
+                            +"บริษัท:\t" + partner.getCompany();
                     alert.setContentText(s);
 
                     Optional<ButtonType> result = alert.showAndWait();
