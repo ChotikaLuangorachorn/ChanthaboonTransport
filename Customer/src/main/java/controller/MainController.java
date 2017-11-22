@@ -27,7 +27,7 @@ public class MainController {
     }
 
     public Map<String, Integer> getVanAvailable(Destination destination, Date startDate, Date endDate) {
-        return executor.getVanAvailable(destination, startDate, endDate);
+        return executor.getVanAvailableAmount(destination, startDate, endDate);
     }
 
     public double getPrice(Map<String, Integer> vanAmt, Date startDate, Date endDate) {

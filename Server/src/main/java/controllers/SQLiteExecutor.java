@@ -43,9 +43,9 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         }, null);
     }
     @Nullable
-    public Map<String, Integer> getVanAvailable(Destination destination, Date startDate, Date endDate) {
-        System.out.println("request getVanAvailable");
-        Map<String, Integer> amtMap = new HashMap<String, Integer>();
+    public Map<String, Integer> getVanAvailableAmount(Destination destination, Date startDate, Date endDate) {
+        System.out.println("request getVanAvailableAmount");
+        Map<String, Integer> amtMap = new HashMap<>();
         amtMap.put(CustomerDatabaseManager.VIP, 0);
         amtMap.put(CustomerDatabaseManager.NORMAL, 0);
         boolean possible = checkPossibleDay(destination, startDate, endDate);
