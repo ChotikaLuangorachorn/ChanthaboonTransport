@@ -13,7 +13,7 @@
         <module name="Server" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="API" target="1.8" />
       <module name="ChanthaboonTransport" target="1.8" />
       <module name="Customer" target="1.8" />

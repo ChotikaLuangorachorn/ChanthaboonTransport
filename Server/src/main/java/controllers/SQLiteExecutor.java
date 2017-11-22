@@ -455,7 +455,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         QueryExecutionAssistant<List<Van>> assistant = new QueryExecutionAssistant<>(url);
         return assistant.execute(sql, (resultSet -> {
             while(resultSet.next()){
-                String regisId = resultSet.getString("regis_id");
+                String regisId = resultSet.getString("regis_number");
                 String type = resultSet.getString("type");
                 Van van = new Van(regisId, null, type);
                 vans.add(van);

@@ -1,6 +1,8 @@
 package views;
 
 import controllers.MainController;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 import models.Partner;
 
 import java.net.URL;
@@ -28,17 +31,8 @@ public class PartnerMenuView  implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
         onClickDeletePartner();
-        onClickEditPartner();
     }
-    public void onClickEditPartner(){
-        btn_editPartner.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
 
-            }
-        });
-
-    }
     public void onClickDeletePartner(){
         btn_deletePartner.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -64,7 +58,12 @@ public class PartnerMenuView  implements Initializable{
     }
 
     public void initCol(){
-        col_id.setCellValueFactory(new PropertyValueFactory<Partner,String>("id"));
+        col_id.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Partner,String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Partner,String> partner) {
+                String id = String.format("%05d",partner.getValue().getId());
+                return new SimpleStringProperty(id);
+            }
+        });
         col_name.setCellValueFactory(new PropertyValueFactory<Partner,String>("name"));
         col_company.setCellValueFactory(new PropertyValueFactory<Partner,String>("company"));
         col_companyPhone.setCellValueFactory(new PropertyValueFactory<Partner,String>("companyPhone"));

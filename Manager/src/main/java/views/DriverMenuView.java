@@ -34,18 +34,8 @@ public class DriverMenuView implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
-        onClickEditDriver();
         onClickDeleteDriver();
 
-
-    }
-    public void onClickEditDriver(){
-        btn_editDriver.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
-            }
-        });
 
     }
     public void onClickDeleteDriver(){
