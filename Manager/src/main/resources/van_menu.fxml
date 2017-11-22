@@ -28,19 +28,19 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button fx:id="btn_deleteVan" layoutX="147.0" layoutY="447.0" mnemonicParsing="false" text="ลบข้อมูล">
+            <Button fx:id="btn_deleteVan" layoutX="152.0" layoutY="443.0" mnemonicParsing="false" text="ลบข้อมูล">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btn_editeVan" layoutX="566.0" layoutY="443.0" mnemonicParsing="false" text="แก้ไขข้อมูล">
+            <Button fx:id="btn_editVan" layoutX="566.0" layoutY="443.0" mnemonicParsing="false" text="แก้ไขข้อมูล">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
             <TableView fx:id="table_van" layoutX="132.0" layoutY="59.0" prefHeight="364.0" prefWidth="528.0" style="-fx-fixed-cell-size: 30;">
               <columns>
-                <TableColumn fx:id="col_regisNum" prefWidth="181.0" style="-fx-alignment: center_left;" text="ทะเบียนรถยนต์" />
+                <TableColumn fx:id="col_regisNum" prefWidth="181.0" style="-fx-alignment: center_left;" text="ทะเบียนรถ" />
                   <TableColumn fx:id="col_type" prefWidth="160.0" style="-fx-alignment: center_left;" text="ประเภท" />
                   <TableColumn fx:id="col_jobStatus" prefWidth="186.0" style="-fx-alignment: center;" text="สถานะ" />
               </columns>

@@ -2,10 +2,9 @@ package controllers;
 
 import javafx.scene.Parent;
 import managers.ManagerDatabaseManager;
-import models.Customer;
 import models.Driver;
 import models.Partner;
-import models.Reservation;
+import models.Van;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -24,20 +23,12 @@ public class MainController {
         executor.confirmDeposit(reservationId, depositDate);
     }
 
-    public Customer getCustomer(String citizenId, String pwd){
-        return executor.getCustomer(citizenId, pwd);
-    }
-
-    public List<Reservation> getReservation(){
-        return executor.getReservations();
-    }
-
 
     /**Driver* */
     public List<Driver> getDrivers(){
         return executor.getDrivers();
     }
-    public void deleteDriver(Driver driver){
+    public  void deleteDriver(Driver driver){
         executor.deleteDriver(driver);
     }
 
@@ -48,4 +39,13 @@ public class MainController {
     public void deletePartner(Partner partner){
         executor.deletePartner(partner);
     }
+
+    /**Driver* */
+    public List<Van> getVans(){
+        return null;
+    }
+    public void deleteVan(Van van){
+        executor.deleteVan(van);
+    }
+
 }

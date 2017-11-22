@@ -60,7 +60,7 @@ public class DriverMenuView implements Initializable{
                     String s = "ชื่อ:\t\t" + driver.getFirstname() + "\n"
                             +"นามสกุล:\t" + driver.getLastname();
                     alert.setContentText(s);
-                    
+
                     Optional<ButtonType> result = alert.showAndWait();
                     if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
                         controller.deleteDriver(driver);
