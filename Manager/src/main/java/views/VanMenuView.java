@@ -6,11 +6,17 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import models.Van;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
@@ -27,19 +33,8 @@ public class VanMenuView implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
-        onClickEditVan();
         onClickDeleteVan();
-
-
-    }
-    public void onClickEditVan(){
-        btn_editVan.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
-            }
-        });
-
+        onDoubleClickVan();
     }
     public void onClickDeleteVan(){
         btn_deleteVan.setOnAction(new EventHandler<ActionEvent>() {
@@ -64,6 +59,35 @@ public class VanMenuView implements Initializable{
             }
         });
     }
+    public void onDoubleClickVan(){
+        table_van.setOnMouseClicked(even->{
+            Van van = (Van) table_van.getSelectionModel().getSelectedItem();
+
+            if(even.getClickCount() == 2 && (van!=null)){
+                try {
+                    System.out.println("Double Click");
+                    Stage secondStage = new Stage();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/van_detail.fxml"));
+                    Pane detailLayout = loader.load();
+                    VanDetailView vanDetailView = loader.getController();
+                    vanDetailView.setController(controller);
+                    vanDetailView.setVan(van);
+
+                    Scene scene = new Scene(detailLayout);
+                    secondStage.setScene(scene);
+                    secondStage.setResizable(false);
+                    secondStage.setTitle("Reservation detail");
+                    secondStage.initModality(Modality.APPLICATION_MODAL);
+                    secondStage.showAndWait();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        });
+    }
 
     public void initCol(){
         col_regisNum.setCellValueFactory(new PropertyValueFactory<Van,String>("regisNumber"));
@@ -73,7 +97,6 @@ public class VanMenuView implements Initializable{
     public void initData(){
         ObservableList<Van> data = FXCollections.observableList(vans);
         table_van.setItems(data);
-
     }
 
     public void refreshVanTable(){

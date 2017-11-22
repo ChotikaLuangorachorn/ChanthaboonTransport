@@ -27,6 +27,7 @@ public class MainController {
     public List<Reservation> getReservation(){
         return executor.getReservations();
     }
+
     /**Driver*/
     public List<Driver> getDrivers(){
         return executor.getDrivers();
@@ -45,7 +46,7 @@ public class MainController {
 
     /**Van*/
     public List<Van> getVans(){
-        return null;
+        return executor.getVans();
     }
     public void deleteVan(Van van){
         executor.deleteVan(van);

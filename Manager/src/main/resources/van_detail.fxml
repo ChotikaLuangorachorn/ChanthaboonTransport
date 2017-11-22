@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="452.0" prefWidth="770.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanDetailView">
+   <children>
+      <Label layoutX="53.0" layoutY="64.0" text="ทะเบียนรถ:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="300.0" layoutY="22.0" text="หมายเลขรถ:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_name" layoutX="405.0" layoutY="22.0" prefHeight="27.0" text="N01">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_regisNum" layoutX="138.0" layoutY="64.0" text="00-0000">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_editVan" layoutX="345.0" layoutY="408.0" mnemonicParsing="false" text="แก้ไขข้อมูล">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TableView fx:id="table_vanDetail" layoutX="53.0" layoutY="93.0" prefHeight="299.0" prefWidth="666.0" style="-fx-fixed-cell-size: 30;">
+         <columns>
+            <TableColumn fx:id="col_startDate" editable="false" prefWidth="181.0" style="-fx-alignment: center_left;" text="วันที่ไป" />
+            <TableColumn fx:id="col_endDate" prefWidth="188.0" style="-fx-alignment: center_left;" text="วันที่กลับ" />
+            <TableColumn fx:id="col_jobStatus" prefWidth="294.0" style="-fx-alignment: center;" text="สถานะ" />
+         </columns>
+      </TableView>
+      <Label layoutX="543.0" layoutY="64.0" text="ประเภทรถ:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_type" layoutX="628.0" layoutY="64.0" text="ธรรมดา(15 ที่นั่ง)">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
