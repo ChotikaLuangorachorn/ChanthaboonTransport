@@ -464,6 +464,47 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         }), vans);
     }
 
+    @Override
+    public Map<String, List<Van>> getVanAvailable(Date startDate, Date endDate) {
+        Map<String, List<Van>> available = new HashMap<>();
+        available.put(ManagerDatabaseManager.VIP, new ArrayList<>());
+        available.put(ManagerDatabaseManager.NORMAL, new ArrayList<>());
+        SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
+        String start = formatter.format(startDate);
+        String end = formatter.format(endDate);
+        QueryExecutionAssistant<Map<String, List<Van>>> assistant = new QueryExecutionAssistant<>(url);
+        String sql = String.format("select *\n" +
+                "from van\n" +
+                "where van.partner_id is null\n" +
+                "        and van.regis_number not in (select van.regis_number\n" +
+                "                                                                        from van\n" +
+                "                                                                        join van_reserve_schedule\n" +
+                "                                                                        on van.regis_number = van_reserve_schedule.regis_number\n" +
+                "                                                                        join reservation\n" +
+                "                                                                        on reservation.id = van_reserve_schedule.reservation_id\n" +
+                "                                                                        where strftime(\"%%Y-%%m-%%d\", reservation.end_working_date) >= date(\"%s\") \n" +
+                "                                                                                        and strftime(\"%%Y-%%m-%%d\", reservation.start_working_date) <= date(\"%s\"))\n" +
+                "        and van.regis_number not in (select van.regis_number\n" +
+                "                                                                        from van\n" +
+                "                                                                        join van_job_schedule\n" +
+                "                                                                        on van_job_schedule.regis_number = van.regis_number\n" +
+                "                                                                        where strftime(\"%%Y-%%m-%%d\", van_job_schedule.end_date) >= date(\"%s\") \n" +
+                "                                                                                        and strftime(\"%%Y-%%m-%%d\", van_job_schedule.start_date) <= date(\"%s\"))\n"
+                , start, end, start, end);
+        return assistant.execute(sql, (resultSet -> {
+            while (resultSet.next()){
+                String id = resultSet.getString("regis_number");
+                String type = resultSet.getString("type");
+                Van van = new Van(id, null, type);
+                if (ManagerDatabaseManager.VIP.equals(type))
+                    available.get(ManagerDatabaseManager.VIP).add(van);
+                else
+                    available.get(ManagerDatabaseManager.NORMAL).add(van);
+            }
+            return available;
+        }), available);
+    }
+
     public void editVan(Van van) {
 
     }

@@ -21,41 +21,44 @@ public interface ManagerDatabaseManager {
     List<Van> getVans();
 
     // manager extension
+    Map<String, List<Van>> getVanAvailable(Date startDate, Date endDate);
+
     void editVan(Van van);
     void deleteVan(Van van);
     void deleteVan(String regisNumber);
-    List<Partner> getPartners();
 
+    List<Partner> getPartners();
     void editPartner(Partner partner);
     void deletePartner(Partner partner);
     void deletePartner(int partnerId);
-    List<Driver> getDrivers();
 
+    List<Driver> getDrivers();
     void editDriver(Driver driver);
     void deleteDriver(Driver driver);
-    void deleteDriver(String citizenId);
 
+    void deleteDriver(String citizenId);
 
     void editReservation(Reservation reservation);
     void deleteReservation(Reservation reservation);
+
     void deleteReservation(String reservationId);
-
     void assignVan(List<Van> vans, Reservation reservation);
-    void assignDriver(List<Driver> drivers, Reservation reservation);
 
+    void assignDriver(List<Driver> drivers, Reservation reservation);
     List<JobType> getVanJobs();
     void addVanJob(Van van, Date startDate, Date endDate, JobType type);
-    void deleteVanJob(Van van, Date startDate, Date endDate);
 
+    void deleteVanJob(Van van, Date startDate, Date endDate);
     List<JobType> getDriverJobs();
     void addDriverJob(Van van, Date startDate, Date endDate, JobType type);
+
     void deleteDriverJob(Van van, Date startDate, Date endDate);
 
     void addMeeting(String meetingPlace, Date meetingTime);
-
     void confirmDeposit(Reservation reservation, Date depositDate);
-    void confirmDeposit(String reservationId, Date depositDate);
 
+    void confirmDeposit(String reservationId, Date depositDate);
     List<Reservation> getReservations();
+
     Reservation getReservation(String reserveId);
 }

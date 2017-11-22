@@ -14,11 +14,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="API" target="1.5" />
-      <module name="ChanthaboonTransport" target="1.5" />
+      <module name="API" target="1.8" />
+      <module name="ChanthaboonTransport" target="1.8" />
       <module name="Customer" target="1.8" />
       <module name="Manager" target="1.8" />
-      <module name="Server" target="1.5" />
+      <module name="Server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
