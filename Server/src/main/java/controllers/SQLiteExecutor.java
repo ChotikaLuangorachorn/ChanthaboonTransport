@@ -586,11 +586,29 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public void deleteDriver(Driver driver) {
-
+        deleteDriver(driver.getCitizenId());
     }
 
     public void deleteDriver(String citizenId) {
-
+        Connection connection = null;
+        try {
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = "delete from driver where citizen_id='" + citizenId + "'";
+                Statement statement = connection.createStatement();
+                int result = statement.executeUpdate(sql);
+                System.out.println(result);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
     }
 
     public void editReservation(Reservation reservation) {
