@@ -15,6 +15,7 @@ import java.util.Date;
 
 public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseManager   {
     private String url = "vanScheduler.db";
+    private SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
 
     @Nullable
     public Customer getCustomer(String citizenId, String pwd) {
@@ -50,7 +51,6 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         amtMap.put(CustomerDatabaseManager.NORMAL, 0);
         boolean possible = checkPossibleDay(destination, startDate, endDate);
         if (possible){
-            SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
             String start = formatter.format(startDate);
             String end = formatter.format(endDate);
             QueryExecutionAssistant<Map<String, Integer>> assistant = new QueryExecutionAssistant<>(url);
@@ -145,7 +145,6 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     public void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, Date reserveDate, double price, double deposit) {
         System.out.println("request addReservation");
         Connection connection = null;
-        SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
         try{
             String reserveDateString = formatter.format(reserveDate);
             String startDateString = formatter.format(startDate);
@@ -274,7 +273,6 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         try{
             connection = prepareConnection();
             if (connection != null){
-                SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
                 String sql = "update reservation set isDeposited='true', deposit_date='" + formatter.format(depositDate) + "'";
                 Statement statement = connection.createStatement();
                 int result = statement.executeUpdate(sql);
@@ -294,7 +292,6 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     public List<Reservation> getReservations() {
         List<Reservation> reservations = new ArrayList<Reservation>();
         Connection connection = null;
-        SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
         try{
             connection = prepareConnection();
             if (connection != null){
@@ -349,7 +346,6 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
 
     public List<Reservation> getHistoryReservation(String citizenId) {
         List<Reservation> reservations = new ArrayList<Reservation>();
-        SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
         Connection connection = null;
         try{
             connection = prepareConnection();
@@ -470,7 +466,6 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         Map<String, List<Van>> available = new HashMap<>();
         available.put(ManagerDatabaseManager.VIP, new ArrayList<>());
         available.put(ManagerDatabaseManager.NORMAL, new ArrayList<>());
-        SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
         String start = formatter.format(startDate);
         String end = formatter.format(endDate);
         QueryExecutionAssistant<Map<String, List<Van>>> assistant = new QueryExecutionAssistant<>(url);
@@ -603,7 +598,6 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
                 String sql = "select * from driver";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
-                SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
                 while (resultSet.next()){
                     String citizenId = resultSet.getString("citizen_id");
                     String driverLicense = resultSet.getString("driver_license");
@@ -633,7 +627,20 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public void editDriver(Driver driver) {
-
+        String sql = String.format("update driver " +
+                                    "set driver_license='%s'," +
+                                        "date_of_birth='%s'," +
+                                        "first_name='%s'," +
+                                        "last_name='%s'," +
+                                        "nick_name='%s'," +
+                                        "phone='%s'," +
+                                        "address='%s' " +
+                                    "where citizen_id='%s'",
+                                    driver.getDriverLicense(), formatter.format(driver.getDateOfBirth()),
+                                    driver.getFirstname(), driver.getLastname(), driver.getNickname(),
+                                    driver.getPhone(), driver.getAddress(), driver.getCitizenId());
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
     }
 
     public void deleteDriver(Driver driver) {
