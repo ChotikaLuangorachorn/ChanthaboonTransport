@@ -27,6 +27,9 @@ public class MainController {
     public List<Driver> getDrivers(){
         return executor.getDrivers();
     }
+    public  void deleteDriver(Driver driver){
+        executor.deleteDriver(driver);
+    }
 
     /**Partner* */
     public List<Partner> getPartners(){

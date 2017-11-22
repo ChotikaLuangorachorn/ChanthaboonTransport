@@ -9,9 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
@@ -22,6 +20,7 @@ import models.Reservation;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class DriverMenuView implements Initializable{
@@ -35,6 +34,8 @@ public class DriverMenuView implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
+        onClickEditDriver();
+        onClickDeleteDriver();
 
 
     }
@@ -51,7 +52,22 @@ public class DriverMenuView implements Initializable{
         btn_deleteDriver.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                Driver driver = (Driver) table_driver.getSelectionModel().getSelectedItem();
+                if(driver!=null){
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("ยืนยันการลบข้อมูลคนขับ");
+                    alert.setHeaderText("ยืนยันการลบข้อมูลคนขับ");
+                    String s = "ชื่อ:\t\t" + driver.getFirstname() + "\n"
+                            +"นามสกุล:\t" + driver.getLastname();
+                    alert.setContentText(s);
+                    
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+                        controller.deleteDriver(driver);
+                        table_driver.getSelectionModel().clearSelection();
+                        refreshDriverTable();
+                    }
+                }
             }
         });
     }
