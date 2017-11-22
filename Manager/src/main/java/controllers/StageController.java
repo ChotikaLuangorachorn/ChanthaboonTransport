@@ -119,7 +119,7 @@ public class StageController {
         System.out.println("Manager: showConfirmReservationMenuView");
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/comfirmReservation_menu.fxml"));
+            loader.setLocation(getClass().getResource("/confirmReservation_menu.fxml"));
             AnchorPane mainLayout = loader.load();
             ConfirmReservationMenu confirmReservationMenu = loader.getController();
             confirmReservationMenu.setController(controller);
