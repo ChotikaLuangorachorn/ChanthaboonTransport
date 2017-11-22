@@ -29,6 +29,11 @@ public class MainController {
         return executor.getReservations();
     }
 
+
+    public Map<String, List<Van>> getVanAvailable(Date startDate, Date endDate){
+        return executor.getVanAvailable(startDate, endDate);
+    }
+
     /**Driver*/
     public List<Driver> getDrivers(){
         return executor.getDrivers();
@@ -52,9 +57,8 @@ public class MainController {
     public void deleteVan(Van van){
         executor.deleteVan(van);
     }
-
-    public Map<String, List<Van>> getVanAvailable(Date startDate, Date endDate){
-        return executor.getVanAvailable(startDate, endDate);
+    public void editVan(Van van){
+        executor.editVan(van);
     }
 
 }
