@@ -487,6 +487,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
                 "                                                                        where strftime(\"%%Y-%%m-%%d\", van_job_schedule.end_date) >= date(\"%s\") \n" +
                 "                                                                                        and strftime(\"%%Y-%%m-%%d\", van_job_schedule.start_date) <= date(\"%s\"))\n"
                 , start, end, start, end);
+        System.out.println(sql);
         return assistant.execute(sql, (resultSet -> {
             while (resultSet.next()){
                 String id = resultSet.getString("regis_number");
@@ -596,6 +597,45 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
                     e.printStackTrace();
                 }
         }
+    }
+
+    @Override
+    public List<Driver> getDriverAvailable(Date startDate, Date endDate) {
+        List<Driver> available = new ArrayList<>();
+        String start = formatter.format(startDate);
+        String end = formatter.format(endDate);
+        QueryExecutionAssistant<List<Driver>> assistant = new QueryExecutionAssistant<>(url);
+        String sql = String.format("select *\n" +
+                                    "from driver\n" +
+                                    "where driver.citizen_id not in (select driver.citizen_id\n" +
+                                    "                                                                        from driver\n" +
+                                    "                                                                        join driver_reserve_schedule\n" +
+                                    "                                                                        on driver.citizen_id = driver_reserve_schedule.driver_id\n" +
+                                    "                                                                        join reservation\n" +
+                                    "                                                                        on reservation.id = driver_reserve_schedule.reservation_id\n" +
+                                    "                                                                        where strftime(\"%%Y-%%m-%%d\", reservation.end_working_date) >= date(\"%s\") \n" +
+                                    "                                                                                        and strftime(\"%%Y-%%m-%%d\", reservation.start_working_date) <= date(\"%s\"))\n" +
+                                    "        and driver.citizen_id not in (select driver.citizen_id\n" +
+                                    "                                                                        from driver\n" +
+                                    "                                                                        join driver_job_schedule\n" +
+                                    "                                                                        on driver.citizen_id  = driver_job_schedule.driver_id\n" +
+                                    "                                                                        where strftime(\"%%Y-%%m-%%d\", driver_job_schedule.end_date) >= date(\"%s\") \n" +
+                                    "                                                                                        and strftime(\"%%Y-%%m-%%d\", driver_job_schedule.start_date) <= date(\"%s\"))"
+                , start, end, start, end);
+        return assistant.execute(sql, (resultSet -> {
+            while (resultSet.next()){
+                String citizenId = resultSet.getString("citizen_id");
+                String driverLicense = resultSet.getString("driver_license");
+                Date dateOfBirth = (resultSet.getString("date_of_birth")!=null)?formatter.parse(resultSet.getString("date_of_birth")):null;
+                String firstname  = resultSet.getString("first_name");
+                String lastname = resultSet.getString("last_name");
+                String nickname =  resultSet.getString("nick_name");
+                String phone = resultSet.getString("phone");
+                String address = resultSet.getString("address");
+                available.add(new Driver(citizenId, driverLicense, dateOfBirth, firstname, lastname, nickname, phone, address));
+            }
+            return available;
+        }), available);
     }
 
     public List<Driver> getDrivers() {
