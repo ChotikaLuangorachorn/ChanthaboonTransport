@@ -28,11 +28,11 @@ public class VanDetailView implements Initializable{
 
     private MainController controller;
     private Van van;
-    private List<Van> vans;
+    private List<Van> jobs;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        initCol();
     }
 
     public void showDetail(){
@@ -47,30 +47,14 @@ public class VanDetailView implements Initializable{
 
 
     public void initCol(){
-//        col_startDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
-//            public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
-//                Date startDate = reservation.getValue().getStartDate();
-//                String date = ReservationDateFormatter.getInstance().getUiDateFormatter().format(startDate)+" ";
-//                String time = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(startDate)+ " น.";
-//                return new SimpleStringProperty(date+time);
-//            }
-//        });
-//        col_endDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
-//            public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
-//                Date endDate = reservation.getValue().getEndDate();
-//                String date = ReservationDateFormatter.getInstance().getUiDateFormatter().format(endDate)+" ";
-//                String time = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(endDate)+ " น.";
-//                return new SimpleStringProperty(date+time);
-//            }
-//        });
     }
     public void initData(){
-        ObservableList<Van> data = FXCollections.observableList(vans);
+        ObservableList<Van> data = FXCollections.observableList(jobs);
         table_vanDetail.setItems(data);
     }
 
     public void refreshVanTable(){
-        this.vans = controller.getVans();
+//        this.jobs = controller.getVans();
         initData();
     }
 

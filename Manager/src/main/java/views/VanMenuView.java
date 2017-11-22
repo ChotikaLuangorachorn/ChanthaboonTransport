@@ -79,7 +79,7 @@ public class VanMenuView implements Initializable{
                     Scene scene = new Scene(detailLayout);
                     secondStage.setScene(scene);
                     secondStage.setResizable(false);
-                    secondStage.setTitle("Reservation detail");
+                    secondStage.setTitle("รายละเอียดของรถตู้");
                     secondStage.initModality(Modality.APPLICATION_MODAL);
                     secondStage.showAndWait();
 
