@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import java.lang.Integer?>
+<AnchorPane prefHeight="497.0" prefWidth="600.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.PageConfirmView">
+    <fx:define>
+        <Integer fx:id="minH" fx:value="0" />
+        <Integer fx:id="maxH" fx:value="23" />
+        <Integer fx:id="minM" fx:value="0" />
+        <Integer fx:id="maxM" fx:value="59" />
+    </fx:define>
+    <children>
+      <Label layoutX="247.0" layoutY="21.0" text="ยืนยันการจอง">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="215.0" layoutY="48.0" text="หมายเลขการจอง: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="346.0" layoutY="48.0" text="00000">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="103.0" layoutY="95.0" text="สถานะค่ามัดจำ: " />
+      <ComboBox fx:id="cbbIsDeposit" layoutX="241.0" layoutY="90.0" prefHeight="31.0" prefWidth="227.0" />
+      <Label layoutX="103.0" layoutY="136.0" text="การนัดหมาย: " />
+      <Label layoutX="132.0" layoutY="166.0" text="วันที่: " />
+      <Label fx:id="lbDate" layoutX="182.0" layoutY="166.0" text="22/11/2017" />
+      <Label layoutX="283.0" layoutY="166.0" text="เวลา: " />
+      <Spinner fx:id="spnHrs" layoutX="317.0" layoutY="161.0" prefHeight="31.0" prefWidth="79.0" max="$maxH" min="$minH" />
+      <Label layoutX="407.0" layoutY="166.0" text=":" />
+      <Spinner fx:id="spnMin" layoutX="420.0" layoutY="161.0" prefHeight="31.0" prefWidth="79.0" max="$maxM" min="$minM"/>
+      <Label layoutX="508.0" layoutY="166.0" text="น." />
+      <Label layoutX="132.0" layoutY="210.0" text="สถานที่:" />
+      <TextArea fx:id="taPlace" layoutX="185.0" layoutY="210.0" prefHeight="77.0" prefWidth="283.0" />
+      <Label layoutX="132.0" layoutY="303.0" text="ระบุรถตู้:" />
+      <Label layoutX="131.0" layoutY="343.0" text="ระบุคนขับ:" />
+      <Button fx:id="btnConfirm" layoutX="273.0" layoutY="426.0" mnemonicParsing="false" text="ยืนยัน" />
+   </children>
+</AnchorPane>
