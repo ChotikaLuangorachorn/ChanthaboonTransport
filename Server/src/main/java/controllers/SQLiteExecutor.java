@@ -559,6 +559,15 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public void editPartner(Partner partner) {
+        String sql = String.format("update partner " +
+                                    "set name='%s'," +
+                                        "company='%s'," +
+                                        "company_phone='%s' " +
+                                    "where id='%s'",
+                                    partner.getName(), partner.getCompany(),
+                                    partner.getCompanyPhone(), partner.getId());
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
 
     }
 
