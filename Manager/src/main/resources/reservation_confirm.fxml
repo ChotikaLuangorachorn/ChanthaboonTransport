@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import java.lang.Integer?>
-<AnchorPane prefHeight="497.0" prefWidth="600.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.PageConfirmView">
+<AnchorPane prefHeight="497.0" prefWidth="600.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" >
     <fx:define>
         <Integer fx:id="minH" fx:value="0" />
         <Integer fx:id="maxH" fx:value="23" />

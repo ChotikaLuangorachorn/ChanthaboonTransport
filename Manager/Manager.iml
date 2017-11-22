@@ -21,7 +21,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../controlsfx-8.40.14/controlsfx-8.40.14.jar!/" />
+          <root url="jar://$MODULE_DIR$/../controlsfx-8.40.14.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
