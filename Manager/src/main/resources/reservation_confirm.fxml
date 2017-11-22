@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import java.lang.Integer?>
-<AnchorPane prefHeight="497.0" prefWidth="600.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane prefHeight="497.0" prefWidth="600.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.PageConfirmView">
     <fx:define>
         <Integer fx:id="minH" fx:value="0" />
         <Integer fx:id="maxH" fx:value="23" />
@@ -38,14 +38,16 @@
       <Label layoutX="132.0" layoutY="166.0" text="วันที่: " />
       <Label fx:id="lbDate" layoutX="182.0" layoutY="166.0" text="22/11/2017" />
       <Label layoutX="283.0" layoutY="166.0" text="เวลา: " />
-      <Spinner fx:id="spnHrs" layoutX="317.0" layoutY="161.0" prefHeight="31.0" prefWidth="79.0" max="$maxH" min="$minH" />
+      <Spinner fx:id="spnHrs" layoutX="317.0" layoutY="161.0" prefHeight="31.0" prefWidth="79.0" max="$maxH" min="$minH"/>
       <Label layoutX="407.0" layoutY="166.0" text=":" />
       <Spinner fx:id="spnMin" layoutX="420.0" layoutY="161.0" prefHeight="31.0" prefWidth="79.0" max="$maxM" min="$minM"/>
       <Label layoutX="508.0" layoutY="166.0" text="น." />
       <Label layoutX="132.0" layoutY="210.0" text="สถานที่:" />
       <TextArea fx:id="taPlace" layoutX="185.0" layoutY="210.0" prefHeight="77.0" prefWidth="283.0" />
       <Label layoutX="132.0" layoutY="303.0" text="ระบุรถตู้:" />
-      <Label layoutX="131.0" layoutY="343.0" text="ระบุคนขับ:" />
+      <Label layoutX="127.0" layoutY="378.0" text="ระบุคนขับ:" />
       <Button fx:id="btnConfirm" layoutX="273.0" layoutY="426.0" mnemonicParsing="false" text="ยืนยัน" />
+      <Label layoutX="204.0" layoutY="303.0" text="VIP" />
+      <Label layoutX="204.0" layoutY="339.0" text="NORMAL" />
    </children>
 </AnchorPane>

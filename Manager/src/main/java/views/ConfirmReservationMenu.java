@@ -5,14 +5,22 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import models.Customer;
 import models.Reservation;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -28,10 +36,44 @@ public class ConfirmReservationMenu implements Initializable{
         reservations = this.controller.getReservation();
         initColunm();
         initData();
+        onDoubleClickReservation();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
+    }
+    public void onDoubleClickReservation(){
+        table_confirmReserve.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Reservation reservation = table_confirmReserve.getSelectionModel().getSelectedItem();
+
+                if(event.getClickCount() == 2 && (reservation!=null)){
+                    try {
+                        System.out.println("Double Click");
+                        Stage secondStage = new Stage();
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/reservation_confirm.fxml"));
+                        Pane confirmLayout = loader.load();
+                        PageConfirmView pageConfirmView = loader.getController();
+                        pageConfirmView.setController(controller);
+                        pageConfirmView.setReservation(reservation);
+
+                        Scene scene = new Scene(confirmLayout);
+                        secondStage.setScene(scene);
+                        secondStage.setResizable(false);
+                        secondStage.setTitle("Reservation detail");
+                        secondStage.initModality(Modality.APPLICATION_MODAL);
+                        secondStage.showAndWait();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
 
     }
 
