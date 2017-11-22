@@ -21,41 +21,26 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         System.out.println("request getCustomer");
         System.out.println("citizenId = " + citizenId);
         System.out.println("pwd = " + pwd);
-        Connection connection = null;
-        try{
-            connection = prepareConnection();
 
-            if (connection != null){
-                String sql = "select * from customer where citizen_id = '" + citizenId + "' and pwd = '" + pwd + "'";
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-
-                if (resultSet.next()){
-                    String id = resultSet.getString("citizen_id");
-                    String firstname = resultSet.getString("first_name");
-                    String lastname = resultSet.getString("last_name");
-                    String address = resultSet.getString("address");
-                    String phone = resultSet.getString("phone");
-                    String lineId = resultSet.getString("line_id");
-                    int lastReserveId = resultSet.getInt("last_reserve");
-                    Customer customer = new Customer(id, firstname, lastname, address, phone, lineId, lastReserveId);
-                    System.out.println("response");
-                    System.out.println("customer = " + customer);
-                    System.out.println();
-                    return customer;
-                }
+        QueryExecutionAssistant<Customer> assistant = new QueryExecutionAssistant<Customer>(url);
+        String sql = "select * from customer where citizen_id = '" + citizenId + "' and pwd = '" + pwd + "'";
+        return assistant.execute(sql, (resultSet)->{
+            if (resultSet.next()){
+                String id = resultSet.getString("citizen_id");
+                String firstname = resultSet.getString("first_name");
+                String lastname = resultSet.getString("last_name");
+                String address = resultSet.getString("address");
+                String phone = resultSet.getString("phone");
+                String lineId = resultSet.getString("line_id");
+                int lastReserveId = resultSet.getInt("last_reserve");
+                Customer customer = new Customer(id, firstname, lastname, address, phone, lineId, lastReserveId);
+                System.out.println("response");
+                System.out.println("customer = " + customer);
+                System.out.println();
+                return customer;
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null)
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-        }
-        return null;
+            return null;
+        }, null);
     }
     @Nullable
     public Map<String, Integer> getVanAvailable(Destination destination, Date startDate, Date endDate) {
@@ -63,154 +48,98 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         Map<String, Integer> amtMap = new HashMap<String, Integer>();
         amtMap.put(CustomerDatabaseManager.VIP, 0);
         amtMap.put(CustomerDatabaseManager.NORMAL, 0);
-
         boolean possible = checkPossibleDay(destination, startDate, endDate);
-        System.out.println("possible = " + possible);
         if (possible){
-            Connection connection = null;
-            try {
-                connection = prepareConnection();
-                if (connection != null){
-                    SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
-                    String start = formatter.format(startDate);
-                    String end = formatter.format(endDate);
-
-                    String sql = String.format("select type, count(*) as amt\n" +
-                            "from van\n" +
-                            "where van.partner_id is null\n" +
-                            "        and van.regis_number not in (select van.regis_number\n" +
-                            "                                                                        from van\n" +
-                            "                                                                        join van_reserve_schedule\n" +
-                            "                                                                        on van.regis_number = van_reserve_schedule.regis_number\n" +
-                            "                                                                        join reservation\n" +
-                            "                                                                        on reservation.id = van_reserve_schedule.reservation_id\n" +
-                            "                                                                        where strftime(\"%%Y-%%m-%%d\", reservation.end_working_date) >= date(\"%s\") \n" +
-                            "                                                                                        and strftime(\"%%Y-%%m-%%d\", reservation.start_working_date) <= date(\"%s\"))\n" +
-                            "        and van.regis_number not in (select van.regis_number\n" +
-                            "                                                                        from van\n" +
-                            "                                                                        join van_job_schedule\n" +
-                            "                                                                        on van_job_schedule.regis_number = van.regis_number\n" +
-                            "                                                                        where strftime(\"%%Y-%%m-%%d\", van_job_schedule.end_date) >= date(\"%s\") \n" +
-                            "                                                                                        and strftime(\"%%Y-%%m-%%d\", van_job_schedule.start_date) <= date(\"%s\"))\n" +
-                            "group by type", start, end, start, end);
-                    System.out.println("sql = " + sql);
-                    Statement statement = connection.createStatement();
-                    ResultSet resultSet = statement.executeQuery(sql);
-
-                    while (resultSet.next()){
-                        amtMap.put(resultSet.getString("type"), resultSet.getInt("amt"));
-                    }
-
-
-
+            SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
+            String start = formatter.format(startDate);
+            String end = formatter.format(endDate);
+            QueryExecutionAssistant<Map<String, Integer>> assistant = new QueryExecutionAssistant<>(url);
+            String sql = String.format("select type, count(*) as amt\n" +
+                    "from van\n" +
+                    "where van.partner_id is null\n" +
+                    "        and van.regis_number not in (select van.regis_number\n" +
+                    "                                                                        from van\n" +
+                    "                                                                        join van_reserve_schedule\n" +
+                    "                                                                        on van.regis_number = van_reserve_schedule.regis_number\n" +
+                    "                                                                        join reservation\n" +
+                    "                                                                        on reservation.id = van_reserve_schedule.reservation_id\n" +
+                    "                                                                        where strftime(\"%%Y-%%m-%%d\", reservation.end_working_date) >= date(\"%s\") \n" +
+                    "                                                                                        and strftime(\"%%Y-%%m-%%d\", reservation.start_working_date) <= date(\"%s\"))\n" +
+                    "        and van.regis_number not in (select van.regis_number\n" +
+                    "                                                                        from van\n" +
+                    "                                                                        join van_job_schedule\n" +
+                    "                                                                        on van_job_schedule.regis_number = van.regis_number\n" +
+                    "                                                                        where strftime(\"%%Y-%%m-%%d\", van_job_schedule.end_date) >= date(\"%s\") \n" +
+                    "                                                                                        and strftime(\"%%Y-%%m-%%d\", van_job_schedule.start_date) <= date(\"%s\"))\n" +
+                    "group by type", start, end, start, end);
+            return assistant.execute(sql, resultSet -> {
+                while (resultSet.next()){
+                    amtMap.put(resultSet.getString("type"), resultSet.getInt("amt"));
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } finally {
-                if (connection != null)
-                    try {
-                        connection.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-            }
+                return amtMap;
+            }, amtMap);
         }
-        System.out.println("response = " + amtMap);
-        return amtMap;
+        return null;
     }
 
     public double getPrice(Map<String, Integer> vanAmt, Date startDate, Date endDate) {
         System.out.println("request getPrice");
         System.out.println("params " + vanAmt + " startDate " + startDate + " endDate " + endDate);
 
-        double price = 0;
-
         int vipAmt = vanAmt.get(CustomerDatabaseManager.VIP);
         int normalAmt = vanAmt.get(CustomerDatabaseManager.NORMAL);
         long diff = endDate.getTime() - startDate.getTime();
         int days = (int) diff / (24*60*60*1000);
-        Connection connection = null;
-        try{
-            Map<String, Double> rate = new HashMap<String, Double>();
-            Map<String, Double> base = new HashMap<String, Double>();
-            Map<String, Double> freeRage = new HashMap<String, Double>();
-            connection = prepareConnection();
-            if (connection != null){
-                String sql = "select * from price_rate where price_rate.reserve_type = \"day\"";
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-                while (resultSet.next()){
-                    rate.put(resultSet.getString("van_type"), resultSet.getDouble("rate"));
-                    base.put(resultSet.getString("van_type"), resultSet.getDouble("base"));
-                    freeRage.put(resultSet.getString("van_type"), resultSet.getDouble("free_range"));
-                }
+        String sql = "select * from price_rate where price_rate.reserve_type = \"day\"";
 
-                double normalPrice = base.get(CustomerDatabaseManager.NORMAL) + rate.get(CustomerDatabaseManager.NORMAL)*((days < freeRage.get(CustomerDatabaseManager.NORMAL))?0:(days-freeRage.get(CustomerDatabaseManager.NORMAL)));
-                double vipPrice = base.get(CustomerDatabaseManager.VIP) + rate.get(CustomerDatabaseManager.VIP)*((days < freeRage.get(CustomerDatabaseManager.VIP))?0:(days-freeRage.get(CustomerDatabaseManager.VIP)));
+        QueryExecutionAssistant<Double> assistant = new QueryExecutionAssistant<>(url);
+        return assistant.execute(sql, (resultSet -> {
+                    Map<String, Double> rate = new HashMap<String, Double>();
+                    Map<String, Double> base = new HashMap<String, Double>();
+                    Map<String, Double> freeRage = new HashMap<String, Double>();
 
-                price = normalPrice*normalAmt + vipPrice*vipAmt;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null)
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-        }
-        System.out.println("response " + price);
-        return price;
+                    while (resultSet.next()){
+                        rate.put(resultSet.getString("van_type"), resultSet.getDouble("rate"));
+                        base.put(resultSet.getString("van_type"), resultSet.getDouble("base"));
+                        freeRage.put(resultSet.getString("van_type"), resultSet.getDouble("free_range"));
+                    }
+
+                    double normalPrice = base.get(CustomerDatabaseManager.NORMAL) + rate.get(CustomerDatabaseManager.NORMAL)*((days < freeRage.get(CustomerDatabaseManager.NORMAL))?0:(days-freeRage.get(CustomerDatabaseManager.NORMAL)));
+                    double vipPrice = base.get(CustomerDatabaseManager.VIP) + rate.get(CustomerDatabaseManager.VIP)*((days < freeRage.get(CustomerDatabaseManager.VIP))?0:(days-freeRage.get(CustomerDatabaseManager.VIP)));
+
+                    return normalPrice*normalAmt + vipPrice*vipAmt;
+                }), 0.0);
     }
 
     public double getPrice(Map<String, Integer> vanAmt, Destination destination) {
         System.out.println("request getPrice");
         System.out.println("params " + vanAmt + " destination " + destination);
-
-        double price = 0;
-
         int vipAmt = vanAmt.get(CustomerDatabaseManager.VIP);
         int normalAmt = vanAmt.get(CustomerDatabaseManager.NORMAL);
-        Connection connection = null;
-        try{
+        String sql = "select * from price_rate where price_rate.reserve_type = \"distance\"";
+
+        QueryExecutionAssistant<Double> assistant = new QueryExecutionAssistant<>(sql);
+        return assistant.execute(sql, (resultSet -> {
+            double distance = getDistance(destination);
             Map<String, Double> rate = new HashMap<String, Double>();
             Map<String, Double> base = new HashMap<String, Double>();
             Map<String, Double> freeRage = new HashMap<String, Double>();
-            double distance = getDistance(destination);
-            System.out.println("distance = " + distance);
-            connection = prepareConnection();
-            if (connection != null){
-                String sql = "select * from price_rate where price_rate.reserve_type = \"distance\"";
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-                while (resultSet.next()){
-                    rate.put(resultSet.getString("van_type"), resultSet.getDouble("rate"));
-                    base.put(resultSet.getString("van_type"), resultSet.getDouble("base"));
-                    freeRage.put(resultSet.getString("van_type"), resultSet.getDouble("free_range"));
-                }
-
-                double normalPrice = base.get(CustomerDatabaseManager.NORMAL) + rate.get(CustomerDatabaseManager.NORMAL)*((distance < freeRage.get(CustomerDatabaseManager.NORMAL))?0:(distance-freeRage.get(CustomerDatabaseManager.NORMAL)));
-                double vipPrice = base.get(CustomerDatabaseManager.VIP) + rate.get(CustomerDatabaseManager.VIP)*((distance < freeRage.get(CustomerDatabaseManager.VIP))?0:(distance-freeRage.get(CustomerDatabaseManager.VIP)));
-                System.out.println("base = " + base);
-                System.out.println("rate = " + rate);
-                System.out.println("freeRage = " + freeRage);
-                System.out.println("normalPrice = " + normalPrice);
-                System.out.println("vipPrice = " + vipPrice);
-                price = normalPrice*normalAmt + vipPrice*vipAmt;
+            while (resultSet.next()){
+                rate.put(resultSet.getString("van_type"), resultSet.getDouble("rate"));
+                base.put(resultSet.getString("van_type"), resultSet.getDouble("base"));
+                freeRage.put(resultSet.getString("van_type"), resultSet.getDouble("free_range"));
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null)
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-        }
-        System.out.println("response " + price);
-        return price;
+
+            double normalPrice = base.get(CustomerDatabaseManager.NORMAL) + rate.get(CustomerDatabaseManager.NORMAL)*((distance < freeRage.get(CustomerDatabaseManager.NORMAL))?0:(distance-freeRage.get(CustomerDatabaseManager.NORMAL)));
+            double vipPrice = base.get(CustomerDatabaseManager.VIP) + rate.get(CustomerDatabaseManager.VIP)*((distance < freeRage.get(CustomerDatabaseManager.VIP))?0:(distance-freeRage.get(CustomerDatabaseManager.VIP)));
+            System.out.println("base = " + base);
+            System.out.println("rate = " + rate);
+            System.out.println("freeRage = " + freeRage);
+            System.out.println("normalPrice = " + normalPrice);
+            System.out.println("vipPrice = " + vipPrice);
+            return normalPrice*normalAmt + vipPrice*vipAmt;
+        }), null);
+
     }
 
     public void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, Date reserveDate, double price, double deposit) {
@@ -745,14 +674,4 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         return null;
     }
 
-//    private <Any> Any executeQuery(Any object){
-//
-//    }
-
-    private interface QueryExecutionAssistant<T> {
-        T perform(T container);
-    }
-    private interface UpdateExecutorAssistant<T> {
-        void perform();
-    }
 }
