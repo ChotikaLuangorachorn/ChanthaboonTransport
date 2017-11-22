@@ -11,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 
 public class MainController {
@@ -50,6 +51,10 @@ public class MainController {
     }
     public void deleteVan(Van van){
         executor.deleteVan(van);
+    }
+
+    public Map<String, List<Van>> getVanAvailable(Date startDate, Date endDate){
+        return executor.getVanAvailable(startDate, endDate);
     }
 
 }

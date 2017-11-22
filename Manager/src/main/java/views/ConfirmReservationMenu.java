@@ -49,6 +49,7 @@ public class ConfirmReservationMenu implements Initializable{
             @Override
             public void handle(MouseEvent event) {
                 Reservation reservation = table_confirmReserve.getSelectionModel().getSelectedItem();
+                System.out.println("reservation.toString() = " + reservation.toString());
 
                 if(event.getClickCount() == 2 && (reservation!=null)){
                     try {
@@ -64,7 +65,6 @@ public class ConfirmReservationMenu implements Initializable{
                         Scene scene = new Scene(confirmLayout);
                         secondStage.setScene(scene);
                         secondStage.setResizable(false);
-                        secondStage.setTitle("Reservation detail");
                         secondStage.initModality(Modality.APPLICATION_MODAL);
                         secondStage.showAndWait();
 
