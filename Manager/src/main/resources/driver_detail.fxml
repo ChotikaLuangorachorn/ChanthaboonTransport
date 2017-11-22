@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="452.0" prefWidth="770.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanDetailView">
+<AnchorPane prefHeight="452.0" prefWidth="770.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.DriverDetailView">
    <children>
       <Label layoutX="53.0" layoutY="64.0" text="ชื่อ:">
          <font>
@@ -46,7 +46,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lb_address" layoutX="583.0" layoutY="64.0" prefHeight="40.0" prefWidth="134.0" text="ที่อยู่&#10;ที่อยู่" textAlignment="JUSTIFY" wrapText="true">
+      <Label fx:id="lb_address" alignment="TOP_LEFT" layoutX="583.0" layoutY="64.0" prefHeight="40.0" prefWidth="134.0" text="ที่อยู่&#10;ที่อยู่" textAlignment="JUSTIFY" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>
@@ -111,7 +111,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_editJob1" layoutX="53.0" layoutY="407.0" mnemonicParsing="false" text="ลบตารางงาน">
+      <Button fx:id="btn_deleteJob" layoutX="53.0" layoutY="407.0" mnemonicParsing="false" text="ลบตารางงาน">
          <font>
             <Font size="14.0" />
          </font>

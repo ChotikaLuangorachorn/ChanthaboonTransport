@@ -35,6 +35,7 @@ public class DriverMenuView implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
         onClickDeleteDriver();
+        onDoubleClickDriver();
 
 
     }
@@ -59,6 +60,35 @@ public class DriverMenuView implements Initializable{
                     }
                 }
             }
+        });
+    }
+    public void onDoubleClickDriver(){
+        table_driver.setOnMouseClicked(even->{
+            Driver driver = (Driver) table_driver.getSelectionModel().getSelectedItem();
+
+            if(even.getClickCount() == 2 && (driver!=null)){
+                try {
+                    System.out.println("Double Click");
+                    Stage secondStage = new Stage();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/driver_detail.fxml"));
+                    Pane detailLayout = loader.load();
+                    DriverDetailView driverDetailView = loader.getController();
+                    driverDetailView.setController(controller);
+                    driverDetailView.setDriver(driver);
+
+                    Scene scene = new Scene(detailLayout);
+                    secondStage.setScene(scene);
+                    secondStage.setResizable(false);
+                    secondStage.setTitle("รายละเอียดของคนขับรถ");
+                    secondStage.initModality(Modality.APPLICATION_MODAL);
+                    secondStage.showAndWait();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
         });
     }
 
