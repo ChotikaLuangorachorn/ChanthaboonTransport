@@ -362,8 +362,65 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         }
     }
 
+    public List<Reservation> getReservations() {
+        List<Reservation> reservations = new ArrayList<Reservation>();
+        Connection connection = null;
+        SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
+        try{
+            connection = prepareConnection();
+            if (connection != null){
+                String sql = "select * \n" +
+                        "from reservation\n" +
+                        "join customer\n" +
+                        "on reservation.customer_id = customer.citizen_id";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+
+                while(resultSet.next()){
+                    String id = resultSet.getString("id");
+                    String customerId = resultSet.getString("customer_id");
+                    Date statDate = formatter.parse(resultSet.getString("start_working_date"));
+                    Date endDate = formatter.parse(resultSet.getString("end_working_date"));
+                    Date reserveDate = formatter.parse(resultSet.getString("reserve_date"));
+                    Date meetingTime = (resultSet.getString("meeting_time")!=null)?formatter.parse(resultSet.getString("meeting_time")):null;
+                    String province = resultSet.getString("province");
+                    String district = resultSet.getString("district");
+                    String place = resultSet.getString("place");
+                    String meetingPlace = resultSet.getString("meeting_place");
+                    double fee = resultSet.getDouble("fee");
+                    int amtVip = resultSet.getInt("amt_vip");
+                    int amtNormal = resultSet.getInt("amt_normal");
+                    String isDeposited = resultSet.getString("isDeposited");
+                    double deposit = resultSet.getDouble("deposit_fee");
+                    Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingTime, fee, isDeposited, deposit);
+
+
+                    String firstname = resultSet.getString("first_name");
+                    String lastname = resultSet.getString("last_name");
+                    String address = resultSet.getString("address");
+                    String phone = resultSet.getString("phone");
+                    String lineId = resultSet.getString("line_id");
+                    int lastReserveId = resultSet.getInt("last_reserve");
+                    Customer customer = new Customer(customerId, firstname, lastname, address, phone, lineId, lastReserveId);
+                    reservation.setCustomer(customer);
+                    reservations.add(reservation);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Reservation getReservation(String reserveId) {
+        return null;
+    }
+
     public List<Reservation> getHistoryReservation(String citizenId) {
         List<Reservation> reservations = new ArrayList<Reservation>();
+        SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
         Connection connection = null;
         try{
             connection = prepareConnection();
@@ -373,7 +430,6 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
                 ResultSet resultSet = statement.executeQuery(sql);
 
                 while (resultSet.next()){
-                    SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
                     String id = resultSet.getString("id");
                     String customerId = resultSet.getString("customer_id");
                     Date statDate = formatter.parse(resultSet.getString("start_working_date"));
@@ -687,5 +743,16 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
             System.err.println("connection Fail cannot find database");
         }
         return null;
+    }
+
+//    private <Any> Any executeQuery(Any object){
+//
+//    }
+
+    private interface QueryExecutionAssistant<T> {
+        T perform(T container);
+    }
+    private interface UpdateExecutorAssistant<T> {
+        void perform();
     }
 }

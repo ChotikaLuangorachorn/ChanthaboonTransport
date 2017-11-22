@@ -10,6 +10,7 @@ public class Reservation implements Serializable{
     private Date startDate, endDate, reserveDate, meetingDate;
     private double price;
     private double deposit;
+    private Customer customer;
 
     public Reservation(String reserveId, String customerId, String meetingPlace, int amtVip, int amtNormal, Destination destination, Date startDate, Date endDate, Date reserveDate, Date meetingDate, double price, String isDeposited, double deposit) {
         this.reserveId = reserveId;
@@ -129,5 +130,13 @@ public class Reservation implements Serializable{
 
     public void setDeposit(double deposit) {
         this.deposit = deposit;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

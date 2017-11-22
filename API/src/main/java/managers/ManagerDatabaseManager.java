@@ -20,6 +20,7 @@ public interface ManagerDatabaseManager {
     List<String> getDistricts(String province);
     List<Van> getVans();
 
+    // manager extension
     void editVan(Van van);
     void deleteVan(Van van);
     void deleteVan(String regisNumber);
@@ -54,4 +55,7 @@ public interface ManagerDatabaseManager {
 
     void confirmDeposit(Reservation reservation, Date depositDate);
     void confirmDeposit(String reservationId, Date depositDate);
+
+    List<Reservation> getReservations();
+    Reservation getReservation(String reserveId);
 }
