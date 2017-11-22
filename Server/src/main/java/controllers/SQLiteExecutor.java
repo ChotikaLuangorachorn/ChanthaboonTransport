@@ -450,7 +450,18 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public List<Van> getVans() {
-        return null;
+        String sql = "select * from van where partner_id is null";
+        List<Van> vans = new ArrayList<>();
+        QueryExecutionAssistant<List<Van>> assistant = new QueryExecutionAssistant<>(url);
+        return assistant.execute(sql, (resultSet -> {
+            while(resultSet.next()){
+                String regisId = resultSet.getString("regis_id");
+                String type = resultSet.getString("type");
+                Van van = new Van(regisId, null, type);
+                vans.add(van);
+            }
+            return vans;
+        }), vans);
     }
 
     public void editVan(Van van) {
