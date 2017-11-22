@@ -457,7 +457,8 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
             while(resultSet.next()){
                 String regisId = resultSet.getString("regis_number");
                 String type = resultSet.getString("type");
-                Van van = new Van(regisId, null, type);
+                String name = resultSet.getString("name");
+                Van van = new Van(regisId, null, type, name);
                 vans.add(van);
             }
             return vans;
@@ -495,7 +496,8 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
             while (resultSet.next()){
                 String id = resultSet.getString("regis_number");
                 String type = resultSet.getString("type");
-                Van van = new Van(id, null, type);
+                String name = resultSet.getString("name");
+                Van van = new Van(id, null, type, name);
                 if (ManagerDatabaseManager.VIP.equals(type))
                     available.get(ManagerDatabaseManager.VIP).add(van);
                 else
