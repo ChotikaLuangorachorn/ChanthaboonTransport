@@ -5,8 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.StringConverter;
 import managers.ManagerDatabaseManager;
 import models.Reservation;
+import models.Van;
 import org.controlsfx.control.CheckComboBox;
 import java.net.URL;
 import java.util.Date;
@@ -51,12 +53,36 @@ public class PageConfirmView implements Initializable {
         ccbSelectDriver.prefWidth(262);
         ccbSelectDriver.prefHeight(31);
 
-        System.out.println("Date = "+reservation.getStartDate());
 
         Date startDate = reservation.getStartDate();
         Date endDate = reservation.getEndDate();
         ccbSelectVanVip.getItems().addAll(controller.getVanAvailable(startDate, endDate).get(ManagerDatabaseManager.VIP));
-        ccbSelectVanNormal.getItems().addAll(controller.getVanAvailable(startDate, endDate).get(ManagerDatabaseManager.VIP));
+        ccbSelectVanVip.setConverter(new StringConverter() {
+            @Override
+            public String toString(Object object) {
+                Van van = (Van) object;
+                String s =  van.getName()+" - "+ van.getRegisNumber();
+                return s;
+            }
+
+            @Override
+            public Object fromString(String string) {
+                return null;
+            }
+        });
+        ccbSelectVanNormal.getItems().addAll(controller.getVanAvailable(startDate, endDate).get(ManagerDatabaseManager.NORMAL));
+        ccbSelectVanNormal.setConverter(new StringConverter() {
+            @Override
+            public String toString(Object object) {
+                Van van = (Van) object;
+                return van.getName() + " - " + van.getRegisNumber();
+            }
+
+            @Override
+            public Object fromString(String string) {
+                return null;
+            }
+        });
 //        ccbSelectDriver.getItems().addAll()
         confirmLayout.getChildren().add(ccbSelectDriver);
         confirmLayout.getChildren().add(ccbSelectVanVip);
@@ -64,7 +90,7 @@ public class PageConfirmView implements Initializable {
     }
 
     public void setIsDepositComboBox(){
-        String[] s = new String[] {"?????????????", "????????"};
+        String[] s = new String[] {"ยังไม่ชำระค่ามัดจำ", "ชำระแล้ว"};
         cbbIsDeposit.getItems().addAll(s);
         cbbIsDeposit.getSelectionModel().selectFirst();
 
