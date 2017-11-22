@@ -34,7 +34,7 @@ public class DriverMenuView implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        initCol();
 
 
     }
@@ -71,14 +71,10 @@ public class DriverMenuView implements Initializable{
 
     public void refreshDriverTable(){
         this.drivers = controller.getDrivers();
-        for (Driver d : drivers){
-            System.out.println(d.getCitizenId()+"--++");
-        }
         initData();
     }
     public void setController(MainController controller) {
         this.controller = controller;
-        initCol();
         refreshDriverTable();
     }
 
