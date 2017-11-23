@@ -260,8 +260,16 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
 
     }
 
-    public void addMeeting(String meetingPlace, Date meetingTime) {
-
+    public void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation) {
+        addMeeting(meetingPlace, meetingTime, reservation.getReserveId());
+    }
+    public void addMeeting(String meetingPlace, Date meetingTime, String reservationId) {
+        String sql = String.format("update reservation " +
+                                    "set meeting_place='%s', meeting_time='%s' " +
+                                    "where id='%s'",
+                                    meetingPlace, formatter.format(meetingTime), reservationId);
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
     }
 
     public void confirmDeposit(Reservation reservation, Date depositDate) {

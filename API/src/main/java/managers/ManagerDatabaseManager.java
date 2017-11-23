@@ -55,7 +55,8 @@ public interface ManagerDatabaseManager {
 
     void deleteDriverJob(Van van, Date startDate, Date endDate);
 
-    void addMeeting(String meetingPlace, Date meetingTime);
+    void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation);
+    void addMeeting(String meetingPlace, Date meetingTime, String reservationId);
     void confirmDeposit(Reservation reservation, Date depositDate);
 
     void confirmDeposit(String reservationId, Date depositDate);
