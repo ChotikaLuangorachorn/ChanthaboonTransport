@@ -2,10 +2,7 @@ package controllers;
 
 import javafx.scene.Parent;
 import managers.ManagerDatabaseManager;
-import models.Driver;
-import models.Partner;
-import models.Reservation;
-import models.Van;
+import models.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -81,6 +78,9 @@ public class MainController {
     }
     public Van getVan(String vanId){
         return executor.getVan(vanId);
+    }
+    public List<Schedule> getVanSchedule(String regisNumber){
+        return executor.getVanSchedule(regisNumber);
     }
 
 }

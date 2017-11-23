@@ -15,10 +15,15 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import models.Schedule;
 import models.Van;
+import utils.ReservationDateFormatter;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -32,7 +37,7 @@ public class VanDetailView implements Initializable{
 
     private MainController controller;
     private Van van;
-    private List<Van> jobs;
+    private List<Schedule> jobs;
     private VanMenuView vanMenuView;
 
     @Override
@@ -82,14 +87,43 @@ public class VanDetailView implements Initializable{
     }
 
     public void initCol(){
+        col_startDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Schedule,String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Schedule,String> schedule) {
+                Date startDate = schedule.getValue().getStartDate();
+                String date = ReservationDateFormatter.getInstance().getUiDateFormatter().format(startDate)+" ";
+                String time = ReservationDateFormatter.getInstance().getUiTimeFullFormatter().format(startDate)+ " น.";
+                return new SimpleStringProperty(date+time);
+            }
+        });
+        col_endDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Schedule,String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Schedule,String> schedule) {
+                Date endDate = schedule.getValue().getEndDate();
+                String date = ReservationDateFormatter.getInstance().getUiDateFormatter().format(endDate)+" ";
+                String time = ReservationDateFormatter.getInstance().getUiTimeFullFormatter().format(endDate)+ " น.";
+                return new SimpleStringProperty(date+time);
+            }
+        });
+        col_jobStatus.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Schedule,String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Schedule,String> schedule) {
+                String type = schedule.getValue().getType();
+                if (Schedule.RESERVE.equals(type)) {
+                    return new SimpleStringProperty(String.format("หมายเลขการจอง: %05d", schedule.getValue().getNote()));
+                } else if (Schedule.JOB.equals(type)) {
+                    return new SimpleStringProperty(schedule.getValue().getNote());
+                }
+                else{
+                    return new SimpleStringProperty("-");
+                }
+            }
+        });
     }
     public void initData(){
-        ObservableList<Van> data = FXCollections.observableList(jobs);
+        ObservableList<Schedule> data = FXCollections.observableList(jobs);
         table_vanDetail.setItems(data);
     }
 
     public void refreshVanTable(){
-//        this.jobs = controller.getVans();
+        this.jobs = controller.getVanSchedule(van.getRegisNumber());
         initData();
     }
 
@@ -100,6 +134,7 @@ public class VanDetailView implements Initializable{
 
     public void setVan(Van van) {
         this.van = van;
+        refreshVanTable();
         showDetail();
     }
     public void setVanMenuView(VanMenuView vanMenuView){

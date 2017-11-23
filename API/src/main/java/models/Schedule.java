@@ -42,6 +42,10 @@ public class Schedule {
         return note;
     }
 
+    public String getType() {
+        return type;
+    }
+
     @Override
     public String toString() {
         return "Schedule{" +
