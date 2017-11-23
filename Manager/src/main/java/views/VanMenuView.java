@@ -36,7 +36,7 @@ public class VanMenuView implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
         onClickDeleteVan();
-        onDoubleClickVan();
+
     }
     public void onClickDeleteVan(){
         btn_deleteVan.setOnAction(new EventHandler<ActionEvent>() {
@@ -101,6 +101,7 @@ public class VanMenuView implements Initializable{
         ObservableList<Van> data = FXCollections.observableList(vans);
         table_van.setItems(data);
         table_van.getSortOrder().add(col_name);
+        onDoubleClickVan();
     }
 
     public void refreshVanTable(){
