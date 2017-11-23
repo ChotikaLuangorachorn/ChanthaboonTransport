@@ -137,6 +137,17 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     public Van getVan(String vanId){
         return vanManager.getVan(vanId);
     }
+
+    @Override
+    public List<Schedule> getVanSchedule(Van van) {
+        return getVanSchedule(van.getRegisNumber());
+    }
+
+    @Override
+    public List<Schedule> getVanSchedule(String regisNumber) {
+        return vanManager.getVanSchedule(regisNumber);
+    }
+
     public void editCustomerInfo(Customer customer) {
         System.out.println("request editCustomerInfo");
         System.out.println("customer = " + customer);
@@ -279,7 +290,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         try{
             connection = prepareConnection();
             if (connection != null){
-                String sql = "update reservation set isDeposited='true', deposit_date='" + formatter.format(depositDate) + "'";
+                String sql = "update reservation set isDeposited='true', deposit_date='" + formatter.format(depositDate) + "' where id='" + reservationId + "'";
                 Statement statement = connection.createStatement();
                 int result = statement.executeUpdate(sql);
             }
