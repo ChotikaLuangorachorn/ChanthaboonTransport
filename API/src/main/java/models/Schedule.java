@@ -1,8 +1,9 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Schedule {
+public class Schedule implements Serializable{
     public static final String RESERVE = "reserve";
     public static final String JOB = "job";
     private String id;

@@ -164,8 +164,9 @@ public class VanManager {
         String sql = "select * " +
                         "from van_job_schedule " +
                         "join van_job_type " +
-                        "on van_job_schedule.type_id = van_job_type.id" +
+                        "on van_job_schedule.type_id = van_job_type.id " +
                         "where regis_number='"+regisNumber+"'";
+        System.out.println("sql = " + sql);
         QueryExecutionAssistant<List<Schedule>> assistant = new QueryExecutionAssistant<>(url);
         assistant.execute(sql, (resultSet -> {
             while(resultSet.next()){
@@ -176,12 +177,13 @@ public class VanManager {
             }
             return null;
         }), null);
-        String sql2 = "select id,start_working_date, end_working_date\n" +
+        String sql2 = "select reservation.id, reservation.start_working_date, reservation.end_working_date\n" +
                 "from reservation\n" +
                 "join van_reserve_schedule\n" +
                 "on reservation.id = van_reserve_schedule.reservation_id\n" +
                 "where regis_number = '" + regisNumber + "'";
-        return assistant.execute(sql, (resultSet -> {
+        System.out.println(sql2);
+        return assistant.execute(sql2, (resultSet -> {
             while(resultSet.next()){
                 Date startDate = formatter.parse(resultSet.getString("start_working_date"));
                 Date endDate = formatter.parse(resultSet.getString("end_working_date"));

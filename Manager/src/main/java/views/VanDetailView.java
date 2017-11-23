@@ -107,7 +107,7 @@ public class VanDetailView implements Initializable{
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Schedule,String> schedule) {
                 String type = schedule.getValue().getType();
                 if (Schedule.RESERVE.equals(type)) {
-                    return new SimpleStringProperty(String.format("หมายเลขการจอง: %05d", schedule.getValue().getNote()));
+                    return new SimpleStringProperty(String.format("หมายเลขการจอง: %05d", Integer.parseInt(schedule.getValue().getNote())));
                 } else if (Schedule.JOB.equals(type)) {
                     return new SimpleStringProperty(schedule.getValue().getNote());
                 }
