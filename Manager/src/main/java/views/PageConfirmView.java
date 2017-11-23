@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import managers.ManagerDatabaseManager;
 import models.Driver;
@@ -33,10 +34,15 @@ public class PageConfirmView implements Initializable {
     private MainController controller;
     private CheckComboBox ccbSelectVanVip, ccbSelectVanNormal, ccbSelectDriver;
     private Reservation reservation;
+    private ConfirmReservationMenu confirmReservationMenu;
 
     public void setController(MainController controller) {
         this.controller = controller;
 
+    }
+
+    public void setConfirmReservationMenu(ConfirmReservationMenu confirmReservationMenu) {
+        this.confirmReservationMenu = confirmReservationMenu;
     }
 
     @Override
@@ -144,7 +150,7 @@ public class PageConfirmView implements Initializable {
                         || (reservation.getAmtNormal() != ccbSelectVanNormal.getCheckModel().getCheckedItems().size())
                         || ((reservation.getAmtNormal() + reservation.getAmtVip()) != ccbSelectDriver.getCheckModel().getCheckedItems().size())){
 
-
+                        showWarningDialog();
                 }else{
                     LocalDate localDate = dpkDeposit.getValue();
                     Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
@@ -171,11 +177,29 @@ public class PageConfirmView implements Initializable {
                     System.out.println(ccbSelectVanVip.getCheckModel().getCheckedItems());
                     System.out.println(ccbSelectVanNormal.getCheckModel().getCheckedIndices());
                     System.out.println(ccbSelectDriver.getCheckModel().getCheckedIndices());
+                    showConfirmDialog();
+                    confirmReservationMenu.refreshReservationTable();
+                    Stage stage = (Stage) taPlace.getScene().getWindow();
+                    stage.close();
 
                 }
 
             }
         });
 
+    }
+    public void showWarningDialog(){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning Topic");
+        alert.setHeaderText("Look, You have not entered the information text field yet.");
+        alert.setContentText("Please enter a message in the information field.");
+        alert.showAndWait();
+    }
+
+    public void showConfirmDialog(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setContentText("ทำการยืนยันเรียบร้อยแล้ว");
+        alert.showAndWait();
     }
 }
