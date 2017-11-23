@@ -35,7 +35,7 @@
                   <TableColumn fx:id="col_firstName" prefWidth="112.0" resizable="false" style="-fx-alignment: center_left;" text="ชื่อ" />
                   <TableColumn fx:id="col_lastName" prefWidth="114.0" resizable="false" style="-fx-alignment: center_left;" text="นามสกุล" />
                   <TableColumn fx:id="col_fee" prefWidth="112.0" resizable="false" style="-fx-alignment: center_right;" text="ราคา (บาท)" />
-                  <TableColumn fx:id="col_statusReservation" prefWidth="125.0" resizable="false" style="-fx-alignment: center;" text="สถานะการจอง" />
+                  <TableColumn fx:id="col_isDeposited" prefWidth="125.0" resizable="false" style="-fx-alignment: center;" text="สถานะค่ามัดจำ" />
                </columns>
             </TableView>
             <Button fx:id="btn_deleteConfirm" layoutX="153.0" layoutY="437.0" mnemonicParsing="false" text="ลบข้อมูล">

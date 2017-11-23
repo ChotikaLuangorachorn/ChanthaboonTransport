@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
 
 public class ConfirmReservationMenu implements Initializable{
     @FXML private TableView<Reservation> table_confirmReserve;
-    @FXML private TableColumn<Reservation, String> col_fee, col_reserveId, col_firstName, col_lastName, col_statusReservation;
+    @FXML private TableColumn<Reservation, String> col_fee, col_reserveId, col_firstName, col_lastName, col_isDeposited;
     @FXML private Label lbCometoMain;
     private List<Reservation> reservations;
     private MainController controller;
@@ -120,16 +120,17 @@ public class ConfirmReservationMenu implements Initializable{
         col_fee.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation, String> param) {
-                return new SimpleStringProperty(param.getValue().getPrice() + "");
+                return new SimpleStringProperty(String.format("%,.2f",param.getValue().getPrice()));
             }
         });
 
 
 
-        col_statusReservation.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation, String>, ObservableValue<String>>() {
+        col_isDeposited.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation, String> param) {
-                return new SimpleStringProperty(param.getValue().getIsDeposited());
+                String isDeposited = ("true".equals(param.getValue().getIsDeposited()))?"ชำระแล้ว":"ยังไม่ชำระ";
+                return new SimpleStringProperty(isDeposited);
             }
         });
     }

@@ -91,7 +91,7 @@ public class VanDetailView implements Initializable{
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Schedule,String> schedule) {
                 Date startDate = schedule.getValue().getStartDate();
                 String date = ReservationDateFormatter.getInstance().getUiDateFormatter().format(startDate)+" ";
-                String time = ReservationDateFormatter.getInstance().getUiTimeFullFormatter().format(startDate)+ " น.";
+                String time = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(startDate)+ " น.";
                 return new SimpleStringProperty(date+time);
             }
         });
@@ -99,7 +99,7 @@ public class VanDetailView implements Initializable{
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Schedule,String> schedule) {
                 Date endDate = schedule.getValue().getEndDate();
                 String date = ReservationDateFormatter.getInstance().getUiDateFormatter().format(endDate)+" ";
-                String time = ReservationDateFormatter.getInstance().getUiTimeFullFormatter().format(endDate)+ " น.";
+                String time = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(endDate)+ " น.";
                 return new SimpleStringProperty(date+time);
             }
         });

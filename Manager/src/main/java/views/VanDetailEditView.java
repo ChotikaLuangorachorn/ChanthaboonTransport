@@ -45,7 +45,6 @@ public class VanDetailEditView implements Initializable{
         System.out.println(van);
         String type = (van.getType().equals("NORMAL"))?"ธรรมดา (15 ที่นั่ง)":"VIP (9 ที่นั่ง)";
         cb_type.setValue(type);
-
         cb_type.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

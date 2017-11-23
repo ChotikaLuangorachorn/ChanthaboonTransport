@@ -123,16 +123,18 @@ public class PageConfirmView implements Initializable {
     }
 
     public void setIsDepositComboBox(){
-        String[] s = new String[] {"ยังไม่ชำระค่ามัดจำ", "ชำระแล้ว"};
+        String[] s = new String[] {"ยังไม่ชำระ", "ชำระแล้ว"};
         cbbIsDeposit.getItems().addAll(s);
-        cbbIsDeposit.getSelectionModel().selectFirst();
+        String isDeposit = ("true".equals(reservation.getIsDeposited()))?"ชำระแล้ว":"ยังไม่ชำระ";
+//        cbbIsDeposit.getSelectionModel().selectFirst();
+        cbbIsDeposit.setValue(isDeposit);
 
     }
 
 
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
-        lbReservationId.setText(this.reservation.getReserveId());
+        lbReservationId.setText(String.format("%05d",Integer.parseInt(this.reservation.getReserveId())));
         lbDate.setText(ReservationDateFormatter.getInstance().getUiDateFormatter().format(this.reservation.getStartDate()));
         lbAmtVip.setText(this.reservation.getAmtVip()+ "");
         lbAmtNm.setText(this.reservation.getAmtNormal() + "");
