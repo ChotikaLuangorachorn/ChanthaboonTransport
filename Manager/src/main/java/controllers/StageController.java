@@ -56,6 +56,7 @@ public class StageController {
             AnchorPane mainLayout = loader.load();
             ReservationMenuView reservationMenuView = loader.getController();
             reservationMenuView.setController(controller);
+            reservationMenuView.setStageController(this);
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(mainLayout);
