@@ -34,12 +34,25 @@ public class MainController {
         return executor.getVanAvailable(startDate, endDate);
     }
 
+    public void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation){
+        executor.addMeeting(meetingPlace, meetingTime, reservation);
+    }
+
+
+
     /**Driver*/
     public List<Driver> getDrivers(){
         return executor.getDrivers();
     }
     public  void deleteDriver(Driver driver){
         executor.deleteDriver(driver);
+    }
+    public List<Driver> getDriverAvailable(Date startDate, Date endDate){
+        return executor.getDriverAvailable(startDate, endDate);
+    }
+
+    public void assignDriver(List<Driver> drivers, Reservation reservation){
+        executor.assignDriver(drivers, reservation);
     }
 
     /**Partner*/
@@ -51,7 +64,8 @@ public class MainController {
     }
 
     /**Van*/
-    public List<Van> getVans(){
+    public List<Van> getVans()
+    {
         return executor.getVans();
     }
     public void deleteVan(Van van){
@@ -60,9 +74,11 @@ public class MainController {
     public void editVan(Van van){
         executor.editVan(van);
     }
-    public Van getVan(String regis){
-        return executor.getVan(regis);
+    public void assignVan(List<Van> vans, Reservation reservation){
+        executor.assignVan(vans, reservation);
     }
-
+    public Van getVan(String vanId){
+        return executor.getVan(vanId);
+    }
 
 }
