@@ -28,8 +28,8 @@ public class VanDetailEditView implements Initializable{
     @FXML private Button btn_confirm, btn_cancel;
     private MainController controller;
     private Van van;
-    private VanDetailView vanDetail;
     private VanDetailView vanDetailView;
+    private VanMenuView vanMenuView;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -155,6 +155,7 @@ public class VanDetailEditView implements Initializable{
 
                 Stage stage = (Stage) btn_cancel.getScene().getWindow();
                 stage.close();
+                vanMenuView.refreshVanTable();
             }
         });
     }
@@ -201,5 +202,9 @@ public class VanDetailEditView implements Initializable{
     }
     public void setVanDetailView(VanDetailView vanDetailView){
         this.vanDetailView=vanDetailView;
+    }
+
+    public void setVanMenuView(VanMenuView vanMenuView){
+        this.vanMenuView = vanMenuView;
     }
 }

@@ -33,6 +33,7 @@ public class VanDetailView implements Initializable{
     private MainController controller;
     private Van van;
     private List<Van> jobs;
+    private VanMenuView vanMenuView;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -64,6 +65,7 @@ public class VanDetailView implements Initializable{
                     vanDetailEditView.setController(controller);
                     vanDetailEditView.setVan(van);
                     vanDetailEditView.setVanDetailView(VanDetailView.this);
+                    vanDetailEditView.setVanMenuView(vanMenuView);
 
                     Scene scene = new Scene(detail);
                     stage.setScene(scene);
@@ -99,6 +101,9 @@ public class VanDetailView implements Initializable{
     public void setVan(Van van) {
         this.van = van;
         showDetail();
+    }
+    public void setVanMenuView(VanMenuView vanMenuView){
+        this.vanMenuView = vanMenuView;
     }
 
     public void setLb_name(String name) {
