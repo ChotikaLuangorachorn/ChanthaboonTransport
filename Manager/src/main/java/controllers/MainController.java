@@ -64,7 +64,8 @@ public class MainController {
     }
 
     /**Van*/
-    public List<Van> getVans(){
+    public List<Van> getVans()
+    {
         return executor.getVans();
     }
     public void deleteVan(Van van){
@@ -75,6 +76,9 @@ public class MainController {
     }
     public void assignVan(List<Van> vans, Reservation reservation){
         executor.assignVan(vans, reservation);
+    }
+    public Van getVan(String vanId){
+        return executor.getVan(vanId);
     }
 
 }

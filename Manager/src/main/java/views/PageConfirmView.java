@@ -41,7 +41,7 @@ public class PageConfirmView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        onClickConfirm();
 
     }
     public void initCheckComboBox(){
@@ -133,7 +133,6 @@ public class PageConfirmView implements Initializable {
         lbAmtDriver.setText((this.reservation.getAmtNormal() + this.reservation.getAmtVip()) + "");
         initCheckComboBox();
         setIsDepositComboBox();
-        onClickConfirm();
     }
 
     public void onClickConfirm(){
@@ -149,7 +148,8 @@ public class PageConfirmView implements Initializable {
                 }else{
                     LocalDate localDate = dpkDeposit.getValue();
                     Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
-                    controller.addMeeting(taPlace.getText(), reservation.getMeetingDate(), reservation);
+                    System.out.println(taPlace.getText());
+                    controller.addMeeting(taPlace.getText(), reservation.getStartDate(), reservation);
                     controller.confirmDeposit(reservation.getReserveId(), Date.from(instant));
 
                     List<Van> vans = new ArrayList<>();
