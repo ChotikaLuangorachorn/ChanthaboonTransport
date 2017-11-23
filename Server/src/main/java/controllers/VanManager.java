@@ -101,11 +101,11 @@ public class VanManager {
         }), available);
     }
     public Van getVan(String vanId){
-        String sql = "select * from van where regis_id='" + vanId + "'";
+        String sql = "select * from van where regis_number='" + vanId + "'";
         QueryExecutionAssistant<Van> assistant = new QueryExecutionAssistant<>(url);
         return assistant.execute(sql, (resultSet -> {
             if (resultSet.next()){
-                String regisNumber = resultSet.getString("regis_id");
+                String regisNumber = resultSet.getString("regis_number");
                 String name = resultSet.getString("name");
                 String partnerId = resultSet.getString("partner_id");
                 String type = resultSet.getString("type");
@@ -126,7 +126,7 @@ public class VanManager {
     public void editVan(Van van) {
         System.out.println("request edit van");
         String sql = String.format("update van " +
-                        "set name='%s', partner_id='%s', type=%s " +
+                        "set name='%s', partner_id=%s, type='%s' " +
                         "where regis_number='%s'",
                 van.getName(),
                 (van.getPartnerId()==null)?"null":"'"+van.getPartnerId()+"'",
