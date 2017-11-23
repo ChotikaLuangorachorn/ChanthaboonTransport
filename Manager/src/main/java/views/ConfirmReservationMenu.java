@@ -1,6 +1,7 @@
 package views;
 
 import controllers.MainController;
+import controllers.StageController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -10,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
@@ -28,8 +30,10 @@ import java.util.ResourceBundle;
 public class ConfirmReservationMenu implements Initializable{
     @FXML private TableView<Reservation> table_confirmReserve;
     @FXML private TableColumn<Reservation, String> col_fee, col_reserveId, col_firstName, col_lastName, col_statusReservation;
+    @FXML private Label lbCometoMain;
     private List<Reservation> reservations;
     private MainController controller;
+    private StageController stageController;
 
     public void setController(MainController controller) {
         this.controller = controller;
@@ -37,6 +41,16 @@ public class ConfirmReservationMenu implements Initializable{
         initColunm();
         initData();
         onDoubleClickReservation();
+    }
+
+    public void setStageController(StageController stageController) {
+        this.stageController = stageController;
+        lbCometoMain.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stageController.showMainView();
+            }
+        });
     }
 
     @Override

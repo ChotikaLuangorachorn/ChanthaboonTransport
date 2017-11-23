@@ -1,6 +1,7 @@
 package views;
 
 import controllers.MainController;
+import controllers.StageController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -27,9 +29,21 @@ public class DriverMenuView implements Initializable{
     @FXML private TableView table_driver;
     @FXML private TableColumn col_fName, col_lName, col_nName, col_phone, col_license;
     @FXML private Button btn_editDriver, btn_deleteDriver;
+    @FXML private Label lbCometoMain;
 
     private MainController controller;
+    private StageController stageController;
     private List<Driver> drivers;
+
+    public void setStageController(StageController stageController) {
+        this.stageController = stageController;
+        lbCometoMain.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stageController.showMainView();
+            }
+        });
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

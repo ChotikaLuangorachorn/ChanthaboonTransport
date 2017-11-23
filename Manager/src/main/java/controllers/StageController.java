@@ -38,6 +38,7 @@ public class StageController {
             AnchorPane mainLayout = loader.load();
             VanMenuView vanMenuView = loader.getController();
             vanMenuView.setController(controller);
+            vanMenuView.setStageController(this);
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(mainLayout);
@@ -72,6 +73,7 @@ public class StageController {
             AnchorPane mainLayout = loader.load();
             DriverMenuView driverMenuView = loader.getController();
             driverMenuView.setController(controller);
+            driverMenuView.setStageController(this);
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(mainLayout);
@@ -106,6 +108,7 @@ public class StageController {
             AnchorPane mainLayout = loader.load();
             PartnerMenuView partnerMenuView = loader.getController();
             partnerMenuView.setController(controller);
+            partnerMenuView.setStageController(this);
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(mainLayout);
@@ -123,6 +126,7 @@ public class StageController {
             AnchorPane mainLayout = loader.load();
             ConfirmReservationMenu confirmReservationMenu = loader.getController();
             confirmReservationMenu.setController(controller);
+            confirmReservationMenu.setStageController(this);
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(mainLayout);

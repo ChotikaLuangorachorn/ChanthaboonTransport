@@ -1,6 +1,7 @@
 package views;
 
 import controllers.MainController;
+import controllers.StageController;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -28,9 +30,21 @@ public class VanMenuView implements Initializable{
     @FXML private TableView table_van;
     @FXML private TableColumn col_regisNum, col_type, col_jobStatus, col_name;
     @FXML private Button btn_deleteVan, btn_editVan;
+    @FXML private Label lbCometoMain;
 
     private List<Van> vans;
     private MainController controller;
+    private StageController stageController;
+
+    public void setStageController(StageController stageController) {
+        this.stageController = stageController;
+        lbCometoMain.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stageController.showMainView();
+            }
+        });
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

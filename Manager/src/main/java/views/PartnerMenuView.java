@@ -1,6 +1,7 @@
 package views;
 
 import controllers.MainController;
+import controllers.StageController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -11,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import models.Partner;
 
@@ -23,14 +25,26 @@ public class PartnerMenuView  implements Initializable{
     @FXML private TableView table_partner;
     @FXML private TableColumn col_id, col_name, col_company, col_companyPhone;
     @FXML private Button btn_deletePartner, btn_editPartner;
+    @FXML private Label lbCometoMain;
 
     private MainController controller;
+    private StageController stageController;
     private List<Partner> partners;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
         onClickDeletePartner();
+    }
+
+    public void setStageController(StageController stageController) {
+        this.stageController = stageController;
+        lbCometoMain.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stageController.showMainView();
+            }
+        });
     }
 
     public void onClickDeletePartner(){
