@@ -89,6 +89,7 @@ public class VanMenuView implements Initializable{
                     VanDetailView vanDetailView = loader.getController();
                     vanDetailView.setController(controller);
                     vanDetailView.setVan(van);
+                    vanDetailView.setVanMenuView(VanMenuView.this);
 
                     Scene scene = new Scene(detailLayout);
                     secondStage.setScene(scene);
