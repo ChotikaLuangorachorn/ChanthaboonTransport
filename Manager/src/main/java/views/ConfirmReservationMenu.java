@@ -61,6 +61,7 @@ public class ConfirmReservationMenu implements Initializable{
                         PageConfirmView pageConfirmView = loader.getController();
                         pageConfirmView.setController(controller);
                         pageConfirmView.setReservation(reservation);
+                        pageConfirmView.setConfirmReservationMenu(ConfirmReservationMenu.this);
 
                         Scene scene = new Scene(confirmLayout);
                         secondStage.setScene(scene);
@@ -124,5 +125,9 @@ public class ConfirmReservationMenu implements Initializable{
         ObservableList<Reservation> reservationObservableList = FXCollections.observableList(reservations);
         FXCollections.reverse(reservationObservableList);
         table_confirmReserve.setItems(reservationObservableList);
+    }
+    public void refreshReservationTable(){
+        this.reservations = controller.getReservation();
+        this.initData();
     }
 }
