@@ -45,6 +45,7 @@ public interface ManagerDatabaseManager {
     void deleteReservation(String reservationId);
     void assignVan(List<Van> vans, Reservation reservation);
     void assignVan(List<Van> vans, String reservationId);
+    Van getVan(String vanId);
 
     void assignDriver(List<Driver> drivers, Reservation reservation);
     void assignDriver(List<Driver> drivers, String reservationId);
