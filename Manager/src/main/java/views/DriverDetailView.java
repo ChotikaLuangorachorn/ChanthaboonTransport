@@ -3,17 +3,25 @@ package views;
 import controllers.MainController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import models.Driver;
 import utils.ReservationDateFormatter;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -51,6 +59,35 @@ public class DriverDetailView implements Initializable {
         lb_birthDay.setText(birthDay);
         lb_phone.setText(phone);
         lb_address.setText(address);
+    }
+
+    public void onClickEditDriver(){
+        btn_editDriver.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                try {
+                    Stage stage = new Stage();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/van_detail_edit.fxml"));
+                    Pane detail = loader.load();
+                    DriverDetailEditView driverDetailEditView = loader.getController();
+                    driverDetailEditView.setController(controller);
+                    driverDetailEditView.setDriver(driver);
+                    driverDetailEditView.setDriverDetailEditView(DriverDetailView.this);
+
+                    Scene scene = new Scene(detail);
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.setTitle("แก้ไขข้อมูลรถตู้");
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.showAndWait();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
     }
 
 
