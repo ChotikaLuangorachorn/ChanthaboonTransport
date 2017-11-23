@@ -245,7 +245,19 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public void assignDriver(List<Driver> drivers, Reservation reservation) {
-
+        assignDriver(drivers, reservation.getReserveId());
+    }
+    public void assignDriver(List<Driver> drivers, String reservationId) {
+        String sql = String.format("insert into driver_reserve_schedule " +
+                "select driver.citizen_id, '%s' " +
+                "from driver " +
+                "where driver.citizen_id in ", reservationId);
+        List<String> driverIds = new ArrayList<>();
+        for (Driver driver:drivers)
+            driverIds.add("'" + driver.getCitizenId() + "'");
+        sql += "(" + String.join(",", driverIds) + ")";
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
     }
 
     public List<JobType> getVanJobs() {

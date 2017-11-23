@@ -47,6 +47,7 @@ public interface ManagerDatabaseManager {
     void assignVan(List<Van> vans, String reservationId);
 
     void assignDriver(List<Driver> drivers, Reservation reservation);
+    void assignDriver(List<Driver> drivers, String reservationId);
     List<JobType> getVanJobs();
     void addVanJob(Van van, Date startDate, Date endDate, JobType type);
 
