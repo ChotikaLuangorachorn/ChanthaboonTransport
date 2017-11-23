@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -74,53 +75,85 @@ public class InformationView extends AnchorPane implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setHeaderText("Change your password");
-                Label text1 = new Label("Old Password: ");
-                Label text2 = new Label("New Password: ");
-                Label text3 = new Label("Confirm Password: ");
-                Label errorText = new Label("");
+                alert.setHeaderText("เปลี่ยนรหัสผ่านของคุณ");
+                Label text1 = new Label("รหัสผ่านเดิม: ");
+                Label text2 = new Label("รหัสผ่านใหม่: ");
+                Label text3 = new Label("ยืนยันรหัสผ่านใหม่: ");
+                Label errorOldPwd = new Label("");
+                Label errorNewPwd = new Label("");
+                Label errorConfirmPwd = new Label("");
+                errorOldPwd.setStyle("-fx-text-fill: Red");
+                errorNewPwd.setStyle("-fx-text-fill: Red");
+                errorConfirmPwd.setStyle("-fx-text-fill: Red");
+                text1.setPrefWidth(120);
+                errorOldPwd.setPrefWidth(200);
+
                 PasswordField oldPwd = new PasswordField();
                 final PasswordField newPwd = new PasswordField();
                 final PasswordField confirmPwd = new PasswordField();
 
-                newPwd.setOnAction(new EventHandler<ActionEvent>() {
+                oldPwd.setOnMouseEntered(new EventHandler<MouseEvent>() {
                     @Override
-                    public void handle(ActionEvent event) {
+                    public void handle(MouseEvent event) {
                         System.out.println("in new pwd");
-                        if((!newPwd.getText().equals(confirmPwd.getText())) || ("".equals(newPwd.getText()) || "".equals(confirmPwd.getText()))){
-                            errorText.setStyle("-fx-color: red");
-                            errorText.setText("Password ไม่ตรงกัน");
+                        if("".equals(oldPwd.getText()) &&( !"".equals(newPwd.getText()) || !"".equals(confirmPwd.getText()))){
+                            errorOldPwd.setText("โปรดระบุรหัสผ่านเดิม");
+                        }
+                        else {
+                            errorOldPwd.setText("");
                         }
                     }
                 });
 
-                confirmPwd.setOnAction(new EventHandler<ActionEvent>() {
+                newPwd.setOnMouseEntered(new EventHandler<MouseEvent>() {
                     @Override
-                    public void handle(ActionEvent event) {
+                    public void handle(MouseEvent event) {
+                        System.out.println("in new pwd");
+                        if((newPwd.getText().length()<5) && (!"".equals(oldPwd.getText()) && !"".equals(newPwd.getText()) && !"".equals(confirmPwd.getText()) )){
+                            errorNewPwd.setText("โปรดระบุรหัสผ่านใหม่อย่างน้อย 5 อักขระ");
+                        }
+                        else {
+                            errorNewPwd.setText("");
+                        }
+                    }
+                });
+
+                confirmPwd.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
                         System.out.println("in confirm pwd");
-                        if((!newPwd.getText().equals(confirmPwd.getText())) || ("".equals(newPwd.getText()) || "".equals(confirmPwd.getText()))){
-                            errorText.setStyle("-fx-color: red");
-                            errorText.setText("Password ไม่ตรงกัน");
+                        if ("".equals(newPwd.getText()) && confirmPwd.getText().length()!=0){
+                            errorConfirmPwd.setText("โปรดระบุรหัสผ่านใหม่ก่อน");
+                        }
+                        else if((!newPwd.getText().equals(confirmPwd.getText()))){
+                            errorConfirmPwd.setText("รหัสผ่านที่ยืนยันไม่ตรงกับรหัสผ่านใหม่");
+                        }
+                        else {
+                            errorConfirmPwd.setText("");
                         }
                     }
                 });
                 GridPane grid = new GridPane();
+
                 grid.add(text1, 1, 1);
                 grid.add(oldPwd, 2, 1);
-                grid.add(text2, 1, 2);
-                grid.add(newPwd, 2, 2);
-                grid.add(text3, 1, 3);
-                grid.add(confirmPwd, 2, 3);
-                grid.add(errorText, 2, 4);
-                grid.setVgap(5);
+                grid.add(errorOldPwd, 2, 2);
+
+                grid.add(text2, 1, 3);
+                grid.add(newPwd, 2, 3);
+                grid.add(errorNewPwd, 2, 4);
+
+                grid.add(text3, 1, 5);
+                grid.add(confirmPwd, 2, 5);
+                grid.add(errorConfirmPwd, 2, 6);
+                grid.setVgap(10);
                 alert.getDialogPane().setContent(grid);
 
                 Optional<ButtonType> result = alert.showAndWait();
-                if ((result.isPresent()) && (result.get() == ButtonType.OK)){
+                if ((result.isPresent()) && (result.get() == ButtonType.OK) &&("".equals(errorOldPwd.getText()) && "".equals(errorNewPwd.getText()) && "".equals(errorOldPwd.getText()))){
                     System.out.println("oldPwd = " + oldPwd.getText());
                     System.out.println("newPwd = " + newPwd.getText());
                     controller.changeCustomerPassword(CustomerInfoManager.getInstance().getCustomer().getCitizenId(), oldPwd.getText(), confirmPwd.getText());
-
                 }
 
 

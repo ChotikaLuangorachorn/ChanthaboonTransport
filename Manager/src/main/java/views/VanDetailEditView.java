@@ -158,7 +158,7 @@ public class VanDetailEditView implements Initializable{
             }
         });
     }
-    public void onClickConcelEdit(){
+    public void onClickCancelEdit(){
         btn_cancel.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -196,7 +196,7 @@ public class VanDetailEditView implements Initializable{
         if (tf_typeNum != null) {
             showEditForm();
             onClickConfirmEdit();
-            onClickConcelEdit();
+            onClickCancelEdit();
         }
     }
     public void setVanDetailView(VanDetailView vanDetailView){
