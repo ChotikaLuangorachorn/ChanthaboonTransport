@@ -11,9 +11,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import models.Driver;
+import models.Van;
 import utils.ReservationDateFormatter;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class DriverDetailEditView implements Initializable {
@@ -26,6 +28,7 @@ public class DriverDetailEditView implements Initializable {
     private DriverDetailView dirverDetailView;
     private Driver driver;
     private MainController controller;
+    private DriverMenuView driverMenuView;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -40,7 +43,7 @@ public class DriverDetailEditView implements Initializable {
         String lName = (driver.getLastname()==null)?"":driver.getLastname();
         String nName = (driver.getNickname()==null)?"":driver.getNickname();
         String phone = (driver.getPhone()==null)?"":driver.getPhone();
-        String citizenId = (driver.getCitizenId()==null)?"":driver.getCitizenId();
+        String citizenId = driver.getCitizenId();
         String birthDay = ReservationDateFormatter.getInstance().getUiDateFormatter().format(driver.getDateOfBirth());
         String address = (driver.getAddress()==null)?"":driver.getAddress();
         lb_license.setText(license);
@@ -64,8 +67,9 @@ public class DriverDetailEditView implements Initializable {
                 String address = ta_address.getText();
                 Boolean checkPhone = false;
                 try {
+                    if (phone.length()==10){
                     int phoneNum = Integer.parseInt(phone);
-                    checkPhone = true;
+                    checkPhone = true;}
                 } catch (Exception e) {
                     checkPhone = false;
                 }
@@ -78,12 +82,30 @@ public class DriverDetailEditView implements Initializable {
                     lb_error.setText("กรอกข้อมูลไม่ครบถ้วน");
                 }
                 else if(!checkPhone){
-                    lb_error.setText("โปรดระบุหมายเลขโทรศัทพ์เป็นตัวเลข");
+                    lb_error.setText("หมายเลขโทรศัทพ์ไม่ถูกต้อง");
                 }
                 else {
                     lb_error.setText("");
+
+                    String license = driver.getDriverLicense();
+                    String citizenId = driver.getCitizenId();
+                    Date birthDay = driver.getDateOfBirth();
+
+                    Driver newDriver = new Driver(citizenId,license,birthDay,fName,lName,nName,phone,address);
+                    controller.editDriver(newDriver);
+
+                    dirverDetailView.setLb_fName(newDriver.getFirstname());
+                    dirverDetailView.setLb_lName(newDriver.getLastname());
+                    dirverDetailView.setLb_nName(newDriver.getNickname());
+                    dirverDetailView.setLb_phone(newDriver.getPhone());
+                    dirverDetailView.setLb_address(newDriver.getAddress());
+
                     Stage stage = (Stage) btn_cancel.getScene().getWindow();
                     stage.close();
+
+                    driverMenuView.refreshDriverTable();
+
+
                 }
 
             }
@@ -114,5 +136,8 @@ public class DriverDetailEditView implements Initializable {
     }
     public void setDriverDetailEditView(DriverDetailView driverDetailView){
         this.dirverDetailView=driverDetailView;
+    }
+    public void setDriverMenuView(DriverMenuView driverMenuView){
+        this.driverMenuView =driverMenuView;
     }
 }

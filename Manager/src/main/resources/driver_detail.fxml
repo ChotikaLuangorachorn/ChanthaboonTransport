@@ -41,22 +41,22 @@
             <TableColumn fx:id="col_jobStatus" prefWidth="294.0" style="-fx-alignment: center;" text="สถานะ" />
          </columns>
       </TableView>
-      <Label layoutX="543.0" layoutY="64.0" text="ที่อยู่:">
+      <Label layoutX="501.0" layoutY="64.0" text="ที่อยู่:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lb_address" alignment="TOP_LEFT" layoutX="583.0" layoutY="64.0" prefHeight="40.0" prefWidth="134.0" text="ที่อยู่&#10;ที่อยู่" textAlignment="JUSTIFY" wrapText="true">
+      <Label fx:id="lb_address" alignment="TOP_LEFT" layoutX="541.0" layoutY="64.0" prefHeight="40.0" prefWidth="175.0" text="ที่อยู่&#10;ที่อยู่" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="261.0" layoutY="84.0" text="วัน/เดือน/ปี เกิด:">
+      <Label layoutX="223.0" layoutY="84.0" text="วัน/เดือน/ปี เกิด:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lb_birthDay" layoutX="394.0" layoutY="84.0" text="00/00/0000">
+      <Label fx:id="lb_birthDay" layoutX="356.0" layoutY="84.0" text="00/00/0000">
          <font>
             <Font size="14.0" />
          </font>
@@ -81,22 +81,22 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="261.0" layoutY="64.0" text="เลขประจำตัวประชาชน:">
+      <Label layoutX="223.0" layoutY="64.0" text="เลขประจำตัวประชาชน:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lb_citizenId" layoutX="394.0" layoutY="64.0" text="1234567890123">
+      <Label fx:id="lb_citizenId" layoutX="356.0" layoutY="64.0" text="1234567890123">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="261.0" layoutY="104.0" text="หมายเลขโทรศัพท์:">
+      <Label layoutX="223.0" layoutY="104.0" text="หมายเลขโทรศัพท์:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lb_phone" layoutX="394.0" layoutY="104.0" text="1234567890">
+      <Label fx:id="lb_phone" layoutX="356.0" layoutY="104.0" text="1234567890">
          <font>
             <Font size="14.0" />
          </font>

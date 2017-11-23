@@ -76,6 +76,7 @@ public class DriverMenuView implements Initializable{
                     DriverDetailView driverDetailView = loader.getController();
                     driverDetailView.setController(controller);
                     driverDetailView.setDriver(driver);
+                    driverDetailView.setDriverMenuView(DriverMenuView.this);
 
                     Scene scene = new Scene(detailLayout);
                     secondStage.setScene(scene);

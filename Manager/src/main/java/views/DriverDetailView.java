@@ -35,6 +35,7 @@ public class DriverDetailView implements Initializable {
     private MainController controller;
     private Driver driver;
     private List<Driver> jobs;
+    private DriverMenuView driverMenuView;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -75,8 +76,10 @@ public class DriverDetailView implements Initializable {
                     Pane detail = loader.load();
                     DriverDetailEditView driverDetailEditView = loader.getController();
                     driverDetailEditView.setController(controller);
+                    driver = new Driver(driver.getCitizenId(),driver.getDriverLicense(),driver.getDateOfBirth(),lb_fName.getText(),lb_lName.getText(),lb_nName.getText(),lb_phone.getText(),lb_address.getText());
                     driverDetailEditView.setDriver(driver);
                     driverDetailEditView.setDriverDetailEditView(DriverDetailView.this);
+                    driverDetailEditView.setDriverMenuView(driverMenuView);
 
                     Scene scene = new Scene(detail);
                     stage.setScene(scene);
@@ -117,4 +120,28 @@ public class DriverDetailView implements Initializable {
             onClickEditDriver();
         }
     }
+    public void setDriverMenuView(DriverMenuView driverMenuView){
+        this.driverMenuView =driverMenuView;
+    }
+
+    public void setLb_fName(String fName) {
+        this.lb_fName.setText(fName);
+    }
+
+    public void setLb_lName(String lName) {
+        this.lb_lName.setText(lName);
+    }
+
+    public void setLb_nName(String nName) {
+        this.lb_nName.setText(nName);
+    }
+
+    public void setLb_phone(String phone) {
+        this.lb_phone.setText(phone);
+    }
+
+    public void setLb_address(String address) {
+        this.lb_address.setText(address);
+    }
+
 }

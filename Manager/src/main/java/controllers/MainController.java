@@ -30,10 +30,6 @@ public class MainController {
     }
 
 
-    public Map<String, List<Van>> getVanAvailable(Date startDate, Date endDate){
-        return executor.getVanAvailable(startDate, endDate);
-    }
-
     public void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation){
         executor.addMeeting(meetingPlace, meetingTime, reservation);
     }
@@ -49,6 +45,9 @@ public class MainController {
     }
     public List<Driver> getDriverAvailable(Date startDate, Date endDate){
         return executor.getDriverAvailable(startDate, endDate);
+    }
+    public void editDriver(Driver driver){
+        executor.editDriver(driver);
     }
 
     public void assignDriver(List<Driver> drivers, Reservation reservation){
@@ -73,6 +72,9 @@ public class MainController {
     }
     public void editVan(Van van){
         executor.editVan(van);
+    }
+    public Map<String, List<Van>> getVanAvailable(Date startDate, Date endDate){
+        return executor.getVanAvailable(startDate, endDate);
     }
     public void assignVan(List<Van> vans, Reservation reservation){
         executor.assignVan(vans, reservation);
