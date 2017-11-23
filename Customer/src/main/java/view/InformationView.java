@@ -116,7 +116,6 @@ public class InformationView extends AnchorPane implements Initializable {
                 alert.getDialogPane().setContent(grid);
 
                 Optional<ButtonType> result = alert.showAndWait();
-
                 if ((result.isPresent()) && (result.get() == ButtonType.OK)){
                     System.out.println("oldPwd = " + oldPwd.getText());
                     System.out.println("newPwd = " + newPwd.getText());

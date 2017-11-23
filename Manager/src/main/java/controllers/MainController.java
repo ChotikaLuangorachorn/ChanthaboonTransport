@@ -60,5 +60,9 @@ public class MainController {
     public void editVan(Van van){
         executor.editVan(van);
     }
+    public Van getVan(String regis){
+        return executor.getVan(regis);
+    }
+
 
 }

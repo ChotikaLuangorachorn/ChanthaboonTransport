@@ -164,11 +164,11 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public Van getVan(String vanId){
-        String sql = "select * from van where regis_id='" + vanId + "'";
+        String sql = "select * from van where regis_number='" + vanId + "'";
         QueryExecutionAssistant<Van> assistant = new QueryExecutionAssistant(url);
         return assistant.execute(sql, (resultSet -> {
             if (resultSet.next()){
-                String regisNumber = resultSet.getString("regis_id");
+                String regisNumber = resultSet.getString("regis_number");
                 String name = resultSet.getString("name");
                 String partnerId = resultSet.getString("partner_id");
                 String type = resultSet.getString("type");
