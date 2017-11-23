@@ -185,7 +185,6 @@ public class VanDetailEditView implements Initializable{
         numbers.add(vip);
         return numbers;
 
-
     }
     public void setController(MainController controller){
         this.controller = controller;
