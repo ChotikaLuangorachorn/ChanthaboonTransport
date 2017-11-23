@@ -126,9 +126,11 @@ public class VanManager {
     public void editVan(Van van) {
         System.out.println("request edit van");
         String sql = String.format("update van " +
-                        "set name='%s', partner_id='%s', type='%s' " +
+                        "set name='%s', partner_id='%s', type=%s " +
                         "where regis_number='%s'",
-                van.getName(), van.getPartnerId(), van.getType(), van.getRegisNumber());
+                van.getName(),
+                (van.getPartnerId()==null)?"null":"'"+van.getPartnerId()+"'",
+                van.getType(), van.getRegisNumber());
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
         int result = assistant.execute(sql);
         System.out.println(result);
