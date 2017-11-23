@@ -39,6 +39,8 @@ public class DriverDetailView implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
+        if(driver!=null){
+        onClickEditDriver();}
     }
 
     public void showDetail(){
@@ -69,7 +71,7 @@ public class DriverDetailView implements Initializable {
                 try {
                     Stage stage = new Stage();
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/van_detail_edit.fxml"));
+                    loader.setLocation(getClass().getResource("/driver_detail_edit.fxml"));
                     Pane detail = loader.load();
                     DriverDetailEditView driverDetailEditView = loader.getController();
                     driverDetailEditView.setController(controller);
@@ -111,5 +113,8 @@ public class DriverDetailView implements Initializable {
     public void setDriver(Driver driver) {
         this.driver = driver;
         showDetail();
+        if(lb_license!=null){
+            onClickEditDriver();
+        }
     }
 }

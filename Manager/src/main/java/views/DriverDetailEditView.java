@@ -31,17 +31,18 @@ public class DriverDetailEditView implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         if (driver != null)
             showEditForm();
+            onClickConcelEdit();
     }
 
     public void showEditForm(){
-        String license = driver.getDriverLicense();
-        String fName = driver.getFirstname();
-        String lName = driver.getLastname();
-        String nName = driver.getNickname();
-        String phone = driver.getPhone();
-        String citizenId = driver.getCitizenId();
+        String license = (driver.getDriverLicense()==null)?"":driver.getDriverLicense();
+        String fName = (driver.getFirstname()==null)?"":driver.getFirstname();
+        String lName = (driver.getLastname()==null)?"":driver.getLastname();
+        String nName = (driver.getNickname()==null)?"":driver.getNickname();
+        String phone = (driver.getPhone()==null)?"":driver.getPhone();
+        String citizenId = (driver.getCitizenId()==null)?"":driver.getCitizenId();
         String birthDay = ReservationDateFormatter.getInstance().getUiDateFormatter().format(driver.getDateOfBirth());
-        String address = driver.getAddress();
+        String address = (driver.getAddress()==null)?"":driver.getAddress();
         lb_license.setText(license);
         tf_fName.setText(fName);
         tf_lName.setText(lName);
@@ -69,13 +70,14 @@ public class DriverDetailEditView implements Initializable {
                     checkPhone = false;
                 }
                 Boolean checkNull = false;
-                if(!fName.equals("") && !lName.equals("") && !nName.equals("") &&  !address.equals("") && !phone.equals("")){
+
+                if((!fName.equals("")) && (!lName.equals("")) && (!nName.equals("")) && (!address.equals("")) && (!phone.equals(""))){
                     checkNull = true;
                 }
                 if(!checkNull){
                     lb_error.setText("กรอกข้อมูลไม่ครบถ้วน");
                 }
-                else if(checkPhone){
+                else if(!checkPhone){
                     lb_error.setText("โปรดระบุหมายเลขโทรศัทพ์เป็นตัวเลข");
                 }
                 else {
@@ -107,6 +109,7 @@ public class DriverDetailEditView implements Initializable {
         if (tf_fName != null) {
             showEditForm();
             onClickConfirmEdit();
+            onClickConcelEdit();
         }
     }
     public void setDriverDetailEditView(DriverDetailView driverDetailView){

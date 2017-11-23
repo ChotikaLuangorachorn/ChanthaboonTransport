@@ -84,7 +84,7 @@
       <TextField fx:id="tf_phone" layoutX="141.0" layoutY="188.0" prefHeight="25.0" prefWidth="134.0" />
       <TextField fx:id="tf_nName" layoutX="141.0" layoutY="146.0" prefHeight="25.0" prefWidth="134.0" />
       <TextField fx:id="tf_lName" layoutX="141.0" layoutY="104.0" prefHeight="25.0" prefWidth="134.0" />
-      <Label fx:id="lb_error" layoutX="141.0" layoutY="266.0" text="fhsdddddd" textAlignment="JUSTIFY" textFill="RED">
+      <Label fx:id="lb_error" layoutX="141.0" layoutY="266.0" textAlignment="JUSTIFY" textFill="RED">
          <font>
             <Font size="14.0" />
          </font>
