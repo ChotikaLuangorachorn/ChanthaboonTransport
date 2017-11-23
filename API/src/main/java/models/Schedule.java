@@ -41,4 +41,15 @@ public class Schedule {
     public String getNote() {
         return note;
     }
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "id='" + id + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", note='" + note + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

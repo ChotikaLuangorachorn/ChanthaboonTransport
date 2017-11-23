@@ -37,5 +37,8 @@ public class FeeMenuView implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+    public void setController(MainController controller) {
+        this.controller = controller;
+    }
 
 }
