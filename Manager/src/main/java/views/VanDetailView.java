@@ -68,6 +68,8 @@ public class VanDetailView implements Initializable{
                     AnchorPane detail = loader.load();
                     VanDetailEditView vanDetailEditView = loader.getController();
                     vanDetailEditView.setController(controller);
+                    String type = (lb_name.getText().substring(0,1).equals("V"))?"VIP":"NORMAL";
+                    van = new Van(van.getRegisNumber(),null,type,lb_name.getText());
                     vanDetailEditView.setVan(van);
                     vanDetailEditView.setVanDetailView(VanDetailView.this);
                     vanDetailEditView.setVanMenuView(vanMenuView);
