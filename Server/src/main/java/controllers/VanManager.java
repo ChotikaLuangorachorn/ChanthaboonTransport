@@ -4,6 +4,7 @@ import managers.CustomerDatabaseManager;
 import managers.ManagerDatabaseManager;
 import models.Destination;
 import models.JobType;
+import models.Schedule;
 import models.Van;
 import org.springframework.lang.Nullable;
 import utils.ReservationDateFormatter;
@@ -158,7 +159,38 @@ public class VanManager {
             return vans;
         }), vans);
     }
-
+    public List<Schedule> getVanSchedule(String regisNumber){
+        List<Schedule> schedules = new ArrayList<>();
+        String sql = "select * " +
+                        "from van_job_schedule " +
+                        "join van_job_type " +
+                        "on van_job_schedule.type_id = van_job_type.id" +
+                        "where regis_number='"+regisNumber+"'";
+        QueryExecutionAssistant<List<Schedule>> assistant = new QueryExecutionAssistant<>(url);
+        assistant.execute(sql, (resultSet -> {
+            while(resultSet.next()){
+                Date startDate = formatter.parse(resultSet.getString("start_date"));
+                Date endDate = formatter.parse(resultSet.getString("end_date"));
+                String note = resultSet.getString("description");
+                schedules.add(new Schedule(regisNumber, startDate, endDate, note, Schedule.JOB));
+            }
+            return null;
+        }), null);
+        String sql2 = "select id,start_working_date, end_working_date\n" +
+                "from reservation\n" +
+                "join van_reserve_schedule\n" +
+                "on reservation.id = van_reserve_schedule.reservation_id\n" +
+                "where regis_number = '" + regisNumber + "'";
+        return assistant.execute(sql, (resultSet -> {
+            while(resultSet.next()){
+                Date startDate = formatter.parse(resultSet.getString("start_working_date"));
+                Date endDate = formatter.parse(resultSet.getString("end_working_date"));
+                String note = resultSet.getString("id");
+                schedules.add(new Schedule(regisNumber, startDate, endDate, note, Schedule.RESERVE));
+            }
+            return schedules;
+        }), schedules);
+    }
     private boolean checkPossibleDay(Destination destination, Date startDate, Date endDate){
         double distance = getDistance(destination);
         long diff = endDate.getTime() - startDate.getTime();
