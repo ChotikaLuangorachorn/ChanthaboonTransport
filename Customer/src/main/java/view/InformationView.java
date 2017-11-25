@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -75,6 +76,7 @@ public class InformationView extends AnchorPane implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
                 alert.setHeaderText("เปลี่ยนรหัสผ่านของคุณ");
                 Label text1 = new Label("รหัสผ่านเดิม: ");
                 Label text2 = new Label("รหัสผ่านใหม่: ");
@@ -92,29 +94,98 @@ public class InformationView extends AnchorPane implements Initializable {
                 final PasswordField newPwd = new PasswordField();
                 final PasswordField confirmPwd = new PasswordField();
 
+                ButtonType btn_confirmType= new ButtonType("ยืนยัน", ButtonBar.ButtonData.OK_DONE);
+                ButtonType btn_cancelType = new ButtonType("ยกเลิก", ButtonBar.ButtonData.CANCEL_CLOSE);
+                alert.getButtonTypes().setAll(btn_confirmType, btn_cancelType);
+                Node btn_confirm = alert.getDialogPane().lookupButton(btn_confirmType);
+                if("".equals(oldPwd.getText()) &&( "".equals(newPwd.getText()) &&"".equals(confirmPwd.getText()))){
+                    btn_confirm.setDisable(true);
+                }
+
                 oldPwd.setOnMouseEntered(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
-                        System.out.println("in new pwd");
+                        System.out.println("in old pwd");
+                        //1
                         if("".equals(oldPwd.getText()) &&( !"".equals(newPwd.getText()) || !"".equals(confirmPwd.getText()))){
                             errorOldPwd.setText("โปรดระบุรหัสผ่านเดิม");
+                            oldPwd.setStyle("-fx-border-color: Red");
                         }
                         else {
                             errorOldPwd.setText("");
+                            oldPwd.setStyle("-fx-border-color: ");
                         }
+                        //2
+                        if((newPwd.getText().length()<5 && !"".equals(newPwd.getText())) && (!"".equals(oldPwd.getText())|| !"".equals(confirmPwd.getText()))){
+                            errorNewPwd.setText("โปรดระบุรหัสผ่านใหม่อย่างน้อย 5 อักขระ");
+                            newPwd.setStyle("-fx-border-color: Red");
+                        }
+                        else {
+                            errorNewPwd.setText("");
+                            newPwd.setStyle("-fx-border-color: ");
+                        }
+                        //3
+                        if ("".equals(newPwd.getText()) && confirmPwd.getText().length()!=0){
+                            errorConfirmPwd.setText("โปรดระบุรหัสผ่านใหม่ก่อน");
+                            confirmPwd.setStyle("-fx-border-color: Red");
+                        }
+                        else if((!newPwd.getText().equals(confirmPwd.getText()))){
+                            errorConfirmPwd.setText("รหัสผ่านที่ยืนยันไม่ตรงกับรหัสผ่านใหม่");
+                            confirmPwd.setStyle("-fx-border-color: Red");
+                        }
+                        else {
+                            errorConfirmPwd.setText("");
+                            confirmPwd.setStyle("-fx-border-color: ");
+                        }
+                        // button
+                        if(!"".equals(oldPwd.getText()) &&!"".equals(newPwd.getText()) &&!"".equals(confirmPwd.getText())){
+                            if("".equals(errorOldPwd.getText()) && "".equals(errorNewPwd.getText()) && "".equals(errorConfirmPwd.getText())){
+                            btn_confirm.setDisable(false);}
+                        }else btn_confirm.setDisable(true);
                     }
+
                 });
 
                 newPwd.setOnMouseEntered(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
                         System.out.println("in new pwd");
-                        if((newPwd.getText().length()<5) && (!"".equals(oldPwd.getText()) && !"".equals(newPwd.getText()) && !"".equals(confirmPwd.getText()) )){
+                        //1
+                        if("".equals(oldPwd.getText()) &&( !"".equals(newPwd.getText()) || !"".equals(confirmPwd.getText()))){
+                            errorOldPwd.setText("โปรดระบุรหัสผ่านเดิม");
+                            oldPwd.setStyle("-fx-border-color: Red");
+                        }
+                        else {
+                            errorOldPwd.setText("");
+                            oldPwd.setStyle("-fx-border-color: ");
+                        }
+                        //2
+                        if((newPwd.getText().length()<5 && !"".equals(newPwd.getText())) && (!"".equals(oldPwd.getText())|| !"".equals(confirmPwd.getText()))){
                             errorNewPwd.setText("โปรดระบุรหัสผ่านใหม่อย่างน้อย 5 อักขระ");
+                            newPwd.setStyle("-fx-border-color: Red");
                         }
                         else {
                             errorNewPwd.setText("");
+                            newPwd.setStyle("-fx-border-color: ");
                         }
+                        //3
+                        if ("".equals(newPwd.getText()) && confirmPwd.getText().length()!=0){
+                            errorConfirmPwd.setText("โปรดระบุรหัสผ่านใหม่ก่อน");
+                            confirmPwd.setStyle("-fx-border-color: Red");
+                        }
+                        else if((!newPwd.getText().equals(confirmPwd.getText()))){
+                            errorConfirmPwd.setText("รหัสผ่านที่ยืนยันไม่ตรงกับรหัสผ่านใหม่");
+                            confirmPwd.setStyle("-fx-border-color: Red");
+                        }
+                        else {
+                            errorConfirmPwd.setText("");
+                            confirmPwd.setStyle("-fx-border-color: ");
+                        }
+                        // button
+                        if(!"".equals(oldPwd.getText()) &&!"".equals(newPwd.getText()) &&!"".equals(confirmPwd.getText())){
+                            if("".equals(errorOldPwd.getText()) && "".equals(errorNewPwd.getText()) && "".equals(errorConfirmPwd.getText())){
+                                btn_confirm.setDisable(false);}
+                        }else btn_confirm.setDisable(true);
                     }
                 });
 
@@ -122,17 +193,47 @@ public class InformationView extends AnchorPane implements Initializable {
                     @Override
                     public void handle(MouseEvent event) {
                         System.out.println("in confirm pwd");
+
+                        //1
+                        if("".equals(oldPwd.getText()) &&( !"".equals(newPwd.getText()) || !"".equals(confirmPwd.getText()))){
+                            errorOldPwd.setText("โปรดระบุรหัสผ่านเดิม");
+                            oldPwd.setStyle("-fx-border-color: Red");
+                        }
+                        else {
+                            errorOldPwd.setText("");
+                            oldPwd.setStyle("-fx-border-color: ");
+                        }
+                        //2
+                        if((newPwd.getText().length()<5 && !"".equals(newPwd.getText())) && (!"".equals(oldPwd.getText())|| !"".equals(confirmPwd.getText()))){
+                            errorNewPwd.setText("โปรดระบุรหัสผ่านใหม่อย่างน้อย 5 อักขระ");
+                            newPwd.setStyle("-fx-border-color: Red");
+                        }
+                        else {
+                            errorNewPwd.setText("");
+                            newPwd.setStyle("-fx-border-color: ");
+                        }
+                        //3
                         if ("".equals(newPwd.getText()) && confirmPwd.getText().length()!=0){
                             errorConfirmPwd.setText("โปรดระบุรหัสผ่านใหม่ก่อน");
+                            confirmPwd.setStyle("-fx-border-color: Red");
                         }
                         else if((!newPwd.getText().equals(confirmPwd.getText()))){
                             errorConfirmPwd.setText("รหัสผ่านที่ยืนยันไม่ตรงกับรหัสผ่านใหม่");
+                            confirmPwd.setStyle("-fx-border-color: Red");
                         }
                         else {
                             errorConfirmPwd.setText("");
+                            confirmPwd.setStyle("-fx-border-color: ");
                         }
+                        // button
+                        if(!"".equals(oldPwd.getText()) &&!"".equals(newPwd.getText()) &&!"".equals(confirmPwd.getText())){
+                            if("".equals(errorOldPwd.getText()) && "".equals(errorNewPwd.getText()) && "".equals(errorConfirmPwd.getText())){
+                                btn_confirm.setDisable(false);}
+                        }else btn_confirm.setDisable(true);
                     }
                 });
+
+
                 GridPane grid = new GridPane();
 
                 grid.add(text1, 1, 1);
@@ -146,11 +247,14 @@ public class InformationView extends AnchorPane implements Initializable {
                 grid.add(text3, 1, 5);
                 grid.add(confirmPwd, 2, 5);
                 grid.add(errorConfirmPwd, 2, 6);
+
                 grid.setVgap(10);
+
                 alert.getDialogPane().setContent(grid);
 
                 Optional<ButtonType> result = alert.showAndWait();
-                if ((result.isPresent()) && (result.get() == ButtonType.OK) &&("".equals(errorOldPwd.getText()) && "".equals(errorNewPwd.getText()) && "".equals(errorOldPwd.getText()))){
+
+                if ((result.isPresent()) && (result.get() == btn_confirmType) &&("".equals(errorOldPwd.getText()) && "".equals(errorNewPwd.getText()) && "".equals(errorConfirmPwd.getText()))){
                     System.out.println("oldPwd = " + oldPwd.getText());
                     System.out.println("newPwd = " + newPwd.getText());
                     controller.changeCustomerPassword(CustomerInfoManager.getInstance().getCustomer().getCitizenId(), oldPwd.getText(), confirmPwd.getText());

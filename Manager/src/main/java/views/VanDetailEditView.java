@@ -48,6 +48,7 @@ public class VanDetailEditView implements Initializable{
         cb_type.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                System.out.println("change type van");
                 if (cb_type.getValue().equals("ธรรมดา (15 ที่นั่ง)")){
                     lb_typeName.setText("N");
                 }else {
@@ -94,6 +95,7 @@ public class VanDetailEditView implements Initializable{
         tf_typeNum.setOnMouseExited(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                System.out.println("change number");
                 if (cb_type.getValue().equals("ธรรมดา (15 ที่นั่ง)")){
                     lb_typeName.setText("N");
                 }else {
