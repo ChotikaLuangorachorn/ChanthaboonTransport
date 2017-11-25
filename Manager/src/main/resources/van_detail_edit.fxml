@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="196.0" prefWidth="297.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanDetailEditView">
+<AnchorPane prefHeight="196.0" prefWidth="339.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanDetailEditView">
    <children>
       <Label layoutX="37.0" layoutY="53.0" text="หมายเลขรถ:">
          <font>
@@ -29,18 +29,18 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btn_cancel" layoutX="207.0" layoutY="155.0" mnemonicParsing="false" text="ยกเลิก">
+      <Button fx:id="btn_cancel" layoutX="228.0" layoutY="155.0" mnemonicParsing="false" text="ยกเลิก">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_confirm" disable="true" layoutX="37.0" layoutY="155.0" mnemonicParsing="false" text="ยืนยัน">
+      <Button fx:id="btn_confirm" layoutX="37.0" layoutY="155.0" mnemonicParsing="false" text="ยืนยัน">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="tf_typeNum" layoutX="155.0" layoutY="51.0" prefHeight="25.0" prefWidth="30.0" promptText="XX" />
-      <ComboBox fx:id="cb_type" layoutX="131.0" layoutY="86.0" prefHeight="25.0" prefWidth="131.0" />
+      <TextField fx:id="tf_typeNum" layoutX="155.0" layoutY="51.0" prefHeight="25.0" prefWidth="35.0" promptText="XX" />
+      <ComboBox fx:id="cb_type" layoutX="131.0" layoutY="86.0" prefHeight="25.0" prefWidth="152.0" />
       <Label fx:id="lb_error" layoutX="131.0" layoutY="124.0" textFill="RED">
          <font>
             <Font size="14.0" />

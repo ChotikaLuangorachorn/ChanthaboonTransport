@@ -54,49 +54,20 @@ public class VanDetailEditView implements Initializable{
                 }else {
                     lb_typeName.setText("V");
                 }
+            }
+        });
 
-                List<List<String>> nums = checkNumberVan();
-                List<String> normal = nums.get(0);
-                List<String> vip = nums.get(1);
+    }
+    public void onClickConfirmEdit(){
 
+        btn_confirm.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
                 Boolean checkType = false;
                 String typeName = lb_typeName.getText();
                 String typeNum = tf_typeNum.getText();
                 String type = cb_type.getValue();
-
-                try {
-                    if (typeNum.equals(van.getName().substring(1)) && typeName.equals(van.getName().substring(0,1))){
-                        checkType=true;
-                    }
-                    else if ((typeName.equals("N") && normal.indexOf(typeNum)==-1) || (typeName.equals("V") &&vip.indexOf(typeNum)==-1)){
-                        if (typeNum.length()==2){
-                            int number = Integer.parseInt(tf_typeNum.getText());
-                            checkType = true;
-                        }
-                    }
-                } catch (Exception e) {
-                    checkType = false;
-                }
-                if(!checkType){
-                    btn_confirm.setDisable(true);
-                    if((typeName.equals("N") && normal.indexOf(typeNum)!=-1) || (typeName.equals("V") &&vip.indexOf(typeNum)!=-1)){
-                        lb_error.setText("หมายเลขรถซ้ำ");
-                    }
-                    else {
-                        lb_error.setText("หมายเลขผิดพลาด");
-                    }
-                }
-                else {
-                    lb_error.setText("");
-                    btn_confirm.setDisable(false);
-                }
-            }
-        });
-        tf_typeNum.setOnMouseExited(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                System.out.println("change number");
-                if (cb_type.getValue().equals("ธรรมดา (15 ที่นั่ง)")){
+                if (type.equals("ธรรมดา (15 ที่นั่ง)")){
                     lb_typeName.setText("N");
                 }else {
                     lb_typeName.setText("V");
@@ -105,11 +76,6 @@ public class VanDetailEditView implements Initializable{
                 List<List<String>> nums = checkNumberVan();
                 List<String> normal = nums.get(0);
                 List<String> vip = nums.get(1);
-
-                Boolean checkType = false;
-                String typeName = lb_typeName.getText();
-                String typeNum = tf_typeNum.getText();
-                String type = cb_type.getValue();
                 try {
                     if (typeNum.equals(van.getName().substring(1)) && typeName.equals(van.getName().substring(0,1))){
                         checkType=true;
@@ -124,39 +90,36 @@ public class VanDetailEditView implements Initializable{
                     checkType = false;
                 }
                 if(!checkType){
-                    btn_confirm.setDisable(true);
+                    tf_typeNum.setStyle("-fx-border-color: Red");
                     if((typeName.equals("N") && normal.indexOf(typeNum)!=-1) || (typeName.equals("V") &&vip.indexOf(typeNum)!=-1)){
                         lb_error.setText("หมายเลขรถซ้ำ");
                     }
                     else {
-                        lb_error.setText("หมายเลขผิดพลาด");
+                        lb_error.setText("หมายเลขผิดพลาด (ระบุตัวเลข2หลัก)");
                     }
                 }
                 else {
                     lb_error.setText("");
-                    btn_confirm.setDisable(false);
+                    lb_error.setStyle("-fx-border-color: ");
                 }
-            }
-        });
 
-    }
-    public void onClickConfirmEdit(){
-        btn_confirm.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                String type = (lb_typeName.getText().equals("V"))?"VIP":"NORMAL";
-                String name = lb_typeName.getText() + tf_typeNum.getText();
-                Van newVan = new Van(van.getRegisNumber(),null,type,name);
-                controller.editVan(newVan);
+                if (typeNum.equals(van.getName().substring(1)) && typeName.equals(van.getName().substring(0,1))){
+                    lb_error.setText("ไม่มีการเปลี่ยนแปลงข้อมูล");
+                }else if ("".equals(lb_error.getText())){
+                    System.out.println("confirm to edit");
+                    String vanType= (lb_typeName.getText().equals("V"))?"VIP":"NORMAL";
+                    String name = lb_typeName.getText() + tf_typeNum.getText();
+                    Van newVan = new Van(van.getRegisNumber(),null,vanType,name);
+                    controller.editVan(newVan);
 
-                newVan = controller.getVan(van.getRegisNumber());
-                vanDetailView.setLb_name(newVan.getName());
-                type = (newVan.getType().equals("VIP"))?"VIP (9 ที่นั่ง)":"ธรรมดา (15 ที่นั่ง)";
-                vanDetailView.setLb_type(type);
+                    newVan = controller.getVan(van.getRegisNumber());
+                    vanDetailView.setLb_name(newVan.getName());
+                    vanType = (newVan.getType().equals("VIP"))?"VIP (9 ที่นั่ง)":"ธรรมดา (15 ที่นั่ง)";
+                    vanDetailView.setLb_type(vanType);
 
-                Stage stage = (Stage) btn_cancel.getScene().getWindow();
-                stage.close();
-                vanMenuView.refreshVanTable();
+                    Stage stage = (Stage) btn_cancel.getScene().getWindow();
+                    stage.close();
+                    vanMenuView.refreshVanTable();}
             }
         });
     }

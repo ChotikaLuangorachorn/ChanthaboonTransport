@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
 public class DriverMenuView implements Initializable{
     @FXML private TableView table_driver;
     @FXML private TableColumn col_fName, col_lName, col_nName, col_phone, col_license;
-    @FXML private Button btn_editDriver, btn_deleteDriver;
+    @FXML private Button btn_deleteDriver;
     @FXML private Label lbCometoMain;
 
     private MainController controller;
