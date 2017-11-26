@@ -27,7 +27,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ConfirmReservationMenu implements Initializable{
+public class ConfirmReservationMenuView implements Initializable{
     @FXML private TableView<Reservation> table_confirmReserve;
     @FXML private TableColumn<Reservation, String> col_fee, col_reserveId, col_firstName, col_lastName, col_isDeposited;
     @FXML private Label lbCometoMain;
@@ -75,7 +75,7 @@ public class ConfirmReservationMenu implements Initializable{
                         PageConfirmView pageConfirmView = loader.getController();
                         pageConfirmView.setController(controller);
                         pageConfirmView.setReservation(reservation);
-                        pageConfirmView.setConfirmReservationMenu(ConfirmReservationMenu.this);
+                        pageConfirmView.setConfirmReservationMenu(ConfirmReservationMenuView.this);
 
                         Scene scene = new Scene(confirmLayout);
                         secondStage.setScene(scene);

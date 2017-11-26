@@ -34,14 +34,13 @@ public class PageConfirmView implements Initializable {
     private MainController controller;
     private CheckComboBox ccbSelectVanVip, ccbSelectVanNormal, ccbSelectDriver;
     private Reservation reservation;
-    private ConfirmReservationMenu confirmReservationMenu;
+    private ConfirmReservationMenuView confirmReservationMenu;
 
     public void setController(MainController controller) {
         this.controller = controller;
-
     }
 
-    public void setConfirmReservationMenu(ConfirmReservationMenu confirmReservationMenu) {
+    public void setConfirmReservationMenu(ConfirmReservationMenuView confirmReservationMenu) {
         this.confirmReservationMenu = confirmReservationMenu;
     }
 
@@ -128,7 +127,6 @@ public class PageConfirmView implements Initializable {
         String isDeposit = ("true".equals(reservation.getIsDeposited()))?"ชำระแล้ว":"ยังไม่ชำระ";
 //        cbbIsDeposit.getSelectionModel().selectFirst();
         cbbIsDeposit.setValue(isDeposit);
-
     }
 
 
