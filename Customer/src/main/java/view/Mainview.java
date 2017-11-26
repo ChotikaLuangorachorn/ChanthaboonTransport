@@ -58,8 +58,8 @@ public class Mainview {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/myreservation_tab.fxml"));
-            Pane tabMyreserve = loader.load();
-            tab_myReserve.setContent(tabMyreserve);
+            Pane tabMyReserve = loader.load();
+            tab_myReserve.setContent(tabMyReserve);
             myReservationView = loader.getController();
             myReservationView.setController(controller);
 
