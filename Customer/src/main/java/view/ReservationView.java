@@ -22,6 +22,7 @@ public class ReservationView extends AnchorPane implements Initializable{
     @FXML private TextArea ta_place;
     @FXML private DatePicker dp_startDate, dp_endStart;
     @FXML private Label lb_amtNormalVan, lb_amtVipVan;
+    @FXML private Label lb_dist_normal, lb_dist_vip, lb_day_normal, lb_day_vip;
     @FXML private Spinner spn_start_hr, spn_start_min, spn_end_hr, spn_end_min, spn_vip, spn_normal;
     @FXML private RadioButton rd_distance, rd_daily;
     @FXML private Button btn_calPrice;
@@ -170,6 +171,10 @@ public class ReservationView extends AnchorPane implements Initializable{
         this.controller = controller;
         setCbb_province();
         setDatePicker();
+        String dist_normal  = "";
+        String dist_vip  = "";
+        String day_normal  = "";
+        String day_vip  = "";
     }
 
     public void setMyReservationView(MyReservationView myReservationView) {
