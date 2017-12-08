@@ -38,7 +38,7 @@ public class ConfirmReservationMenuView implements Initializable{
     public void setController(MainController controller) {
         this.controller = controller;
         reservations = this.controller.getReservation();
-        initColunm();
+        initColumn();
         initData();
         onDoubleClickReservation();
     }
@@ -92,7 +92,7 @@ public class ConfirmReservationMenuView implements Initializable{
 
     }
 
-    public void initColunm(){
+    public void initColumn(){
         table_confirmReserve.setEditable(false);
         col_reserveId.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation, String>, ObservableValue<String>>() {
             @Override

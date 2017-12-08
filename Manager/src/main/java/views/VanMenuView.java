@@ -62,7 +62,7 @@ public class VanMenuView implements Initializable{
                     alert.setTitle("ยืนยันการลบข้อมูลรถตู้");
                     alert.setHeaderText("ยืนยันการลบข้อมูลรถตู้");
                     String s = "ทะเบียนรถ:\t\t" + van.getRegisNumber()+ "\n"
-                            +"ประเภทรถ:\t" + van.getType();
+                            +"ประเภทรถ:\t\t" + van.getType();
                     alert.setContentText(s);
 
                     Optional<ButtonType> result = alert.showAndWait();
@@ -110,7 +110,6 @@ public class VanMenuView implements Initializable{
         col_name.setCellValueFactory(new PropertyValueFactory<Van,String>("name"));
         col_regisNum.setCellValueFactory(new PropertyValueFactory<Van,String>("regisNumber"));
         col_type.setCellValueFactory(new PropertyValueFactory<Van,String>("type"));
-//        col_jobStatus.setCellValueFactory(new PropertyValueFactory<Van,String>("nickname"));
     }
     public void initData(){
         ObservableList<Van> data = FXCollections.observableList(vans);

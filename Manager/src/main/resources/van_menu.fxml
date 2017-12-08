@@ -36,10 +36,9 @@
             </Button>
             <TableView fx:id="table_van" layoutX="132.0" layoutY="59.0" prefHeight="364.0" prefWidth="528.0" style="-fx-fixed-cell-size: 30;">
               <columns>
-                  <TableColumn fx:id="col_name" prefWidth="90.0" resizable="false" style="-fx-alignment: center;" text="หมายเลขรถ" />
-                <TableColumn fx:id="col_regisNum" prefWidth="81.0" resizable="false" style="-fx-alignment: center_left;" text="ทะเบียนรถ" />
-                  <TableColumn fx:id="col_type" prefWidth="100.0" resizable="false" style="-fx-alignment: center_left;" text="ประเภท" />
-                  <TableColumn fx:id="col_jobStatus" prefWidth="240.0" resizable="false" style="-fx-alignment: center;" text="สถานะ" />
+                  <TableColumn fx:id="col_name" prefWidth="130.0" resizable="false" style="-fx-alignment: center;" text="หมายเลขรถ" />
+                <TableColumn fx:id="col_regisNum" prefWidth="134.0" resizable="false" style="-fx-alignment: center_left;" text="ทะเบียนรถ" />
+                  <TableColumn fx:id="col_type" prefWidth="251.0" resizable="false" style="-fx-alignment: center_left;" text="ประเภท" />
               </columns>
             </TableView>
             <Label fx:id="lbCometoMain" layoutX="14.0" layoutY="14.0" text="กลับสู่หน้าหลัก">
