@@ -1,5 +1,8 @@
 package controllers;
 
+import controllers.assistants.QueryExecutionAssistant;
+import controllers.assistants.UpdateExecutionAssistant;
+import controllers.delegations.*;
 import managers.CustomerDatabaseManager;
 import managers.ManagerDatabaseManager;
 import models.*;
@@ -16,41 +19,27 @@ import java.util.Date;
 public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseManager   {
     private String url = "vanScheduler.db";
     private SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
-    private VanManager vanManager;
+    private VanExecutor vanExecutor;
+    private final DriverExecutor driverExecutor;
+    private final CustomerExecutor customerExecutor;
+    private final PartnerExecutor partnerExecutor;
+    private final ReservationExecutor reservationExecutor;
 
     public SQLiteExecutor() {
-        vanManager = new VanManager(url);
+        vanExecutor = new VanExecutor(url);
+        driverExecutor = new DriverExecutor(url);
+        customerExecutor = new CustomerExecutor(url);
+        partnerExecutor = new PartnerExecutor(url);
+        reservationExecutor = new ReservationExecutor(url);
     }
 
     @Nullable
     public Customer getCustomer(String citizenId, String pwd) {
-        System.out.println("request getCustomer");
-        System.out.println("citizenId = " + citizenId);
-        System.out.println("pwd = " + pwd);
-
-        QueryExecutionAssistant<Customer> assistant = new QueryExecutionAssistant<Customer>(url);
-        String sql = "select * from customer where citizen_id = '" + citizenId + "' and pwd = '" + pwd + "'";
-        return assistant.execute(sql, (resultSet)->{
-            if (resultSet.next()){
-                String id = resultSet.getString("citizen_id");
-                String firstname = resultSet.getString("first_name");
-                String lastname = resultSet.getString("last_name");
-                String address = resultSet.getString("address");
-                String phone = resultSet.getString("phone");
-                String lineId = resultSet.getString("line_id");
-                int lastReserveId = resultSet.getInt("last_reserve");
-                Customer customer = new Customer(id, firstname, lastname, address, phone, lineId, lastReserveId);
-                System.out.println("response");
-                System.out.println("customer = " + customer);
-                System.out.println();
-                return customer;
-            }
-            return null;
-        }, null);
+        return customerExecutor.getCustomer(citizenId, pwd);
     }
     @Nullable
     public Map<String, Integer> getVanAvailableAmount(Destination destination, Date startDate, Date endDate) {
-        return vanManager.getVanAvailableAmount(destination, startDate, endDate);
+        return vanExecutor.getVanAvailableAmount(destination, startDate, endDate);
     }
 
     public double getPrice(Map<String, Integer> vanAmt, Date startDate, Date endDate) {
@@ -135,7 +124,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public Van getVan(String vanId){
-        return vanManager.getVan(vanId);
+        return vanExecutor.getVan(vanId);
     }
 
     @Override
@@ -145,7 +134,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
 
     @Override
     public List<Schedule> getVanSchedule(String regisNumber) {
-        return vanManager.getVanSchedule(regisNumber);
+        return vanExecutor.getVanSchedule(regisNumber);
     }
 
     public void editCustomerInfo(Customer customer) {
@@ -246,15 +235,15 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public List<JobType> getVanJobs() {
-        return vanManager.getVanJobs();
+        return vanExecutor.getVanJobs();
     }
 
     public void addVanJob(Van van, Date startDate, Date endDate, JobType type) {
-        vanManager.addVanJob(van, startDate, endDate, type);
+        vanExecutor.addVanJob(van, startDate, endDate, type);
     }
 
     public void deleteVanJob(Van van, Date startDate, Date endDate) {
-        vanManager.deleteVanJob(van, startDate, endDate);
+        vanExecutor.deleteVanJob(van, startDate, endDate);
     }
 
     public List<JobType> getDriverJobs() {
@@ -463,16 +452,16 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public List<Van> getVans() {
-        return vanManager.getVans();
+        return vanExecutor.getVans();
     }
 
     @Override
     public Map<String, List<Van>> getVanAvailable(Date startDate, Date endDate) {
-        return vanManager.getVanAvailable(startDate, endDate);
+        return vanExecutor.getVanAvailable(startDate, endDate);
     }
 
     public void editVan(Van van) {
-        vanManager.editVan(van);
+        vanExecutor.editVan(van);
     }
 
     public void deleteVan(Van van) {
@@ -480,7 +469,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public void deleteVan(String regisNumber) {
-        vanManager.deleteVan(regisNumber);
+        vanExecutor.deleteVan(regisNumber);
     }
 
     public List<Partner> getPartners() {
@@ -578,6 +567,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
                                     "                                                                        where strftime(\"%%Y-%%m-%%d\", driver_job_schedule.end_date) >= date(\"%s\") \n" +
                                     "                                                                                        and strftime(\"%%Y-%%m-%%d\", driver_job_schedule.start_date) <= date(\"%s\"))"
                 , start, end, start, end);
+        System.out.println("sql = " + sql);
         return assistant.execute(sql, (resultSet -> {
             while (resultSet.next()){
                 String citizenId = resultSet.getString("citizen_id");
