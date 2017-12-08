@@ -41,7 +41,7 @@ public class MyReservationDetailView implements Initializable
         String price = String.format("%,.2f บาท",reservation.getPrice());
         String deposit = String.format("%,.2f บาท",reservation.getDeposit());
         String isDeposited = (reservation.getIsDeposited().equals("true"))?"ชำระแล้ว":"ยังไม่ชำระ";
-        String place = (!reservation.getDestination().getPlace().equals(""))?reservation.getDestination().getPlace():"-";
+        String place = (reservation.getDestination().getPlace()!=null)?reservation.getDestination().getPlace():"-";
         String meetingPlace = (reservation.getMeetingPlace()!=null)?reservation.getMeetingPlace():"-";
 
         lb_reserveId.setText(id);
