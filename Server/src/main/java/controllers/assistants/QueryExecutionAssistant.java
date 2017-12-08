@@ -1,33 +1,42 @@
-package controllers;
+package controllers.assistants;
 
-import org.springframework.lang.NonNull;
+import java.sql.*;
+import java.text.ParseException;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+public class QueryExecutionAssistant<T> {
 
-public class UpdateExecutionAssistant {
     private String url;
 
-    public UpdateExecutionAssistant(String url) {
+    public QueryExecutionAssistant(String url) {
         this.url = url;
     }
 
-    int execute(@NonNull String sql){
+    public T execute(String sql, OnResultSetCallback<T> callback, T defaultResult){
         Connection connection = null;
         try{
             connection = prepareConnection();
             if (connection != null){
                 Statement statement = connection.createStatement();
-                int result = statement.executeUpdate(sql);
-                return result;
+                ResultSet resultSet = statement.executeQuery(sql);
+                return callback.perform(resultSet);
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
         }
+        return defaultResult;
+    }
 
-        return -1;
+    public interface OnResultSetCallback<T>{
+        T perform(ResultSet resultSet) throws ParseException, SQLException;
     }
 
     private Connection prepareConnection(){

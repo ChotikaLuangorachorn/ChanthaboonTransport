@@ -1,5 +1,7 @@
-package controllers;
+package controllers.delegations;
 
+import controllers.assistants.QueryExecutionAssistant;
+import controllers.assistants.UpdateExecutionAssistant;
 import managers.CustomerDatabaseManager;
 import managers.ManagerDatabaseManager;
 import models.Destination;
@@ -14,11 +16,11 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Date;
 
-public class VanManager {
+public class VanExecutor {
     private String url;
     private SimpleDateFormat formatter = ReservationDateFormatter.getInstance().getDbFormatter();
 
-    public VanManager(String url) {
+    public VanExecutor(String url) {
         this.url = url;
     }
 
@@ -116,13 +118,14 @@ public class VanManager {
         }), null);
     }
     public List<JobType> getVanJobs() {
+        // TODO getVanJobs
         return null;
     }
     public void addVanJob(Van van, Date startDate, Date endDate, JobType type) {
-
+        // TODO addVanJob
     }
     public void deleteVanJob(Van van, Date startDate, Date endDate) {
-
+        // TODO deleteVanJob
     }
     public void editVan(Van van) {
         System.out.println("request edit van");
@@ -203,29 +206,13 @@ public class VanManager {
     }
 
     private double getDistance(Destination destination){
-        // TODO use assistant
-        Connection connection = null;
-        try {
-            connection = prepareConnection();
-            if (connection != null){
-                String sql = "select distance from distance where province='" + destination.getProvince() + "' and district='" + destination.getDistrict() + "'";
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-
-                if (resultSet.next())
-                    return resultSet.getDouble("distance");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            if (connection != null)
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-        }
-        return 0;
+        String sql = "select distance from distance where province='" + destination.getProvince() + "' and district='" + destination.getDistrict() + "'";
+        QueryExecutionAssistant<Double> assistant = new QueryExecutionAssistant<>(url);
+        return assistant.execute(sql, resultSet -> {
+            if (resultSet.next())
+                return resultSet.getDouble("distance");
+            return 0.0;
+        }, 0.0);
     }
 
     private Connection prepareConnection(){
