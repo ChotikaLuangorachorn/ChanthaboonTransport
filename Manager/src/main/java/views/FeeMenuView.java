@@ -44,7 +44,7 @@ public class FeeMenuView implements Initializable{
                 TextField[] textFields = new TextField[]{tf_dist_normal,tf_base_normal, tf_rateDst_normal, tf_rateDay_normal,tf_dist_vip,tf_base_vip, tf_rateDst_vip, tf_rateDay_vip};
                 for(TextField tf : textFields) {
                     tf.setEditable(true);
-                    tf.setStyle("-fx-background-color: ");
+                    tf.setStyle("{-fx-background-color: }");
                 }
                 btn_editFee.setVisible(false);
                 btn_cancel.setVisible(true);
@@ -59,7 +59,7 @@ public class FeeMenuView implements Initializable{
                 TextField[] textFields = new TextField[]{tf_dist_normal,tf_base_normal, tf_rateDst_normal, tf_rateDay_normal,tf_dist_vip,tf_base_vip, tf_rateDst_vip, tf_rateDay_vip};
                 for(TextField tf : textFields) {
                     tf.setEditable(false);
-                    tf.setStyle("-fx-background-color: #fcee86");
+                    tf.setStyle("{-fx-background-color: #fcee86}");
                 }
                 btn_editFee.setVisible(true);
                 btn_cancel.setVisible(false);
@@ -74,7 +74,7 @@ public class FeeMenuView implements Initializable{
                 TextField[] textFields = new TextField[]{tf_dist_normal,tf_base_normal, tf_rateDst_normal, tf_rateDay_normal,tf_dist_vip,tf_base_vip, tf_rateDst_vip, tf_rateDay_vip};
                 for(TextField tf : textFields) {
                     tf.setEditable(false);
-                    tf.setStyle("-fx-background-color: #fcee86");
+                    tf.setStyle("{-fx-background-color: #fcee86}");
                 }
                 btn_editFee.setVisible(true);
                 btn_cancel.setVisible(false);
