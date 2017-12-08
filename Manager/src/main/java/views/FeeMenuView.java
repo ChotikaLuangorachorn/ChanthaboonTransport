@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import models.PriceFactor;
 import sun.font.TrueTypeFont;
 
 import java.net.URL;
@@ -18,11 +19,14 @@ public class FeeMenuView implements Initializable{
     @FXML private TextField tf_dist_vip,tf_base_vip, tf_rateDst_vip, tf_rateDay_vip;
     @FXML private Button btn_editFee, btn_cancel, btn_save;
     @FXML private Label lbCometoMain;
+    private TextField[] textFields;
+    private double[] values;
     private MainController controller;
     private StageController stageController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        textFields = new TextField[]{tf_dist_normal,tf_base_normal, tf_rateDst_normal, tf_rateDay_normal,tf_dist_vip,tf_base_vip, tf_rateDst_vip, tf_rateDay_vip};
         onClickEditFee();
         onClickCancel();
         onClickSave();
@@ -41,7 +45,6 @@ public class FeeMenuView implements Initializable{
         btn_editFee.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                TextField[] textFields = new TextField[]{tf_dist_normal,tf_base_normal, tf_rateDst_normal, tf_rateDay_normal,tf_dist_vip,tf_base_vip, tf_rateDst_vip, tf_rateDay_vip};
                 for(TextField tf : textFields) {
                     tf.setEditable(true);
                     tf.setStyle("{-fx-background-color: }");
@@ -49,6 +52,10 @@ public class FeeMenuView implements Initializable{
                 btn_editFee.setVisible(false);
                 btn_cancel.setVisible(true);
                 btn_save.setVisible(true);
+
+                for(int i = 0 ; i<textFields.length;i++){
+                    textFields[i].setText(values[i]+"");
+                }
             }
         });
     }
@@ -56,14 +63,14 @@ public class FeeMenuView implements Initializable{
         btn_cancel.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                TextField[] textFields = new TextField[]{tf_dist_normal,tf_base_normal, tf_rateDst_normal, tf_rateDay_normal,tf_dist_vip,tf_base_vip, tf_rateDst_vip, tf_rateDay_vip};
                 for(TextField tf : textFields) {
                     tf.setEditable(false);
-                    tf.setStyle("{-fx-background-color: #fcee86}");
+                    tf.setStyle("-fx-background-color: #fcee86");
                 }
                 btn_editFee.setVisible(true);
                 btn_cancel.setVisible(false);
                 btn_save.setVisible(false);
+                initData();
             }
         });
     }
@@ -71,10 +78,9 @@ public class FeeMenuView implements Initializable{
         btn_save.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                TextField[] textFields = new TextField[]{tf_dist_normal,tf_base_normal, tf_rateDst_normal, tf_rateDay_normal,tf_dist_vip,tf_base_vip, tf_rateDst_vip, tf_rateDay_vip};
                 for(TextField tf : textFields) {
                     tf.setEditable(false);
-                    tf.setStyle("{-fx-background-color: #fcee86}");
+                    tf.setStyle("-fx-background-color: #fcee86");
                 }
                 btn_editFee.setVisible(true);
                 btn_cancel.setVisible(false);
@@ -82,9 +88,26 @@ public class FeeMenuView implements Initializable{
             }
         });
     }
+    public void initData(){
+        PriceFactor priceFactor = controller.getPriceFactor();
+        double dist_normal = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.NORMAL, PriceFactor.FREE);
+        double base_normal = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.NORMAL, PriceFactor.BASE);
+        double rateDst_normal = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.NORMAL, PriceFactor.RATE);
+        double rateDay_normal = priceFactor.getFactor(PriceFactor.DAY, PriceFactor.NORMAL, PriceFactor.RATE);
 
+        double dist_vip = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.VIP, PriceFactor.FREE);
+        double base_vip = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.VIP, PriceFactor.BASE);
+        double rateDst_vip = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.VIP, PriceFactor.RATE);
+        double rateDay_vip = priceFactor.getFactor(PriceFactor.DAY, PriceFactor.VIP, PriceFactor.RATE);
+        values = new double[]{dist_normal,base_normal, rateDst_normal, rateDay_normal,dist_vip,base_vip, rateDst_vip, rateDay_vip};
+
+        for(int i = 0 ; i<textFields.length;i++){
+            textFields[i].setText(String.format("%,.2f",values[i]));
+        }
+    }
     public void setController(MainController controller) {
         this.controller = controller;
+        initData();
     }
 
 }

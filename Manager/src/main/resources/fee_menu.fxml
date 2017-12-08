@@ -42,75 +42,75 @@
                </cursor>
             </Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcee86" height="297.0" layoutX="28.0" layoutY="78.0" stroke="#ffffff00" strokeType="INSIDE" width="359.0" />
-            <Label layoutX="109.0" layoutY="78.0" text="ประเภทรถ: ธรรมดา(15 ที่นั่ง)">
+            <Label layoutX="109.0" layoutY="94.0" text="ประเภทรถ: ธรรมดา(15 ที่นั่ง)">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="32.0" layoutY="126.0" prefHeight="27.0" prefWidth="194.0" text="ประเภทการจอง: ระยะทาง">
+            <Label layoutX="32.0" layoutY="142.0" prefHeight="27.0" prefWidth="194.0" text="ประเภทการจอง: ระยะทาง">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="32.0" layoutY="277.0" prefHeight="27.0" prefWidth="194.0" text="ประเภทการจอง: รายวัน">
+            <Label layoutX="32.0" layoutY="293.0" prefHeight="27.0" prefWidth="194.0" text="ประเภทการจอง: รายวัน">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="100.0" layoutY="164.0" prefHeight="27.0" prefWidth="279.0" text="กิโลเมตรแรก ราคา:                         บาท">
+            <Label layoutX="113.0" layoutY="180.0" prefHeight="27.0" prefWidth="274.0" text="กิโลเมตรแรก ราคา:                       บาท">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_dist_normal" alignment="CENTER_RIGHT" editable="false" layoutX="62.0" layoutY="165.0" prefHeight="25.0" prefWidth="37.0" style="-fx-background-color: #fcee86;" text="80" />
-            <TextField fx:id="tf_base_normal" alignment="CENTER_RIGHT" editable="false" layoutX="212.0" layoutY="165.0" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #fcee86;" text="1500.00" />
-            <Label layoutX="62.0" layoutY="201.0" prefHeight="27.0" prefWidth="319.0" text="กิโลเมตรถัดไป         ราคา:                         บาท/กิโลเมตร">
+            <TextField fx:id="tf_dist_normal" editable="false" layoutX="55.0" layoutY="182.0" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: #fcee86;" text="80" />
+            <TextField fx:id="tf_base_normal" alignment="CENTER_RIGHT" editable="false" layoutX="222.0" layoutY="182.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #fcee86;" text="20" />
+            <Label layoutX="62.0" layoutY="217.0" prefHeight="27.0" prefWidth="319.0" text="กิโลเมตรถัดไป             ราคา:                       บาท/กิโลเมตร">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_rateDst_normal" alignment="CENTER_RIGHT" editable="false" layoutX="210.0" layoutY="202.0" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #fcee86;" text="18" />
-            <Label layoutX="62.0" layoutY="312.0" prefHeight="27.0" prefWidth="319.0" text="ราคาเริ่มต้นที่:                                          บาท/วัน">
+            <TextField fx:id="tf_rateDst_normal" alignment="CENTER_RIGHT" editable="false" layoutX="222.0" layoutY="219.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #fcee86;" text="18" />
+            <Label layoutX="62.0" layoutY="328.0" prefHeight="27.0" prefWidth="319.0" text="ราคา:                                                        บาท/วัน">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_rateDay_normal" alignment="CENTER_RIGHT" editable="false" layoutX="210.0" layoutY="313.0" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #fcee86;" text="2000.00" />
+            <TextField fx:id="tf_rateDay_normal" alignment="CENTER_RIGHT" editable="false" layoutX="226.0" layoutY="330.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #fcee86;" text="2000.00" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcee86" height="297.0" layoutX="411.0" layoutY="78.0" stroke="#ffffff00" strokeType="INSIDE" width="359.0" />
-            <Label layoutX="511.0" layoutY="78.0" text="ประเภทรถ: VIP(9 ที่นั่ง)">
+            <Label layoutX="511.0" layoutY="94.0" text="ประเภทรถ: VIP(9 ที่นั่ง)">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="415.0" layoutY="126.0" prefHeight="27.0" prefWidth="194.0" text="ประเภทการจอง: ระยะทาง">
+            <Label layoutX="415.0" layoutY="142.0" prefHeight="27.0" prefWidth="194.0" text="ประเภทการจอง: ระยะทาง">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="415.0" layoutY="277.0" prefHeight="27.0" prefWidth="194.0" text="ประเภทการจอง: รายวัน">
+            <Label layoutX="415.0" layoutY="293.0" prefHeight="27.0" prefWidth="194.0" text="ประเภทการจอง: รายวัน">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="483.0" layoutY="164.0" prefHeight="27.0" prefWidth="279.0" text="กิโลเมตรแรก ราคา:                         บาท">
+            <Label layoutX="495.0" layoutY="180.0" prefHeight="27.0" prefWidth="274.0" text="กิโลเมตรแรก ราคา:                       บาท">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_base_vip" alignment="CENTER_RIGHT" editable="false" layoutX="595.0" layoutY="165.0" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #fcee86;" text="2000.00" />
-            <TextField fx:id="tf_dist_vip" alignment="CENTER_RIGHT" editable="false" layoutX="445.0" layoutY="165.0" prefHeight="25.0" prefWidth="37.0" style="-fx-background-color: #fcee86;" text="80" />
-            <Label layoutX="445.0" layoutY="201.0" prefHeight="27.0" prefWidth="319.0" text="กิโลเมตรถัดไป         ราคา:                         บาท/กิโลเมตร">
+            <TextField fx:id="tf_base_vip" alignment="CENTER_RIGHT" editable="false" layoutX="609.0" layoutY="182.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #fcee86;" text="20" />
+            <TextField fx:id="tf_dist_vip" editable="false" layoutX="438.0" layoutY="182.0" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: #fcee86;" text="080.00" />
+            <Label layoutX="445.0" layoutY="217.0" prefHeight="27.0" prefWidth="319.0" text="กิโลเมตรถัดไป             ราคา:                       บาท/กิโลเมตร">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_rateDst_vip" alignment="CENTER_RIGHT" editable="false" layoutX="593.0" layoutY="202.0" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #fcee86;" text="22" />
-            <Label layoutX="445.0" layoutY="312.0" prefHeight="27.0" prefWidth="319.0" text="ราคาเริ่มต้นที่:                                          บาท/วัน">
+            <TextField fx:id="tf_rateDst_vip" alignment="CENTER_RIGHT" editable="false" layoutX="609.0" layoutY="219.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #fcee86;" text="22" />
+            <Label layoutX="445.0" layoutY="328.0" prefHeight="27.0" prefWidth="319.0" text="ราคา:                                                       บาท/วัน">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_rateDay_vip" alignment="CENTER_RIGHT" editable="false" layoutX="593.0" layoutY="313.0" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #fcee86;" text="3000.00" />
+            <TextField fx:id="tf_rateDay_vip" alignment="CENTER_RIGHT" editable="false" layoutX="609.0" layoutY="330.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #fcee86;" text="3000.00" />
             <Button fx:id="btn_save" layoutX="669.0" layoutY="414.0" mnemonicParsing="false" prefWidth="104.0" text="บันทึกการแก้ไข" visible="false">
                <font>
                   <Font size="14.0" />
