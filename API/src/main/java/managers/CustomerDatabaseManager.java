@@ -2,6 +2,7 @@ package managers;
 
 import models.Customer;
 import models.Destination;
+import models.PriceFactor;
 import models.Reservation;
 
 import java.util.Date;
@@ -24,5 +25,7 @@ public interface CustomerDatabaseManager {
     List<String> getProvinces();
     List<String> getDistricts(String province);
     boolean changeCustomerPassword(String citizenId, String oldPwd, String newPwd);
+    PriceFactor getPriceFactor();
+
 
 }

@@ -693,6 +693,46 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         return false;
     }
 
+    @Override
+    public PriceFactor getPriceFactor() {
+        String sql = "select * from price_rate";
+        final Map<String, Double> map = new HashMap<>();
+        QueryExecutionAssistant<PriceFactor> assistant = new QueryExecutionAssistant<>(url);
+        return assistant.execute(sql, resultSet -> {
+            PriceFactor factor = new PriceFactor();
+            while(resultSet.next()){
+                String rtype = resultSet.getString("reserve_type");
+                String vtype = resultSet.getString("van_type");
+                double rate = resultSet.getDouble("rate");
+                double base = resultSet.getDouble("base");
+                double free = resultSet.getDouble("free_range");
+
+                if ("day".equals(rtype)){
+                    if ("VIP".equals(vtype)){
+                        factor.setFactor(PriceFactor.DAY, PriceFactor.VIP, PriceFactor.RATE, rate);
+                        factor.setFactor(PriceFactor.DAY, PriceFactor.VIP, PriceFactor.BASE, base);
+                        factor.setFactor(PriceFactor.DAY, PriceFactor.VIP, PriceFactor.FREE, free);
+                    }else{
+                        factor.setFactor(PriceFactor.DAY, PriceFactor.NORMAL, PriceFactor.RATE, rate);
+                        factor.setFactor(PriceFactor.DAY, PriceFactor.NORMAL, PriceFactor.BASE, base);
+                        factor.setFactor(PriceFactor.DAY, PriceFactor.NORMAL, PriceFactor.FREE, free);
+                    }
+                }else{
+                    if ("VIP".equals(vtype)){
+                        factor.setFactor(PriceFactor.DISTANCE, PriceFactor.VIP, PriceFactor.RATE, rate);
+                        factor.setFactor(PriceFactor.DISTANCE, PriceFactor.VIP, PriceFactor.BASE, base);
+                        factor.setFactor(PriceFactor.DISTANCE, PriceFactor.VIP, PriceFactor.FREE, free);
+                    }else{
+                        factor.setFactor(PriceFactor.DISTANCE, PriceFactor.NORMAL, PriceFactor.RATE, rate);
+                        factor.setFactor(PriceFactor.DISTANCE, PriceFactor.NORMAL, PriceFactor.BASE, base);
+                        factor.setFactor(PriceFactor.DISTANCE, PriceFactor.NORMAL, PriceFactor.FREE, free);
+                    }
+                }
+            }
+            return factor;
+        }, null);
+    }
+
     private double getDistance(Destination destination){
         Connection connection = null;
         try {

@@ -68,4 +68,6 @@ public interface ManagerDatabaseManager {
     List<Reservation> getReservations();
 
     Reservation getReservation(String reserveId);
+
+    PriceFactor getPriceFactor();
 }
