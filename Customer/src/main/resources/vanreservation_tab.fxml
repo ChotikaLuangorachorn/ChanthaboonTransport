@@ -26,7 +26,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="125.0" text="สถานที่:" >
+      <Label layoutX="32.0" layoutY="125.0" text="สถานที่:">
          <font>
             <Font size="14.0" />
          </font>
@@ -93,8 +93,8 @@
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <Spinner fx:id="spn_normal" layoutX="562.0" layoutY="85.0" prefHeight="25.0" prefWidth="64.0" min="$minCar"/>
-      <Spinner fx:id="spn_vip" layoutX="562.0" layoutY="117.0" prefHeight="25.0" prefWidth="64.0" min="$minCar"/>
+      <Spinner fx:id="spn_normal" layoutX="562.0" layoutY="85.0" prefHeight="25.0" prefWidth="64.0" />
+      <Spinner fx:id="spn_vip" layoutX="562.0" layoutY="117.0" prefHeight="25.0" prefWidth="64.0" />
       <Label layoutX="631.0" layoutY="120.0" text="คัน">
          <font>
             <Font size="14.0" />
@@ -105,10 +105,10 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Spinner fx:id="spn_start_hr" layoutX="250.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" max="$maxH" min="$minH"/>
-      <Spinner fx:id="spn_start_min" layoutX="321.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" max="$maxM" min="$minM"/>
-      <Spinner fx:id="spn_end_hr" layoutX="250.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" max="$maxH" min="$minH"/>
-      <Spinner fx:id="spn_end_min" layoutX="321.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" max="$maxM" min="$minM"/>
+      <Spinner fx:id="spn_start_hr" layoutX="250.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" />
+      <Spinner fx:id="spn_start_min" layoutX="321.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" />
+      <Spinner fx:id="spn_end_hr" layoutX="250.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" />
+      <Spinner fx:id="spn_end_min" layoutX="321.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" />
       <Label layoutX="216.0" layoutY="294.0" text="เวลา:">
          <font>
             <Font size="14.0" />
@@ -139,12 +139,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="483.0" layoutY="210.0" prefHeight="62.0" prefWidth="256.0" text="(คิดตามระยะทางที่ไป &#10;- รถธรรมราคาเริ่มต้นที่ 1,500 บาท&#10;- รถVIPเริ่มต้นที่ 2,000 บาท)">
+      <Label layoutX="483.0" layoutY="210.0" prefHeight="62.0" prefWidth="256.0" text="(คิดตามระยะทางที่ไป &#10;- รถธรรมราคาเริ่มต้นที่&#10;- รถVIPเริ่มต้นที่">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="483.0" layoutY="300.0" prefHeight="62.0" prefWidth="256.0" text="(คิดตามจำนวนวันที่ไป &#10;- รถธรรมราคา 1,500 บาท/วัน&#10;- รถVIPราคา 3,000 บาท/วัน)">
+      <Label layoutX="483.0" layoutY="300.0" prefHeight="62.0" prefWidth="256.0" text="(คิดตามจำนวนวันที่ไป &#10;- รถธรรมราคา&#10;- รถVIPราคา">
          <font>
             <Font size="13.0" />
          </font>
@@ -172,6 +172,26 @@
       <Label fx:id="lb_amtVipVan" layoutX="689.0" layoutY="119.0" text="10">
          <font>
             <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_dist_normal" layoutX="598.0" layoutY="231.0" prefHeight="20.0" prefWidth="129.0" text="1,500 บาท">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_dist_vip" layoutX="568.0" layoutY="250.0" prefHeight="20.0" prefWidth="150.0" text="2,000 บาท)">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_day_normal" layoutX="561.0" layoutY="321.0" prefHeight="20.0" prefWidth="129.0" text="1,500 บาท/วัน">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_day_vip" layoutX="555.0" layoutY="340.0" prefHeight="20.0" prefWidth="150.0" text="3,000 บาท/วัน)">
+         <font>
+            <Font size="13.0" />
          </font>
       </Label>
    </children>

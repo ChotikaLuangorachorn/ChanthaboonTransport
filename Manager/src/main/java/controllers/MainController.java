@@ -83,4 +83,9 @@ public class MainController {
         return executor.getVanSchedule(regisNumber);
     }
 
+    /**Fee*/
+    public PriceFactor getPriceFactor(){
+        System.out.println(executor.getPriceFactor() +"-------");
+        return executor.getPriceFactor();
+    }
 }
