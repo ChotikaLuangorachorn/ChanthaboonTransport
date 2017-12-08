@@ -70,4 +70,5 @@ public interface ManagerDatabaseManager {
     Reservation getReservation(String reserveId);
 
     PriceFactor getPriceFactor();
+    void updatePriceFactor(PriceFactor factor);
 }

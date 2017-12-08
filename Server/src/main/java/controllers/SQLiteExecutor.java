@@ -733,6 +733,27 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         }, null);
     }
 
+    @Override
+    public void updatePriceFactor(PriceFactor factor) {
+        String[] rtypes = {"day", "distance"};
+        String[] vtype = {"VIP", "NORMAL"};
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        for (int i=0; i<2; i++){
+            for (int j=0; j<2; j++){
+                double base = factor.getFactor(i+1, (j+1)*10, 100);
+                double rate = factor.getFactor(i+1, (j+1)*10, 200);
+                double free = factor.getFactor(i+1, (j+1)*10, 300);
+                String sql = createUpdatePriceFactorQuery(rtypes[i], vtype[j], base, rate, free);
+                assistant.execute(sql);
+            }
+        }
+    }
+
+    private String createUpdatePriceFactorQuery(String rtype, String vtype, double base, double rate,  double free){
+        return String.format("update price_rate set rate='&f', base='%f', free_range='%f' where reserve_type='%s' and van_type='%s'",
+                            rate, base, free, rtype, vtype);
+    }
+
     private double getDistance(Destination destination){
         Connection connection = null;
         try {
