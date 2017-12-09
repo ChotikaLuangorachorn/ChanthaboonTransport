@@ -214,5 +214,18 @@ public class VanExecutor {
             return 0.0;
         }, 0.0);
     }
+    public void assignVan(List<Van> vans, String reservationId) {
+        String sql = String.format("insert into van_reserve_schedule " +
+                "select van.regis_number, '%s' " +
+                "from van " +
+                "where van.regis_number in ", reservationId);
+        List<String> vanIds = new ArrayList<>();
+        for (Van van:vans)
+            vanIds.add("'" + van.getRegisNumber() + "'");
+        sql += "(" + String.join(",", vanIds) + ")";
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
+    }
 
 }

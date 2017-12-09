@@ -1,7 +1,12 @@
 package controllers.delegations;
 
 import controllers.assistants.QueryExecutionAssistant;
+import controllers.assistants.UpdateExecutionAssistant;
 import models.Customer;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class CustomerExecutor {
     private String url;
@@ -36,4 +41,24 @@ public class CustomerExecutor {
         }, null);
     }
 
+    public void editCustomerInfo(Customer customer) {
+        System.out.println("request editCustomerInfo");
+        System.out.println("customer = " + customer);
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        String sql = String.format("update customer " +
+                        "set first_name='%s' ," +
+                        "last_name='%s' ," +
+                        "address='%s' ," +
+                        "phone='%s' ," +
+                        "line_id='%s' " +
+                        "where citizen_id='%s'",
+                customer.getFirstName(),
+                customer.getLastName(),
+                customer.getAddress(),
+                customer.getPhone(),
+                customer.getLineId(),
+                customer.getCitizenId());
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
+    }
 }
