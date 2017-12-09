@@ -121,6 +121,16 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
 
     }
 
+    @Override
+    public List<Schedule> getDriverSchedule(Driver driver) {
+        return getDriverSchedule(driver.getCitizenId());
+    }
+
+    @Override
+    public List<Schedule> getDriverSchedule(String citizenId) {
+        return driverExecutor.getDriverSchedule(citizenId);
+    }
+
     public void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation) {
         addMeeting(meetingPlace, meetingTime, reservation.getReserveId());
     }
