@@ -90,6 +90,9 @@ public class MainController {
     public List<Schedule> getVanSchedule(String regisNumber){
         return executor.getVanSchedule(regisNumber);
     }
+    public void deleteVanSchedule(Schedule schedule){
+        executor.deleteVanSchedule(schedule);
+    }
 
     /**Fee*/
     public PriceFactor getPriceFactor(){

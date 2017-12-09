@@ -133,7 +133,7 @@ public class DriverDetailView implements Initializable {
                     if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
                         controller.deleteDriverSchedule(schedule);
                         table_schedule.getSelectionModel().clearSelection();
-                        refreshDriverTable();
+                        refreshScheduleTable();
                     }
                 }
             }
@@ -176,7 +176,7 @@ public class DriverDetailView implements Initializable {
         table_schedule.setItems(data);
     }
 
-    public void refreshDriverTable(){
+    public void refreshScheduleTable(){
         this.jobs = controller.getDriverSchedule(driver.getCitizenId());
         initData();
     }
@@ -192,7 +192,7 @@ public class DriverDetailView implements Initializable {
         if(lb_license!=null){
             onClickEditDriver();
             onClickDeleteSchedule();
-            refreshDriverTable();
+            refreshScheduleTable();
         }
     }
     public void setDriverMenuView(DriverMenuView driverMenuView){

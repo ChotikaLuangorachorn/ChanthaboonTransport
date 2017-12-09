@@ -87,7 +87,7 @@ public class VanDetailView implements Initializable{
             }
         });
     }
-    public void onClickDeleteVan(){
+    public void onClickDeleteSchedule(){
         btn_deleteJob.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -120,11 +120,11 @@ public class VanDetailView implements Initializable{
                     alert.setContentText(s);
 
                     Optional<ButtonType> result = alert.showAndWait();
-//                    if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-//                        controller.deleteVan(van);
-//                        table_vanSchedule.getSelectionModel().clearSelection();
-//                        refreshVanTable();
-//                    }
+                    if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+                        controller.deleteVanSchedule(schedule);
+                        table_vanSchedule.getSelectionModel().clearSelection();
+                        refreshScheduleTable();
+                    }
                 }
             }
         });
@@ -166,7 +166,7 @@ public class VanDetailView implements Initializable{
         table_vanSchedule.setItems(data);
     }
 
-    public void refreshVanTable(){
+    public void refreshScheduleTable(){
         this.jobs = controller.getVanSchedule(van.getRegisNumber());
         initData();
     }
@@ -178,8 +178,9 @@ public class VanDetailView implements Initializable{
 
     public void setVan(Van van) {
         this.van = van;
-        refreshVanTable();
+        refreshScheduleTable();
         showDetail();
+        onClickDeleteSchedule();
     }
     public void setVanMenuView(VanMenuView vanMenuView){
         this.vanMenuView = vanMenuView;
