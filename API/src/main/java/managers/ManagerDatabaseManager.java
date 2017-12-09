@@ -31,14 +31,15 @@ public interface ManagerDatabaseManager {
     List<Schedule> getVanSchedule(String regisNumber);
     List<Schedule> getVanSchedule(Van van);
     void deleteVanSchedule(Schedule schedule);
+    void editVanSchedule(Schedule oldSchedule, Schedule newSchedule);
     List<JobType> getVanJobTypes();
     void addVanJob(Van van, Date startDate, Date endDate, JobType type);
 
     List<Partner> getPartners();
     void editPartner(Partner partner);
-
     void deletePartner(Partner partner);
     void deletePartner(int partnerId);
+
     List<Driver> getDriverAvailable(Date startDate, Date endDate);
     List<Driver> getDrivers();
     void editDriver(Driver driver);
@@ -46,10 +47,14 @@ public interface ManagerDatabaseManager {
     void assignDriver(List<Driver> drivers, Reservation reservation);
     void assignDriver(List<Driver> drivers, String reservationId);
     void deleteDriver(String citizenId);
-    List<JobType> getDriverJobs();
+    List<JobType> getDriverJobTypes();
+    List<Schedule> getDriverSchedule(Driver driver);
+    List<Schedule> getDriverSchedule(String citizenId);
+    void deleteDriverSchedule(Schedule schedule);
+    void editDriverSchedule(Schedule oldSchedule, Schedule newSchedule);
 
-    void addDriverJob(Van van, Date startDate, Date endDate, JobType type);
-    void deleteDriverJob(Van van, Date startDate, Date endDate);
+
+
     void editReservation(Reservation reservation);
     void deleteReservation(Reservation reservation);
 

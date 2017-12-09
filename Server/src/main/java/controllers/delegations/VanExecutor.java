@@ -234,6 +234,29 @@ public class VanExecutor {
         int result = assistant.execute(sql);
         System.out.println("result = " + result);
     }
+    public void editVanSchedule(Schedule oldSchedule, Schedule newSchedule) {
+        String sql;
+        if (Schedule.JOB.equals(newSchedule.getType())){
+            String oldStartTime = formatter.format(oldSchedule.getStartDate());
+            String oldEndTime = formatter.format(oldSchedule.getEndDate());
+            String newStartTime = formatter.format(newSchedule.getStartDate());
+            String newEndTime = formatter.format(newSchedule.getEndDate());
+            sql = String.format("update van_job_schedule\n" +
+                                "set type_id=(select id\n" +
+                                            "from van_job_type\n" +
+                                            "where description='%s'), start_date='%s', end_date='%s'\n" +
+                                "where regis_number='%s' and start_date='%s' and end_date='%s'",
+                                newSchedule.getNote(), newStartTime, newEndTime, oldSchedule.getId(), oldStartTime, oldEndTime);
+        }else{
+            sql = String.format("update van_reserve_schedule " +
+                                "set reservation_id='" + newSchedule.getNote() + "' " +
+                                "where regis_number='" + oldSchedule.getId() + "' and " +
+                                        "reservation_id='" + oldSchedule.getNote() + "'");
+        }
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
+    }
     private boolean checkPossibleDay(Destination destination, Date startDate, Date endDate){
         double distance = getDistance(destination);
         long diff = endDate.getTime() - startDate.getTime();
