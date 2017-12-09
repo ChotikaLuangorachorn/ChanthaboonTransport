@@ -48,10 +48,11 @@ public interface ManagerDatabaseManager {
     void assignDriver(List<Driver> drivers, String reservationId);
     void deleteDriver(String citizenId);
     List<JobType> getDriverJobTypes();
-    void addDriverJob(Van van, Date startDate, Date endDate, JobType type);
-    void deleteDriverJob(Van van, Date startDate, Date endDate);
     List<Schedule> getDriverSchedule(Driver driver);
     List<Schedule> getDriverSchedule(String citizenId);
+    void deleteDriverSchedule(Schedule schedule);
+    void editDriverSchedule(Schedule oldSchedule, Schedule newSchedule);
+
 
 
     void editReservation(Reservation reservation);
