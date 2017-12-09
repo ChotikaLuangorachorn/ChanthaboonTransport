@@ -7,12 +7,12 @@ public class Reservation implements Serializable{
     private String reserveId,customerId, meetingPlace, isDeposited;
     private int amtVip, amtNormal;
     private Destination destination;
-    private Date startDate, endDate, reserveDate, meetingDate;
+    private Date startDate, endDate, reserveDate, meetingDate, depositDate;
     private double price;
     private double deposit;
     private Customer customer;
 
-    public Reservation(String reserveId, String customerId, String meetingPlace, int amtVip, int amtNormal, Destination destination, Date startDate, Date endDate, Date reserveDate, Date meetingDate, double price, String isDeposited, double deposit) {
+    public Reservation(String reserveId, String customerId, String meetingPlace, int amtVip, int amtNormal, Destination destination, Date startDate, Date endDate, Date reserveDate, Date meetingDate, double price, String isDeposited, double deposit, Date depositDate) {
         this.reserveId = reserveId;
         this.customerId = customerId;
         this.meetingPlace = meetingPlace;
@@ -26,6 +26,7 @@ public class Reservation implements Serializable{
         this.price = price;
         this.isDeposited = isDeposited;
         this.deposit = deposit;
+        this.depositDate = depositDate;
     }
 
     public String getReserveId() {
@@ -138,5 +139,13 @@ public class Reservation implements Serializable{
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Date getDepositDate() {
+        return depositDate;
+    }
+
+    public void setDepositDate(Date depositDate) {
+        this.depositDate = depositDate;
     }
 }
