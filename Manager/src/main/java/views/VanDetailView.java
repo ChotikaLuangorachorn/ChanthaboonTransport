@@ -101,7 +101,7 @@ public class VanDetailView implements Initializable{
                     String startDay = ReservationDateFormatter.getInstance().getUiDateFormatter().format(startDate)+" ";
                     String startTime = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(startDate)+ " น.";
 
-                    Date endDate = schedule.getStartDate();
+                    Date endDate = schedule.getEndDate();
                     String endDay = ReservationDateFormatter.getInstance().getUiDateFormatter().format(endDate)+" ";
                     String endTime = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(endDate)+ " น.";
 

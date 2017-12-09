@@ -13,10 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -29,13 +26,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class DriverDetailView implements Initializable {
     @FXML private Label lb_license, lb_fName, lb_lName, lb_nName, lb_citizenId, lb_birthDay, lb_phone, lb_address;
-    @FXML private TableView table_driverDetail;
+    @FXML private TableView table_schedule;
     @FXML private TableColumn col_startDate, col_endDate, col_jobStatus;
-    @FXML private Button btn_editDriver, btn_editJob, btn_deleteJob;
+    @FXML private Button btn_editDriver, btn_editSchedule, btn_deleteSchedule;
 
     private MainController controller;
     private Driver driver;
@@ -46,7 +44,7 @@ public class DriverDetailView implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
         if(driver!=null){
-        onClickEditDriver();}
+        onClickEditDriver();onClickDeleteSchedule();}
     }
 
     public void showDetail(){
@@ -99,7 +97,48 @@ public class DriverDetailView implements Initializable {
             }
         });
     }
+    public void onClickDeleteSchedule(){
+        btn_deleteSchedule.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Schedule schedule = (Schedule) table_schedule.getSelectionModel().getSelectedItem();
+                if(driver!=null){
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("ยืนยันการลบตารางงาน");
+                    alert.setHeaderText("ยืนยันการลบตารางงาน");
 
+                    Date startDate = schedule.getStartDate();
+                    String startDay = ReservationDateFormatter.getInstance().getUiDateFormatter().format(startDate)+" ";
+                    String startTime = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(startDate)+ " น.";
+
+                    Date endDate = schedule.getEndDate();
+                    String endDay = ReservationDateFormatter.getInstance().getUiDateFormatter().format(endDate)+" ";
+                    String endTime = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(endDate)+ " น.";
+
+                    String type = schedule.getType();
+                    if (Schedule.RESERVE.equals(type)) {
+                        type = String.format("หมายเลขการจอง: %05d", Integer.parseInt(schedule.getNote()));
+                    } else if (Schedule.JOB.equals(type)) {
+                        type = schedule.getNote();
+                    }
+                    else{
+                        type ="-";
+                    }
+                    String s = "วันที่ไป:\t\t" + startDay + startTime + "\n"
+                            +"วันที่กลับ:\t\t" + endDay + endTime + "\n"
+                            +"สถานะ:\t\t" + type;
+                    alert.setContentText(s);
+
+                    Optional<ButtonType> result = alert.showAndWait();
+//                    if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+//                        controller.deleteVan(van);
+//                        table_vanSchedule.getSelectionModel().clearSelection();
+//                        refreshVanTable();
+//                    }
+                }
+            }
+        });
+    }
 
     public void initCol(){
         col_startDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Schedule,String>, ObservableValue<String>>() {
@@ -134,7 +173,7 @@ public class DriverDetailView implements Initializable {
     }
     public void initData(){
         ObservableList<Schedule> data = FXCollections.observableList(jobs);
-        table_driverDetail.setItems(data);
+        table_schedule.setItems(data);
     }
 
     public void refreshDriverTable(){
@@ -152,6 +191,7 @@ public class DriverDetailView implements Initializable {
         showDetail();
         if(lb_license!=null){
             onClickEditDriver();
+            onClickDeleteSchedule();
             refreshDriverTable();
         }
     }
