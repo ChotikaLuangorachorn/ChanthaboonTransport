@@ -86,6 +86,16 @@ public class FeeMenuView implements Initializable{
                 btn_cancel.setVisible(false);
                 btn_save.setVisible(false);
             }
+            double dist_normal = Double.parseDouble(tf_dist_normal.getText());
+            double base_normal = Double.parseDouble(tf_base_normal.getText());
+            double rateDst_normal = Double.parseDouble(tf_rateDst_normal.getText());
+            double rateDay_normal = Double.parseDouble(tf_rateDay_normal.getText());
+
+            double dist_vip = Double.parseDouble(tf_dist_vip.getText());
+            double base_vip = Double.parseDouble(tf_base_vip.getText());
+            double rateDst_vip = Double.parseDouble(tf_rateDst_vip.getText());
+            double rateDay_vip =Double.parseDouble(tf_rateDay_vip.getText());
+            //PriceFactor price = new PriceFactor();
         });
     }
     public void initData(){
