@@ -33,7 +33,7 @@ public class VanDetailView implements Initializable{
     @FXML private Label lb_name, lb_regisNum, lb_type;
     @FXML private TableView table_vanSchedule;
     @FXML private TableColumn col_startDate, col_endDate, col_jobStatus;
-    @FXML private Button btn_editVan, btn_deleteJob;
+    @FXML private Button btn_editVan, btn_deleteSchedule, btn_editSchedule;
 
     private MainController controller;
     private Van van;
@@ -88,7 +88,7 @@ public class VanDetailView implements Initializable{
         });
     }
     public void onClickDeleteSchedule(){
-        btn_deleteJob.setOnAction(new EventHandler<ActionEvent>() {
+        btn_deleteSchedule.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 Schedule schedule = (Schedule) table_vanSchedule.getSelectionModel().getSelectedItem();
@@ -126,6 +126,41 @@ public class VanDetailView implements Initializable{
                         refreshScheduleTable();
                     }
                 }
+            }
+        });
+    }
+    public void onClickEditSchedule(){
+        btn_editSchedule.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Schedule schedule = (Schedule) table_vanSchedule.getSelectionModel().getSelectedItem();
+                String type = schedule.getType();
+                if (Schedule.RESERVE.equals(type)) {
+                    try {
+                        Stage stage = new Stage();
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/van_reservation_edit.fxml"));
+                        AnchorPane detail = loader.load();
+                        VanReservationEditView vanReservationEditView = loader.getController();
+                        vanReservationEditView.setController(controller);
+                        vanReservationEditView.setSchedule(schedule);
+                        vanReservationEditView.setVanDetailView(VanDetailView.this);
+
+                        Scene scene = new Scene(detail);
+                        stage.setScene(scene);
+                        stage.setResizable(false);
+                        stage.setTitle("แก้ไขตารางงาน");
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.showAndWait();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                } else if (Schedule.JOB.equals(type)) {
+                }
+
+
+
             }
         });
     }

@@ -8,101 +8,71 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="355.0" prefWidth="641.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanDetailView">
+<AnchorPane prefHeight="248.0" prefWidth="453.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanJobEditView">
    <children>
-      <Label layoutX="53.0" layoutY="101.0" text="ทะเบียนรถ:">
+      <Label layoutX="20.0" layoutY="64.0" text="วันที่ไป:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lb_name" layoutX="381.0" layoutY="54.0" prefHeight="27.0" text="N01">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="lb_regisNum" layoutX="118.0" layoutY="101.0" text="00-0000">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="254.0" layoutY="54.0" text="หมายเลขรถตู้:">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="439.0" layoutY="101.0" text="ประเภทรถ:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lb_type" layoutX="503.0" layoutY="101.0" text="ธรรมดา(15 ที่นั่ง)">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="53.0" layoutY="136.0" text="วันที่ไป:">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="btn_editJob" layoutX="53.0" layoutY="290.0" mnemonicParsing="false" text="ยกเลิกการแก้ไข">
+      <Button fx:id="btn_cancel" layoutX="16.0" layoutY="202.0" mnemonicParsing="false" text="ยกเลิกการแก้ไข">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_deleteJob" layoutX="492.0" layoutY="290.0" mnemonicParsing="false" text="ยืนยันการแก้ไข">
+      <Button fx:id="btn_submit" layoutX="335.0" layoutY="202.0" mnemonicParsing="false" text="ยืนยันการแก้ไข">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="53.0" layoutY="186.0" text="วันที่กลับ:">
+      <Label layoutX="21.0" layoutY="110.0" text="วันที่กลับ:">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="236.0" text="สถานะ:">
+      <Label layoutX="21.0" layoutY="159.0" text="สถานะ:">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <DatePicker layoutX="140.0" layoutY="134.0" prefHeight="31.0" prefWidth="153.0" />
-      <Spinner layoutX="400.0" layoutY="134.0" prefHeight="31.0" prefWidth="73.0" />
-      <Label layoutX="349.0" layoutY="136.0" text="เวลา:">
+      <DatePicker fx:id="dp_startDate" layoutX="80.0" layoutY="59.0" prefHeight="31.0" prefWidth="134.0" />
+      <Spinner fx:id="sp_startHr" layoutX="276.0" layoutY="59.0" prefHeight="31.0" prefWidth="62.0" />
+      <Label layoutX="234.0" layoutY="64.0" text="เวลา:">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <DatePicker layoutX="140.0" layoutY="184.0" prefHeight="31.0" prefWidth="153.0" />
-      <Label layoutX="350.0" layoutY="186.0" text="เวลา:">
+      <DatePicker fx:id="dp_endDate" layoutX="80.0" layoutY="105.0" prefHeight="31.0" prefWidth="134.0" />
+      <Label layoutX="236.0" layoutY="110.0" text="เวลา:">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="579.0" layoutY="136.0" text="น.">
+      <Label layoutX="422.0" layoutY="64.0" text="น.">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="579.0" layoutY="186.0" text="น.">
+      <Label layoutX="423.0" layoutY="110.0" text="น.">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <Spinner layoutX="496.0" layoutY="134.0" prefHeight="31.0" prefWidth="73.0" />
-      <Spinner layoutX="400.0" layoutY="184.0" prefHeight="31.0" prefWidth="73.0" />
-      <Spinner layoutX="496.0" layoutY="184.0" prefHeight="31.0" prefWidth="73.0" />
-      <Label layoutX="482.0" layoutY="136.0" text=":">
+      <Spinner fx:id="sp_startMin" layoutX="350.0" layoutY="60.0" prefHeight="31.0" prefWidth="62.0" />
+      <Spinner fx:id="sp_endHr" layoutX="276.0" layoutY="104.0" prefHeight="31.0" prefWidth="62.0" />
+      <Spinner fx:id="sp_endMin" layoutX="350.0" layoutY="105.0" prefHeight="31.0" prefWidth="62.0" />
+      <Label layoutX="343.0" layoutY="64.0" text=":">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="482.0" layoutY="186.0" text=":">
+      <Label layoutX="344.0" layoutY="110.0" text=":">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox layoutX="142.0" layoutY="234.0" prefWidth="150.0" />
-      <Label layoutX="268.0" layoutY="21.0" text="แก้ไขตารางงานรถตู้">
+      <ComboBox fx:id="cb_status" layoutX="80.0" layoutY="157.0" prefHeight="25.0" prefWidth="134.0" />
+      <Label layoutX="150.0" layoutY="14.0" text="แก้ไขตารางงานรถตู้">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

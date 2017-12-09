@@ -106,12 +106,12 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btn_editSchedule" layoutX="617.0" layoutY="407.0" mnemonicParsing="false" text="แก้ไขตารางงาน">
+      <Button fx:id="btn_editSchedule" layoutX="617.0" layoutY="407.0" mnemonicParsing="false" text="แก้ไขข้อมูลงาน">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_deleteSchedule" layoutX="53.0" layoutY="407.0" mnemonicParsing="false" text="ลบตารางงาน">
+      <Button fx:id="btn_deleteSchedule" layoutX="53.0" layoutY="407.0" mnemonicParsing="false" text="ลบข้อมูลงาน">
          <font>
             <Font size="14.0" />
          </font>
