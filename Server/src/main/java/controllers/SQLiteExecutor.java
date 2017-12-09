@@ -668,6 +668,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
 
     @Override
     public void updatePriceFactor(PriceFactor factor) {
+        System.out.println("request update price factor");
         String[] rtypes = {"day", "distance"};
         String[] vtype = {"VIP", "NORMAL"};
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
@@ -677,13 +678,14 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
                 double rate = factor.getFactor(i+1, (j+1)*10, 200);
                 double free = factor.getFactor(i+1, (j+1)*10, 300);
                 String sql = createUpdatePriceFactorQuery(rtypes[i], vtype[j], base, rate, free);
+                System.out.println(sql);
                 assistant.execute(sql);
             }
         }
     }
 
     private String createUpdatePriceFactorQuery(String rtype, String vtype, double base, double rate,  double free){
-        return String.format("update price_rate set rate='&f', base='%f', free_range='%f' where reserve_type='%s' and van_type='%s'",
+        return String.format("update price_rate set rate='%f', base='%f', free_range='%f' where reserve_type='%s' and van_type='%s'",
                             rate, base, free, rtype, vtype);
     }
 
