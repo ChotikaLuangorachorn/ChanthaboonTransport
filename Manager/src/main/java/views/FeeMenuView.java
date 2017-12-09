@@ -85,31 +85,36 @@ public class FeeMenuView implements Initializable{
                 btn_editFee.setVisible(true);
                 btn_cancel.setVisible(false);
                 btn_save.setVisible(false);
-            }
-            double dist_normal = Double.parseDouble(tf_dist_normal.getText());
-            double base_normal = Double.parseDouble(tf_base_normal.getText());
-            double rateDst_normal = Double.parseDouble(tf_rateDst_normal.getText());
-            double rateDay_normal = Double.parseDouble(tf_rateDay_normal.getText());
 
-            double dist_vip = Double.parseDouble(tf_dist_vip.getText());
-            double base_vip = Double.parseDouble(tf_base_vip.getText());
-            double rateDst_vip = Double.parseDouble(tf_rateDst_vip.getText());
-            double rateDay_vip =Double.parseDouble(tf_rateDay_vip.getText());
-            //PriceFactor price = new PriceFactor();
+                double distFree_normal = Double.parseDouble(tf_dist_normal.getText());
+                double base_normal = Double.parseDouble(tf_base_normal.getText());
+                double rateDst_normal = Double.parseDouble(tf_rateDst_normal.getText());
+                double rateDay_normal = Double.parseDouble(tf_rateDay_normal.getText());
+
+                double distFree_vip = Double.parseDouble(tf_dist_vip.getText());
+                double base_vip = Double.parseDouble(tf_base_vip.getText());
+                double rateDst_vip = Double.parseDouble(tf_rateDst_vip.getText());
+                double rateDay_vip =Double.parseDouble(tf_rateDay_vip.getText());
+                PriceFactor price = new PriceFactor(0.0,0.0,rateDay_vip,rateDay_normal,0.0,0.0,base_vip,base_normal,rateDst_vip,rateDst_normal,distFree_vip,distFree_normal);
+                System.out.println(price + "+++");
+                controller.updatePriceFactor(price);
+                initData();
+            }
         });
     }
+
     public void initData(){
         PriceFactor priceFactor = controller.getPriceFactor();
-        double dist_normal = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.NORMAL, PriceFactor.FREE);
+        double distFree_normal = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.NORMAL, PriceFactor.FREE);
         double base_normal = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.NORMAL, PriceFactor.BASE);
         double rateDst_normal = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.NORMAL, PriceFactor.RATE);
         double rateDay_normal = priceFactor.getFactor(PriceFactor.DAY, PriceFactor.NORMAL, PriceFactor.RATE);
 
-        double dist_vip = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.VIP, PriceFactor.FREE);
+        double distFree_vip = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.VIP, PriceFactor.FREE);
         double base_vip = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.VIP, PriceFactor.BASE);
         double rateDst_vip = priceFactor.getFactor(PriceFactor.DISTANCE, PriceFactor.VIP, PriceFactor.RATE);
         double rateDay_vip = priceFactor.getFactor(PriceFactor.DAY, PriceFactor.VIP, PriceFactor.RATE);
-        values = new double[]{dist_normal,base_normal, rateDst_normal, rateDay_normal,dist_vip,base_vip, rateDst_vip, rateDay_vip};
+        values = new double[]{distFree_normal,base_normal, rateDst_normal, rateDay_normal,distFree_vip,base_vip, rateDst_vip, rateDay_vip};
 
         for(int i = 0 ; i<textFields.length;i++){
             textFields[i].setText(String.format("%,.2f",values[i]));
