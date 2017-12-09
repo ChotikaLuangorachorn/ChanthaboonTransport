@@ -31,6 +31,7 @@ public interface ManagerDatabaseManager {
     List<Schedule> getVanSchedule(String regisNumber);
     List<Schedule> getVanSchedule(Van van);
     void deleteVanSchedule(Schedule schedule);
+    void editVanSchedule(Schedule oldSchedule, Schedule newSchedule);
     List<JobType> getVanJobTypes();
     void addVanJob(Van van, Date startDate, Date endDate, JobType type);
 
