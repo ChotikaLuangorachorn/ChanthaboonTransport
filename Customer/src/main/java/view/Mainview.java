@@ -6,9 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.Pane;
-import managers.CustomerDatabaseManager;
-import models.CustomerInfoManager;
-
 import java.io.IOException;
 
 public class Mainview {
