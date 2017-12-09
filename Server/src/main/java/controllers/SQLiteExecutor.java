@@ -118,14 +118,6 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         return driverExecutor.getDriverJobTypes();
     }
 
-    public void addDriverJob(Van van, Date startDate, Date endDate, JobType type) {
-
-    }
-
-    public void deleteDriverJob(Van van, Date startDate, Date endDate) {
-
-    }
-
     @Override
     public List<Schedule> getDriverSchedule(Driver driver) {
         return getDriverSchedule(driver.getCitizenId());
@@ -134,6 +126,16 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     @Override
     public List<Schedule> getDriverSchedule(String citizenId) {
         return driverExecutor.getDriverSchedule(citizenId);
+    }
+
+    @Override
+    public void deleteDriverSchedule(Schedule schedule) {
+        driverExecutor.deleteDriverSchedule(schedule);
+    }
+
+    @Override
+    public void editDriverSchedule(Schedule oldSchedule, Schedule newSchedule) {
+        driverExecutor.editDriverSchedule(oldSchedule, newSchedule);
     }
 
     public void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation) {
