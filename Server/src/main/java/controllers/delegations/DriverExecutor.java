@@ -39,7 +39,7 @@ public class DriverExecutor {
                 "from driver_job_schedule " +
                 "join driver_job_type " +
                 "on driver_job_schedule.type_id = driver_job_type.id " +
-                "where citizen_id='"+citizenId+"'";
+                "where driver_id='"+citizenId+"'";
         System.out.println("sql = " + sql);
         QueryExecutionAssistant<List<Schedule>> assistant = new QueryExecutionAssistant<>(url);
         assistant.execute(sql, (resultSet -> {
