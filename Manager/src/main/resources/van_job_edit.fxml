@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="355.0" prefWidth="641.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanDetailView">
+   <children>
+      <Label layoutX="53.0" layoutY="101.0" text="ทะเบียนรถ:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_name" layoutX="381.0" layoutY="54.0" prefHeight="27.0" text="N01">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_regisNum" layoutX="118.0" layoutY="101.0" text="00-0000">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="254.0" layoutY="54.0" text="หมายเลขรถตู้:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="439.0" layoutY="101.0" text="ประเภทรถ:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_type" layoutX="503.0" layoutY="101.0" text="ธรรมดา(15 ที่นั่ง)">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="136.0" text="วันที่ไป:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_editJob" layoutX="53.0" layoutY="290.0" mnemonicParsing="false" text="ยกเลิกการแก้ไข">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_deleteJob" layoutX="492.0" layoutY="290.0" mnemonicParsing="false" text="ยืนยันการแก้ไข">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="53.0" layoutY="186.0" text="วันที่กลับ:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="236.0" text="สถานะ:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <DatePicker layoutX="140.0" layoutY="134.0" prefHeight="31.0" prefWidth="153.0" />
+      <Spinner layoutX="400.0" layoutY="134.0" prefHeight="31.0" prefWidth="73.0" />
+      <Label layoutX="349.0" layoutY="136.0" text="เวลา:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <DatePicker layoutX="140.0" layoutY="184.0" prefHeight="31.0" prefWidth="153.0" />
+      <Label layoutX="350.0" layoutY="186.0" text="เวลา:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="579.0" layoutY="136.0" text="น.">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="579.0" layoutY="186.0" text="น.">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Spinner layoutX="496.0" layoutY="134.0" prefHeight="31.0" prefWidth="73.0" />
+      <Spinner layoutX="400.0" layoutY="184.0" prefHeight="31.0" prefWidth="73.0" />
+      <Spinner layoutX="496.0" layoutY="184.0" prefHeight="31.0" prefWidth="73.0" />
+      <Label layoutX="482.0" layoutY="136.0" text=":">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="482.0" layoutY="186.0" text=":">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="142.0" layoutY="234.0" prefWidth="150.0" />
+      <Label layoutX="268.0" layoutY="21.0" text="แก้ไขตารางงานรถตู้">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
