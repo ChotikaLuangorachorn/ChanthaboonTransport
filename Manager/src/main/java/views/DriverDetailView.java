@@ -137,7 +137,7 @@ public class DriverDetailView implements Initializable {
         table_driverDetail.setItems(data);
     }
 
-    public void refreshVanTable(){
+    public void refreshDriverTable(){
         this.jobs = controller.getDriverSchedule(driver.getCitizenId());
         initData();
     }
@@ -152,7 +152,7 @@ public class DriverDetailView implements Initializable {
         showDetail();
         if(lb_license!=null){
             onClickEditDriver();
-            refreshVanTable();
+            refreshDriverTable();
         }
     }
     public void setDriverMenuView(DriverMenuView driverMenuView){
