@@ -18,18 +18,27 @@ public interface ManagerDatabaseManager {
     List<Reservation> getHistoryReservation(String citizenId);
     List<String> getProvinces();
     List<String> getDistricts(String province);
+
     // manager extension
     List<Van> getVans();
     Map<String, List<Van>> getVanAvailable(Date startDate, Date endDate);
     void editVan(Van van);
     void deleteVan(Van van);
     void deleteVan(String regisNumber);
+    void assignVan(List<Van> vans, Reservation reservation);
+    void assignVan(List<Van> vans, String reservationId);
+    Van getVan(String vanId);
+    List<Schedule> getVanSchedule(String regisNumber);
+    List<Schedule> getVanSchedule(Van van);
+    void deleteVanSchedule(Schedule schedule);
+    List<JobType> getVanJobTypes();
+    void addVanJob(Van van, Date startDate, Date endDate, JobType type);
 
     List<Partner> getPartners();
     void editPartner(Partner partner);
+
     void deletePartner(Partner partner);
     void deletePartner(int partnerId);
-
     List<Driver> getDriverAvailable(Date startDate, Date endDate);
     List<Driver> getDrivers();
     void editDriver(Driver driver);
@@ -38,22 +47,13 @@ public interface ManagerDatabaseManager {
     void assignDriver(List<Driver> drivers, String reservationId);
     void deleteDriver(String citizenId);
     List<JobType> getDriverJobs();
+
     void addDriverJob(Van van, Date startDate, Date endDate, JobType type);
     void deleteDriverJob(Van van, Date startDate, Date endDate);
-
     void editReservation(Reservation reservation);
     void deleteReservation(Reservation reservation);
+
     void deleteReservation(String reservationId);
-    void assignVan(List<Van> vans, Reservation reservation);
-    void assignVan(List<Van> vans, String reservationId);
-    Van getVan(String vanId);
-    List<Schedule> getVanSchedule(String regisNumber);
-    List<Schedule> getVanSchedule(Van van);
-    void deleteVanSchedule(Schedule schedule);
-
-    List<JobType> getVanJobs();
-
-    void addVanJob(Van van, Date startDate, Date endDate, JobType type);
 
     void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation);
     void addMeeting(String meetingPlace, Date meetingTime, String reservationId);

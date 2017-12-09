@@ -117,9 +117,19 @@ public class VanExecutor {
             return null;
         }), null);
     }
-    public List<JobType> getVanJobs() {
-        // TODO getVanJobs
-        return null;
+    public List<JobType> getVanJobTypes() {
+        List<JobType> jobTypes = new ArrayList<>();
+        String sql = "select * from van_job_type";
+        QueryExecutionAssistant<List<JobType>> assistant = new QueryExecutionAssistant<>(url);
+        return assistant.execute(sql, resultSet -> {
+            while(resultSet.next()){
+                int id = resultSet.getInt("id");
+                String description = resultSet.getString("description");
+                JobType jobType = new JobType(id, description);
+                jobTypes.add(jobType);
+            }
+            return jobTypes;
+        }, jobTypes);
     }
     public void addVanJob(Van van, Date startDate, Date endDate, JobType type) {
         // TODO addVanJob

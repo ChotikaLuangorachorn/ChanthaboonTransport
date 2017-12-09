@@ -101,8 +101,8 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         driverExecutor.assignDriver(drivers, reservationId);
     }
 
-    public List<JobType> getVanJobs() {
-        return vanExecutor.getVanJobs();
+    public List<JobType> getVanJobTypes() {
+        return vanExecutor.getVanJobTypes();
     }
 
     public void addVanJob(Van van, Date startDate, Date endDate, JobType type) {
