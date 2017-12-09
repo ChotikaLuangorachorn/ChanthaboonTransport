@@ -215,19 +215,4 @@ public class VanExecutor {
         }, 0.0);
     }
 
-    private Connection prepareConnection(){
-        // TODO remove when refactor all method
-        try {
-            Class.forName("org.sqlite.JDBC");
-            String dbURL = "jdbc:sqlite:" + url;
-            Connection conn = DriverManager.getConnection(dbURL);
-
-            return conn;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            System.err.println("connection Fail cannot find database");
-        }
-        return null;
-    }
 }
