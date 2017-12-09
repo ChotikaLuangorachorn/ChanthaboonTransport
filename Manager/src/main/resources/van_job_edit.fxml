@@ -45,12 +45,12 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btn_editJob" layoutX="53.0" layoutY="290.0" mnemonicParsing="false" text="ยกเลิกการแก้ใข">
+      <Button fx:id="btn_editJob" layoutX="53.0" layoutY="290.0" mnemonicParsing="false" text="ยกเลิกการแก้ไข">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_deleteJob" layoutX="492.0" layoutY="290.0" mnemonicParsing="false" text="ยืนยันการแก้ใข">
+      <Button fx:id="btn_deleteJob" layoutX="492.0" layoutY="290.0" mnemonicParsing="false" text="ยืนยันการแก้ไข">
          <font>
             <Font size="14.0" />
          </font>
@@ -102,8 +102,7 @@
          </font>
       </Label>
       <ComboBox layoutX="142.0" layoutY="234.0" prefWidth="150.0" />
-      <ComboBox layoutX="349.0" layoutY="234.0" prefWidth="150.0" />
-      <Label layoutX="268.0" layoutY="21.0" text="แก้ใขการจองรถตู้">
+      <Label layoutX="268.0" layoutY="21.0" text="แก้ไขตารางงานรถตู้">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
