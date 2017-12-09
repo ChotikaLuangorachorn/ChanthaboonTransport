@@ -75,6 +75,11 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         vanExecutor.deleteVanSchedule(schedule);
     }
 
+    @Override
+    public void editVanSchedule(Schedule oldSchedule, Schedule newSchedule) {
+        vanExecutor.editVanSchedule(oldSchedule, newSchedule);
+    }
+
     public void editCustomerInfo(Customer customer) {
         customerExecutor.editCustomerInfo(customer);
     }
@@ -119,6 +124,16 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
 
     public void deleteDriverJob(Van van, Date startDate, Date endDate) {
 
+    }
+
+    @Override
+    public List<Schedule> getDriverSchedule(Driver driver) {
+        return getDriverSchedule(driver.getCitizenId());
+    }
+
+    @Override
+    public List<Schedule> getDriverSchedule(String citizenId) {
+        return driverExecutor.getDriverSchedule(citizenId);
     }
 
     public void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation) {
@@ -212,7 +227,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public List<Partner> getPartners() {
-        List<Partner> partners = new ArrayList<Partner>();
+        List<Partner> partners = new ArrayList<>();
         Connection connection = null;
         try{
             connection = prepareConnection();
@@ -244,16 +259,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public void editPartner(Partner partner) {
-        String sql = String.format("update partner " +
-                                    "set name='%s'," +
-                                        "company='%s'," +
-                                        "company_phone='%s' " +
-                                    "where id='%s'",
-                                    partner.getName(), partner.getCompany(),
-                                    partner.getCompanyPhone(), partner.getId());
-        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
-        int result = assistant.execute(sql);
-
+        partnerExecutor.editPartner(partner);
     }
 
     public void deletePartner(Partner partner) {
@@ -261,26 +267,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public void deletePartner(int partnerId) {
-        System.out.println("request deletePartner");
-        Connection connection = null;
-        try{
-            connection = prepareConnection();
-            if (connection != null){
-                String sql = "delete from partner where id='" + partnerId + "'";
-                Statement statement = connection.createStatement();
-                int result = statement.executeUpdate(sql);
-                System.out.println("result");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null)
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-        }
+        partnerExecutor.deletePartner(partnerId);
     }
 
     @Override
