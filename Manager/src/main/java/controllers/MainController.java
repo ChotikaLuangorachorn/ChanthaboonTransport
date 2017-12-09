@@ -50,6 +50,9 @@ public class MainController {
     public void assignDriver(List<Driver> drivers, Reservation reservation){
         executor.assignDriver(drivers, reservation);
     }
+    public List<Schedule> getDriverSchedule(String citizenId){
+        return executor.getDriverSchedule(citizenId);
+    }
 
     /**Partner*/
     public List<Partner> getPartners(){
@@ -57,6 +60,9 @@ public class MainController {
     }
     public void deletePartner(Partner partner){
         executor.deletePartner(partner);
+    }
+    public void editPartner(Partner partner){
+        executor.editPartner(partner);
     }
 
     /**Van*/

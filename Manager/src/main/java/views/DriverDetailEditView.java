@@ -34,7 +34,7 @@ public class DriverDetailEditView implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         if (driver != null)
             showEditForm();
-            onClickConcelEdit();
+            onClickCancelEdit();
     }
 
     public void showEditForm(){
@@ -111,7 +111,7 @@ public class DriverDetailEditView implements Initializable {
             }
         });
     }
-    public void onClickConcelEdit(){
+    public void onClickCancelEdit(){
         btn_cancel.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -131,7 +131,7 @@ public class DriverDetailEditView implements Initializable {
         if (tf_fName != null) {
             showEditForm();
             onClickConfirmEdit();
-            onClickConcelEdit();
+            onClickCancelEdit();
         }
     }
     public void setDriverDetailEditView(DriverDetailView driverDetailView){

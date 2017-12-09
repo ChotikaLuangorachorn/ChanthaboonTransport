@@ -1,6 +1,8 @@
 package views;
 
 import controllers.MainController;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,23 +20,26 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import models.Driver;
+import models.Schedule;
 import utils.ReservationDateFormatter;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class DriverDetailView implements Initializable {
     @FXML private Label lb_license, lb_fName, lb_lName, lb_nName, lb_citizenId, lb_birthDay, lb_phone, lb_address;
     @FXML private TableView table_driverDetail;
-    @FXML private TableColumn col_startDatr, col_endDate, col_jobStatus;
+    @FXML private TableColumn col_startDate, col_endDate, col_jobStatus;
     @FXML private Button btn_editDriver, btn_editJob, btn_deleteJob;
 
     private MainController controller;
     private Driver driver;
-    private List<Driver> jobs;
+    private List<Schedule> jobs;
     private DriverMenuView driverMenuView;
 
     @Override
@@ -97,14 +102,43 @@ public class DriverDetailView implements Initializable {
 
 
     public void initCol(){
+        col_startDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Schedule,String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Schedule,String> schedule) {
+                Date startDate = schedule.getValue().getStartDate();
+                String date = ReservationDateFormatter.getInstance().getUiDateFormatter().format(startDate)+" ";
+                String time = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(startDate)+ " น.";
+                return new SimpleStringProperty(date+time);
+            }
+        });
+        col_endDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Schedule,String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Schedule,String> schedule) {
+                Date endDate = schedule.getValue().getEndDate();
+                String date = ReservationDateFormatter.getInstance().getUiDateFormatter().format(endDate)+" ";
+                String time = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(endDate)+ " น.";
+                return new SimpleStringProperty(date+time);
+            }
+        });
+        col_jobStatus.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Schedule,String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Schedule,String> schedule) {
+                String type = schedule.getValue().getType();
+                if (Schedule.RESERVE.equals(type)) {
+                    return new SimpleStringProperty(String.format("หมายเลขการจอง: %05d", Integer.parseInt(schedule.getValue().getNote())));
+                } else if (Schedule.JOB.equals(type)) {
+                    return new SimpleStringProperty(schedule.getValue().getNote());
+                }
+                else{
+                    return new SimpleStringProperty("-");
+                }
+            }
+        });
     }
     public void initData(){
-        ObservableList<Driver> data = FXCollections.observableList(jobs);
+        ObservableList<Schedule> data = FXCollections.observableList(jobs);
         table_driverDetail.setItems(data);
     }
 
     public void refreshVanTable(){
-//        this.jobs = controller.getVans();
+        this.jobs = controller.getDriverSchedule(driver.getCitizenId());
         initData();
     }
 
@@ -118,6 +152,7 @@ public class DriverDetailView implements Initializable {
         showDetail();
         if(lb_license!=null){
             onClickEditDriver();
+            refreshVanTable();
         }
     }
     public void setDriverMenuView(DriverMenuView driverMenuView){
