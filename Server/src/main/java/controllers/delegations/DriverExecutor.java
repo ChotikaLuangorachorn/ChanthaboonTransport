@@ -3,6 +3,7 @@ package controllers.delegations;
 import controllers.assistants.QueryExecutionAssistant;
 import controllers.assistants.UpdateExecutionAssistant;
 import models.Driver;
+import models.JobType;
 import models.Schedule;
 import utils.ReservationDateFormatter;
 
@@ -65,5 +66,19 @@ public class DriverExecutor {
             }
             return schedules;
         }), schedules);
+    }
+    public List<JobType> getDriverJobTypes() {
+        List<JobType> jobTypes = new ArrayList<>();
+        String sql = "select * from driver_job_type";
+        QueryExecutionAssistant<List<JobType>> assistant = new QueryExecutionAssistant<>(url);
+        return assistant.execute(sql, resultSet -> {
+            while(resultSet.next()){
+                int id = resultSet.getInt("id");
+                String description = resultSet.getString("description");
+                JobType jobType = new JobType(id, description);
+                jobTypes.add(jobType);
+            }
+            return jobTypes;
+        }, jobTypes);
     }
 }
