@@ -75,6 +75,36 @@ public class PartnerMenuView  implements Initializable{
             }
         });
     }
+    public void onClickEditPartner(){
+        btn_editPartner.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+//                try {
+//                    Stage stage = new Stage();
+//                    FXMLLoader loader = new FXMLLoader();
+//                    loader.setLocation(getClass().getResource("/van_detail_edit.fxml"));
+//                    AnchorPane detail = loader.load();
+//                    VanDetailEditView vanDetailEditView = loader.getController();
+//                    vanDetailEditView.setController(controller);
+//                    String type = (lb_name.getText().substring(0,1).equals("V"))?"VIP":"NORMAL";
+//                    van = new Van(van.getRegisNumber(),null,type,lb_name.getText());
+//                    vanDetailEditView.setVan(van);
+//                    vanDetailEditView.setVanDetailView(VanDetailView.this);
+//                    vanDetailEditView.setVanMenuView(vanMenuView);
+//
+//                    Scene scene = new Scene(detail);
+//                    stage.setScene(scene);
+//                    stage.setResizable(false);
+//                    stage.setTitle("แก้ไขข้อมูลรถตู้");
+//                    stage.initModality(Modality.APPLICATION_MODAL);
+//                    stage.showAndWait();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+
+            }
+        });
+    }
 
     public void initCol(){
         col_id.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Partner,String>, ObservableValue<String>>() {

@@ -31,9 +31,9 @@ import java.util.List;
 
 public class VanDetailView implements Initializable{
     @FXML private Label lb_name, lb_regisNum, lb_type;
-    @FXML private TableView table_vanDetail;
+    @FXML private TableView table_vanSchedule;
     @FXML private TableColumn col_startDate, col_endDate, col_jobStatus;
-    @FXML private Button btn_editVan;
+    @FXML private Button btn_editVan, btn_deleteJob;
 
     private MainController controller;
     private Van van;
@@ -87,6 +87,48 @@ public class VanDetailView implements Initializable{
             }
         });
     }
+    public void onClickDeleteVan(){
+        btn_deleteJob.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Schedule schedule = (Schedule) table_vanSchedule.getSelectionModel().getSelectedItem();
+                if(van!=null){
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("ยืนยันการลบตารางงาน");
+                    alert.setHeaderText("ยืนยันการลบตารางงาน");
+
+                    Date startDate = schedule.getStartDate();
+                    String startDay = ReservationDateFormatter.getInstance().getUiDateFormatter().format(startDate)+" ";
+                    String startTime = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(startDate)+ " น.";
+
+                    Date endDate = schedule.getStartDate();
+                    String endDay = ReservationDateFormatter.getInstance().getUiDateFormatter().format(endDate)+" ";
+                    String endTime = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(endDate)+ " น.";
+
+                    String type = schedule.getType();
+                    if (Schedule.RESERVE.equals(type)) {
+                        type = String.format("หมายเลขการจอง: %05d", Integer.parseInt(schedule.getNote()));
+                    } else if (Schedule.JOB.equals(type)) {
+                        type = schedule.getNote();
+                    }
+                    else{
+                        type ="-";
+                    }
+                    String s = "วันที่ไป:\t\t" + startDay + startTime + "\n"
+                            +"วันที่กลับ:\t\t" + endDay + endTime + "\n"
+                            +"สถานะ:\t\t" + type;
+                    alert.setContentText(s);
+
+                    Optional<ButtonType> result = alert.showAndWait();
+//                    if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+//                        controller.deleteVan(van);
+//                        table_vanSchedule.getSelectionModel().clearSelection();
+//                        refreshVanTable();
+//                    }
+                }
+            }
+        });
+    }
 
     public void initCol(){
         col_startDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Schedule,String>, ObservableValue<String>>() {
@@ -121,7 +163,7 @@ public class VanDetailView implements Initializable{
     }
     public void initData(){
         ObservableList<Schedule> data = FXCollections.observableList(jobs);
-        table_vanDetail.setItems(data);
+        table_vanSchedule.setItems(data);
     }
 
     public void refreshVanTable(){
