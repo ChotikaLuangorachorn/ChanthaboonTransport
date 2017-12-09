@@ -89,7 +89,8 @@ public class ReservationExecutor {
                 int amtNormal = resultSet.getInt("amt_normal");
                 String isDeposited = resultSet.getString("isDeposited");
                 double deposit = resultSet.getDouble("deposit_fee");
-                Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingTime, fee, isDeposited, deposit);
+                Date depositDate = (resultSet.getString("deposit_date")!=null)?formatter.parse(resultSet.getString("deposit_date")):null;
+                Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingTime, fee, isDeposited, deposit, depositDate);
 
 
                 String firstname = resultSet.getString("first_name");
@@ -127,8 +128,9 @@ public class ReservationExecutor {
                 int amtNormal = resultSet.getInt("amt_normal");
                 String isDeposited = resultSet.getString("isDeposited");
                 double deposit = resultSet.getDouble("deposit_fee");
+                Date depositDate = (resultSet.getString("deposit_date")!=null)?formatter.parse(resultSet.getString("deposit_date")):null;
 
-                Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingTime, fee, isDeposited, deposit);
+                Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingTime, fee, isDeposited, deposit, depositDate);
                 reservations.add(reservation);
             }
             return reservations;

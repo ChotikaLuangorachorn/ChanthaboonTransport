@@ -9,17 +9,23 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import models.Partner;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
@@ -40,6 +46,7 @@ public class PartnerMenuView  implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
         onClickDeletePartner();
+        onClickEditPartner();
     }
 
     public void setStageController(StageController stageController) {
@@ -72,6 +79,36 @@ public class PartnerMenuView  implements Initializable{
                         refreshPartnerTable();
                 }
                 }
+            }
+        });
+    }
+    public void onClickEditPartner(){
+        btn_editPartner.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    Partner partner = (Partner) table_partner.getSelectionModel().getSelectedItem();
+                    if (partner!=null){
+                        Stage stage = new Stage();
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/partner_edit.fxml"));
+                        Pane detail = loader.load();
+                        PartnerEditView partnerEditView = loader.getController();
+                        partnerEditView.setController(controller);
+                        partnerEditView.setPartner(partner);
+                        partnerEditView.setPartnerMenuView(PartnerMenuView.this);
+
+                        Scene scene = new Scene(detail);
+                        stage.setScene(scene);
+                        stage.setResizable(false);
+                        stage.setTitle("แก้ไขข้อมูลพันธมิตร");
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.showAndWait();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
     }
