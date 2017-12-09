@@ -34,6 +34,8 @@ public class DriverExecutor {
         System.out.println("result = " + result);
     }
     public List<Schedule> getDriverSchedule(String citizenId) {
+        System.out.println("request get driver schedules");
+        System.out.println("citizenId = " + citizenId);
         List<Schedule> schedules = new ArrayList<>();
         String sql = "select * " +
                 "from driver_job_schedule " +
@@ -55,7 +57,7 @@ public class DriverExecutor {
                 "from reservation\n" +
                 "join driver_reserve_schedule\n" +
                 "on reservation.id = driver_reserve_schedule.reservation_id\n" +
-                "where citizen_id = '" + citizenId + "'";
+                "where driver_id = '" + citizenId + "'";
         System.out.println(sql2);
         return assistant.execute(sql2, (resultSet -> {
             while(resultSet.next()){
@@ -64,6 +66,7 @@ public class DriverExecutor {
                 String note = resultSet.getString("id");
                 schedules.add(new Schedule(citizenId, startDate, endDate, note, Schedule.RESERVE));
             }
+            System.out.println("schedules = " + schedules);
             return schedules;
         }), schedules);
     }
