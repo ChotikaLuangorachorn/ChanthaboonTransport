@@ -130,11 +130,11 @@ public class DriverDetailView implements Initializable {
                     alert.setContentText(s);
 
                     Optional<ButtonType> result = alert.showAndWait();
-//                    if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-//                        controller.deleteVan(van);
-//                        table_vanSchedule.getSelectionModel().clearSelection();
-//                        refreshVanTable();
-//                    }
+                    if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+                        controller.deleteDriverSchedule(schedule);
+                        table_schedule.getSelectionModel().clearSelection();
+                        refreshDriverTable();
+                    }
                 }
             }
         });

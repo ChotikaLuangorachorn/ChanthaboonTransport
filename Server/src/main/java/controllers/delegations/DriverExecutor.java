@@ -90,12 +90,12 @@ public class DriverExecutor {
         String endTime = formatter.format(schedule.getEndDate());
         if (Schedule.JOB.equals(schedule.getType())){
             sql = "delete from driver_job_schedule " +
-                    "where citizen_id='" + schedule.getId() + "' and " +
+                    "where driver_id='" + schedule.getId() + "' and " +
                     "start_date='" + startTime + "' and " +
                     "end_date='" + endTime + "' ";
         }else{
             sql = "delete from driver_reserve_schedule " +
-                    "where citizen_id='" + schedule.getId() + "' and " +
+                    "where driver_id='" + schedule.getId() + "' and " +
                     "reservation_id='" + schedule.getNote() + "'";
         }
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
