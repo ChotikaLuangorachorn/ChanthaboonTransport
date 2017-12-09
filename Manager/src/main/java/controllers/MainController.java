@@ -85,7 +85,9 @@ public class MainController {
 
     /**Fee*/
     public PriceFactor getPriceFactor(){
-        System.out.println(executor.getPriceFactor() +"-------");
         return executor.getPriceFactor();
+    }
+    public void updatePriceFactor(PriceFactor priceFactor){
+        executor.updatePriceFactor(priceFactor);
     }
 }
