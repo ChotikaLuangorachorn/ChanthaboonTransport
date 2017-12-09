@@ -70,6 +70,11 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         return vanExecutor.getVanSchedule(regisNumber);
     }
 
+    @Override
+    public void deleteVanSchedule(Schedule schedule) {
+        vanExecutor.deleteVanSchedule(schedule);
+    }
+
     public void editCustomerInfo(Customer customer) {
         customerExecutor.editCustomerInfo(customer);
     }
@@ -102,10 +107,6 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
 
     public void addVanJob(Van van, Date startDate, Date endDate, JobType type) {
         vanExecutor.addVanJob(van, startDate, endDate, type);
-    }
-
-    public void deleteVanJob(Van van, Date startDate, Date endDate) {
-        vanExecutor.deleteVanJob(van, startDate, endDate);
     }
 
     public List<JobType> getDriverJobs() {
