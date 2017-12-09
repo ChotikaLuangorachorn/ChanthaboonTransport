@@ -117,15 +117,22 @@ public class VanExecutor {
             return null;
         }), null);
     }
-    public List<JobType> getVanJobs() {
-        // TODO getVanJobs
-        return null;
+    public List<JobType> getVanJobTypes() {
+        List<JobType> jobTypes = new ArrayList<>();
+        String sql = "select * from van_job_type";
+        QueryExecutionAssistant<List<JobType>> assistant = new QueryExecutionAssistant<>(url);
+        return assistant.execute(sql, resultSet -> {
+            while(resultSet.next()){
+                int id = resultSet.getInt("id");
+                String description = resultSet.getString("description");
+                JobType jobType = new JobType(id, description);
+                jobTypes.add(jobType);
+            }
+            return jobTypes;
+        }, jobTypes);
     }
     public void addVanJob(Van van, Date startDate, Date endDate, JobType type) {
         // TODO addVanJob
-    }
-    public void deleteVanJob(Van van, Date startDate, Date endDate) {
-        // TODO deleteVanJob
     }
     public void editVan(Van van) {
         System.out.println("request edit van");
@@ -196,6 +203,37 @@ public class VanExecutor {
             return schedules;
         }), schedules);
     }
+    public void assignVan(List<Van> vans, String reservationId) {
+        String sql = String.format("insert into van_reserve_schedule " +
+                "select van.regis_number, '%s' " +
+                "from van " +
+                "where van.regis_number in ", reservationId);
+        List<String> vanIds = new ArrayList<>();
+        for (Van van:vans)
+            vanIds.add("'" + van.getRegisNumber() + "'");
+        sql += "(" + String.join(",", vanIds) + ")";
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
+    }
+    public void deleteVanSchedule(Schedule schedule) {
+        String sql;
+        String startTime = formatter.format(schedule.getStartDate());
+        String endTime = formatter.format(schedule.getEndDate());
+        if (Schedule.JOB.equals(schedule.getType())){
+            sql = "delete from van_job_schedule " +
+                    "where regis_number='" + schedule.getId() + "' and " +
+                            "start_date='" + startTime + "' and " +
+                            "end_date='" + endTime + "' ";
+        }else{
+            sql = "delete from van_reserve_schedule " +
+                    "where regis_number='" + schedule.getId() + "' and " +
+                            "reservation_id='" + schedule.getNote() + "'";
+        }
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
+    }
     private boolean checkPossibleDay(Destination destination, Date startDate, Date endDate){
         double distance = getDistance(destination);
         long diff = endDate.getTime() - startDate.getTime();
@@ -204,7 +242,6 @@ public class VanExecutor {
             return false;
         return true;
     }
-
     private double getDistance(Destination destination){
         String sql = "select distance from distance where province='" + destination.getProvince() + "' and district='" + destination.getDistrict() + "'";
         QueryExecutionAssistant<Double> assistant = new QueryExecutionAssistant<>(url);

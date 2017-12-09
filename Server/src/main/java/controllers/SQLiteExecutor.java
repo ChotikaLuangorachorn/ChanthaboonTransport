@@ -70,41 +70,13 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         return vanExecutor.getVanSchedule(regisNumber);
     }
 
+    @Override
+    public void deleteVanSchedule(Schedule schedule) {
+        vanExecutor.deleteVanSchedule(schedule);
+    }
+
     public void editCustomerInfo(Customer customer) {
-        System.out.println("request editCustomerInfo");
-        System.out.println("customer = " + customer);
-        Connection connection = null;
-        try{
-            connection = prepareConnection();
-            if (connection != null){
-                String sql = String.format("update customer " +
-                                            "set first_name='%s' ," +
-                                                "last_name='%s' ," +
-                                                "address='%s' ," +
-                                                "phone='%s' ," +
-                                                "line_id='%s' " +
-                                            "where citizen_id='%s'",
-                                            customer.getFirstName(),
-                                            customer.getLastName(),
-                                            customer.getAddress(),
-                                            customer.getPhone(),
-                                            customer.getLineId(),
-                                            customer.getCitizenId());
-                Statement statement = connection.createStatement();
-                int result = statement.executeUpdate(sql);
-                System.out.println("result = " + result);
-                System.out.println();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null)
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-        }
+        customerExecutor.editCustomerInfo(customer);
     }
 
     public void deleteReservation(Reservation reservation) {
@@ -112,71 +84,29 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public void deleteReservation(String reservationId){
-        System.out.println("request delete reservation");
-        System.out.println("reservationId = " + reservationId);
-        Connection connection = null;
-        try{
-            connection = prepareConnection();
-            if (connection != null){
-                String sql = "delete from reservation where id='" + reservationId + "'";
-                Statement statement = connection.createStatement();
-                int result = statement.executeUpdate(sql);
-                System.out.println("result = " + result);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null)
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-        }
+        reservationExecutor.deleteReservation(reservationId);
     }
 
     public void assignVan(List<Van> vans, Reservation reservation) {
         assignVan(vans, reservation.getReserveId());
     }
     public void assignVan(List<Van> vans, String reservationId) {
-        String sql = String.format("insert into van_reserve_schedule " +
-                        "select van.regis_number, '%s' " +
-                        "from van " +
-                        "where van.regis_number in ", reservationId);
-        List<String> vanIds = new ArrayList<>();
-        for (Van van:vans)
-            vanIds.add("'" + van.getRegisNumber() + "'");
-        sql += "(" + String.join(",", vanIds) + ")";
-        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
-        int result = assistant.execute(sql);
+        vanExecutor.assignVan(vans, reservationId);
     }
 
     public void assignDriver(List<Driver> drivers, Reservation reservation) {
         assignDriver(drivers, reservation.getReserveId());
     }
     public void assignDriver(List<Driver> drivers, String reservationId) {
-        String sql = String.format("insert into driver_reserve_schedule " +
-                "select driver.citizen_id, '%s' " +
-                "from driver " +
-                "where driver.citizen_id in ", reservationId);
-        List<String> driverIds = new ArrayList<>();
-        for (Driver driver:drivers)
-            driverIds.add("'" + driver.getCitizenId() + "'");
-        sql += "(" + String.join(",", driverIds) + ")";
-        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
-        int result = assistant.execute(sql);
+        driverExecutor.assignDriver(drivers, reservationId);
     }
 
-    public List<JobType> getVanJobs() {
-        return vanExecutor.getVanJobs();
+    public List<JobType> getVanJobTypes() {
+        return vanExecutor.getVanJobTypes();
     }
 
     public void addVanJob(Van van, Date startDate, Date endDate, JobType type) {
         vanExecutor.addVanJob(van, startDate, endDate, type);
-    }
-
-    public void deleteVanJob(Van van, Date startDate, Date endDate) {
-        vanExecutor.deleteVanJob(van, startDate, endDate);
     }
 
     public List<JobType> getDriverJobs() {
@@ -195,12 +125,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         addMeeting(meetingPlace, meetingTime, reservation.getReserveId());
     }
     public void addMeeting(String meetingPlace, Date meetingTime, String reservationId) {
-        String sql = String.format("update reservation " +
-                                    "set meeting_place='%s', meeting_time='%s' " +
-                                    "where id='%s'",
-                                    meetingPlace, formatter.format(meetingTime), reservationId);
-        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
-        int result = assistant.execute(sql);
+        reservationExecutor.addMeeting(meetingPlace, meetingTime, reservationId);
     }
 
     public void confirmDeposit(Reservation reservation, Date depositDate) {
@@ -208,162 +133,43 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     }
 
     public void confirmDeposit(String reservationId, Date depositDate) {
-        Connection connection = null;
-        try{
-            connection = prepareConnection();
-            if (connection != null){
-                String sql = "update reservation set isDeposited='true', deposit_date='" + formatter.format(depositDate) + "' where id='" + reservationId + "'";
-                Statement statement = connection.createStatement();
-                int result = statement.executeUpdate(sql);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null)
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-        }
+        reservationExecutor.confirmDeposit(reservationId, depositDate);
     }
 
     public List<Reservation> getReservations() {
-        List<Reservation> reservations = new ArrayList<Reservation>();
-        Connection connection = null;
-        try{
-            connection = prepareConnection();
-            if (connection != null){
-                String sql = "select * \n" +
-                        "from reservation\n" +
-                        "join customer\n" +
-                        "on reservation.customer_id = customer.citizen_id";
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-
-                while(resultSet.next()){
-                    String id = resultSet.getString("id");
-                    String customerId = resultSet.getString("customer_id");
-                    Date statDate = formatter.parse(resultSet.getString("start_working_date"));
-                    Date endDate = formatter.parse(resultSet.getString("end_working_date"));
-                    Date reserveDate = formatter.parse(resultSet.getString("reserve_date"));
-                    Date meetingTime = (resultSet.getString("meeting_time")!=null)?formatter.parse(resultSet.getString("meeting_time")):null;
-                    String province = resultSet.getString("province");
-                    String district = resultSet.getString("district");
-                    String place = resultSet.getString("place");
-                    String meetingPlace = resultSet.getString("meeting_place");
-                    double fee = resultSet.getDouble("fee");
-                    int amtVip = resultSet.getInt("amt_vip");
-                    int amtNormal = resultSet.getInt("amt_normal");
-                    String isDeposited = resultSet.getString("isDeposited");
-                    double deposit = resultSet.getDouble("deposit_fee");
-                    Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingTime, fee, isDeposited, deposit);
-
-
-                    String firstname = resultSet.getString("first_name");
-                    String lastname = resultSet.getString("last_name");
-                    String address = resultSet.getString("address");
-                    String phone = resultSet.getString("phone");
-                    String lineId = resultSet.getString("line_id");
-                    int lastReserveId = resultSet.getInt("last_reserve");
-                    Customer customer = new Customer(customerId, firstname, lastname, address, phone, lineId, lastReserveId);
-                    reservation.setCustomer(customer);
-                    reservations.add(reservation);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return reservations;
+        return reservationExecutor.getReservations();
     }
 
     public Reservation getReservation(String reserveId) {
+        // TODO getReservation
         return null;
     }
 
     public List<Reservation> getHistoryReservation(String citizenId) {
-        List<Reservation> reservations = new ArrayList<Reservation>();
-        Connection connection = null;
-        try{
-            connection = prepareConnection();
-            if (connection != null){
-                String sql = "select * from reservation where customer_id = '" + citizenId + "'";
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-
-                while (resultSet.next()){
-                    String id = resultSet.getString("id");
-                    String customerId = resultSet.getString("customer_id");
-                    Date statDate = formatter.parse(resultSet.getString("start_working_date"));
-                    Date endDate = formatter.parse(resultSet.getString("end_working_date"));
-                    Date reserveDate = formatter.parse(resultSet.getString("reserve_date"));
-                    Date meetingTime = (resultSet.getString("meeting_time")!=null)?formatter.parse(resultSet.getString("meeting_time")):null;
-                    String province = resultSet.getString("province");
-                    String district = resultSet.getString("district");
-                    String place = resultSet.getString("place");
-                    String meetingPlace = resultSet.getString("meeting_place");
-                    double fee = resultSet.getDouble("fee");
-                    int amtVip = resultSet.getInt("amt_vip");
-                    int amtNormal = resultSet.getInt("amt_normal");
-                    String isDeposited = resultSet.getString("isDeposited");
-                    double deposit = resultSet.getDouble("deposit_fee");
-
-                    Reservation reservation = new Reservation(id, customerId, meetingPlace, amtVip, amtNormal, new Destination(province, district, place), statDate, endDate, reserveDate, meetingTime, fee, isDeposited, deposit);
-                    reservations.add(reservation);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }finally {
-            if (connection!=null)
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-        }
-        return reservations;
+        return reservationExecutor.getHistoryReservation(citizenId);
     }
 
     public List<String> getProvinces() {
-        List<String> provinces = new ArrayList<String>();
-        Connection connection = null;
-        try{
-            connection = prepareConnection();
-            if (connection != null){
-                String sql = "select distinct province from distance";
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-
-                while(resultSet.next()){
-                    String province = resultSet.getString("province");
-                    provinces.add(province);
-                }
+        List<String> provinces = new ArrayList<>();
+        String sql = "select distinct province from distance";
+        QueryExecutionAssistant<List<String>> assistant = new QueryExecutionAssistant<>(url);
+        return assistant.execute(sql, resultSet -> {
+            while(resultSet.next()){
+                String province = resultSet.getString("province");
+                provinces.add(province);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null)
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-        }
-        return provinces;
+            return provinces;
+        }, provinces);
     }
 
     public List<String> getDistricts(String province) {
-        List<String> districts = new ArrayList<String>();
+        List<String> districts = new ArrayList<>();
+        String sql = "select district from distance where province='" + province + "'";
+
         Connection connection = null;
         try{
             connection = prepareConnection();
             if (connection != null){
-                String sql = "select district from distance where province='" + province + "'";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
                 while (resultSet.next()){
