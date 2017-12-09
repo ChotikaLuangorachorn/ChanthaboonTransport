@@ -10,10 +10,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.util.Callback;
+import javafx.util.StringConverter;
 import models.Partner;
 
 import java.net.URL;
@@ -30,6 +34,7 @@ public class PartnerMenuView  implements Initializable{
     private MainController controller;
     private StageController stageController;
     private List<Partner> partners;
+    final HBox hBox = new HBox();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -81,6 +86,8 @@ public class PartnerMenuView  implements Initializable{
         col_name.setCellValueFactory(new PropertyValueFactory<Partner,String>("name"));
         col_company.setCellValueFactory(new PropertyValueFactory<Partner,String>("company"));
         col_companyPhone.setCellValueFactory(new PropertyValueFactory<Partner,String>("companyPhone"));
+
+
     }
     public void initData(){
         ObservableList<Partner> data = FXCollections.observableList(partners);
@@ -96,4 +103,6 @@ public class PartnerMenuView  implements Initializable{
         this.controller = controller;
         refreshPartnerTable();
     }
+
+
 }
