@@ -87,21 +87,24 @@ public class PartnerMenuView  implements Initializable{
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    Stage stage = new Stage();
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/partner_edit.fxml"));
-                    Pane detail = loader.load();
-                    PartnerEditView partnerEditView = loader.getController();
-                    partnerEditView.setController(controller);
                     Partner partner = (Partner) table_partner.getSelectionModel().getSelectedItem();
-                    partnerEditView.setPartner(partner);
+                    if (partner!=null){
+                        Stage stage = new Stage();
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/partner_edit.fxml"));
+                        Pane detail = loader.load();
+                        PartnerEditView partnerEditView = loader.getController();
+                        partnerEditView.setController(controller);
+                        partnerEditView.setPartner(partner);
+                        partnerEditView.setPartnerMenuView(PartnerMenuView.this);
 
-                    Scene scene = new Scene(detail);
-                    stage.setScene(scene);
-                    stage.setResizable(false);
-                    stage.setTitle("แก้ไขข้อมูลพันธมิตร");
-                    stage.initModality(Modality.APPLICATION_MODAL);
-                    stage.showAndWait();
+                        Scene scene = new Scene(detail);
+                        stage.setScene(scene);
+                        stage.setResizable(false);
+                        stage.setTitle("แก้ไขข้อมูลพันธมิตร");
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.showAndWait();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

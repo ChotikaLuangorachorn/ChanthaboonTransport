@@ -48,12 +48,21 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tf_name" layoutX="250.0" layoutY="109.0" />
-      <TextField fx:id="tf_company" layoutX="250.0" layoutY="159.0" />
-      <TextField fx:id="tf_phone" layoutX="250.0" layoutY="209.0" />
-      <Label layoutX="250.0" layoutY="251.0" textFill="RED">
+      <TextField fx:id="tf_name" layoutX="250.0" layoutY="109.0">
          <font>
-            <Font size="18.0" />
+            <Font size="14.0" />
+         </font></TextField>
+      <TextField fx:id="tf_company" layoutX="250.0" layoutY="159.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <TextField fx:id="tf_phone" layoutX="250.0" layoutY="209.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Label fx:id="lb_error" layoutX="250.0" layoutY="251.0" textFill="RED">
+         <font>
+            <Font size="14.0" />
          </font>
       </Label>
    </children>

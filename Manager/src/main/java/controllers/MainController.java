@@ -58,6 +58,9 @@ public class MainController {
     public void deletePartner(Partner partner){
         executor.deletePartner(partner);
     }
+    public void editPartner(Partner partner){
+        executor.editPartner(partner);
+    }
 
     /**Van*/
     public List<Van> getVans()
