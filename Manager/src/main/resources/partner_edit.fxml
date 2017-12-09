@@ -6,52 +6,52 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="355.0" prefWidth="491.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanDetailView">
+<AnchorPane prefHeight="355.0" prefWidth="491.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.PartnerEditView">
    <children>
-      <Label fx:id="lb_name" layoutX="294.0" layoutY="54.0" prefHeight="27.0" text="N01">
+      <Label fx:id="lb_id" layoutX="294.0" layoutY="54.0" prefHeight="27.0" text="00001">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="167.0" layoutY="54.0" text="ลำดับพันธมิตร:">
+      <Label layoutX="133.0" layoutY="54.0" text="หมายเลขพันธมิตร:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <Label layoutX="53.0" layoutY="111.0" text="ชื่อ:">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btn_editJob" layoutX="53.0" layoutY="290.0" mnemonicParsing="false" text="ยกเลิกการแก้ใข">
+      <Button fx:id="btn_cancel" layoutX="53.0" layoutY="290.0" mnemonicParsing="false" text="ยกเลิกการแก้ไข">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_deleteJob" layoutX="336.0" layoutY="290.0" mnemonicParsing="false" text="ยืนยันการแก้ใข">
+      <Button fx:id="btn_submit" layoutX="336.0" layoutY="290.0" mnemonicParsing="false" text="ยืนยันการแก้ไข">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
       <Label layoutX="53.0" layoutY="161.0" text="บริษัท:">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Label>
       <Label layoutX="53.0" layoutY="211.0" text="หมายเลขโทรศัพท์:">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="168.0" layoutY="21.0" text="แก้ใขข้อมูลพันธมิตร">
+      <Label layoutX="168.0" layoutY="21.0" text="แก้ไขข้อมูลพันธมิตร">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="250.0" layoutY="109.0" />
-      <TextField layoutX="250.0" layoutY="159.0" />
-      <TextField layoutX="250.0" layoutY="209.0" />
-      <Label layoutX="250.0" layoutY="251.0" text="error message" textFill="RED">
+      <TextField fx:id="tf_name" layoutX="250.0" layoutY="109.0" />
+      <TextField fx:id="tf_company" layoutX="250.0" layoutY="159.0" />
+      <TextField fx:id="tf_phone" layoutX="250.0" layoutY="209.0" />
+      <Label layoutX="250.0" layoutY="251.0" textFill="RED">
          <font>
             <Font size="18.0" />
          </font>
