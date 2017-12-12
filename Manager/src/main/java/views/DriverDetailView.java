@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -44,7 +45,7 @@ public class DriverDetailView implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
         if(driver!=null){
-        onClickEditDriver();onClickDeleteSchedule();}
+        onClickEditDriver();onClickDeleteSchedule();onClickEditSchedule();}
     }
 
     public void showDetail(){
@@ -139,6 +140,68 @@ public class DriverDetailView implements Initializable {
             }
         });
     }
+    public void onClickEditSchedule(){
+        btn_editSchedule.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Schedule schedule = (Schedule) table_schedule.getSelectionModel().getSelectedItem();
+                if (schedule!=null) {
+                    String type = schedule.getType();
+                    if ((Schedule.RESERVE).equals(type)) {
+                        try {
+                            Stage stage = new Stage();
+                            FXMLLoader loader = new FXMLLoader();
+                            loader.setLocation(getClass().getResource("/driver_reservation_edit.fxml"));
+                            AnchorPane detail = loader.load();
+                            DriverReservationEditView driverReservationEditView = loader.getController();
+                            driverReservationEditView.setController(controller);
+                            driverReservationEditView.setSchedule(schedule);
+                            driverReservationEditView.setDriverDetailView(DriverDetailView.this);
+                            driverReservationEditView.setStartDay(schedule.getStartDate());
+                            driverReservationEditView.setEndDay(schedule.getEndDate());
+                            driverReservationEditView.setReservationId();
+
+                            Scene scene = new Scene(detail);
+                            stage.setScene(scene);
+                            stage.setResizable(false);
+                            stage.setTitle("แก้ไขตารางงาน");
+                            stage.initModality(Modality.APPLICATION_MODAL);
+                            stage.showAndWait();
+                        } catch (IOException e) {  ;;;
+                            e.printStackTrace();
+                        }
+
+                    } else if (Schedule.JOB.equals(type)) {
+                        try {
+                            Stage stage = new Stage();
+                            FXMLLoader loader = new FXMLLoader();
+                            loader.setLocation(getClass().getResource("/driver_job_edit.fxml"));
+                            AnchorPane detail = loader.load();
+                            DriverJobEditView driverJobEditView = loader.getController();
+                            driverJobEditView.setController(controller);
+                            driverJobEditView.setSchedule(schedule);
+                            driverJobEditView.setDriverDetailView(DriverDetailView.this);
+                            driverJobEditView.setStartDay(schedule.getStartDate());
+                            driverJobEditView.setEndDay(schedule.getEndDate());
+                            driverJobEditView.setStatus();
+
+                            Scene scene = new Scene(detail);
+                            stage.setScene(scene);
+                            stage.setResizable(false);
+                            stage.setTitle("แก้ไขตารางงาน");
+                            stage.initModality(Modality.APPLICATION_MODAL);
+                            stage.showAndWait();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+
+
+            }
+        });
+    }
 
     public void initCol(){
         col_startDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Schedule,String>, ObservableValue<String>>() {
@@ -193,6 +256,7 @@ public class DriverDetailView implements Initializable {
             onClickEditDriver();
             onClickDeleteSchedule();
             refreshScheduleTable();
+            onClickEditSchedule();
         }
     }
     public void setDriverMenuView(DriverMenuView driverMenuView){

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="248.0" prefWidth="453.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanReservationEditView">
+<AnchorPane prefHeight="248.0" prefWidth="453.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.DriverReservationEditView">
    <children>
       <Label layoutX="18.0" layoutY="58.0" text="วันที่ไป:">
          <font>
