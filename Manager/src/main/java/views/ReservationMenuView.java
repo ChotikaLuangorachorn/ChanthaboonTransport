@@ -6,11 +6,13 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -32,6 +34,7 @@ public class ReservationMenuView implements Initializable{
     @FXML private Label lbCometoMain;
     @FXML private TableView table_reserves;
     @FXML private TableColumn col_reserveId, col_reserveDate, col_province, col_district, col_fee, col_statusReservation;
+    @FXML private Button btn_deleteReserve;
     private List<Reservation> reservations;
     private MainController controller;
     private StageController stageController;
@@ -119,8 +122,23 @@ public class ReservationMenuView implements Initializable{
 
     }
 
+    public void onClickDelete(){
+        btn_deleteReserve.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Reservation reservation = (Reservation) table_reserves.getSelectionModel().getSelectedItem();
+                controller.deleteReservation(reservation);
+                refreshReservationTable();
+            }
+        });
+
+
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initColumn();
+        onClickDelete();
     }
 }

@@ -26,6 +26,10 @@ public class MainController {
         return executor.getReservations();
     }
 
+    public void deleteReservation(Reservation reservation){
+        executor.deleteReservation(reservation);
+    }
+
 
     public void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation){
         executor.addMeeting(meetingPlace, meetingTime, reservation);
