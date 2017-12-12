@@ -37,7 +37,7 @@ public class ConfirmReservationMenuView implements Initializable{
 
     public void setController(MainController controller) {
         this.controller = controller;
-        reservations = this.controller.getReservation();
+        reservations = this.controller.getReservations();
         initColumn();
         initData();
         onDoubleClickReservation();
@@ -142,7 +142,7 @@ public class ConfirmReservationMenuView implements Initializable{
         table_confirmReserve.setItems(reservationObservableList);
     }
     public void refreshReservationTable(){
-        this.reservations = controller.getReservation();
+        this.reservations = controller.getReservations();
         this.initData();
     }
 }

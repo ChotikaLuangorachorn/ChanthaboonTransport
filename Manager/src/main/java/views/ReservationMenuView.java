@@ -114,7 +114,7 @@ public class ReservationMenuView implements Initializable{
     }
 
     public void refreshReservationTable(){
-        this.reservations = controller.getReservation();
+        this.reservations = controller.getReservations();
         initData();
 
     }

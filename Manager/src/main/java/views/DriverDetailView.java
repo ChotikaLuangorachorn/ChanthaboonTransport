@@ -102,7 +102,7 @@ public class DriverDetailView implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Schedule schedule = (Schedule) table_schedule.getSelectionModel().getSelectedItem();
-                if(driver!=null){
+                if(schedule!=null){
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("ยืนยันการลบตารางงาน");
                     alert.setHeaderText("ยืนยันการลบตารางงาน");
@@ -132,9 +132,9 @@ public class DriverDetailView implements Initializable {
                     Optional<ButtonType> result = alert.showAndWait();
                     if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
                         controller.deleteDriverSchedule(schedule);
-                        table_schedule.getSelectionModel().clearSelection();
                         refreshScheduleTable();
                     }
+                    table_schedule.getSelectionModel().clearSelection();
                 }
             }
         });

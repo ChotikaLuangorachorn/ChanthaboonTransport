@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="cb_reserveId" prefHeight="248.0" prefWidth="453.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanReservationEditView">
+<AnchorPane prefHeight="248.0" prefWidth="453.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanReservationEditView">
    <children>
       <Label layoutX="18.0" layoutY="58.0" text="วันที่ไป:">
          <font>
@@ -43,7 +43,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox layoutX="206.0" layoutY="156.0" prefHeight="25.0" prefWidth="72.0" />
+      <ComboBox fx:id="cb_reserveId" layoutX="210.0" layoutY="156.0" prefHeight="25.0" prefWidth="92.0" />
       <Label layoutX="165.0" layoutY="14.0" text="แก้ไขตารางรถตู้">
          <font>
             <Font name="System Bold" size="18.0" />

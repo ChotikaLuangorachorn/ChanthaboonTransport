@@ -22,13 +22,19 @@ public class MainController {
         executor.confirmDeposit(reservationId, depositDate);
     }
 
-    public List<Reservation> getReservation(){
+    public List<Reservation> getReservations(){
         return executor.getReservations();
     }
 
 
     public void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation){
         executor.addMeeting(meetingPlace, meetingTime, reservation);
+    }
+    public List<JobType> getVanJobTypes(){
+        return executor.getVanJobTypes();
+    }
+    public List<JobType> getDriverJobTypes(){
+        return executor.getDriverJobTypes();
     }
 
 
