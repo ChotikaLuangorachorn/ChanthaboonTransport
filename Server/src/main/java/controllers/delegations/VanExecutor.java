@@ -24,6 +24,35 @@ public class VanExecutor {
         this.url = url;
     }
 
+    public Van getVan(String vanId){
+        String sql = "select * from van where regis_number='" + vanId + "'";
+        QueryExecutionAssistant<Van> assistant = new QueryExecutionAssistant<>(url);
+        return assistant.execute(sql, (resultSet -> {
+            if (resultSet.next()){
+                String regisNumber = resultSet.getString("regis_number");
+                String name = resultSet.getString("name");
+                String partnerId = resultSet.getString("partner_id");
+                String type = resultSet.getString("type");
+                return new Van(regisNumber, partnerId, type, name);
+            }
+            return null;
+        }), null);
+    }
+    public List<Van> getVans() {
+        String sql = "select * from van where partner_id is null";
+        List<Van> vans = new ArrayList<>();
+        QueryExecutionAssistant<List<Van>> assistant = new QueryExecutionAssistant<>(url);
+        return assistant.execute(sql, (resultSet -> {
+            while(resultSet.next()){
+                String regisId = resultSet.getString("regis_number");
+                String type = resultSet.getString("type");
+                String name = resultSet.getString("name");
+                Van van = new Van(regisId, null, type, name);
+                vans.add(van);
+            }
+            return vans;
+        }), vans);
+    }
     @Nullable
     public Map<String, Integer> getVanAvailableAmount(Destination destination, Date startDate, Date endDate) {
         // TODO use assistant
@@ -103,19 +132,39 @@ public class VanExecutor {
             return available;
         }), available);
     }
-    public Van getVan(String vanId){
-        String sql = "select * from van where regis_number='" + vanId + "'";
-        QueryExecutionAssistant<Van> assistant = new QueryExecutionAssistant<>(url);
-        return assistant.execute(sql, (resultSet -> {
-            if (resultSet.next()){
-                String regisNumber = resultSet.getString("regis_number");
-                String name = resultSet.getString("name");
-                String partnerId = resultSet.getString("partner_id");
-                String type = resultSet.getString("type");
-                return new Van(regisNumber, partnerId, type, name);
+    public List<Schedule> getVanSchedule(String regisNumber){
+        List<Schedule> schedules = new ArrayList<>();
+        String sql = "select * " +
+                "from van_job_schedule " +
+                "join van_job_type " +
+                "on van_job_schedule.type_id = van_job_type.id " +
+                "where regis_number='"+regisNumber+"'";
+        System.out.println("sql = " + sql);
+        QueryExecutionAssistant<List<Schedule>> assistant = new QueryExecutionAssistant<>(url);
+        assistant.execute(sql, (resultSet -> {
+            while(resultSet.next()){
+                Date startDate = formatter.parse(resultSet.getString("start_date"));
+                Date endDate = formatter.parse(resultSet.getString("end_date"));
+                String note = resultSet.getString("description");
+                schedules.add(new Schedule(regisNumber, startDate, endDate, note, Schedule.JOB));
             }
             return null;
         }), null);
+        String sql2 = "select reservation.id, reservation.start_working_date, reservation.end_working_date\n" +
+                "from reservation\n" +
+                "join van_reserve_schedule\n" +
+                "on reservation.id = van_reserve_schedule.reservation_id\n" +
+                "where regis_number = '" + regisNumber + "'";
+        System.out.println(sql2);
+        return assistant.execute(sql2, (resultSet -> {
+            while(resultSet.next()){
+                Date startDate = formatter.parse(resultSet.getString("start_working_date"));
+                Date endDate = formatter.parse(resultSet.getString("end_working_date"));
+                String note = resultSet.getString("id");
+                schedules.add(new Schedule(regisNumber, startDate, endDate, note, Schedule.RESERVE));
+            }
+            return schedules;
+        }), schedules);
     }
     public List<JobType> getVanJobTypes() {
         List<JobType> jobTypes = new ArrayList<>();
@@ -146,6 +195,29 @@ public class VanExecutor {
         int result = assistant.execute(sql);
         System.out.println(result);
     }
+    public void editVanSchedule(Schedule oldSchedule, Schedule newSchedule) {
+        String sql;
+        if (Schedule.JOB.equals(newSchedule.getType())){
+            String oldStartTime = formatter.format(oldSchedule.getStartDate());
+            String oldEndTime = formatter.format(oldSchedule.getEndDate());
+            String newStartTime = formatter.format(newSchedule.getStartDate());
+            String newEndTime = formatter.format(newSchedule.getEndDate());
+            sql = String.format("update van_job_schedule\n" +
+                            "set type_id=(select id\n" +
+                            "from van_job_type\n" +
+                            "where description='%s'), start_date='%s', end_date='%s'\n" +
+                            "where regis_number='%s' and start_date='%s' and end_date='%s'",
+                    newSchedule.getNote(), newStartTime, newEndTime, oldSchedule.getId(), oldStartTime, oldEndTime);
+        }else{
+            sql = String.format("update van_reserve_schedule " +
+                    "set reservation_id='" + newSchedule.getNote() + "' " +
+                    "where regis_number='" + oldSchedule.getId() + "' and " +
+                    "reservation_id='" + oldSchedule.getNote() + "'");
+        }
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
+    }
     public void deleteVan(String regisNumber) {
         System.out.println("request deleteVan");
         System.out.println("regisNumber = " + regisNumber);
@@ -153,68 +225,6 @@ public class VanExecutor {
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
         int result = assistant.execute(sql);
         System.out.println(result);
-    }
-    public List<Van> getVans() {
-        String sql = "select * from van where partner_id is null";
-        List<Van> vans = new ArrayList<>();
-        QueryExecutionAssistant<List<Van>> assistant = new QueryExecutionAssistant<>(url);
-        return assistant.execute(sql, (resultSet -> {
-            while(resultSet.next()){
-                String regisId = resultSet.getString("regis_number");
-                String type = resultSet.getString("type");
-                String name = resultSet.getString("name");
-                Van van = new Van(regisId, null, type, name);
-                vans.add(van);
-            }
-            return vans;
-        }), vans);
-    }
-    public List<Schedule> getVanSchedule(String regisNumber){
-        List<Schedule> schedules = new ArrayList<>();
-        String sql = "select * " +
-                        "from van_job_schedule " +
-                        "join van_job_type " +
-                        "on van_job_schedule.type_id = van_job_type.id " +
-                        "where regis_number='"+regisNumber+"'";
-        System.out.println("sql = " + sql);
-        QueryExecutionAssistant<List<Schedule>> assistant = new QueryExecutionAssistant<>(url);
-        assistant.execute(sql, (resultSet -> {
-            while(resultSet.next()){
-                Date startDate = formatter.parse(resultSet.getString("start_date"));
-                Date endDate = formatter.parse(resultSet.getString("end_date"));
-                String note = resultSet.getString("description");
-                schedules.add(new Schedule(regisNumber, startDate, endDate, note, Schedule.JOB));
-            }
-            return null;
-        }), null);
-        String sql2 = "select reservation.id, reservation.start_working_date, reservation.end_working_date\n" +
-                "from reservation\n" +
-                "join van_reserve_schedule\n" +
-                "on reservation.id = van_reserve_schedule.reservation_id\n" +
-                "where regis_number = '" + regisNumber + "'";
-        System.out.println(sql2);
-        return assistant.execute(sql2, (resultSet -> {
-            while(resultSet.next()){
-                Date startDate = formatter.parse(resultSet.getString("start_working_date"));
-                Date endDate = formatter.parse(resultSet.getString("end_working_date"));
-                String note = resultSet.getString("id");
-                schedules.add(new Schedule(regisNumber, startDate, endDate, note, Schedule.RESERVE));
-            }
-            return schedules;
-        }), schedules);
-    }
-    public void assignVan(List<Van> vans, String reservationId) {
-        String sql = String.format("insert into van_reserve_schedule " +
-                "select van.regis_number, '%s' " +
-                "from van " +
-                "where van.regis_number in ", reservationId);
-        List<String> vanIds = new ArrayList<>();
-        for (Van van:vans)
-            vanIds.add("'" + van.getRegisNumber() + "'");
-        sql += "(" + String.join(",", vanIds) + ")";
-        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
-        int result = assistant.execute(sql);
-        System.out.println("result = " + result);
     }
     public void deleteVanSchedule(Schedule schedule) {
         String sql;
@@ -234,29 +244,7 @@ public class VanExecutor {
         int result = assistant.execute(sql);
         System.out.println("result = " + result);
     }
-    public void editVanSchedule(Schedule oldSchedule, Schedule newSchedule) {
-        String sql;
-        if (Schedule.JOB.equals(newSchedule.getType())){
-            String oldStartTime = formatter.format(oldSchedule.getStartDate());
-            String oldEndTime = formatter.format(oldSchedule.getEndDate());
-            String newStartTime = formatter.format(newSchedule.getStartDate());
-            String newEndTime = formatter.format(newSchedule.getEndDate());
-            sql = String.format("update van_job_schedule\n" +
-                                "set type_id=(select id\n" +
-                                            "from van_job_type\n" +
-                                            "where description='%s'), start_date='%s', end_date='%s'\n" +
-                                "where regis_number='%s' and start_date='%s' and end_date='%s'",
-                                newSchedule.getNote(), newStartTime, newEndTime, oldSchedule.getId(), oldStartTime, oldEndTime);
-        }else{
-            sql = String.format("update van_reserve_schedule " +
-                                "set reservation_id='" + newSchedule.getNote() + "' " +
-                                "where regis_number='" + oldSchedule.getId() + "' and " +
-                                        "reservation_id='" + oldSchedule.getNote() + "'");
-        }
-        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
-        int result = assistant.execute(sql);
-        System.out.println("result = " + result);
-    }
+
     private boolean checkPossibleDay(Destination destination, Date startDate, Date endDate){
         double distance = getDistance(destination);
         long diff = endDate.getTime() - startDate.getTime();
