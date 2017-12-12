@@ -3,11 +3,14 @@ package views;
 import controllers.MainController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import models.Reservation;
 import models.Schedule;
 import utils.ReservationDateFormatter;
@@ -28,10 +31,41 @@ public class VanReservationEditView implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        if (schedule!=null){
+            onClickCancelEdit();
+            onClickSubmit();
+        }
     }
+    public void onClickCancelEdit(){
+        btn_cancel.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Stage stage = (Stage) btn_cancel.getScene().getWindow();
+                stage.close();
+            }
+        });
+    }
+    public void onClickSubmit(){
+        btn_submit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String vanId = schedule.getId();
+                int reserveId = Integer.parseInt(cb_reserveId.getValue().toString());
+                Schedule newSchedule = new Schedule(vanId,null,null,reserveId+"",Schedule.RESERVE);
+                controller.editVanSchedule(schedule,newSchedule);
+                vanDetailView.refreshScheduleTable();
+                Stage stage = (Stage) btn_submit.getScene().getWindow();
+                stage.close();
+            }
+        });
+    }
+
     public void setController(MainController controller) {
         this.controller = controller;
+        if (lb_startDate!=null){
+            onClickCancelEdit();
+            onClickSubmit();
+        }
     }
 
     public void setVanDetailView(VanDetailView vanDetailView){

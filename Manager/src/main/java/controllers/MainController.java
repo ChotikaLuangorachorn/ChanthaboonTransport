@@ -99,6 +99,9 @@ public class MainController {
     public void deleteVanSchedule(Schedule schedule){
         executor.deleteVanSchedule(schedule);
     }
+    public void editVanSchedule(Schedule oldSchedule, Schedule newSchedule){
+        executor.editVanSchedule(oldSchedule,newSchedule);
+    }
 
     /**Fee*/
     public PriceFactor getPriceFactor(){

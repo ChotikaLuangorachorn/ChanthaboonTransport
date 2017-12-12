@@ -173,6 +173,9 @@ public class VanDetailView implements Initializable{
                             vanJobEditView.setController(controller);
                             vanJobEditView.setSchedule(schedule);
                             vanJobEditView.setVanDetailView(VanDetailView.this);
+                            vanJobEditView.setStartDay(schedule.getStartDate());
+                            vanJobEditView.setEndDay(schedule.getEndDate());
+                            vanJobEditView.setStatus();
 
                             Scene scene = new Scene(detail);
                             stage.setScene(scene);
@@ -245,6 +248,8 @@ public class VanDetailView implements Initializable{
         showDetail();
         onClickDeleteSchedule();
         onClickEditSchedule();}
+        onClickEditVan();
+        onClickEditSchedule();
     }
     public void setVanMenuView(VanMenuView vanMenuView){
         this.vanMenuView = vanMenuView;

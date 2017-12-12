@@ -8,7 +8,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import java.lang.Integer?>
 <AnchorPane prefHeight="248.0" prefWidth="453.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanJobEditView">
+   <fx:define>
+      <Integer fx:id="minH" fx:value="0" />
+      <Integer fx:id="maxH" fx:value="23" />
+      <Integer fx:id="minM" fx:value="0" />
+      <Integer fx:id="maxM" fx:value="59" />
+   </fx:define>
    <children>
       <Label layoutX="20.0" layoutY="64.0" text="วันที่ไป:">
          <font>
@@ -36,7 +43,6 @@
          </font>
       </Label>
       <DatePicker fx:id="dp_startDate" layoutX="80.0" layoutY="59.0" prefHeight="31.0" prefWidth="134.0" />
-      <Spinner fx:id="sp_startHr" layoutX="276.0" layoutY="59.0" prefHeight="31.0" prefWidth="62.0" />
       <Label layoutX="234.0" layoutY="64.0" text="เวลา:">
          <font>
             <Font size="14.0" />
@@ -58,9 +64,10 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Spinner fx:id="sp_startMin" layoutX="350.0" layoutY="60.0" prefHeight="31.0" prefWidth="62.0" />
-      <Spinner fx:id="sp_endHr" layoutX="276.0" layoutY="104.0" prefHeight="31.0" prefWidth="62.0" />
-      <Spinner fx:id="sp_endMin" layoutX="350.0" layoutY="105.0" prefHeight="31.0" prefWidth="62.0" />
+      <Spinner fx:id="sp_startHr" layoutX="276.0" layoutY="59.0" max="$maxH" min="$minH" prefHeight="31.0" prefWidth="62.0" />
+      <Spinner fx:id="sp_startMin" layoutX="350.0" layoutY="60.0" max="$maxM" min="$minM" prefHeight="31.0" prefWidth="62.0" />
+      <Spinner fx:id="sp_endHr" layoutX="276.0" layoutY="104.0" max="$maxH" min="$minH" prefHeight="31.0" prefWidth="62.0" />
+      <Spinner fx:id="sp_endMin" layoutX="350.0" layoutY="105.0" max="$maxM" min="$minM" prefHeight="31.0" prefWidth="62.0" />
       <Label layoutX="343.0" layoutY="64.0" text=":">
          <font>
             <Font size="14.0" />
@@ -71,7 +78,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cb_status" layoutX="80.0" layoutY="167.0" prefHeight="25.0" prefWidth="134.0" />
+      <ComboBox fx:id="cb_status" layoutX="80.0" layoutY="157.0" prefHeight="25.0" prefWidth="134.0" />
       <Label layoutX="150.0" layoutY="14.0" text="แก้ไขตารางงานรถตู้">
          <font>
             <Font name="System Bold" size="18.0" />
