@@ -3,9 +3,7 @@ package controllers.delegations;
 import controllers.assistants.QueryExecutionAssistant;
 import controllers.assistants.UpdateExecutionAssistant;
 import managers.CustomerDatabaseManager;
-import models.Customer;
-import models.Destination;
-import models.Reservation;
+import models.*;
 import utils.ReservationDateFormatter;
 
 import java.sql.Connection;
@@ -29,42 +27,6 @@ public class ReservationExecutor {
         formatter = ReservationDateFormatter.getInstance().getDbFormatter();
     }
 
-    public void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, Date reserveDate, double price, double deposit) {
-
-        System.out.println("request addReservation");
-        String reserveDateString = formatter.format(reserveDate);
-        String startDateString = formatter.format(startDate);
-        String endDateString = formatter.format(endDate);
-        String sql = String.format("insert into reservation (customer_id, reserve_date, start_working_date, end_working_date, fee, province, district, place, isDeposit, isDeposited, deposit_fee, amt_vip, amt_normal) values ('%s', '%s', '%s', '%s', %f, '%s', '%s', '%s', '%s', '%s', %f, %d, %d)",
-                customerId, reserveDateString, startDateString, endDateString, price, destination.getProvince(), destination.getDistrict(), destination.getPlace(), "true", "false", deposit, vanAmt.get(CustomerDatabaseManager.VIP), vanAmt.get(CustomerDatabaseManager.NORMAL));
-        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
-        int result = assistant.execute(sql);
-        System.out.println("result = " + result);
-    }
-
-    public void deleteReservation(String reservationId){
-        System.out.println("request delete reservation");
-        System.out.println("reservationId = " + reservationId);
-        String sql = "delete from reservation where id='" + reservationId + "'";
-        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
-        int result = assistant.execute(sql);
-        System.out.println("result = " + result);
-    }
-
-    public void addMeeting(String meetingPlace, Date meetingTime, String reservationId) {
-        String sql = String.format("update reservation " +
-                        "set meeting_place='%s', meeting_time='%s' " +
-                        "where id='%s'",
-                meetingPlace, formatter.format(meetingTime), reservationId);
-        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
-        int result = assistant.execute(sql);
-    }
-    public void confirmDeposit(String reservationId, Date depositDate) {
-        String sql = "update reservation set isDeposited='true', deposit_date='" + formatter.format(depositDate) + "' where id='" + reservationId + "'";
-        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
-        int result = assistant.execute(sql);
-        System.out.println("result = " + result);
-    }
     public List<Reservation> getReservations() {
         List<Reservation> reservations = new ArrayList<Reservation>();
         String sql = "select * \n" +
@@ -106,7 +68,6 @@ public class ReservationExecutor {
             return reservations;
         }, reservations);
     }
-
     public List<Reservation> getHistoryReservation(String citizenId) {
         List<Reservation> reservations = new ArrayList<Reservation>();
         String sql = "select * from reservation where customer_id = '" + citizenId + "'";
@@ -135,5 +96,65 @@ public class ReservationExecutor {
             }
             return reservations;
         }, reservations);
+    }
+    public void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, Date reserveDate, double price, double deposit) {
+
+        System.out.println("request addReservation");
+        String reserveDateString = formatter.format(reserveDate);
+        String startDateString = formatter.format(startDate);
+        String endDateString = formatter.format(endDate);
+        String sql = String.format("insert into reservation (customer_id, reserve_date, start_working_date, end_working_date, fee, province, district, place, isDeposit, isDeposited, deposit_fee, amt_vip, amt_normal) values ('%s', '%s', '%s', '%s', %f, '%s', '%s', '%s', '%s', '%s', %f, %d, %d)",
+                customerId, reserveDateString, startDateString, endDateString, price, destination.getProvince(), destination.getDistrict(), destination.getPlace(), "true", "false", deposit, vanAmt.get(CustomerDatabaseManager.VIP), vanAmt.get(CustomerDatabaseManager.NORMAL));
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
+    }
+    public void deleteReservation(String reservationId){
+        System.out.println("request delete reservation");
+        System.out.println("reservationId = " + reservationId);
+        String sql = "delete from reservation where id='" + reservationId + "'";
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
+    }
+    public void confirmDeposit(String reservationId, Date depositDate) {
+        String sql = "update reservation set isDeposited='true', deposit_date='" + formatter.format(depositDate) + "' where id='" + reservationId + "'";
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
+    }
+    public void addMeeting(String meetingPlace, Date meetingTime, String reservationId) {
+        String sql = String.format("update reservation " +
+                        "set meeting_place='%s', meeting_time='%s' " +
+                        "where id='%s'",
+                meetingPlace, formatter.format(meetingTime), reservationId);
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+    }
+    public void assignDriver(List<Driver> drivers, String reservationId) {
+        String sql = String.format("insert into driver_reserve_schedule " +
+                "select driver.citizen_id, '%s' " +
+                "from driver " +
+                "where driver.citizen_id in ", reservationId);
+        List<String> driverIds = new ArrayList<>();
+        for (Driver driver:drivers)
+            driverIds.add("'" + driver.getCitizenId() + "'");
+        sql += "(" + String.join(",", driverIds) + ")";
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
+    }
+    public void assignVan(List<Van> vans, String reservationId) {
+        String sql = String.format("insert into van_reserve_schedule " +
+                "select van.regis_number, '%s' " +
+                "from van " +
+                "where van.regis_number in ", reservationId);
+        List<String> vanIds = new ArrayList<>();
+        for (Van van:vans)
+            vanIds.add("'" + van.getRegisNumber() + "'");
+        sql += "(" + String.join(",", vanIds) + ")";
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
     }
 }

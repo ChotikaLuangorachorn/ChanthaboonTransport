@@ -40,7 +40,6 @@ public class CustomerExecutor {
             return null;
         }, null);
     }
-
     public void editCustomerInfo(Customer customer) {
         System.out.println("request editCustomerInfo");
         System.out.println("customer = " + customer);
@@ -60,5 +59,13 @@ public class CustomerExecutor {
                 customer.getCitizenId());
         int result = assistant.execute(sql);
         System.out.println("result = " + result);
+    }
+    public boolean changeCustomerPassword(String citizenId, String oldPwd, String newPwd) {
+        String sql = String.format("update customer " +
+                "set pwd='%s' " +
+                "where citizen_id='%s' and pwd='%s'", newPwd, citizenId, oldPwd);
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        return result > 0;
     }
 }
