@@ -7,11 +7,6 @@ import models.JobType;
 import models.Schedule;
 import utils.ReservationDateFormatter;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -75,6 +70,24 @@ public class DriverExecutor {
             }
             return jobTypes;
         }, jobTypes);
+    }
+    public void deleteDriverSchedule(Schedule schedule) {
+        String sql;
+        String startTime = formatter.format(schedule.getStartDate());
+        String endTime = formatter.format(schedule.getEndDate());
+        if (Schedule.JOB.equals(schedule.getType())){
+            sql = "delete from driver_job_schedule " +
+                    "where driver_id='" + schedule.getId() + "' and " +
+                    "start_date='" + startTime + "' and " +
+                    "end_date='" + endTime + "' ";
+        }else{
+            sql = "delete from driver_reserve_schedule " +
+                    "where driver_id='" + schedule.getId() + "' and " +
+                    "reservation_id='" + schedule.getNote() + "'";
+        }
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
     }
     public List<Driver> getDriverAvailable(Date startDate, Date endDate) {
         List<Driver> available = new ArrayList<>();
@@ -174,24 +187,7 @@ public class DriverExecutor {
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
         int result = assistant.execute(sql);
     }
-    public void deleteDriverSchedule(Schedule schedule) {
-        String sql;
-        String startTime = formatter.format(schedule.getStartDate());
-        String endTime = formatter.format(schedule.getEndDate());
-        if (Schedule.JOB.equals(schedule.getType())){
-            sql = "delete from driver_job_schedule " +
-                    "where citizen_id='" + schedule.getId() + "' and " +
-                    "start_date='" + startTime + "' and " +
-                    "end_date='" + endTime + "' ";
-        }else{
-            sql = "delete from driver_reserve_schedule " +
-                    "where citizen_id='" + schedule.getId() + "' and " +
-                    "reservation_id='" + schedule.getNote() + "'";
-        }
-        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
-        int result = assistant.execute(sql);
-        System.out.println("result = " + result);
-    }
+
     public void deleteDriver(String citizenId) {
         String sql = "delete from driver where citizen_id='" + citizenId + "'";
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);

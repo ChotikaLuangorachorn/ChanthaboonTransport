@@ -46,12 +46,14 @@ public class MainController {
     public void editDriver(Driver driver){
         executor.editDriver(driver);
     }
-
     public void assignDriver(List<Driver> drivers, Reservation reservation){
         executor.assignDriver(drivers, reservation);
     }
     public List<Schedule> getDriverSchedule(String citizenId){
         return executor.getDriverSchedule(citizenId);
+    }
+    public void deleteDriverSchedule(Schedule schedule){
+        executor.deleteDriverSchedule(schedule);
     }
 
     /**Partner*/
@@ -87,6 +89,9 @@ public class MainController {
     }
     public List<Schedule> getVanSchedule(String regisNumber){
         return executor.getVanSchedule(regisNumber);
+    }
+    public void deleteVanSchedule(Schedule schedule){
+        executor.deleteVanSchedule(schedule);
     }
 
     /**Fee*/

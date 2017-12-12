@@ -34,7 +34,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <TableView fx:id="table_driverDetail" layoutX="53.0" layoutY="170.0" prefHeight="222.0" prefWidth="666.0" style="-fx-fixed-cell-size: 30;">
+      <TableView fx:id="table_schedule" layoutX="53.0" layoutY="170.0" prefHeight="222.0" prefWidth="666.0" style="-fx-fixed-cell-size: 30;">
          <columns>
             <TableColumn fx:id="col_startDate" editable="false" prefWidth="181.0" style="-fx-alignment: center_left;" text="วันที่ไป" />
             <TableColumn fx:id="col_endDate" prefWidth="188.0" style="-fx-alignment: center_left;" text="วันที่กลับ" />
@@ -106,12 +106,12 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btn_editJob" layoutX="617.0" layoutY="407.0" mnemonicParsing="false" text="แก้ไขตารางงาน">
+      <Button fx:id="btn_editSchedule" layoutX="617.0" layoutY="407.0" mnemonicParsing="false" text="แก้ไขข้อมูลงาน">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_deleteJob" layoutX="53.0" layoutY="407.0" mnemonicParsing="false" text="ลบตารางงาน">
+      <Button fx:id="btn_deleteSchedule" layoutX="53.0" layoutY="407.0" mnemonicParsing="false" text="ลบข้อมูลงาน">
          <font>
             <Font size="14.0" />
          </font>

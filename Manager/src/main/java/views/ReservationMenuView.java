@@ -8,15 +8,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import models.Reservation;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
@@ -41,6 +47,37 @@ public class ReservationMenuView implements Initializable{
             @Override
             public void handle(MouseEvent event) {
                 stageController.showMainView();
+            }
+        });
+    }
+
+    public void onDoubleClickReservation(){
+        table_reserves.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Reservation reservation = (Reservation) table_reserves.getSelectionModel().getSelectedItem();
+                if(event.getClickCount() == 2 && (reservation!=null)){
+                    try {
+                        System.out.println("on double click in ReservationView");
+                        Stage secondStage = new Stage();
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/reservation_edit.fxml"));
+                        Pane detailLayout = loader.load();
+                        ReservationEditView reservationEditView = loader.getController();
+                        reservationEditView.setController(controller);
+                        reservationEditView.setReservation(reservation);
+
+                        Scene scene = new Scene(detailLayout);
+                        secondStage.setScene(scene);
+                        secondStage.setResizable(false);
+                        secondStage.setTitle("???????????");
+                        secondStage.initModality(Modality.APPLICATION_MODAL);
+                        secondStage.showAndWait();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
             }
         });
     }
@@ -72,6 +109,7 @@ public class ReservationMenuView implements Initializable{
     public void initData(){
         ObservableList<Reservation> reservationObservableList = FXCollections.observableList(reservations);
         table_reserves.setItems(reservationObservableList);
+        onDoubleClickReservation();
 
     }
 
