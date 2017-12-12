@@ -155,16 +155,16 @@ public class DriverExecutor {
             String oldEndTime = formatter.format(oldSchedule.getEndDate());
             String newStartTime = formatter.format(newSchedule.getStartDate());
             String newEndTime = formatter.format(newSchedule.getEndDate());
-            sql = String.format("update van_job_schedule\n" +
+            sql = String.format("update driver_job_schedule\n" +
                             "set type_id=(select id\n" +
-                            "from van_job_type\n" +
-                            "where description='%s'), start_date='%s', end_date='%s'\n" +
-                            "where ctizen_id='%s' and start_date='%s' and end_date='%s'",
+                                        "from driver_job_type\n" +
+                                        "where description='%s'), start_date='%s', end_date='%s'\n" +
+                            "where driver_id='%s' and start_date='%s' and end_date='%s'",
                     newSchedule.getNote(), newStartTime, newEndTime, oldSchedule.getId(), oldStartTime, oldEndTime);
         }else{
-            sql = String.format("update van_reserve_schedule " +
+            sql = String.format("update driver_reserve_schedule " +
                     "set reservation_id='" + newSchedule.getNote() + "' " +
-                    "where citizen_id='" + oldSchedule.getId() + "' and " +
+                    "where driver_id='" + oldSchedule.getId() + "' and " +
                     "reservation_id='" + oldSchedule.getNote() + "'");
         }
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
