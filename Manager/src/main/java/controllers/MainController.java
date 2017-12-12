@@ -65,6 +65,9 @@ public class MainController {
     public void deleteDriverSchedule(Schedule schedule){
         executor.deleteDriverSchedule(schedule);
     }
+    public void editDriverSchedule(Schedule oldSchedule, Schedule newSchedule){
+        executor.editDriverSchedule(oldSchedule, newSchedule);
+    }
 
     /**Partner*/
     public List<Partner> getPartners(){
