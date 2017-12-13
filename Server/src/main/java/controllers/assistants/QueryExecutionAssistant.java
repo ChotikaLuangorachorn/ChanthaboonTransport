@@ -12,6 +12,7 @@ public class QueryExecutionAssistant<T> {
     }
 
     public T execute(String sql, OnResultSetCallback<T> callback, T defaultResult){
+        System.out.println("callback = " + callback);
         Connection connection = null;
         try{
             connection = prepareConnection();
