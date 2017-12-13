@@ -81,6 +81,7 @@ public class ReservationMenuView implements Initializable{
                         alert.setHeaderText("Not pay deposit.");
                         alert.setContentText("Look, This reservation not pay the deposit.");
                         alert.showAndWait();
+                        
                     }
 
                 }
