@@ -93,7 +93,7 @@ public class PriceExecutor {
         String sql = "select * from price_rate where price_rate.reserve_type = \"distance\"";
 
         QueryExecutionAssistant<Double> assistant = new QueryExecutionAssistant<>(sql);
-        return assistant.execute(sql, (resultSet -> {
+        return assistant.execute(sql, resultSet -> {
             double distance = getDistance(destination);
             Map<String, Double> rate = new HashMap<String, Double>();
             Map<String, Double> base = new HashMap<String, Double>();
@@ -112,7 +112,7 @@ public class PriceExecutor {
             System.out.println("normalPrice = " + normalPrice);
             System.out.println("vipPrice = " + vipPrice);
             return normalPrice*normalAmt + vipPrice*vipAmt;
-        }), null);
+        }, 0.0);
 
     }
     public void updatePriceFactor(PriceFactor factor) {
