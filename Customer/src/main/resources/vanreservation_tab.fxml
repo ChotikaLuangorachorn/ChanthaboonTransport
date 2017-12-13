@@ -105,10 +105,10 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Spinner fx:id="spn_start_hr" layoutX="250.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" />
-      <Spinner fx:id="spn_start_min" layoutX="321.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" />
-      <Spinner fx:id="spn_end_hr" layoutX="250.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" />
-      <Spinner fx:id="spn_end_min" layoutX="321.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" />
+      <Spinner fx:id="spn_start_hr" layoutX="250.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" max="$maxH" min="$minH" />
+      <Spinner fx:id="spn_start_min" layoutX="321.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" max="$maxM" min="$minM"/>
+      <Spinner fx:id="spn_end_hr" layoutX="250.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" max="$maxH" min="$minH" />
+      <Spinner fx:id="spn_end_min" layoutX="321.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" max="$maxM" min="$minM"/>
       <Label layoutX="216.0" layoutY="294.0" text="เวลา:">
          <font>
             <Font size="14.0" />
