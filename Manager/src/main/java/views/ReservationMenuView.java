@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ReservationMenuView implements Initializable{
@@ -80,7 +81,7 @@ public class ReservationMenuView implements Initializable{
                         Alert alert = new Alert(Alert.AlertType.WARNING);
                         alert.setTitle("ไม่สามารถแก้ไขการจองได้");
                         alert.setHeaderText("ไม่สามารถแก้ไขการจองได้");
-                        alert.setContentText("เนื่องจากรายการจองนี้ยังไม่มีการชำระเงิน");
+                        alert.setContentText("เนื่องจากหมายเลขการจองที่ "+String.format("%05d",Integer.parseInt(reservation.getReserveId()))+" ยังไม่มีการชำระเงิน");
                         alert.showAndWait();
                     }
 
@@ -156,8 +157,21 @@ public class ReservationMenuView implements Initializable{
             @Override
             public void handle(ActionEvent event) {
                 Reservation reservation = (Reservation) table_reserves.getSelectionModel().getSelectedItem();
-                controller.deleteReservation(reservation);
-                refreshReservationTable();
+
+                if(reservation!=null){
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("ยืนยันการลบการจองของลูกค้า");
+                    alert.setHeaderText("ยืนยันการลบการจองของลูกค้า");
+                    String s = "หมายเลขการจอง:\t\t" + String.format("%05d",Integer.parseInt(reservation.getReserveId()))+ "\n";
+                    alert.setContentText(s);
+
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+                        table_reserves.getSelectionModel().clearSelection();
+                        controller.deleteReservation(reservation);
+                        refreshReservationTable();
+                    }
+                }
             }
         });
 
