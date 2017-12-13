@@ -12,10 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -78,6 +75,12 @@ public class ReservationMenuView implements Initializable{
                         secondStage.showAndWait();
                     } catch (IOException e) {
                         e.printStackTrace();
+                    } catch (NullPointerException e){
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Warning Topic");
+                        alert.setHeaderText("Not pay deposit.");
+                        alert.setContentText("Look, This reservation not pay the deposit.");
+                        alert.showAndWait();
                     }
 
                 }
