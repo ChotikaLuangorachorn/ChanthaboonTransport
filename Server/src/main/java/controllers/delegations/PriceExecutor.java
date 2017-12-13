@@ -92,7 +92,7 @@ public class PriceExecutor {
         int normalAmt = vanAmt.get(CustomerDatabaseManager.NORMAL);
         String sql = "select * from price_rate where price_rate.reserve_type = \"distance\"";
 
-        QueryExecutionAssistant<Double> assistant = new QueryExecutionAssistant<>(sql);
+        QueryExecutionAssistant<Double> assistant = new QueryExecutionAssistant<>(url);
         return assistant.execute(sql, resultSet -> {
             double distance = getDistance(destination);
             Map<String, Double> rate = new HashMap<String, Double>();
