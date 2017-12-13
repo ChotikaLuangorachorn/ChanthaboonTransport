@@ -26,18 +26,17 @@ public class ReservationEditView implements Initializable {
     private Reservation reservation;
     private MainController controller;
 
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         onClickBtnConfirm();
     }
 
     public void setDataReservation(){
-        lbReservationId.setText(reservation.getReserveId());
+        lbReservationId.setText(String.format("%05d",Integer.parseInt(reservation.getReserveId())));
         lbDate.setText(ReservationDateFormatter.getInstance().getUiDateFormatter().format(reservation.getStartDate()));
         lbPayDate.setText(ReservationDateFormatter.getInstance().getUiDateFormatter().format(reservation.getDepositDate()));
-        lbStatus.setText(reservation.getIsDeposited());
+        String status = (reservation.getIsDeposited().equals("true"))?"ชำระแล้ว":"ยังไม่ชำระ";
+        lbStatus.setText(status);
         spnHrs.getValueFactory().setValue(reservation.getStartDate().getHours());
         spnMin.getValueFactory().setValue(reservation.getStartDate().getMinutes());
         taPlace.setText(reservation.getMeetingPlace());

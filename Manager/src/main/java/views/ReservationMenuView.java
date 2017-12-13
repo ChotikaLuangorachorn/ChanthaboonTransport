@@ -23,6 +23,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import models.Reservation;
+import utils.ReservationDateFormatter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -73,7 +74,7 @@ public class ReservationMenuView implements Initializable{
                         Scene scene = new Scene(detailLayout);
                         secondStage.setScene(scene);
                         secondStage.setResizable(false);
-                        secondStage.setTitle("???????????");
+                        secondStage.setTitle("แก้ไขการจอง");
                         secondStage.initModality(Modality.APPLICATION_MODAL);
                         secondStage.showAndWait();
                     } catch (IOException e) {
@@ -87,7 +88,21 @@ public class ReservationMenuView implements Initializable{
 
     public void initColumn(){
         col_reserveId.setCellValueFactory(new PropertyValueFactory<Reservation, String>("reserveId"));
-        col_reserveDate.setCellValueFactory(new PropertyValueFactory<Reservation, Date>("reserveDate"));
+        col_reserveId.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
+                String reserveId = reservation.getValue().getReserveId();
+                return new SimpleStringProperty(String.format("%05d", Integer.parseInt(reserveId)));
+
+            }
+        });
+        col_reserveDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
+                Date reserveDate = reservation.getValue().getStartDate();
+                String date = ReservationDateFormatter.getInstance().getUiDateFormatter().format(reserveDate)+" ";
+                String time = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(reserveDate)+ " น.";
+                return new SimpleStringProperty(date+time);
+            }
+        });
         col_district.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> param) {
@@ -104,9 +119,20 @@ public class ReservationMenuView implements Initializable{
             }
         });
 
-        col_fee.setCellValueFactory(new PropertyValueFactory<Reservation, Double>("price"));
-        col_statusReservation.setCellValueFactory(new PropertyValueFactory<Reservation, String>("isDeposited"));
+        col_fee.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation, String> reservation) {
+                return new SimpleStringProperty(String.format("%,.2f",reservation.getValue().getPrice()));
+            }
+        });
 
+        col_statusReservation.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation, String> reservation) {
+                String isDeposited = ("true".equals(reservation.getValue().getIsDeposited()))?"ชำระแล้ว":"ยังไม่ชำระ";
+                return new SimpleStringProperty(isDeposited);
+            }
+        });
     }
 
     public void initData(){
