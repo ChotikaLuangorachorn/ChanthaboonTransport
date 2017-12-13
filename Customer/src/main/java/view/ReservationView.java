@@ -77,54 +77,72 @@ public class ReservationView extends AnchorPane implements Initializable{
         dp_endStart.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                String province = cbb_province.getValue();
-                String district = cbb_district.getValue();
-                String place = ta_place.getText();
-                Destination destination = new Destination(province, district, place);
-                LocalDate startLocal = dp_startDate.getValue();
-                LocalDate endLocal = dp_endStart.getValue();
-                Map<String, Integer> amtVan = controller.getVanAvailable(destination, convertToDateStart(startLocal), convertToDateEnd(endLocal));
-                System.out.println(amtVan.toString());
-                lb_amtNormalVan.setText(amtVan.get(CustomerDatabaseManager.NORMAL).toString());
-                lb_amtVipVan.setText(amtVan.get(CustomerDatabaseManager.VIP).toString());
-                spn_normal.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.NORMAL)));
-                spn_vip.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.VIP)));
+                try {
+                    String province = cbb_province.getValue();
+                    String district = cbb_district.getValue();
+                    String place = ta_place.getText();
+                    Destination destination = new Destination(province, district, place);
+                    LocalDate startLocal = dp_startDate.getValue();
+                    LocalDate endLocal = dp_endStart.getValue();
+                    Map<String, Integer> amtVan = controller.getVanAvailable(destination, convertToDateStart(startLocal), convertToDateEnd(endLocal));
+                    System.out.println(amtVan.toString());
+                    lb_amtNormalVan.setText(amtVan.get(CustomerDatabaseManager.NORMAL).toString());
+                    lb_amtVipVan.setText(amtVan.get(CustomerDatabaseManager.VIP).toString());
+                    spn_normal.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.NORMAL)));
+                    spn_vip.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.VIP)));
+                }catch (NullPointerException e){
+                    System.out.println("not set hr or min");
+                }
+
             }
         });
         dp_startDate.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                String province = cbb_province.getValue();
-                String district = cbb_district.getValue();
-                String place = ta_place.getText();
-                Destination destination = new Destination(province, district, place);
-                LocalDate startLocal = dp_startDate.getValue();
-                LocalDate endLocal = dp_endStart.getValue();
-                Map<String, Integer> amtVan = controller.getVanAvailable(destination, convertToDateStart(startLocal), convertToDateEnd(endLocal));
-                System.out.println(amtVan.toString());
-                lb_amtNormalVan.setText(amtVan.get(CustomerDatabaseManager.NORMAL).toString());
-                lb_amtVipVan.setText(amtVan.get(CustomerDatabaseManager.VIP).toString());
-                spn_normal.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.NORMAL)));
-                spn_vip.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.VIP)));
+                try {
+                    String province = cbb_province.getValue();
+                    String district = cbb_district.getValue();
+                    String place = ta_place.getText();
+                    Destination destination = new Destination(province, district, place);
+                    LocalDate startLocal = dp_startDate.getValue();
+                    LocalDate endLocal = dp_endStart.getValue();
+                    Map<String, Integer> amtVan = controller.getVanAvailable(destination, convertToDateStart(startLocal), convertToDateEnd(endLocal));
+                    System.out.println(amtVan.toString());
+                    lb_amtNormalVan.setText(amtVan.get(CustomerDatabaseManager.NORMAL).toString());
+                    lb_amtVipVan.setText(amtVan.get(CustomerDatabaseManager.VIP).toString());
+                    spn_normal.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.NORMAL)));
+                    spn_vip.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.VIP)));
+                }catch (NullPointerException e){
+                    System.out.println("not set hr or min");
+                }
+
             }
         });
     }
 
     public Date convertToDateStart(LocalDate localDate){
-        Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
-        Date date = Date.from(instant);
-        date.setHours(Integer.parseInt(spn_start_hr.getValue().toString()));
-        date.setMinutes(Integer.parseInt(spn_start_min.getValue().toString()));
-        return date;
-
+        try {
+            Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+            Date date = Date.from(instant);
+            date.setHours(Integer.parseInt(spn_start_hr.getValue().toString()));
+            date.setMinutes(Integer.parseInt(spn_start_min.getValue().toString()));
+            return date;
+        }catch (NullPointerException e){
+            System.out.println("not set hr or min");
+        }
+        return null;
     }
     public Date convertToDateEnd(LocalDate localDate){
-        Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
-        Date date = Date.from(instant);
-        date.setHours(Integer.parseInt(spn_end_hr.getValue().toString()));
-        date.setMinutes(Integer.parseInt(spn_end_min.getValue().toString()));
-        return date;
-
+        try {
+            Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+            Date date = Date.from(instant);
+            date.setHours(Integer.parseInt(spn_end_hr.getValue().toString()));
+            date.setMinutes(Integer.parseInt(spn_end_min.getValue().toString()));
+            return date;
+        }catch (NullPointerException e){
+            System.out.println("not set hr or min");
+        }
+        return null;
     }
 
     public void onClickCalPrice(){

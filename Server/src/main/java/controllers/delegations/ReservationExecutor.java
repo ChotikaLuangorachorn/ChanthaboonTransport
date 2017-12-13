@@ -112,10 +112,16 @@ public class ReservationExecutor {
     public void deleteReservation(String reservationId){
         System.out.println("request delete reservation");
         System.out.println("reservationId = " + reservationId);
-        String sql = "delete from reservation where id='" + reservationId + "'";
+        String sqlr = "delete from reservation where id='" + reservationId + "'";
+        String sqlv = "delete from van_reserve_schedule where reservation_id='" + reservationId + "'";
+        String sqld = "delete from driver_reserve_schedule where reservation_id='" + reservationId + "'";
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
-        int result = assistant.execute(sql);
+        int result = assistant.execute(sqlr);
         System.out.println("result = " + result);
+        if (result > 0){
+            assistant.execute(sqlv);
+            assistant.execute(sqld);
+        }
     }
     public void confirmDeposit(String reservationId, Date depositDate) {
         String sql = "update reservation set isDeposited='true', deposit_date='" + formatter.format(depositDate) + "' where id='" + reservationId + "'";
