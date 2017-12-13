@@ -76,6 +76,12 @@ public class ReservationMenuView implements Initializable{
                         secondStage.showAndWait();
                     } catch (IOException e) {
                         e.printStackTrace();
+                    }catch (NullPointerException e){
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("ไม่สามารถแก้ไขการจองได้");
+                        alert.setHeaderText("ไม่สามารถแก้ไขการจองได้");
+                        alert.setContentText("เนื่องจากรายการจองนี้ยังไม่มีการชำระเงิน");
+                        alert.showAndWait();
                     }
 
                 }
