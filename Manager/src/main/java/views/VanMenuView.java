@@ -18,6 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import models.Schedule;
 import models.Van;
 
 import java.io.IOException;
@@ -57,19 +58,31 @@ public class VanMenuView implements Initializable{
             @Override
             public void handle(ActionEvent event) {
                 Van van = (Van) table_van.getSelectionModel().getSelectedItem();
+                List<Schedule> jobs = controller.getVanSchedule(van.getRegisNumber());
                 if(van!=null){
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("ยืนยันการลบข้อมูลรถตู้");
-                    alert.setHeaderText("ยืนยันการลบข้อมูลรถตู้");
-                    String s = "ทะเบียนรถ:\t\t" + van.getRegisNumber()+ "\n"
-                            +"ประเภทรถ:\t\t" + van.getType();
-                    alert.setContentText(s);
+                    if (jobs.size()==0){
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("ยืนยันการลบข้อมูลรถตู้");
+                        alert.setHeaderText("ยืนยันการลบข้อมูลรถตู้");
+                        String s = "ทะเบียนรถ:\t\t" + van.getRegisNumber()+ "\n"
+                                +"ประเภทรถ:\t\t" + van.getType();
+                        alert.setContentText(s);
 
-                    Optional<ButtonType> result = alert.showAndWait();
-                    if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-                        controller.deleteVan(van);
-                        table_van.getSelectionModel().clearSelection();
-                        refreshVanTable();
+                        Optional<ButtonType> result = alert.showAndWait();
+                        if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+                            controller.deleteVan(van);
+                            table_van.getSelectionModel().clearSelection();
+                            refreshVanTable();
+                        }
+                    }else{
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("ไม่สามารถทำการลบได้");
+                        alert.setHeaderText("ไม่สามารถทำการลบได้");
+                        String s = "เนื่องจากรถตู้\n"+
+                                "ทะเบียนรถ:\t\t" + van.getRegisNumber()+ "\n"
+                                +"ประเภทรถ:\t\t" + van.getType()+"\nยังมีตารางการทำงานอยู่";
+                        alert.setContentText(s);
+                        Optional<ButtonType> result = alert.showAndWait();
                     }
                 }
             }

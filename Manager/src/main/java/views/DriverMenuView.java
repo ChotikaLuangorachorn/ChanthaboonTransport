@@ -18,6 +18,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.Driver;
 import models.Reservation;
+import models.Schedule;
 
 import java.io.IOException;
 import java.net.URL;
@@ -58,19 +59,32 @@ public class DriverMenuView implements Initializable{
             @Override
             public void handle(ActionEvent event) {
                 Driver driver = (Driver) table_driver.getSelectionModel().getSelectedItem();
+                List<Schedule> schedules = controller.getDriverSchedule(driver.getCitizenId());
                 if(driver!=null){
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("ยืนยันการลบข้อมูลคนขับ");
-                    alert.setHeaderText("ยืนยันการลบข้อมูลคนขับ");
-                    String s = "ชื่อ:\t\t" + driver.getFirstname() + "\n"
-                            +"นามสกุล:\t" + driver.getLastname();
-                    alert.setContentText(s);
+                    if (schedules.size()==0){
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("ยืนยันการลบข้อมูลคนขับ");
+                        alert.setHeaderText("ยืนยันการลบข้อมูลคนขับ");
+                        String s = "ชื่อ:\t\t" + driver.getFirstname() + "\n"
+                                +"นามสกุล:\t" + driver.getLastname();
+                        alert.setContentText(s);
 
-                    Optional<ButtonType> result = alert.showAndWait();
-                    if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-                        controller.deleteDriver(driver);
-                        table_driver.getSelectionModel().clearSelection();
-                        refreshDriverTable();
+                        Optional<ButtonType> result = alert.showAndWait();
+                        if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+                            controller.deleteDriver(driver);
+                            table_driver.getSelectionModel().clearSelection();
+                            refreshDriverTable();
+                        }
+                    }
+                    else{
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("ไม่สามารถทำการลบได้");
+                        alert.setHeaderText("ไม่สามารถทำการลบได้");
+                        String s = "เนื่องจากคนขับ\n"+
+                                "ชื่อ:\t\t" + driver.getFirstname() + "    "+driver.getLastname()+"\nยังมีตารางการทำงานอยู่";
+                        alert.setContentText(s);
+                        Optional<ButtonType> result = alert.showAndWait();
+
                     }
                 }
             }
