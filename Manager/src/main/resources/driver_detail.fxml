@@ -116,5 +116,10 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <Button fx:id="btn_addSchedule" layoutX="342.0" layoutY="407.0" mnemonicParsing="false" text="เพิ่มข้อมูลงาน">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
