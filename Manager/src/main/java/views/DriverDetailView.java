@@ -88,7 +88,7 @@ public class DriverDetailView implements Initializable {
                     Scene scene = new Scene(detail);
                     stage.setScene(scene);
                     stage.setResizable(false);
-                    stage.setTitle("แก้ไขข้อมูลรถตู้");
+                    stage.setTitle("แก้ไขข้อมูลคนขับ");
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.showAndWait();
                 } catch (IOException e) {

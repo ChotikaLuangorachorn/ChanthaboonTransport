@@ -21,6 +21,9 @@ public class MainController {
         ApplicationContext bf = new ClassPathXmlApplicationContext("customer_config.xml");
         executor = (CustomerDatabaseManager) bf.getBean("CustomerDbManager");
     }
+    public Date getMinimumDate(Destination destination, Date startDate){
+        return executor.getMinimumDate(destination, startDate);
+    }
 
     public Customer getCustomer(String citizenId, String pwd) {
         return executor.getCustomer(citizenId, pwd);
