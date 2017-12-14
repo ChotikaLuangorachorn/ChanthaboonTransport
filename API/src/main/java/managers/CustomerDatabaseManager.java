@@ -26,6 +26,6 @@ public interface CustomerDatabaseManager {
     List<String> getDistricts(String province);
     boolean changeCustomerPassword(String citizenId, String oldPwd, String newPwd);
     PriceFactor getPriceFactor();
-
+    Date getMinimumDate(Destination destination, Date startDate);
 
 }

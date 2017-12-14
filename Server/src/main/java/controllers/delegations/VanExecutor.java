@@ -244,6 +244,14 @@ public class VanExecutor {
         int result = assistant.execute(sql);
         System.out.println("result = " + result);
     }
+    public Date getMinimumDate(Destination destination, Date startDate){
+        double distance = getDistance(destination);
+        int days = (int) Math.ceil(distance/720);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(startDate);
+        calendar.add(Calendar.DATE, days);
+        return calendar.getTime();
+    }
 
     private boolean checkPossibleDay(Destination destination, Date startDate, Date endDate){
         double distance = getDistance(destination);

@@ -188,6 +188,12 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     public PriceFactor getPriceFactor() {
         return priceExecutor.getPriceFactor();
     }
+
+    @Override
+    public Date getMinimumDate(Destination destination, Date startDate) {
+        return vanExecutor.getMinimumDate(destination, startDate);
+    }
+
     public void updatePriceFactor(PriceFactor factor) {
         priceExecutor.updatePriceFactor(factor);
     }
