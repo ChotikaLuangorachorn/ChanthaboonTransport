@@ -109,6 +109,12 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     public void editDriverSchedule(Schedule oldSchedule, Schedule newSchedule) {
         driverExecutor.editDriverSchedule(oldSchedule, newSchedule);
     }
+
+    @Override
+    public void addDriverJob(Driver driver, Date startDate, Date endDate, JobType type) {
+        driverExecutor.addDriverJob(driver, startDate, endDate, type);
+    }
+
     public void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation) {
         addMeeting(meetingPlace, meetingTime, reservation.getReserveId());
     }
@@ -188,12 +194,10 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     public PriceFactor getPriceFactor() {
         return priceExecutor.getPriceFactor();
     }
-
     @Override
     public Date getMinimumDate(Destination destination, Date startDate) {
         return vanExecutor.getMinimumDate(destination, startDate);
     }
-
     public void updatePriceFactor(PriceFactor factor) {
         priceExecutor.updatePriceFactor(factor);
     }

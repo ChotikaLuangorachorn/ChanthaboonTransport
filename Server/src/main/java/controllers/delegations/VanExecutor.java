@@ -181,7 +181,14 @@ public class VanExecutor {
         }, jobTypes);
     }
     public void addVanJob(Van van, Date startDate, Date endDate, JobType type) {
-        // TODO addVanJob
+        String startS = formatter.format(startDate);
+        String endS = formatter.format(endDate);
+        String sql = String.format("insert into van_job_schedule " +
+                    "values (%s, %s, %s, %s)",
+                    van.getRegisNumber(), startS, endS, type.getId()+"");
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
     }
     public void editVan(Van van) {
         System.out.println("request edit van");
