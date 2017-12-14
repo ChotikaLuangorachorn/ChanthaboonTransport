@@ -198,9 +198,10 @@ public class DriverExecutor {
         String startS = formatter.format(startDate);
         String endS = formatter.format(endDate);
         String sql = String.format("insert into driver_job_schedule " +
-                        "values (%s, %s, %s, %s)",
+                        "values ('%s', '%s', '%s', '%s')",
                 driver.getCitizenId(), startS, endS, type.getId()+"");
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        System.out.println("sql = " + sql);
         int result = assistant.execute(sql);
         System.out.println("result = " + result);
     }

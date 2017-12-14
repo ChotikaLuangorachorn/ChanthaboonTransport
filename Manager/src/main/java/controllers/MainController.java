@@ -68,7 +68,8 @@ public class MainController {
     public void editDriverSchedule(Schedule oldSchedule, Schedule newSchedule){
         executor.editDriverSchedule(oldSchedule, newSchedule);
     }
-    public void a(){
+    public void addDriverJob(Driver driver,Date startDate,Date endDate,JobType jobType){
+        executor.addDriverJob(driver,startDate,endDate,jobType);
     }
 
     /**Partner*/
@@ -110,6 +111,9 @@ public class MainController {
     }
     public void editVanSchedule(Schedule oldSchedule, Schedule newSchedule){
         executor.editVanSchedule(oldSchedule,newSchedule);
+    }
+    public void addVanJob(Van van,Date startDate,Date endDate,JobType jobType){
+        executor.addVanJob(van,startDate,endDate,jobType);
     }
 
     /**Fee*/

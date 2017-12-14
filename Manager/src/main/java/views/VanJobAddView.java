@@ -1,8 +1,6 @@
 package views;
 
 import controllers.MainController;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,28 +11,27 @@ import javafx.util.StringConverter;
 import models.Driver;
 import models.JobType;
 import models.Schedule;
+import models.Van;
 import utils.ReservationDateFormatter;
 
 import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class DriverJobAddView implements Initializable {
+public class VanJobAddView implements Initializable {
     @FXML
     private DatePicker dp_startDate, dp_endDate;
     @FXML private Spinner sp_startHr, sp_startMin, sp_endHr, sp_endMin;
     @FXML private ComboBox cb_status;
     @FXML private Button btn_cancel, btn_submit;
     private MainController controller;
-    private DriverDetailView driverDetailView;
-    private Schedule schedule;
-    private Driver driver;
+    private VanDetailView vanDetailView;
+    private Van van;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -52,8 +49,8 @@ public class DriverJobAddView implements Initializable {
                     Date end = ReservationDateFormatter.getInstance().getDbFormatter().parse(endDate+" "+endTime);
                     JobType status = (JobType) cb_status.getValue();
 
-                    controller.addDriverJob(driver,start,end,status);
-                    driverDetailView.refreshScheduleTable();
+                    controller.addVanJob(van,start,end,status);
+                    vanDetailView.refreshScheduleTable();
                     Stage stage = (Stage) btn_submit.getScene().getWindow();
                     stage.close();
 
@@ -98,8 +95,8 @@ public class DriverJobAddView implements Initializable {
         this.controller = controller;
     }
 
-    public void setDriver(Driver driver){
-        this.driver = driver;
+    public void setVan(Van van){
+        this.van = van;
         if(dp_startDate!=null){
             onClickCancelEdit();
             onClickSubmit();
@@ -108,12 +105,18 @@ public class DriverJobAddView implements Initializable {
         }
     }
 
-    public void setDriverDetailView(DriverDetailView driverDetailView){
-        this.driverDetailView =driverDetailView;
+    public void setVanDetailView(VanDetailView vanDetailView){
+        this.vanDetailView = vanDetailView;
     }
 
     public void setStatus(){
-        List<JobType> types = controller.getDriverJobTypes();
+        List<JobType> types = controller.getVanJobTypes();
+//        ObservableList<String> statuses = FXCollections.observableArrayList();
+//        for (JobType t: types) {
+//            statuses.add(t.getDescription());
+//        }
+//        cb_status.setItems(statuses);
+//        cb_status.setValue(statuses.get(0));
         cb_status.getItems().addAll(types);
         cb_status.setValue(types.get(0));
         cb_status.setConverter(new StringConverter() {

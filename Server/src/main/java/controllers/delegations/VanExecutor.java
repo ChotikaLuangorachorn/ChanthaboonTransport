@@ -184,7 +184,7 @@ public class VanExecutor {
         String startS = formatter.format(startDate);
         String endS = formatter.format(endDate);
         String sql = String.format("insert into van_job_schedule " +
-                    "values (%s, %s, %s, %s)",
+                    "values ('%s', '%s', '%s', '%s')",
                     van.getRegisNumber(), startS, endS, type.getId()+"");
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
         int result = assistant.execute(sql);

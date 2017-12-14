@@ -33,7 +33,7 @@ public class VanDetailView implements Initializable{
     @FXML private Label lb_name, lb_regisNum, lb_type;
     @FXML private TableView table_vanSchedule;
     @FXML private TableColumn col_startDate, col_endDate, col_jobStatus;
-    @FXML private Button btn_editVan, btn_deleteSchedule, btn_editSchedule;
+    @FXML private Button btn_editVan, btn_deleteSchedule, btn_editSchedule,btn_addSchedule;
 
     private MainController controller;
     private Van van;
@@ -46,6 +46,7 @@ public class VanDetailView implements Initializable{
         if (van!=null) {
             onClickEditVan();
             onClickEditSchedule();
+            onClickAddSchedule();
         }
 
     }
@@ -194,6 +195,34 @@ public class VanDetailView implements Initializable{
             }
         });
     }
+    public void onClickAddSchedule(){
+        btn_addSchedule.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try{
+                    Stage stage = new Stage();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/van_job_add.fxml"));
+                    AnchorPane detail = loader.load();
+                    VanJobAddView vanJobAddView = loader.getController();
+                    vanJobAddView.setController(controller);
+                    vanJobAddView.setVanDetailView(VanDetailView.this);
+                    vanJobAddView.setStatus();
+                    vanJobAddView.setVan(van);
+
+                    Scene scene = new Scene(detail);
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.setTitle("เพิ่มงานรถตู้");
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.showAndWait();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+    }
 
     public void initCol(){
         col_startDate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Schedule,String>, ObservableValue<String>>() {
@@ -244,12 +273,14 @@ public class VanDetailView implements Initializable{
     public void setVan(Van van) {
         this.van = van;
         if (lb_name != null){
-        refreshScheduleTable();
-        showDetail();
-        onClickDeleteSchedule();
-        onClickEditSchedule();}
-        onClickEditVan();
-        onClickEditSchedule();
+            refreshScheduleTable();
+            showDetail();
+            onClickDeleteSchedule();
+            onClickEditSchedule();
+            onClickEditVan();
+            onClickEditSchedule();
+            onClickAddSchedule();
+        }
     }
     public void setVanMenuView(VanMenuView vanMenuView){
         this.vanMenuView = vanMenuView;
