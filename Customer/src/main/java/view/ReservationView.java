@@ -53,7 +53,7 @@ public class ReservationView extends AnchorPane implements Initializable{
         });
     }
 
-    public void setDatePicker(){
+    public void setStartDatePicker(){
         dp_startDate.setValue(LocalDate.now());
         dp_startDate.setDayCellFactory(param -> new DateCell(){
             @Override
@@ -63,15 +63,27 @@ public class ReservationView extends AnchorPane implements Initializable{
             }
         });
 
-        dp_endStart.setValue(LocalDate.now());
+
+    }
+
+    public void setEndDatePicker(){
+        String province = cbb_province.getValue();
+        String district = cbb_district.getValue();
+        String place = ta_place.getText();
+        LocalDate startLocal = dp_startDate.getValue();
+        Date minimumDate = controller.getMinimumDate(new Destination(province, district, place),  convertToDateStart(startLocal));
+        LocalDate minimun = minimumDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        dp_endStart.setValue(minimun);
         dp_endStart.setDayCellFactory(param -> new DateCell(){
             @Override
             public void updateItem(LocalDate item, boolean empty) {
                 super.updateItem(item, empty);
-                setDisable(empty || item.isBefore(LocalDate.now()));
+                setDisable(empty || item.isBefore(minimun));
             }
         });
     }
+
+
 
     public void setOnActionDatePicker(){
         dp_endStart.setOnAction(new EventHandler<ActionEvent>() {
@@ -100,18 +112,7 @@ public class ReservationView extends AnchorPane implements Initializable{
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    String province = cbb_province.getValue();
-                    String district = cbb_district.getValue();
-                    String place = ta_place.getText();
-                    Destination destination = new Destination(province, district, place);
-                    LocalDate startLocal = dp_startDate.getValue();
-                    LocalDate endLocal = dp_endStart.getValue();
-                    Map<String, Integer> amtVan = controller.getVanAvailable(destination, convertToDateStart(startLocal), convertToDateEnd(endLocal));
-                    System.out.println(amtVan.toString());
-                    lb_amtNormalVan.setText(amtVan.get(CustomerDatabaseManager.NORMAL).toString());
-                    lb_amtVipVan.setText(amtVan.get(CustomerDatabaseManager.VIP).toString());
-                    spn_normal.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.NORMAL)));
-                    spn_vip.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.VIP)));
+                    setEndDatePicker();
                 }catch (NullPointerException e){
                     System.out.println("not set hr or min");
                 }
@@ -188,7 +189,8 @@ public class ReservationView extends AnchorPane implements Initializable{
     public void setController(MainController controller) {
         this.controller = controller;
         setCbb_province();
-        setDatePicker();
+        setStartDatePicker();
+        setEndDatePicker();
         String dist_normal  = "";
         String dist_vip  = "";
         String day_normal  = "";
