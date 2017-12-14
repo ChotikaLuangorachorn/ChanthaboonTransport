@@ -38,9 +38,9 @@ public class DriverReservationEditView  implements Initializable{
         btn_submit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                String vanId = schedule.getId();
+                String driverId = schedule.getId();
                 int reserveId = Integer.parseInt(cb_reserveId.getValue().toString());
-                Schedule newSchedule = new Schedule(vanId,null,null,reserveId+"",Schedule.RESERVE);
+                Schedule newSchedule = new Schedule(driverId,null,null,reserveId+"",Schedule.RESERVE);
                 controller.editDriverSchedule(schedule,newSchedule);
                 driverDetailView.refreshScheduleTable();
                 Stage stage = (Stage) btn_submit.getScene().getWindow();

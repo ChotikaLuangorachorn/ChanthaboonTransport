@@ -68,6 +68,8 @@ public class MainController {
     public void editDriverSchedule(Schedule oldSchedule, Schedule newSchedule){
         executor.editDriverSchedule(oldSchedule, newSchedule);
     }
+    public void a(){
+    }
 
     /**Partner*/
     public List<Partner> getPartners(){

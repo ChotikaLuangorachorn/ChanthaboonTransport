@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Spinner;
 import javafx.stage.Stage;
+import models.Driver;
 import models.JobType;
 import models.Schedule;
 import utils.ReservationDateFormatter;
@@ -26,7 +27,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class DriverJobEditView implements Initializable{
+public class DriverJobAddView implements Initializable {
     @FXML
     private DatePicker dp_startDate, dp_endDate;
     @FXML private Spinner sp_startHr, sp_startMin, sp_endHr, sp_endMin;
@@ -35,19 +36,17 @@ public class DriverJobEditView implements Initializable{
     private MainController controller;
     private DriverDetailView driverDetailView;
     private Schedule schedule;
+    private Driver driver;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if(schedule!=null){
-            onClickCancelEdit();
-            onClickSubmit();
-        }
     }
     public void onClickSubmit(){
         btn_submit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    String driverId = schedule.getId();
+                    String driverId = driver.getCitizenId();
                     String startDate = dp_startDate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH));
                     String startTime = String.format("%02d:%02d:00",sp_startHr.getValue(),sp_startMin.getValue());
                     String endDate = dp_endDate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH));
@@ -80,40 +79,20 @@ public class DriverJobEditView implements Initializable{
     }
     public void setController(MainController controller) {
         this.controller = controller;
-        if (dp_startDate!=null){
-//            onClickCancelEdit();
-//            onClickSubmit();
-        }
     }
-    public void setDriverDetailView(DriverDetailView driverDetailView){
-        this.driverDetailView =driverDetailView;
-    }
-    public void setSchedule(Schedule schedule){
-        this.schedule = schedule;
+
+    public void setDriver(Driver driver){
+        this.driver = driver;
         if(dp_startDate!=null){
             onClickCancelEdit();
             onClickSubmit();
         }
     }
-    public void setStartDay(Date start) {
-        LocalDate date = start.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        this.dp_startDate.setValue(date);
-        String time = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(start);
-        int hr = Integer.parseInt(time.split(":")[0]);
-        int min = Integer.parseInt(time.split(":")[1]);
-        this.sp_startHr.getValueFactory().setValue(hr);
-        this.sp_startMin.getValueFactory().setValue(min);
+
+    public void setDriverDetailView(DriverDetailView driverDetailView){
+        this.driverDetailView =driverDetailView;
     }
 
-    public void setEndDay(Date end) {
-        LocalDate date = end.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        this.dp_endDate.setValue(date);
-        String time = ReservationDateFormatter.getInstance().getUiTimeFormatter().format(end);
-        int hr = Integer.parseInt(time.split(":")[0]);
-        int min = Integer.parseInt(time.split(":")[1]);
-        this.sp_endHr.getValueFactory().setValue(hr);
-        this.sp_endMin.getValueFactory().setValue(min);
-    }
     public void setStatus(){
         List<JobType> types = controller.getDriverJobTypes();
         ObservableList<String> statuses = FXCollections.observableArrayList();
@@ -121,7 +100,7 @@ public class DriverJobEditView implements Initializable{
             statuses.add(t.getDescription());
         }
         cb_status.setItems(statuses);
-        cb_status.setValue(schedule.getNote());
+        cb_status.setValue(statuses.get(0));
 
     }
 }

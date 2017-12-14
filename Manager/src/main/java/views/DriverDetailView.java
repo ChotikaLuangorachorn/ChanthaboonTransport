@@ -34,7 +34,7 @@ public class DriverDetailView implements Initializable {
     @FXML private Label lb_license, lb_fName, lb_lName, lb_nName, lb_citizenId, lb_birthDay, lb_phone, lb_address;
     @FXML private TableView table_schedule;
     @FXML private TableColumn col_startDate, col_endDate, col_jobStatus;
-    @FXML private Button btn_editDriver, btn_editSchedule, btn_deleteSchedule;
+    @FXML private Button btn_editDriver, btn_editSchedule, btn_deleteSchedule, btn_addSchedule;
 
     private MainController controller;
     private Driver driver;
@@ -45,7 +45,7 @@ public class DriverDetailView implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
         if(driver!=null){
-        onClickEditDriver();onClickDeleteSchedule();onClickEditSchedule();}
+        onClickEditDriver();onClickDeleteSchedule();onClickEditSchedule();onClickAddSchedule();}
     }
 
     public void showDetail(){
@@ -167,7 +167,7 @@ public class DriverDetailView implements Initializable {
                             stage.setTitle("แก้ไขตารางงาน");
                             stage.initModality(Modality.APPLICATION_MODAL);
                             stage.showAndWait();
-                        } catch (IOException e) {  ;;;
+                        } catch (IOException e) {
                             e.printStackTrace();
                         }
 
@@ -198,6 +198,34 @@ public class DriverDetailView implements Initializable {
                 }
 
 
+
+            }
+        });
+    }
+    public void onClickAddSchedule(){
+        btn_addSchedule.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try{
+                        Stage stage = new Stage();
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/driver_job_add.fxml"));
+                        AnchorPane detail = loader.load();
+                        DriverJobAddView driverJobAddView = loader.getController();
+                        driverJobAddView.setController(controller);
+                        driverJobAddView.setDriverDetailView(DriverDetailView.this);
+                        driverJobAddView.setStatus();
+                        driverJobAddView.setDriver(driver);
+
+                        Scene scene = new Scene(detail);
+                        stage.setScene(scene);
+                        stage.setResizable(false);
+                        stage.setTitle("เพิ่มงานคนขับ");
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.showAndWait();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
             }
         });
@@ -257,6 +285,7 @@ public class DriverDetailView implements Initializable {
             onClickDeleteSchedule();
             refreshScheduleTable();
             onClickEditSchedule();
+            onClickAddSchedule();
         }
     }
     public void setDriverMenuView(DriverMenuView driverMenuView){
