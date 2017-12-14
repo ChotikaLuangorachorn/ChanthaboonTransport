@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginLayout" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginView">
+<AnchorPane fx:id="loginLayout" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginView">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84e09dab" height="60.0" layoutY="25.0" stroke="TRANSPARENT" strokeType="INSIDE" width="800.0" />
       <Label layoutX="14.0" layoutY="32.0" text="Chanthaboon Transport">
@@ -31,17 +31,17 @@
             <Font name="THSarabunIT๙-Bold" size="31.0" />
          </font>
       </Label>
-      <Label layoutX="224.0" layoutY="333.0" text="รหัสผ่าน:">
+      <Label layoutX="270.0" layoutY="332.0" text="รหัสผ่าน:">
          <font>
             <Font name="THSarabunIT๙-Bold" size="31.0" />
          </font>
       </Label>
-      <TextField fx:id="tf_critizenId" layoutX="322.0" layoutY="229.0" text="1234567890123">
+      <TextField fx:id="tf_critizenId" layoutX="401.0" layoutY="229.0" text="1234567890123">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="tf_pwd" layoutX="322.0" layoutY="327.0" text="naruto0068">
+      <PasswordField fx:id="tf_pwd" layoutX="401.0" layoutY="327.0" text="naruto0068">
          <font>
             <Font size="24.0" />
          </font>
@@ -51,7 +51,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Label fx:id="lb_notification" layoutX="320.0" layoutY="378.0" prefHeight="27.0" prefWidth="243.0" textFill="RED">
+      <Label fx:id="lb_notification" layoutX="399.0" layoutY="378.0" prefHeight="27.0" prefWidth="243.0" textFill="RED">
          <font>
             <Font size="18.0" />
          </font></Label>
