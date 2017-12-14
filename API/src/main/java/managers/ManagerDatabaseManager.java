@@ -52,6 +52,7 @@ public interface ManagerDatabaseManager {
     List<Schedule> getDriverSchedule(String citizenId);
     void deleteDriverSchedule(Schedule schedule);
     void editDriverSchedule(Schedule oldSchedule, Schedule newSchedule);
+    void addDriverJob(Driver driver, Date startDate, Date endDate, JobType type);
 
 
 

@@ -194,4 +194,15 @@ public class DriverExecutor {
         assistant.execute(sql);
     }
 
+    public void addDriverJob(Driver driver, Date startDate, Date endDate, JobType type) {
+        String startS = formatter.format(startDate);
+        String endS = formatter.format(endDate);
+        String sql = String.format("insert into driver_job_schedule " +
+                        "values (%s, %s, %s, %s)",
+                driver.getCitizenId(), startS, endS, type.getId()+"");
+        UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
+        int result = assistant.execute(sql);
+        System.out.println("result = " + result);
+    }
+
 }
