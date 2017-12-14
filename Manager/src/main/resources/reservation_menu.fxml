@@ -34,7 +34,7 @@
                   <TableColumn fx:id="col_reserveId" prefWidth="119.0" resizable="false" style="-fx-alignment: center;" text="หมายเลขการจอง" />
                   <TableColumn fx:id="col_reserveDate" prefWidth="140.0" resizable="false" style="-fx-alignment: center_left;" text="วันที่จอง" />
                   <TableColumn fx:id="col_province" prefWidth="139.0" resizable="false" style="-fx-alignment: center_left;" text="จังหวัด" />
-                  <TableColumn fx:id="col_district" prefWidth="117.0" resizable="false" style="-fx-alignment: center_left;" text="อำเภอ" />
+                  <TableColumn fx:id="col_district" prefWidth="117.0" resizable="false" style="-fx-alignment: center_left;" text="อำเภอ/เขต" />
                   <TableColumn fx:id="col_fee" prefWidth="123.0" resizable="false" style="-fx-alignment: center_right;" text="ราคา (บาท)" />
                   <TableColumn fx:id="col_statusReservation" prefWidth="103.0" resizable="false" style="-fx-alignment: center;" text="สถานะการจอง" />
                </columns>
