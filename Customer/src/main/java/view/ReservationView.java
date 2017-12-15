@@ -49,6 +49,7 @@ public class ReservationView extends AnchorPane implements Initializable{
                 List<String> districts = controller.getdistrict(province);
                 cbb_district.getItems().addAll(districts);
                 cbb_district.getSelectionModel().selectFirst();
+                setEndDatePicker();
             }
         });
     }
