@@ -22,6 +22,7 @@
       <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.0.RELEASE" />
       <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.0.RELEASE" />
       <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.0.RELEASE" />
+      <element id="file-copy" path="$PROJECT_DIR$/controlsfx-8.40.14.jar" />
     </root>
   </artifact>
 </component>
