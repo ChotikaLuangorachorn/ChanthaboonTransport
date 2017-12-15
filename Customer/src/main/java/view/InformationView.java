@@ -49,7 +49,7 @@ public class InformationView extends AnchorPane implements Initializable {
                     // Load root layout from fxml file.
                     Stage secondStage = new Stage();
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/Information_editTab.fxml"));
+                    loader.setLocation(getClass().getResource("/information_editTab.fxml"));
                     Pane EditLayout = (AnchorPane) loader.load();
                     InformationEditView informationEditView = loader.getController();
                     System.out.println("controller in info view= " + controller);
