@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Customer">
+    <output-path>$PROJECT_DIR$/out/artifacts/Customer</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="MainApplication" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Customer.jar">
+        <element id="module-output" name="Customer" />
+      </element>
+      <element id="module-output" name="API" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.0.RELEASE" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.0.RELEASE" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.0.RELEASE" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.0.RELEASE" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.0.RELEASE" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.0.RELEASE" />
+    </root>
+  </artifact>
+</component>
