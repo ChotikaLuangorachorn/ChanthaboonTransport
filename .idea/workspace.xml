@@ -8,9 +8,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cb9efd3-4d93-4e53-b370-51345613bcbf" name="Default" comment="Manager: edit confirm alert">
-      <change beforePath="" afterPath="$PROJECT_DIR$/vanScheduler.db" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Manager.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Manager.xml" />
+    <list default="true" id="1cb9efd3-4d93-4e53-b370-51345613bcbf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -846,13 +844,6 @@
       <option name="presentableId" value="Default" />
       <updated>1510813974093</updated>
     </task>
-    <task id="LOCAL-00042" summary="Server: implement getPartners">
-      <created>1511285241429</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1511285241429</updated>
-    </task>
     <task id="LOCAL-00043" summary="Server: implement deletePartner">
       <created>1511285585612</created>
       <option name="number" value="00043" />
@@ -1189,7 +1180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513317052561</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="restore db">
+      <created>1513340449150</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1513340449151</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1274,7 +1272,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Server: fixbug editVan with null partner" />
     <MESSAGE value="Server: implement getVanSchedules, fixbug confirm deposit" />
     <MESSAGE value="Server,API,Manager: fixbug getVanSchedule" />
     <MESSAGE value="Server: implement getPriceFactor, API: create PriceFactor" />
@@ -1299,7 +1296,8 @@
     <MESSAGE value="Server: implement addVanJob, addDriverJob" />
     <MESSAGE value="Build Artifact" />
     <MESSAGE value="Server: edit getMinimumDate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Server: edit getMinimumDate" />
+    <MESSAGE value="restore db" />
+    <option name="LAST_COMMIT_MESSAGE" value="restore db" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
