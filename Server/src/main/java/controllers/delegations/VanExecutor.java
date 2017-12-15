@@ -254,6 +254,7 @@ public class VanExecutor {
     public Date getMinimumDate(Destination destination, Date startDate){
         double distance = getDistance(destination);
         int days = (int) Math.ceil(distance/720);
+        days = days - 1;
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(startDate);
         calendar.add(Calendar.DATE, days);
