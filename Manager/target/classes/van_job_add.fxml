@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import java.lang.Integer?>
+<AnchorPane prefHeight="248.0" prefWidth="453.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.VanJobAddView">
+    <fx:define>
+        <Integer fx:id="minH" fx:value="0" />
+        <Integer fx:id="maxH" fx:value="23" />
+        <Integer fx:id="minM" fx:value="0" />
+        <Integer fx:id="maxM" fx:value="59" />
+    </fx:define>
+    <children>
+        <Label layoutX="20.0" layoutY="64.0" text="วันที่ไป:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Button fx:id="btn_cancel" layoutX="16.0" layoutY="202.0" mnemonicParsing="false" text="ยกเลิก">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="btn_submit" layoutX="370.0" layoutY="202.0" mnemonicParsing="false" text="เพิ่มงาน">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label layoutX="21.0" layoutY="110.0" text="วันที่กลับ:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="21.0" layoutY="159.0" text="สถานะ:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="dp_startDate" layoutX="80.0" layoutY="59.0" prefHeight="31.0" prefWidth="134.0" />
+        <Label layoutX="234.0" layoutY="64.0" text="เวลา:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="dp_endDate" layoutX="80.0" layoutY="105.0" prefHeight="31.0" prefWidth="134.0" />
+        <Label layoutX="236.0" layoutY="110.0" text="เวลา:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="422.0" layoutY="64.0" text="น.">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="423.0" layoutY="110.0" text="น.">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Spinner fx:id="sp_startHr" layoutX="276.0" layoutY="59.0" max="$maxH" min="$minH" prefHeight="31.0" prefWidth="62.0" />
+        <Spinner fx:id="sp_startMin" layoutX="350.0" layoutY="60.0" max="$maxM" min="$minM" prefHeight="31.0" prefWidth="62.0" />
+        <Spinner fx:id="sp_endHr" layoutX="276.0" layoutY="104.0" max="$maxH" min="$minH" prefHeight="31.0" prefWidth="62.0" />
+        <Spinner fx:id="sp_endMin" layoutX="350.0" layoutY="105.0" max="$maxM" min="$minM" prefHeight="31.0" prefWidth="62.0" />
+        <Label layoutX="343.0" layoutY="64.0" text=":">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="344.0" layoutY="110.0" text=":">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <ComboBox fx:id="cb_status" layoutX="80.0" layoutY="157.0" prefHeight="25.0" prefWidth="134.0" />
+        <Label layoutX="165.0" layoutY="14.0" text="เพิ่มงานรถตู้">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
