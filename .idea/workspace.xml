@@ -8,8 +8,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cb9efd3-4d93-4e53-b370-51345613bcbf" name="Default" comment="fix artifact">
-      <change beforePath="$PROJECT_DIR$/Customer/src/main/java/view/InformationView.java" afterPath="$PROJECT_DIR$/Customer/src/main/java/view/InformationView.java" />
+    <list default="true" id="1cb9efd3-4d93-4e53-b370-51345613bcbf" name="Default" comment="Manager: edit confirm alert">
+      <change beforePath="$PROJECT_DIR$/Manager/src/main/java/views/PageConfirmView.java" afterPath="$PROJECT_DIR$/Manager/src/main/java/views/PageConfirmView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -142,25 +142,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PriceExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/delegations/PriceExecutor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="742">
-              <caret line="156" column="5" lean-forward="false" selection-start-line="156" selection-start-column="5" selection-end-line="156" selection-end-column="5" />
-              <folding>
-                <element signature="method#getPriceFactor#0;class#PriceExecutor#0" expanded="false" />
-                <element signature="method#getPrice#0;class#PriceExecutor#0" expanded="false" />
-                <element signature="method#getPrice#1;class#PriceExecutor#0" expanded="false" />
-                <element signature="method#updatePriceFactor#0;class#PriceExecutor#0" expanded="false" />
-                <element signature="method#getDistricts#0;class#PriceExecutor#0" expanded="false" />
-                <element signature="method#getProvinces#0;class#PriceExecutor#0" expanded="false" />
-                <element signature="method#createUpdatePriceFactorQuery#0;class#PriceExecutor#0" expanded="false" />
-                <element signature="method#getDistance#0;class#PriceExecutor#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="VanExecutor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/delegations/VanExecutor.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -183,11 +164,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InformationView.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="InformationView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Customer/src/main/java/view/InformationView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="50" column="43" lean-forward="false" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
+            <state relative-caret-position="391">
+              <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PageConfirmView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/PageConfirmView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7353">
+              <caret line="200" column="36" lean-forward="true" selection-start-line="200" selection-start-column="36" selection-end-line="200" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -310,6 +301,7 @@
         <option value="$PROJECT_DIR$/Server/src/main/java/controllers/delegations/DriverExecutor.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/controllers/delegations/VanExecutor.java" />
         <option value="$PROJECT_DIR$/Customer/src/main/java/view/InformationView.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/views/PageConfirmView.java" />
       </list>
     </option>
   </component>
@@ -447,6 +439,38 @@
               <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
               <item name="Manager" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
@@ -1066,14 +1090,14 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.4935553" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762557" sideWeight="0.5349087" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32762557" sideWeight="0.5349087" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762557" sideWeight="0.4650913" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39794755" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40296805" sideWeight="0.52255636" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40296805" sideWeight="0.52255636" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1133,7 +1157,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Server: fixbug editVan with null partner" />
     <MESSAGE value="Server: implement getVanSchedules, fixbug confirm deposit" />
     <MESSAGE value="Server,API,Manager: fixbug getVanSchedule" />
     <MESSAGE value="Server: implement getPriceFactor, API: create PriceFactor" />
@@ -1158,7 +1181,8 @@
     <MESSAGE value="Server: implement addVanJob, addDriverJob" />
     <MESSAGE value="Build Artifact" />
     <MESSAGE value="Server: edit getMinimumDate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Server: edit getMinimumDate" />
+    <MESSAGE value="Manager: edit confirm alert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Manager: edit confirm alert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1175,7 +1199,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Server/src/main/java/SQLiteExecutor.java" />
     <entry file="file://$PROJECT_DIR$/Customer/src/main/java/view/MyReservationView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
@@ -1637,8 +1660,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Customer/src/main/java/view/InformationView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="50" column="43" lean-forward="false" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
+        <state relative-caret-position="391">
+          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/PageConfirmView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7353">
+          <caret line="200" column="36" lean-forward="true" selection-start-line="200" selection-start-column="36" selection-end-line="200" selection-end-column="36" />
           <folding />
         </state>
       </provider>

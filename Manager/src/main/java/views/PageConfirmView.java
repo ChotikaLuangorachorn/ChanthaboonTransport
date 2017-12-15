@@ -190,15 +190,15 @@ public class PageConfirmView implements Initializable {
     }
     public void showWarningDialog(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning Topic");
-        alert.setHeaderText("Look, You have not entered the information text field yet.");
-        alert.setContentText("Please enter a message in the information field.");
+        alert.setTitle("ไม่สามารถยืนยันได้");
+        alert.setHeaderText("ข้อมูลไม่ครบถ้วน");
+        alert.setContentText("กรุณาตรวจสอบข้อมูลให้ครบถ้วน ก่อนกดยืนยัน");
         alert.showAndWait();
     }
 
     public void showConfirmDialog(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
+        alert.setTitle("การยืนยัน");
         alert.setContentText("ทำการยืนยันเรียบร้อยแล้ว");
         alert.showAndWait();
     }
