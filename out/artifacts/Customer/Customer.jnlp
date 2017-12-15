@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Customer.jnlp">
+  <information>
+    <title>Customer</title>
+    <vendor>Unknown</vendor>
+    <description>Customer</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Customer.jar" size="64852" download="eager" />
+    <jar href="spring-aop-5.0.0.RELEASE.jar" size="360614" download="eager" />
+    <jar href="spring-beans-5.0.0.RELEASE.jar" size="654710" download="eager" />
+    <jar href="spring-context-5.0.0.RELEASE.jar" size="1070994" download="eager" />
+    <jar href="spring-core-5.0.0.RELEASE.jar" size="1207463" download="eager" />
+    <jar href="spring-expression-5.0.0.RELEASE.jar" size="262695" download="eager" />
+    <jar href="spring-jcl-5.0.0.RELEASE.jar" size="15666" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="MainApplication"  name="Customer" />
+  <update check="background"/>
+</jnlp>
