@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import java.lang.Integer?>
+<AnchorPane prefHeight="452.0" prefWidth="770.0" style="-fx-background-color: #84e09dab;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ReservationView">
+   <fx:define>
+      <Integer fx:id="minH" fx:value="0" />
+      <Integer fx:id="maxH" fx:value="23" />
+      <Integer fx:id="minM" fx:value="0" />
+      <Integer fx:id="maxM" fx:value="59" />
+      <Integer fx:id="minCar" fx:value="0"/>
+   </fx:define>
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="จุดหมาย">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="125.0" text="สถานที่:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="293.0" text="วันที่กลับ:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="259.0" text="วันที่ไป:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="53.0" text="จังหวัด:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="92.0" text="อำเภอ/เขต:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="409.0" layoutY="53.0" text="เลือกจำนวนรถตู้:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="443.0" layoutY="119.0" text="รถVIP(9 ที่นั่ง):">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="444.0" layoutY="87.0" text="รถธรรมดา(15 ที่นั่ง):">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbb_province" layoutX="107.0" layoutY="54.0" prefHeight="25.0" prefWidth="142.0" />
+      <ComboBox fx:id="cbb_district" layoutX="108.0" layoutY="90.0" prefHeight="25.0" prefWidth="142.0" />
+      <TextArea fx:id="ta_place" layoutX="108.0" layoutY="126.0" prefHeight="118.0" prefWidth="292.0" promptText="รายละเอียดของสถานที่">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <DatePicker fx:id="dp_startDate" layoutX="108.0" layoutY="254.0" prefHeight="25.0" prefWidth="102.0" />
+      <DatePicker fx:id="dp_endStart" layoutX="108.0" layoutY="291.0" prefHeight="25.0" prefWidth="102.0" />
+      <Label layoutX="409.0" layoutY="155.0" text="ประเภทการจอง:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="rd_distance" layoutX="443.0" layoutY="185.0" mnemonicParsing="false" selected="true" text="ระยะทาง">
+         <toggleGroup>
+            <ToggleGroup fx:id="rent" />
+         </toggleGroup>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rd_daily" layoutX="443.0" layoutY="275.0" mnemonicParsing="false" text="รายวัน" toggleGroup="$rent">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <Spinner fx:id="spn_normal" layoutX="562.0" layoutY="85.0" prefHeight="25.0" prefWidth="64.0" />
+      <Spinner fx:id="spn_vip" layoutX="562.0" layoutY="117.0" prefHeight="25.0" prefWidth="64.0" />
+      <Label layoutX="631.0" layoutY="120.0" text="คัน">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="631.0" layoutY="88.0" text="คัน">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Spinner fx:id="spn_start_hr" layoutX="250.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" max="$maxH" min="$minH" />
+      <Spinner fx:id="spn_start_min" layoutX="321.0" layoutY="254.0" prefHeight="25.0" prefWidth="64.0" max="$maxM" min="$minM"/>
+      <Spinner fx:id="spn_end_hr" layoutX="250.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" max="$maxH" min="$minH" />
+      <Spinner fx:id="spn_end_min" layoutX="321.0" layoutY="291.0" prefHeight="25.0" prefWidth="64.0" max="$maxM" min="$minM"/>
+      <Label layoutX="216.0" layoutY="294.0" text="เวลา:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="216.0" layoutY="257.0" text="เวลา:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="316.0" layoutY="257.0" text=":">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="316.0" layoutY="293.0" text=":">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="389.0" layoutY="257.0" text="น.">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="389.0" layoutY="293.0" text="น.">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="483.0" layoutY="210.0" prefHeight="62.0" prefWidth="256.0" text="(คิดตามระยะทางที่ไป &#10;- รถธรรมราคาเริ่มต้นที่&#10;- รถVIPเริ่มต้นที่">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="483.0" layoutY="300.0" prefHeight="62.0" prefWidth="256.0" text="(คิดตามจำนวนวันที่ไป &#10;- รถธรรมราคา&#10;- รถVIPราคา">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_calPrice" layoutX="341.0" layoutY="382.0" mnemonicParsing="false" text="คำนวณราคา">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="667.0" layoutY="87.0" text="ว่าง       คัน">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="667.0" layoutY="119.0" text="ว่าง       คัน">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_amtNormalVan" layoutX="689.0" layoutY="87.0" text="10">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_amtVipVan" layoutX="689.0" layoutY="119.0" text="10">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_dist_normal" layoutX="598.0" layoutY="231.0" prefHeight="20.0" prefWidth="129.0" text="1,500 บาท">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_dist_vip" layoutX="568.0" layoutY="250.0" prefHeight="20.0" prefWidth="150.0" text="2,000 บาท)">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_day_normal" layoutX="561.0" layoutY="321.0" prefHeight="20.0" prefWidth="129.0" text="1,500 บาท/วัน">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_day_vip" layoutX="555.0" layoutY="340.0" prefHeight="20.0" prefWidth="150.0" text="3,000 บาท/วัน)">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
