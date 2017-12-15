@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Server.jar" size="83799" download="eager" />
+    <jar href="Server.jar" size="83806" download="eager" />
     <jar href="spring-aop-5.0.0.RELEASE.jar" size="360614" download="eager" />
     <jar href="spring-beans-5.0.0.RELEASE.jar" size="654710" download="eager" />
     <jar href="spring-context-5.0.0.RELEASE.jar" size="1070994" download="eager" />
