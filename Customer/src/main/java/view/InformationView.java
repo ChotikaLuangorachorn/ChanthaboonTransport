@@ -1,5 +1,6 @@
 package view;
 
+import controller.CustomerController;
 import controller.MainController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -26,7 +27,7 @@ import java.util.ResourceBundle;
 public class InformationView extends AnchorPane implements Initializable {
     @FXML private Label lb_fname, lb_lname, lb_citizenId, lb_address, lb_phone, lb_line;
     @FXML private Button btn_editInfo, btn_changePwd;
-    private MainController controller;
+    private CustomerController controller;
 
     public void initialize(URL location, ResourceBundle resources) {
         onClickChangePassword();
@@ -265,7 +266,7 @@ public class InformationView extends AnchorPane implements Initializable {
         });
     }
 
-    public void setController(MainController controller) {
+    public void setController(CustomerController controller) {
         this.controller = controller;
         showInformation();
         onClickEdit();

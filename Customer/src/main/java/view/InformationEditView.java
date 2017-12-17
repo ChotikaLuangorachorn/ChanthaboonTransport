@@ -1,5 +1,6 @@
 package view;
 
+import controller.CustomerController;
 import controller.MainController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,7 +26,7 @@ public class InformationEditView implements Initializable{
     @FXML private TextField tf_line;
     @FXML private Button btn_editInfo;
     private InformationView informationView;
-    private MainController controller;
+    private CustomerController controller;
 
     public void initialize(URL location, ResourceBundle resources) {
         showEditInformation();
@@ -76,7 +77,7 @@ public class InformationEditView implements Initializable{
     }
 
 
-    public void setController(MainController controller) {
+    public void setController(CustomerController controller) {
         this.controller = controller;
         onClickConfirmEdit();
     }

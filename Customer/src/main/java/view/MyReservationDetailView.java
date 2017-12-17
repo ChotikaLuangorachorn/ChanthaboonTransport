@@ -16,7 +16,6 @@ public class MyReservationDetailView implements Initializable
 {
     @FXML private Label lb_reserveId, lb_province, lb_district, lb_startDate, lb_startTime, lb_endDate, lb_endTime, lb_normalAmt, lb_vipAmt, lb_reserveDate, lb_reserveTime, lb_price,lb_deposit,lb_isDeposited, lb_meetingDate, lb_meetingTime;
     @FXML private TextArea ta_place, ta_meetingPlace;
-    private MainController controller;
     private Reservation reservation;
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -64,10 +63,7 @@ public class MyReservationDetailView implements Initializable
         lb_meetingTime.setText(meetingTime);
 
     }
-    public void setController(MainController controller){
-        this.controller = controller;
 
-    }
 
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;

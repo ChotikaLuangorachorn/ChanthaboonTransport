@@ -1,5 +1,6 @@
 package view;
 
+import controller.CustomerController;
 import controller.MainController;
 import controller.SceneManager;
 import javafx.event.ActionEvent;
@@ -18,7 +19,7 @@ public class LoginView {
     @FXML private PasswordField tf_pwd;
     @FXML private Button btn_login;
     @FXML private Label lb_notification;
-    private MainController controller;
+    private CustomerController controller;
     private SceneManager sceneManager;
 
     @FXML
@@ -41,7 +42,7 @@ public class LoginView {
         });
     }
 
-    public void setController(MainController controller) {
+    public void setController(CustomerController controller) {
         this.controller = controller;
         onClickLogin();
     }

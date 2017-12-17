@@ -1,7 +1,6 @@
 package view;
 
-import controller.MainController;
-import controller.SceneManager;
+import controller.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Tab;
@@ -15,8 +14,14 @@ public class Mainview {
     private InformationView tabInformation;
     private MyReservationView myReservationView;
     private ReservationView reservationView;
-    private MainController controller;
+
     private SceneManager sceneManager;
+
+    //New Vaersion
+    private ReservationController reservationController;
+    private CustomerController customerController;
+    private PriceController priceController;
+    private VanController vanController;
 
     @FXML
     public void initialize(){
@@ -29,7 +34,7 @@ public class Mainview {
             Pane tabInfo = loader.load();
             tab_information.setContent(tabInfo);
             tabInformation = loader.getController();
-            tabInformation.setController(controller);
+            tabInformation.setController(customerController);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -43,7 +48,9 @@ public class Mainview {
             Pane tabreserve = loader.load();
             tab_reserve.setContent(tabreserve);
             reservationView = loader.getController();
-            reservationView.setController(controller);
+            reservationView.setPriceController(priceController);
+            reservationView.setReservationController(reservationController);
+            reservationView.setVanController(vanController);
             reservationView.setMyReservationView(myReservationView);
 
         } catch (IOException e) {
@@ -58,22 +65,35 @@ public class Mainview {
             Pane tabMyReserve = loader.load();
             tab_myReserve.setContent(tabMyReserve);
             myReservationView = loader.getController();
-            myReservationView.setController(controller);
+            myReservationView.setReservationController(reservationController);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void setController(MainController controller) {
-        this.controller = controller;
-        initTabInformation();
-        initTabMyReservation();
-        initTabReservation();
-    }
 
 
     public void setSceneManager(SceneManager sceneManager) {
         this.sceneManager = sceneManager;
+        initTabReservation();
+        initTabMyReservation();
+        initTabInformation();
+    }
+
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
+    }
+
+    public void setCustomerController(CustomerController customerController) {
+        this.customerController = customerController;
+    }
+
+    public void setPriceController(PriceController priceController) {
+        this.priceController = priceController;
+    }
+
+    public void setVanController(VanController vanController) {
+        this.vanController = vanController;
     }
 }
