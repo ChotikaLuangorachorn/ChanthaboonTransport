@@ -89,7 +89,7 @@ public class FeeMenuView implements Initializable{
                     tf_base_vip.setStyle("{-fx-border-color: }");
                     tf_rateDst_vip.setStyle("{-fx-border-color: }");
                     tf_rateDay_vip.setStyle("{-fx-border-color: }");
-                    
+
                     double distFree_normal = 0.0;
                     double base_normal = 0.0;
                     double rateDst_normal = 0.0;

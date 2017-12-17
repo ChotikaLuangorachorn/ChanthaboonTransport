@@ -1,6 +1,7 @@
 package views;
 
 import controllers.MainController;
+import controllers.ReservationController;
 import controllers.StageController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -35,11 +36,11 @@ public class ReservationMenuView implements Initializable{
     @FXML private TableColumn col_reserveId, col_reserveDate, col_province, col_district, col_fee, col_statusReservation;
     @FXML private Button btn_deleteReserve;
     private List<Reservation> reservations;
-    private MainController controller;
+    private ReservationController reservationController;
     private StageController stageController;
 
-    public void setController(MainController controller) {
-        this.controller = controller;
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
         refreshReservationTable();
     }
 
@@ -66,7 +67,7 @@ public class ReservationMenuView implements Initializable{
                         loader.setLocation(getClass().getResource("/reservation_edit.fxml"));
                         Pane detailLayout = loader.load();
                         ReservationEditView reservationEditView = loader.getController();
-                        reservationEditView.setController(controller);
+                        reservationEditView.setReservationController(reservationController);
                         reservationEditView.setReservation(reservation);
 
                         Scene scene = new Scene(detailLayout);
@@ -147,7 +148,7 @@ public class ReservationMenuView implements Initializable{
     }
 
     public void refreshReservationTable(){
-        this.reservations = controller.getReservations();
+        this.reservations = reservationController.getReservations();
         initData();
 
     }
@@ -168,14 +169,12 @@ public class ReservationMenuView implements Initializable{
                     Optional<ButtonType> result = alert.showAndWait();
                     if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
                         table_reserves.getSelectionModel().clearSelection();
-                        controller.deleteReservation(reservation);
+                        reservationController.deleteReservation(reservation);
                         refreshReservationTable();
                     }
                 }
             }
         });
-
-
 
     }
 
