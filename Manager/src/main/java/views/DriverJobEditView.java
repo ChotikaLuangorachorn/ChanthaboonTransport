@@ -143,9 +143,10 @@ public class DriverJobEditView implements Initializable{
         if(dp_startDate!=null){
             onClickCancelEdit();
             onClickSubmit();
+            setTimeSpinner();
             onClickStartDatePicker();
             onClickEndDatePicker();
-            setTimeSpinner();
+
             onClickSpinnerStartHr();
             onClickSpinnerStartMin();
         }
@@ -187,17 +188,24 @@ public class DriverJobEditView implements Initializable{
     public void setEndDatePicker(){
         LocalDate startLocal = dp_startDate.getValue();
         Date minimumDate = convertToDateStart(startLocal);
-        LocalDate minimun = minimumDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate minimum = minimumDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         if(dp_startDate.getValue().isAfter(dp_endDate.getValue())){
-            dp_endDate.setValue(minimun);
+            dp_endDate.setValue(minimum);
         }
+
         dp_endDate.setDayCellFactory(param -> new DateCell(){
             @Override
             public void updateItem(LocalDate item, boolean empty) {
                 super.updateItem(item, empty);
-                setDisable(empty || item.isBefore(minimun));
+                setDisable(empty || item.isBefore(minimum));
             }
         });
+        if (!startLocal.isEqual(LocalDate.now())){
+            Spinner<Integer> s1 = new Spinner<>(0,23,(Integer)sp_startHr.getValue());
+            sp_startHr.setValueFactory(s1.getValueFactory());
+            Spinner<Integer> s2 = new Spinner<>(0,59,(Integer)sp_startMin.getValue());
+            sp_startMin.setValueFactory(s2.getValueFactory());
+        }
     }
     public void setTimeSpinner(){
         sp_startHr.getValueFactory().setValue(schedule.getStartDate().getHours());

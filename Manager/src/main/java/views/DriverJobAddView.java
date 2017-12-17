@@ -46,9 +46,14 @@ public class DriverJobAddView implements Initializable {
         sp_startHr.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                Integer start = (Integer)sp_startHr.getValue();
+                Integer end = (Integer)sp_endHr.getValue();
                 if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
-                Spinner<Integer> s = new Spinner<>((Integer)sp_startHr.getValue(),23,(Integer) sp_startHr.getValue());
-                sp_endHr.setValueFactory(s.getValueFactory());
+                    Spinner<Integer> s = new Spinner<>((Integer)sp_startHr.getValue(),23,start);
+                    sp_endHr.setValueFactory(s.getValueFactory());
+                }else {
+                    Spinner<Integer> s = new Spinner<>(0,23, end);
+                    sp_endHr.setValueFactory(s.getValueFactory());
                 }
             }
         });
@@ -57,8 +62,13 @@ public class DriverJobAddView implements Initializable {
         sp_startMin.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                Integer start = (Integer)sp_startMin.getValue();
+                Integer end = (Integer)sp_endMin.getValue();
                 if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
-                    Spinner<Integer> s = new Spinner<>((Integer)sp_startMin.getValue(),59,(Integer) sp_startMin.getValue());
+                    Spinner<Integer> s = new Spinner<>(start,59,(Integer) start);
+                    sp_endMin.setValueFactory(s.getValueFactory());
+                }else {
+                    Spinner<Integer> s = new Spinner<>(0,59,end);
                     sp_endMin.setValueFactory(s.getValueFactory());
                 }
             }
@@ -102,7 +112,25 @@ public class DriverJobAddView implements Initializable {
         dp_startDate.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                setEndDatePicker();
+                LocalDate startLocal = dp_startDate.getValue();
+                Date minimumDate = convertToDateStart(startLocal);
+                LocalDate minimum = minimumDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                if (dp_startDate.getValue().isAfter(dp_endDate.getValue())) {
+                    dp_endDate.setValue(minimum);
+                }
+                dp_endDate.setDayCellFactory(param -> new DateCell(){
+                    @Override
+                    public void updateItem(LocalDate item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setDisable(empty || item.isBefore(minimum));
+                    }
+                });
+                if (!startLocal.isEqual(LocalDate.now())){
+                    Spinner<Integer> s1 = new Spinner<>(0,23,(Integer)sp_startHr.getValue());
+                    sp_startHr.setValueFactory(s1.getValueFactory());
+                    Spinner<Integer> s2 = new Spinner<>(0,59,(Integer)sp_startMin.getValue());
+                    sp_startMin.setValueFactory(s2.getValueFactory());
+                }
             }
         });
     }

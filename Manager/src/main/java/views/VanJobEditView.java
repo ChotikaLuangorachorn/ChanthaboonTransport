@@ -108,6 +108,26 @@ public class VanJobEditView implements Initializable {
             }
         });
     }
+    public void onClickEndDatePicker(){
+        dp_endDate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (!dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+                    Spinner<Integer> hr = new Spinner<>(0,23,(Integer)sp_startHr.getValue());
+                    sp_endHr.setValueFactory(hr.getValueFactory());
+
+                    Spinner<Integer> min = new Spinner<>(0,59,(Integer)sp_startMin.getValue());
+                    sp_endMin.setValueFactory(min.getValueFactory());
+                }else {
+                    Spinner<Integer> hr = new Spinner<>((Integer)sp_startHr.getValue(),23,(Integer)sp_startHr.getValue());
+                    sp_endHr.setValueFactory(hr.getValueFactory());
+
+                    Spinner<Integer> min = new Spinner<>((Integer)sp_startMin.getValue(),59,(Integer)sp_startMin.getValue());
+                    sp_endMin.setValueFactory(min.getValueFactory());
+                }
+            }
+        });
+    }
     public void setTimeSpinner(){
         Date dateNow = new Date();
         Spinner<Integer> hr = new Spinner<>(dateNow.getHours(),23,dateNow.getHours());
@@ -124,6 +144,7 @@ public class VanJobEditView implements Initializable {
             onClickCancelEdit();
             onClickSubmit();
             onClickStartDatePicker();
+            onClickEndDatePicker();
             setTimeSpinner();
             onClickSpinnerStartHr();
             onClickSpinnerStartMin();
