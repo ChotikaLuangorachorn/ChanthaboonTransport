@@ -33,7 +33,7 @@ public class InformationEditView implements Initializable{
     }
     public void showEditInformation(){
         Customer customer = CustomerInfoManager.getInstance().getCustomer();
-        lb_citizenId.setText(customer.getCitizenId());
+        lb_citizenId.setText(customer.getId());
         tf_fname.setText(customer.getFirstName());
         tf_lname.setText(customer.getLastName());
         tf_address.setText(customer.getAddress());

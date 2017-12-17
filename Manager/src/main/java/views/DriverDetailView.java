@@ -50,10 +50,10 @@ public class DriverDetailView implements Initializable {
 
     public void showDetail(){
         String license = driver.getDriverLicense();
-        String fName = driver.getFirstname();
-        String lName = driver.getLastname();
+        String fName = driver.getFirstName();
+        String lName = driver.getLastName();
         String nName = driver.getNickname();
-        String citizenId = driver.getCitizenId();
+        String citizenId = driver.getId();
         String birthDay = ReservationDateFormatter.getInstance().getUiDateFormatter().format(driver.getDateOfBirth());
         String phone = driver.getPhone();
         String address = driver.getAddress();
@@ -80,7 +80,7 @@ public class DriverDetailView implements Initializable {
                     Pane detail = loader.load();
                     DriverDetailEditView driverDetailEditView = loader.getController();
                     driverDetailEditView.setController(controller);
-                    driver = new Driver(driver.getCitizenId(),driver.getDriverLicense(),driver.getDateOfBirth(),lb_fName.getText(),lb_lName.getText(),lb_nName.getText(),lb_phone.getText(),lb_address.getText());
+                    driver = new Driver(driver.getId(),lb_fName.getText(),lb_lName.getText(),driver.getDriverLicense(),driver.getDateOfBirth(),lb_nName.getText(),lb_phone.getText(),lb_address.getText());
                     driverDetailEditView.setDriver(driver);
                     driverDetailEditView.setDriverDetailEditView(DriverDetailView.this);
                     driverDetailEditView.setDriverMenuView(driverMenuView);
@@ -268,7 +268,7 @@ public class DriverDetailView implements Initializable {
     }
 
     public void refreshScheduleTable(){
-        this.jobs = controller.getDriverSchedule(driver.getCitizenId());
+        this.jobs = controller.getDriverSchedule(driver.getId());
         initData();
     }
 

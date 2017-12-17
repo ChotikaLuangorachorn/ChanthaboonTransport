@@ -2,25 +2,15 @@ package models;
 
 import java.io.Serializable;
 
-public class Partner implements Serializable {
-    private int id;
-    private String name;
+public class Partner extends Person implements Serializable {
     private String company;
     private String companyPhone;
 
-    public Partner(int id, String name, String company, String companyPhone) {
-        this.id = id;
-        this.name = name;
+
+    public Partner(String id, String firstName, String lastName, String company, String companyPhone) {
+        super(id, firstName, lastName);
         this.company = company;
         this.companyPhone = companyPhone;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getCompany() {
@@ -31,13 +21,5 @@ public class Partner implements Serializable {
         return companyPhone;
     }
 
-    @Override
-    public String toString() {
-        return "Partner{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", company='" + company + '\'' +
-                ", companyPhone='" + companyPhone + '\'' +
-                '}';
-    }
+
 }

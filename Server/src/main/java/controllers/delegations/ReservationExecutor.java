@@ -144,7 +144,7 @@ public class ReservationExecutor {
                 "where driver.citizen_id in ", reservationId);
         List<String> driverIds = new ArrayList<>();
         for (Driver driver:drivers)
-            driverIds.add("'" + driver.getCitizenId() + "'");
+            driverIds.add("'" + driver.getId() + "'");
         sql += "(" + String.join(",", driverIds) + ")";
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
         int result = assistant.execute(sql);

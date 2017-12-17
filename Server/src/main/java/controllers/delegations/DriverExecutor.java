@@ -122,7 +122,7 @@ public class DriverExecutor {
                 String nickname =  resultSet.getString("nick_name");
                 String phone = resultSet.getString("phone");
                 String address = resultSet.getString("address");
-                available.add(new Driver(citizenId, driverLicense, dateOfBirth, firstname, lastname, nickname, phone, address));
+                available.add(new Driver(citizenId, lastname, nickname, driverLicense, dateOfBirth, firstname,  phone, address));
             }
             return available;
         }), available);
@@ -143,7 +143,7 @@ public class DriverExecutor {
                 String phone = resultSet.getString("phone");
                 String address = resultSet.getString("address");
 
-                drivers.add(new Driver(citizenId, driverLicense, dateOfBirth, firstName, lastName, nickname, phone, address));
+                drivers.add(new Driver(citizenId, firstName, lastName, driverLicense, dateOfBirth,  nickname, phone, address));
             }
             return drivers;
         }, drivers);
@@ -182,8 +182,8 @@ public class DriverExecutor {
                         "address='%s' " +
                         "where citizen_id='%s'",
                 driver.getDriverLicense(), formatter.format(driver.getDateOfBirth()),
-                driver.getFirstname(), driver.getLastname(), driver.getNickname(),
-                driver.getPhone(), driver.getAddress(), driver.getCitizenId());
+                driver.getFirstName(), driver.getLastName(), driver.getNickname(),
+                driver.getPhone(), driver.getAddress(), driver.getId());
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
         int result = assistant.execute(sql);
     }
@@ -199,7 +199,7 @@ public class DriverExecutor {
         String endS = formatter.format(endDate);
         String sql = String.format("insert into driver_job_schedule " +
                         "values ('%s', '%s', '%s', '%s')",
-                driver.getCitizenId(), startS, endS, type.getId()+"");
+                driver.getId(), startS, endS, type.getId()+"");
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
         System.out.println("sql = " + sql);
         int result = assistant.execute(sql);

@@ -59,14 +59,14 @@ public class DriverMenuView implements Initializable{
             @Override
             public void handle(ActionEvent event) {
                 Driver driver = (Driver) table_driver.getSelectionModel().getSelectedItem();
-                List<Schedule> schedules = controller.getDriverSchedule(driver.getCitizenId());
+                List<Schedule> schedules = controller.getDriverSchedule(driver.getId());
                 if(driver!=null){
                     if (schedules.size()==0){
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                         alert.setTitle("ยืนยันการลบข้อมูลคนขับ");
                         alert.setHeaderText("ยืนยันการลบข้อมูลคนขับ");
-                        String s = "ชื่อ:\t\t" + driver.getFirstname() + "\n"
-                                +"นามสกุล:\t" + driver.getLastname();
+                        String s = "ชื่อ:\t\t" + driver.getFirstName() + "\n"
+                                +"นามสกุล:\t" + driver.getLastName();
                         alert.setContentText(s);
 
                         Optional<ButtonType> result = alert.showAndWait();
@@ -81,7 +81,7 @@ public class DriverMenuView implements Initializable{
                         alert.setTitle("ไม่สามารถทำการลบได้");
                         alert.setHeaderText("ไม่สามารถทำการลบได้");
                         String s = "เนื่องจากคนขับ\n"+
-                                "ชื่อ:\t\t" + driver.getFirstname() + "    "+driver.getLastname()+"\nยังมีตารางการทำงานอยู่";
+                                "ชื่อ:\t\t" + driver.getFirstName() + "    "+driver.getLastName()+"\nยังมีตารางการทำงานอยู่";
                         alert.setContentText(s);
                         Optional<ButtonType> result = alert.showAndWait();
 

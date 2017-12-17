@@ -24,29 +24,31 @@ public class PartnerExecutor {
         QueryExecutionAssistant<List<Partner>> assistant = new QueryExecutionAssistant<>(url);
         return assistant.execute(sql, resultSet -> {
             while (resultSet.next()){
-                int id = Integer.parseInt(resultSet.getString("id"));
+                String id = resultSet.getString("id");
                 String name = resultSet.getString("name");
                 String company = resultSet.getString("company");
                 String companyPhone = resultSet.getString("company_phone");
-                Partner partner = new Partner(id, name, company, companyPhone);
+                // TODO partner last name
+                Partner partner = new Partner(id, name, "", company, companyPhone);
                 partners.add(partner);
             }
             return partners;
         }, partners);
     }
     public void editPartner(Partner partner) {
+        // TODO partner last name
         String sql = String.format("update partner " +
                         "set name='%s'," +
                         "company='%s'," +
                         "company_phone='%s' " +
                         "where id='%s'",
-                partner.getName(), partner.getCompany(),
+                partner.getFirstName(), partner.getCompany(),
                 partner.getCompanyPhone(), partner.getId());
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);
         int result = assistant.execute(sql);
         System.out.println("result = " + result);
     }
-    public void deletePartner(int partnerId) {
+    public void deletePartner(String partnerId) {
         System.out.println("request deletePartner");
         String sql = "delete from partner where id='" + partnerId + "'";
         UpdateExecutionAssistant assistant = new UpdateExecutionAssistant(url);

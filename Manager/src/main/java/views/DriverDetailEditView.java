@@ -39,11 +39,11 @@ public class DriverDetailEditView implements Initializable {
 
     public void showEditForm(){
         String license = (driver.getDriverLicense()==null)?"":driver.getDriverLicense();
-        String fName = (driver.getFirstname()==null)?"":driver.getFirstname();
-        String lName = (driver.getLastname()==null)?"":driver.getLastname();
+        String fName = (driver.getFirstName()==null)?"":driver.getFirstName();
+        String lName = (driver.getLastName()==null)?"":driver.getLastName();
         String nName = (driver.getNickname()==null)?"":driver.getNickname();
         String phone = (driver.getPhone()==null)?"":driver.getPhone();
-        String citizenId = driver.getCitizenId();
+        String citizenId = driver.getId();
         String birthDay = ReservationDateFormatter.getInstance().getUiDateFormatter().format(driver.getDateOfBirth());
         String address = (driver.getAddress()==null)?"":driver.getAddress();
         lb_license.setText(license);
@@ -88,14 +88,14 @@ public class DriverDetailEditView implements Initializable {
                     lb_error.setText("");
 
                     String license = driver.getDriverLicense();
-                    String citizenId = driver.getCitizenId();
+                    String citizenId = driver.getId();
                     Date birthDay = driver.getDateOfBirth();
 
-                    Driver newDriver = new Driver(citizenId,license,birthDay,fName,lName,nName,phone,address);
+                    Driver newDriver = new Driver(citizenId,fName,lName,license,birthDay,nName,phone,address);
                     controller.editDriver(newDriver);
 
-                    dirverDetailView.setLb_fName(newDriver.getFirstname());
-                    dirverDetailView.setLb_lName(newDriver.getLastname());
+                    dirverDetailView.setLb_fName(newDriver.getFirstName());
+                    dirverDetailView.setLb_lName(newDriver.getLastName());
                     dirverDetailView.setLb_nName(newDriver.getNickname());
                     dirverDetailView.setLb_phone(newDriver.getPhone());
                     dirverDetailView.setLb_address(newDriver.getAddress());

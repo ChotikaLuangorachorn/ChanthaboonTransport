@@ -2,32 +2,17 @@ package models;
 
 import java.io.Serializable;
 
-public class Customer implements Serializable{
-    private String citizenId;
-    private String firstName, lastName;
+public class Customer extends Person implements Serializable{
     private String address, phone, lineId;
     private int lastReserveId;
 
-    public Customer(String citizenId, String firstName, String lastName, String address, String phone, String lineId, int lastReserveId) {
-        this.citizenId = citizenId;
-        this.firstName = firstName;
-        this.lastName = lastName;
+
+    public Customer(String id, String firstName, String lastName, String address, String phone, String lineId, int lastReserveId) {
+        super(id, firstName, lastName);
         this.address = address;
         this.phone = phone;
         this.lineId = lineId;
         this.lastReserveId = lastReserveId;
-    }
-
-    public String getCitizenId() {
-        return citizenId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
     }
 
     public String getAddress() {
@@ -48,7 +33,14 @@ public class Customer implements Serializable{
 
     @Override
     public String toString() {
-        return String.format("Customer{%s:%s %s, address %s, phone %s, line id %s, last reservation %s}",
-                citizenId, firstName, lastName, address, phone, lineId, lastName);
+        return "Customer{" +
+                "address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", lineId='" + lineId + '\'' +
+                ", lastReserveId=" + lastReserveId +
+                ", id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

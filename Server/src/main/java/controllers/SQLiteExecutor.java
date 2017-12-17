@@ -98,7 +98,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         return driverExecutor.getDriverJobTypes();
     }
     public List<Schedule> getDriverSchedule(Driver driver) {
-        return getDriverSchedule(driver.getCitizenId());
+        return getDriverSchedule(driver.getId());
     }
     public List<Schedule> getDriverSchedule(String citizenId) {
         return driverExecutor.getDriverSchedule(citizenId);
@@ -167,7 +167,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
     public void deletePartner(Partner partner) {
         deletePartner(partner.getId());
     }
-    public void deletePartner(int partnerId) {
+    public void deletePartner(String partnerId) {
         partnerExecutor.deletePartner(partnerId);
     }
     public List<Driver> getDriverAvailable(Date startDate, Date endDate) {
@@ -180,7 +180,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         driverExecutor.editDriver(driver);
     }
     public void deleteDriver(Driver driver) {
-        deleteDriver(driver.getCitizenId());
+        deleteDriver(driver.getId());
     }
     public void deleteDriver(String citizenId) {
         driverExecutor.deleteDriver(citizenId);

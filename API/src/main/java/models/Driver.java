@@ -3,29 +3,21 @@ package models;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Driver implements Serializable {
-    private String citizenId;
+public class Driver extends Person implements Serializable {
     private String driverLicense;
     private Date dateOfBirth;
-    private String firstname;
-    private String lastname;
     private String nickname;
     private String phone;
     private String address;
 
-    public Driver(String citizenId, String driverLicense, Date dateOfBirth, String firstname, String lastname, String nickname, String phone, String address) {
-        this.citizenId = citizenId;
+
+    public Driver(String id, String firstName, String lastName, String driverLicense, Date dateOfBirth, String nickname, String phone, String address) {
+        super(id, firstName, lastName);
         this.driverLicense = driverLicense;
         this.dateOfBirth = dateOfBirth;
-        this.firstname = firstname;
-        this.lastname = lastname;
         this.nickname = nickname;
         this.phone = phone;
         this.address = address;
-    }
-
-    public String getCitizenId() {
-        return citizenId;
     }
 
     public String getDriverLicense() {
@@ -36,13 +28,6 @@ public class Driver implements Serializable {
         return dateOfBirth;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
 
     public String getNickname() {
         return nickname;
@@ -59,14 +44,14 @@ public class Driver implements Serializable {
     @Override
     public String toString() {
         return "Driver{" +
-                "citizenId='" + citizenId + '\'' +
-                ", driverLicense='" + driverLicense + '\'' +
+                "driverLicense='" + driverLicense + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
+                ", id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 }

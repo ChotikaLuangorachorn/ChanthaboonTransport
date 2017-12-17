@@ -176,7 +176,7 @@ public class ReservationView extends AnchorPane implements Initializable{
                 alert.setContentText(s);
                 Optional<ButtonType> result = alert.showAndWait();
                 if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-                    controller.addReservation(CustomerInfoManager.getInstance().getCustomer().getCitizenId(), amtVanTotal,
+                    controller.addReservation(CustomerInfoManager.getInstance().getCustomer().getId(), amtVanTotal,
                             new Destination(cbb_province.getValue(), cbb_district.getValue(), ta_place.getText()),convertToDateStart(startLocal), convertToDateEnd(endLocal), price);
                     myReservationView.refreshReservationTable();
                 }

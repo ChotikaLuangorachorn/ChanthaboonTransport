@@ -38,7 +38,7 @@ public interface ManagerDatabaseManager {
     List<Partner> getPartners();
     void editPartner(Partner partner);
     void deletePartner(Partner partner);
-    void deletePartner(int partnerId);
+    void deletePartner(String partnerId);
 
     List<Driver> getDriverAvailable(Date startDate, Date endDate);
     List<Driver> getDrivers();

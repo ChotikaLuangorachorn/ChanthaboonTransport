@@ -145,7 +145,7 @@ public class MyReservationView implements Initializable{
         this.refreshReservationTable();
     }
     public void refreshReservationTable(){
-        this.reserves = this.controller.getHistoryReservation(CustomerInfoManager.getInstance().getCustomer().getCitizenId());
+        this.reserves = this.controller.getHistoryReservation(CustomerInfoManager.getInstance().getCustomer().getId());
         this.initData();
     }
 

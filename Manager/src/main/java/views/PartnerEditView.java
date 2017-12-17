@@ -67,7 +67,8 @@ public class PartnerEditView implements Initializable {
                 }
                 else {
                     lb_error.setText("");
-                    Partner newPartner = new Partner(partner.getId(),tf_name.getText(),tf_company.getText(),tf_phone.getText());
+                    // TODO partner last name
+                    Partner newPartner = new Partner(partner.getId(),tf_name.getText(), "", tf_company.getText(),tf_phone.getText());
                     controller.editPartner(newPartner);
                     Stage stage = (Stage) btn_submit.getScene().getWindow();
                     stage.close();
@@ -79,7 +80,7 @@ public class PartnerEditView implements Initializable {
     public void showDetailPartner(){
         String id = String.format("%05d",partner.getId());
         lb_id.setText(id);
-        tf_name.setText(partner.getName());
+        tf_name.setText(partner.getFirstName());
         tf_company.setText(partner.getCompany());
         tf_phone.setText(partner.getCompanyPhone());
     }

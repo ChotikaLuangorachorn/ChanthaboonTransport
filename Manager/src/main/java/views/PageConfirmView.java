@@ -107,7 +107,7 @@ public class PageConfirmView implements Initializable {
             @Override
             public String toString(Object object) {
                 Driver driver = (Driver) object;
-                return driver.getFirstname() + " " + driver.getLastname() + " " + driver.getPhone();
+                return driver.getFirstName() + " " + driver.getLastName() + " " + driver.getPhone();
             }
 
             @Override

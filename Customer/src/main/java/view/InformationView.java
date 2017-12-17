@@ -35,7 +35,7 @@ public class InformationView extends AnchorPane implements Initializable {
         Customer customer = CustomerInfoManager.getInstance().getCustomer();
         lb_fname.setText(customer.getFirstName());
         lb_lname.setText(customer.getLastName());
-        lb_citizenId.setText(customer.getCitizenId());
+        lb_citizenId.setText(customer.getId());
         lb_address.setText(customer.getAddress());
         lb_phone.setText(customer.getPhone());
         lb_line.setText(customer.getLineId());
@@ -257,7 +257,7 @@ public class InformationView extends AnchorPane implements Initializable {
                 if ((result.isPresent()) && (result.get() == btn_confirmType) &&("".equals(errorOldPwd.getText()) && "".equals(errorNewPwd.getText()) && "".equals(errorConfirmPwd.getText()))){
                     System.out.println("oldPwd = " + oldPwd.getText());
                     System.out.println("newPwd = " + newPwd.getText());
-                    controller.changeCustomerPassword(CustomerInfoManager.getInstance().getCustomer().getCitizenId(), oldPwd.getText(), confirmPwd.getText());
+                    controller.changeCustomerPassword(CustomerInfoManager.getInstance().getCustomer().getId(), oldPwd.getText(), confirmPwd.getText());
                 }
 
 

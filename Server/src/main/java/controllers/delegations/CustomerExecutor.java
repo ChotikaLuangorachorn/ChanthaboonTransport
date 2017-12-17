@@ -56,7 +56,7 @@ public class CustomerExecutor {
                 customer.getAddress(),
                 customer.getPhone(),
                 customer.getLineId(),
-                customer.getCitizenId());
+                customer.getId());
         int result = assistant.execute(sql);
         System.out.println("result = " + result);
     }
