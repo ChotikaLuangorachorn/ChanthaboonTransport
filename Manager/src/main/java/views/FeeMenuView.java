@@ -81,14 +81,6 @@ public class FeeMenuView implements Initializable{
             @Override
             public void handle(ActionEvent event) {
                     lb_error.setText("");
-                    double distFree_normal = 0.0;
-                    double base_normal = 0.0;
-                    double rateDst_normal = 0.0;
-                    double rateDay_normal = 0.0;
-                    double distFree_vip = 0.0;
-                    double base_vip = 0.0;
-                    double rateDst_vip = 0.0;
-                    double rateDay_vip = 0.0;
                     tf_dist_normal.setStyle("{-fx-border-color: }");
                     tf_base_normal.setStyle("{-fx-border-color: }");
                     tf_rateDst_normal.setStyle("{-fx-border-color: }");
@@ -97,6 +89,16 @@ public class FeeMenuView implements Initializable{
                     tf_base_vip.setStyle("{-fx-border-color: }");
                     tf_rateDst_vip.setStyle("{-fx-border-color: }");
                     tf_rateDay_vip.setStyle("{-fx-border-color: }");
+                    
+                    double distFree_normal = 0.0;
+                    double base_normal = 0.0;
+                    double rateDst_normal = 0.0;
+                    double rateDay_normal = 0.0;
+                    double distFree_vip = 0.0;
+                    double base_vip = 0.0;
+                    double rateDst_vip = 0.0;
+                    double rateDay_vip = 0.0;
+
                     try{
                         distFree_normal = Double.parseDouble(tf_dist_normal.getText());
                     }catch (Exception e){
@@ -146,6 +148,7 @@ public class FeeMenuView implements Initializable{
                         lb_error.setText("กรอกข้อมูลผิดพลาด โปรดกรอกข้อมูลเป็นจำนวนตัวเลข");
                         tf_rateDay_vip.setStyle("-fx-border-color: Red");
                     }
+
                     if (lb_error.getText().equals("")) {
                         for (TextField tf : textFields) {
                             tf.setEditable(false);
