@@ -9,5 +9,5 @@ public interface PartnerService {
     List<Partner> getPartners();
     void editPartner(Partner partner);
     void deletePartner(Partner partner);
-    void deletePartner(int partnerId);
+    void deletePartner(String partnerId);
 }
