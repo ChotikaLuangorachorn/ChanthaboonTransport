@@ -14,14 +14,15 @@ import java.io.IOException;
 public class SceneManager {
     private Stage primaryStage;
     private MainController controller;
+    // new Version
+    private CustomerController customerController;
+    private PriceController priceController;
+    private ReservationController reservationController;
+    private VanController vanController;
 
     public void setStage(Stage stage){
 
         this.primaryStage = stage;
-    }
-
-    public void setController(MainController controller) {
-        this.controller = controller;
     }
 
     public void showLoginView(){
@@ -71,5 +72,25 @@ public class SceneManager {
 
     public void showInformationView(){
 
+    }
+
+    public void setController(MainController controller) {
+        this.controller = controller;
+    }
+
+    public void setCustomerController(CustomerController customerController) {
+        this.customerController = customerController;
+    }
+
+    public void setPriceController(PriceController priceController) {
+        this.priceController = priceController;
+    }
+
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
+    }
+
+    public void setVanController(VanController vanController) {
+        this.vanController = vanController;
     }
 }
