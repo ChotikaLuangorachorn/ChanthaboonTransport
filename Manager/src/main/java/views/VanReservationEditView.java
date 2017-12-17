@@ -98,8 +98,11 @@ public class VanReservationEditView implements Initializable{
     public void setReservationId(){
         List<Reservation> reservations = reservationController.getReservations();
         ObservableList<String> ids = FXCollections.observableArrayList();
+        Date dateNow = new Date();
         for (Reservation r: reservations) {
-            ids.add(String.format("%05d",Integer.parseInt(r.getReserveId())));
+            if(r.getStartDate().after(dateNow)) {
+                ids.add(String.format("%05d", Integer.parseInt(r.getReserveId())));
+            }
         }
         cb_reserveId.setItems(ids);
         cb_reserveId.setValue(String.format("%05d",Integer.parseInt(schedule.getNote())));
