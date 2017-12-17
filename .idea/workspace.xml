@@ -133,8 +133,8 @@
       <file leaf-file-name="PageConfirmView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/PageConfirmView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="157" column="64" lean-forward="false" selection-start-line="157" selection-start-column="64" selection-end-line="157" selection-end-column="64" />
+            <state relative-caret-position="182">
+              <caret line="158" column="44" lean-forward="false" selection-start-line="158" selection-start-column="44" selection-end-line="158" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -806,13 +806,6 @@
       <option name="presentableId" value="Default" />
       <updated>1510813974093</updated>
     </task>
-    <task id="LOCAL-00065" summary="Server: fixbug editVan with null partner">
-      <created>1511431012809</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1511431012809</updated>
-    </task>
     <task id="LOCAL-00066" summary="Server: implement getVanSchedules, fixbug confirm deposit">
       <created>1511433975548</created>
       <option name="number" value="00066" />
@@ -1149,7 +1142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513526127427</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="customer: add check AlertDialog2">
+      <created>1513526207755</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1513526207756</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1237,7 +1237,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Server: implement getMinimumDate" />
     <MESSAGE value="Server: implement addVanJob, addDriverJob" />
     <MESSAGE value="Build Artifact" />
     <MESSAGE value="Server: edit getMinimumDate" />
@@ -1262,7 +1261,8 @@
     <MESSAGE value="customer: fix bug null in SceneManager" />
     <MESSAGE value="customer: add beforeDeposit Date" />
     <MESSAGE value="customer: add check AlertDialog" />
-    <option name="LAST_COMMIT_MESSAGE" value="customer: add check AlertDialog" />
+    <MESSAGE value="customer: add check AlertDialog2" />
+    <option name="LAST_COMMIT_MESSAGE" value="customer: add check AlertDialog2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1739,8 +1739,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/PageConfirmView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="157" column="64" lean-forward="false" selection-start-line="157" selection-start-column="64" selection-end-line="157" selection-end-column="64" />
+        <state relative-caret-position="182">
+          <caret line="158" column="44" lean-forward="false" selection-start-line="158" selection-start-column="44" selection-end-line="158" selection-end-column="44" />
           <folding />
         </state>
       </provider>
