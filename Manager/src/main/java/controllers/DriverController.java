@@ -19,7 +19,8 @@ public class DriverController {
         driverExecutor = (DriverService) bf.getBean("DriverService");
     }
     public List<Driver> getDrivers(){
-        return driverExecutor.getDrivers();
+        List<Driver> drivers = driverExecutor.getDrivers();
+        return drivers;
     }
     public  void deleteDriver(Driver driver){
         driverExecutor.deleteDriver(driver);
