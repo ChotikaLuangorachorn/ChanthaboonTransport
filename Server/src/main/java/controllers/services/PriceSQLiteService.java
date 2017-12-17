@@ -91,25 +91,33 @@ public class PriceSQLiteService extends SQLiteService implements PriceService{
         int vipAmt = vanAmt.get(VanService.VIP);
         int normalAmt = vanAmt.get(VanService.NORMAL);
         long diff = endDate.getTime() - startDate.getTime();
-        int days = (int) diff / (24*60*60*1000);
-        String sql = "select * from price_rate where price_rate.reserve_type = \"day\"";
-
-        return executeQuery(sql, (resultSet -> {
-            Map<String, Double> rate = new HashMap<String, Double>();
-            Map<String, Double> base = new HashMap<String, Double>();
-            Map<String, Double> freeRage = new HashMap<String, Double>();
-
-            while (resultSet.next()){
-                rate.put(resultSet.getString("van_type"), resultSet.getDouble("rate"));
-                base.put(resultSet.getString("van_type"), resultSet.getDouble("base"));
-                freeRage.put(resultSet.getString("van_type"), resultSet.getDouble("free_range"));
-            }
-
-            double normalPrice = base.get(VanService.NORMAL) + rate.get(VanService.NORMAL)*((days < freeRage.get(VanService.NORMAL))?0:(days-freeRage.get(VanService.NORMAL)));
-            double vipPrice = base.get(VanService.VIP) + rate.get(VanService.VIP)*((days < freeRage.get(VanService.VIP))?0:(days-freeRage.get(VanService.VIP)));
-
-            return normalPrice*normalAmt + vipPrice*vipAmt;
-        }), 0.0);
+        int days = (int) Math.ceil(diff*1.0 / (24*60*60*1000));
+        PriceFactor factor = getPriceFactor();
+        double normalPrice = factor.getFactor(PriceFactor.DAY, PriceFactor.NORMAL, PriceFactor.BASE) +
+                                factor.getFactor(PriceFactor.DAY, PriceFactor.NORMAL, PriceFactor.RATE) * 
+                                        ((days<factor.getFactor(PriceFactor.DAY, PriceFactor.NORMAL, PriceFactor.FREE))?0:(days-factor.getFactor(PriceFactor.DAY, PriceFactor.NORMAL, PriceFactor.FREE)));
+        double vipPrice = factor.getFactor(PriceFactor.DAY, PriceFactor.VIP, PriceFactor.BASE) +
+                                factor.getFactor(PriceFactor.DAY, PriceFactor.VIP, PriceFactor.RATE) * 
+                                        ((days<factor.getFactor(PriceFactor.DAY, PriceFactor.VIP, PriceFactor.FREE))?0:(days-factor.getFactor(PriceFactor.DAY, PriceFactor.VIP, PriceFactor.FREE)));
+        return normalPrice*normalAmt + vipPrice*vipAmt;
+//        String sql = "select * from price_rate where price_rate.reserve_type = \"day\"";
+//
+//        return executeQuery(sql, (resultSet -> {
+//            Map<String, Double> rate = new HashMap<String, Double>();
+//            Map<String, Double> base = new HashMap<String, Double>();
+//            Map<String, Double> freeRage = new HashMap<String, Double>();
+//
+//            while (resultSet.next()){
+//                rate.put(resultSet.getString("van_type"), resultSet.getDouble("rate"));
+//                base.put(resultSet.getString("van_type"), resultSet.getDouble("base"));
+//                freeRage.put(resultSet.getString("van_type"), resultSet.getDouble("free_range"));
+//            }
+//
+//            double normalPrice = base.get(VanService.NORMAL) + rate.get(VanService.NORMAL)*((days < freeRage.get(VanService.NORMAL))?0:(days-freeRage.get(VanService.NORMAL)));
+//            double vipPrice = base.get(VanService.VIP) + rate.get(VanService.VIP)*((days < freeRage.get(VanService.VIP))?0:(days-freeRage.get(VanService.VIP)));
+//
+//            return normalPrice*normalAmt + vipPrice*vipAmt;
+//        }), 0.0);
     }
 
     @Override
