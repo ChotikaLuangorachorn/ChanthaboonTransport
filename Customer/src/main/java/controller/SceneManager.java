@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class SceneManager {
     private Stage primaryStage;
-    private MainController controller;
+//    private MainController controller;
     // new Version
     private CustomerController customerController;
     private PriceController priceController;
@@ -32,7 +32,7 @@ public class SceneManager {
             loader.setLocation(getClass().getResource("/login.fxml"));
             AnchorPane loginLayout = loader.load();
             LoginView loginView = loader.getController();
-            loginView.setController(controller);
+            loginView.setController(customerController);
             loginView.setSceneManager(this);
 
             // Show the scene containing the root layout.
@@ -50,8 +50,10 @@ public class SceneManager {
             loader.setLocation(getClass().getResource("/mainview.fxml"));
             AnchorPane mainViewLayout = loader.load();
             Mainview mainview = loader.getController();
-            System.out.println("controller = " + controller);
-            mainview.setController(controller);
+            mainview.setCustomerController(customerController);
+            mainview.setPriceController(priceController);
+            mainview.setReservationController(reservationController);
+            mainview.setVanController(vanController);
             mainview.setSceneManager(this);
 
             // Show the scene containing the root layout.
@@ -62,21 +64,6 @@ public class SceneManager {
         }
     }
 
-    public void showReservationView(){
-
-    }
-
-    public void showMyReservationView(){
-
-    }
-
-    public void showInformationView(){
-
-    }
-
-    public void setController(MainController controller) {
-        this.controller = controller;
-    }
 
     public void setCustomerController(CustomerController customerController) {
         this.customerController = customerController;

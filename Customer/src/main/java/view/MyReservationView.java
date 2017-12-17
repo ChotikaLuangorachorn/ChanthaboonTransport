@@ -1,6 +1,7 @@
 package view;
 
 import controller.MainController;
+import controller.ReservationController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -40,8 +41,10 @@ public class MyReservationView implements Initializable{
     @FXML private TableView table_reserve;
     @FXML private TableColumn col_reserveId,col_reserveDate,col_province,col_district,col_startDate,col_endDate,col_isDeposited;
 
-    private MainController controller;
+//    private MainController controller;
     private List<Reservation> reserves;
+
+    private ReservationController reservationController;
 
     public void initialize(URL location, ResourceBundle resources) {
         onDoubleClickReservation();
@@ -59,7 +62,6 @@ public class MyReservationView implements Initializable{
                     loader.setLocation(getClass().getResource("/reservation_detail.fxml"));
                     Pane detailLayout = loader.load();
                     MyReservationDetailView myReservationDetailView = loader.getController();
-                    myReservationDetailView.setController(controller);
                     myReservationDetailView.setReservation(reservation);
 
                     Scene scene = new Scene(detailLayout);
@@ -138,15 +140,15 @@ public class MyReservationView implements Initializable{
         table_reserve.setItems(data);
     }
 
-    public void setController(MainController controller) {
-        this.controller = controller;
-//        onDoubleClickReservation();
-        initCol();
-        this.refreshReservationTable();
-    }
+
     public void refreshReservationTable(){
-        this.reserves = this.controller.getHistoryReservation(CustomerInfoManager.getInstance().getCustomer().getId());
+        this.reserves = this.reservationController.getHistoryReservation(CustomerInfoManager.getInstance().getCustomer().getId());
         this.initData();
     }
 
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
+        initCol();
+        this.refreshReservationTable();
+    }
 }
