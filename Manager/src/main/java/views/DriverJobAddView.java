@@ -83,7 +83,6 @@ public class DriverJobAddView implements Initializable {
             }
         });
     }
-
     public void setStartDatePicker(){
         dp_startDate.setValue(LocalDate.now());
         dp_startDate.setDayCellFactory(param -> new DateCell(){

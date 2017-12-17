@@ -8,10 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Spinner;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.JobType;
 import models.Schedule;
@@ -19,6 +16,7 @@ import utils.ReservationDateFormatter;
 
 import java.net.URL;
 import java.text.ParseException;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -79,6 +77,14 @@ public class DriverJobEditView implements Initializable{
             }
         });
     }
+    public void onClickStartDatePicker(){
+        dp_startDate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                setEndDatePicker();
+            }
+        });
+    }
     public void setDriverController(DriverController driverController) {
         this.driverController = driverController;
         if (dp_startDate!=null){
@@ -94,6 +100,7 @@ public class DriverJobEditView implements Initializable{
         if(dp_startDate!=null){
             onClickCancelEdit();
             onClickSubmit();
+            onClickStartDatePicker();
         }
     }
     public void setStartDay(Date start) {
@@ -104,6 +111,13 @@ public class DriverJobEditView implements Initializable{
         int min = Integer.parseInt(time.split(":")[1]);
         this.sp_startHr.getValueFactory().setValue(hr);
         this.sp_startMin.getValueFactory().setValue(min);
+        dp_startDate.setDayCellFactory(param -> new DateCell(){
+            @Override
+            public void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+                setDisable(empty || item.isBefore(LocalDate.now()));
+            }
+        });
     }
 
     public void setEndDay(Date end) {
@@ -114,6 +128,39 @@ public class DriverJobEditView implements Initializable{
         int min = Integer.parseInt(time.split(":")[1]);
         this.sp_endHr.getValueFactory().setValue(hr);
         this.sp_endMin.getValueFactory().setValue(min);
+        dp_endDate.setDayCellFactory(param -> new DateCell(){
+            @Override
+            public void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+                setDisable(empty || item.isBefore(LocalDate.now()));
+            }
+        });
+    }
+
+    public void setEndDatePicker(){
+        LocalDate startLocal = dp_startDate.getValue();
+        Date minimumDate = convertToDateStart(startLocal);
+        LocalDate minimun = minimumDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        dp_endDate.setValue(minimun);
+        dp_endDate.setDayCellFactory(param -> new DateCell(){
+            @Override
+            public void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+                setDisable(empty || item.isBefore(minimun));
+            }
+        });
+    }
+    public Date convertToDateStart(LocalDate localDate){
+        try {
+            Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+            Date date = Date.from(instant);
+            date.setHours(Integer.parseInt(sp_startHr.getValue().toString()));
+            date.setMinutes(Integer.parseInt(sp_startMin.getValue().toString()));
+            return date;
+        }catch (NullPointerException e){
+            System.out.println("not set hr or min");
+        }
+        return null;
     }
     public void setStatus(){
         List<JobType> types = driverController.getDriverJobTypes();
