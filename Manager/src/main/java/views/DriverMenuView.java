@@ -84,7 +84,6 @@ public class DriverMenuView implements Initializable{
                                 "ชื่อ:\t\t" + driver.getFirstName() + "    "+driver.getLastName()+"\nยังมีตารางการทำงานอยู่";
                         alert.setContentText(s);
                         Optional<ButtonType> result = alert.showAndWait();
-
                     }
                 }
             }

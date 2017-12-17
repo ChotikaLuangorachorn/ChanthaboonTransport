@@ -148,56 +148,67 @@ public class DriverDetailView implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Schedule schedule = (Schedule) table_schedule.getSelectionModel().getSelectedItem();
+                Date dateNow = new Date();
                 if (schedule!=null) {
-                    String type = schedule.getType();
-                    if ((Schedule.RESERVE).equals(type)) {
-                        try {
-                            Stage stage = new Stage();
-                            FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(getClass().getResource("/driver_reservation_edit.fxml"));
-                            AnchorPane detail = loader.load();
-                            DriverReservationEditView driverReservationEditView = loader.getController();
-                            driverReservationEditView.setDriverController(driverController);
-                            driverReservationEditView.setReservationController(reservationController);
-                            driverReservationEditView.setSchedule(schedule);
-                            driverReservationEditView.setDriverDetailView(DriverDetailView.this);
-                            driverReservationEditView.setStartDay(schedule.getStartDate());
-                            driverReservationEditView.setEndDay(schedule.getEndDate());
-                            driverReservationEditView.setReservationId();
+                    if (schedule.getStartDate().after(dateNow)) {
+                        String type = schedule.getType();
+                        if ((Schedule.RESERVE).equals(type)) {
+                            try {
 
-                            Scene scene = new Scene(detail);
-                            stage.setScene(scene);
-                            stage.setResizable(false);
-                            stage.setTitle("แก้ไขตารางงาน");
-                            stage.initModality(Modality.APPLICATION_MODAL);
-                            stage.showAndWait();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                                Stage stage = new Stage();
+                                FXMLLoader loader = new FXMLLoader();
+                                loader.setLocation(getClass().getResource("/driver_reservation_edit.fxml"));
+                                AnchorPane detail = loader.load();
+                                DriverReservationEditView driverReservationEditView = loader.getController();
+                                driverReservationEditView.setDriverController(driverController);
+                                driverReservationEditView.setReservationController(reservationController);
+                                driverReservationEditView.setSchedule(schedule);
+                                driverReservationEditView.setDriverDetailView(DriverDetailView.this);
+                                driverReservationEditView.setStartDay(schedule.getStartDate());
+                                driverReservationEditView.setEndDay(schedule.getEndDate());
+                                driverReservationEditView.setReservationId();
+
+                                Scene scene = new Scene(detail);
+                                stage.setScene(scene);
+                                stage.setResizable(false);
+                                stage.setTitle("แก้ไขตารางงาน");
+                                stage.initModality(Modality.APPLICATION_MODAL);
+                                stage.showAndWait();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        } else if (Schedule.JOB.equals(type)) {
+                            try {
+                                Stage stage = new Stage();
+                                FXMLLoader loader = new FXMLLoader();
+                                loader.setLocation(getClass().getResource("/driver_job_edit.fxml"));
+                                AnchorPane detail = loader.load();
+                                DriverJobEditView driverJobEditView = loader.getController();
+                                driverJobEditView.setDriverController(driverController);
+                                driverJobEditView.setSchedule(schedule);
+                                driverJobEditView.setDriverDetailView(DriverDetailView.this);
+                                driverJobEditView.setStartDay(schedule.getStartDate());
+                                driverJobEditView.setEndDay(schedule.getEndDate());
+                                driverJobEditView.setStatus();
+
+                                Scene scene = new Scene(detail);
+                                stage.setScene(scene);
+                                stage.setResizable(false);
+                                stage.setTitle("แก้ไขตารางงาน");
+                                stage.initModality(Modality.APPLICATION_MODAL);
+                                stage.showAndWait();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
-
-                    } else if (Schedule.JOB.equals(type)) {
-                        try {
-                            Stage stage = new Stage();
-                            FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(getClass().getResource("/driver_job_edit.fxml"));
-                            AnchorPane detail = loader.load();
-                            DriverJobEditView driverJobEditView = loader.getController();
-                            driverJobEditView.setDriverController(driverController);
-                            driverJobEditView.setSchedule(schedule);
-                            driverJobEditView.setDriverDetailView(DriverDetailView.this);
-                            driverJobEditView.setStartDay(schedule.getStartDate());
-                            driverJobEditView.setEndDay(schedule.getEndDate());
-                            driverJobEditView.setStatus();
-
-                            Scene scene = new Scene(detail);
-                            stage.setScene(scene);
-                            stage.setResizable(false);
-                            stage.setTitle("แก้ไขตารางงาน");
-                            stage.initModality(Modality.APPLICATION_MODAL);
-                            stage.showAndWait();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                    }else{
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("ไม่สามารถแก้ไขตารางงานได้");
+                        alert.setHeaderText("ไม่สามารถแก้ไขตารางงานได้");
+                        String s = "เนื่องจากตารางงานนี้ได้ผ่านมาแล้ว";
+                        alert.setContentText(s);
+                        Optional<ButtonType> result = alert.showAndWait();
                     }
                 }
 

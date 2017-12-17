@@ -141,56 +141,66 @@ public class VanDetailView implements Initializable{
             @Override
             public void handle(ActionEvent event) {
                 Schedule schedule = (Schedule) table_vanSchedule.getSelectionModel().getSelectedItem();
+                Date dateNow = new Date();
                 if (schedule!=null) {
-                    String type = schedule.getType();
-                    if ((Schedule.RESERVE).equals(type)) {
-                        try {
-                            Stage stage = new Stage();
-                            FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(getClass().getResource("/van_reservation_edit.fxml"));
-                            AnchorPane detail = loader.load();
-                            VanReservationEditView vanReservationEditView = loader.getController();
-                            vanReservationEditView.setVanController(vanController);
-                            vanReservationEditView.setReservationController(reservationController);
-                            vanReservationEditView.setSchedule(schedule);
-                            vanReservationEditView.setVanDetailView(VanDetailView.this);
-                            vanReservationEditView.setStartDay(schedule.getStartDate());
-                            vanReservationEditView.setEndDay(schedule.getEndDate());
-                            vanReservationEditView.setReservationId();
+                    if (schedule.getStartDate().after(dateNow)) {
+                        String type = schedule.getType();
+                        if ((Schedule.RESERVE).equals(type)) {
+                            try {
+                                Stage stage = new Stage();
+                                FXMLLoader loader = new FXMLLoader();
+                                loader.setLocation(getClass().getResource("/van_reservation_edit.fxml"));
+                                AnchorPane detail = loader.load();
+                                VanReservationEditView vanReservationEditView = loader.getController();
+                                vanReservationEditView.setVanController(vanController);
+                                vanReservationEditView.setReservationController(reservationController);
+                                vanReservationEditView.setSchedule(schedule);
+                                vanReservationEditView.setVanDetailView(VanDetailView.this);
+                                vanReservationEditView.setStartDay(schedule.getStartDate());
+                                vanReservationEditView.setEndDay(schedule.getEndDate());
+                                vanReservationEditView.setReservationId();
 
-                            Scene scene = new Scene(detail);
-                            stage.setScene(scene);
-                            stage.setResizable(false);
-                            stage.setTitle("แก้ไขตารางงาน");
-                            stage.initModality(Modality.APPLICATION_MODAL);
-                            stage.showAndWait();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                                Scene scene = new Scene(detail);
+                                stage.setScene(scene);
+                                stage.setResizable(false);
+                                stage.setTitle("แก้ไขตารางงาน");
+                                stage.initModality(Modality.APPLICATION_MODAL);
+                                stage.showAndWait();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        } else if (Schedule.JOB.equals(type)) {
+                            try {
+                                Stage stage = new Stage();
+                                FXMLLoader loader = new FXMLLoader();
+                                loader.setLocation(getClass().getResource("/van_job_edit.fxml"));
+                                AnchorPane detail = loader.load();
+                                VanJobEditView vanJobEditView = loader.getController();
+                                vanJobEditView.setVanController(vanController);
+                                vanJobEditView.setSchedule(schedule);
+                                vanJobEditView.setVanDetailView(VanDetailView.this);
+                                vanJobEditView.setStartDay(schedule.getStartDate());
+                                vanJobEditView.setEndDay(schedule.getEndDate());
+                                vanJobEditView.setStatus();
+
+                                Scene scene = new Scene(detail);
+                                stage.setScene(scene);
+                                stage.setResizable(false);
+                                stage.setTitle("แก้ไขตารางงาน");
+                                stage.initModality(Modality.APPLICATION_MODAL);
+                                stage.showAndWait();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
-
-                    } else if (Schedule.JOB.equals(type)) {
-                        try {
-                            Stage stage = new Stage();
-                            FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(getClass().getResource("/van_job_edit.fxml"));
-                            AnchorPane detail = loader.load();
-                            VanJobEditView vanJobEditView = loader.getController();
-                            vanJobEditView.setVanController(vanController);
-                            vanJobEditView.setSchedule(schedule);
-                            vanJobEditView.setVanDetailView(VanDetailView.this);
-                            vanJobEditView.setStartDay(schedule.getStartDate());
-                            vanJobEditView.setEndDay(schedule.getEndDate());
-                            vanJobEditView.setStatus();
-
-                            Scene scene = new Scene(detail);
-                            stage.setScene(scene);
-                            stage.setResizable(false);
-                            stage.setTitle("แก้ไขตารางงาน");
-                            stage.initModality(Modality.APPLICATION_MODAL);
-                            stage.showAndWait();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                    }else{
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("ไม่สามารถแก้ไขตารางงานได้");
+                        alert.setHeaderText("ไม่สามารถแก้ไขตารางงานได้");
+                        String s = "เนื่องจากตารางงานนี้ได้ผ่านมาแล้ว";
+                        alert.setContentText(s);
+                        Optional<ButtonType> result = alert.showAndWait();
                     }
                 }
 
