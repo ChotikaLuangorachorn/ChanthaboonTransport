@@ -9,11 +9,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cb9efd3-4d93-4e53-b370-51345613bcbf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/target/classes/controllers/SQLiteExecutor.class" afterPath="$PROJECT_DIR$/Server/target/classes/controllers/SQLiteExecutor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/target/classes/controllers/delegations/VanExecutor.class" afterPath="$PROJECT_DIR$/Server/target/classes/controllers/delegations/VanExecutor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/src/main/resources/server_config.xml" afterPath="$PROJECT_DIR$/Server/src/main/resources/server_config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/target/classes/server_config.xml" afterPath="$PROJECT_DIR$/Server/target/classes/server_config.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Customer/src/main/java/MainApplication.java" afterPath="$PROJECT_DIR$/Customer/src/main/java/MainApplication.java" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/MainApplication.class" afterPath="$PROJECT_DIR$/Customer/target/classes/MainApplication.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/controller/SceneManager.class" afterPath="$PROJECT_DIR$/Customer/target/classes/controller/SceneManager.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/customer_config.xml" afterPath="$PROJECT_DIR$/Customer/target/classes/customer_config.xml" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/InformationEditView$1.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/InformationEditView$1.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/InformationEditView.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/InformationEditView.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/InformationView$1.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/InformationView$1.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/InformationView$2$1.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/InformationView$2$1.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/InformationView$2$2.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/InformationView$2$2.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/InformationView$2$3.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/InformationView$2$3.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/InformationView$2.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/InformationView$2.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/InformationView.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/InformationView.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/LoginView$1.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/LoginView$1.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/LoginView.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/LoginView.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/Mainview.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/Mainview.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationDetailView.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationDetailView.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$1.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$1.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$2.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$2.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$3.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$3.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$4.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$4.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$5.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$5.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$6.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$6.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$7.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView$7.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/MyReservationView.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$1.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$1.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$2.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$2.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$3.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$3.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$4.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$4.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$5.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$5.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$6.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$6.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/ManagerApplication.class" afterPath="$PROJECT_DIR$/Manager/target/classes/ManagerApplication.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/controllers/MainController.class" afterPath="$PROJECT_DIR$/Manager/target/classes/controllers/MainController.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/controllers/StageController.class" afterPath="$PROJECT_DIR$/Manager/target/classes/controllers/StageController.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/manager_config.xml" afterPath="$PROJECT_DIR$/Manager/target/classes/manager_config.xml" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/resources/server_config.xml" afterPath="$PROJECT_DIR$/Server/src/main/resources/server_config.xml" />
+      <change beforePath="$PROJECT_DIR$/Server/target/classes/server_config.xml" afterPath="$PROJECT_DIR$/Server/target/classes/server_config.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,16 +64,97 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="SQLiteExecutor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/SQLiteExecutor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="41" />
+              <folding>
+                <element signature="e#1397#1398#0" expanded="true" />
+                <element signature="e#1456#1457#0" expanded="true" />
+                <element signature="e#1534#1535#0" expanded="true" />
+                <element signature="e#1601#1602#0" expanded="true" />
+                <element signature="e#1852#1853#0" expanded="true" />
+                <element signature="e#1900#1901#0" expanded="true" />
+                <element signature="e#2191#2192#0" expanded="true" />
+                <element signature="e#2246#2247#0" expanded="true" />
+                <element signature="method#editVanSchedule#0;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="e#2587#2588#0" expanded="true" />
+                <element signature="e#2653#2654#0" expanded="true" />
+                <element signature="e#2697#2698#0" expanded="true" />
+                <element signature="e#2748#2749#0" expanded="true" />
+                <element signature="method#getPrice#0;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="method#addReservation#0;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="e#3584#3585#0" expanded="true" />
+                <element signature="e#3645#3646#0" expanded="true" />
+                <element signature="e#3702#3703#0" expanded="true" />
+                <element signature="e#3770#3771#0" expanded="true" />
+                <element signature="method#assignDriver#0;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="method#assignDriver#1;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="e#4107#4108#0" expanded="true" />
+                <element signature="e#4164#4165#0" expanded="true" />
+                <element signature="e#4225#4226#0" expanded="true" />
+                <element signature="e#4281#4282#0" expanded="true" />
+                <element signature="e#4345#4346#0" expanded="true" />
+                <element signature="e#4411#4412#0" expanded="true" />
+                <element signature="e#4469#4470#0" expanded="true" />
+                <element signature="e#4530#4531#0" expanded="true" />
+                <element signature="method#editDriverSchedule#0;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="method#addMeeting#0;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="method#addMeeting#1;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="method#confirmDeposit#0;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="method#confirmDeposit#1;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="e#5568#5569#0" expanded="true" />
+                <element signature="e#5628#5629#0" expanded="true" />
+                <element signature="method#getHistoryReservation#0;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="e#5931#5932#0" expanded="true" />
+                <element signature="e#5982#5983#0" expanded="true" />
+                <element signature="e#6038#6039#0" expanded="true" />
+                <element signature="e#6097#6098#0" expanded="true" />
+                <element signature="e#6130#6131#0" expanded="true" />
+                <element signature="e#6174#6175#0" expanded="true" />
+                <element signature="method#getVanAvailable#0;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="e#6361#6362#0" expanded="true" />
+                <element signature="e#6401#6402#0" expanded="true" />
+                <element signature="e#6438#6439#0" expanded="true" />
+                <element signature="e#6485#6486#0" expanded="true" />
+                <element signature="e#6533#6534#0" expanded="true" />
+                <element signature="e#6583#6584#0" expanded="true" />
+                <element signature="e#6624#6625#0" expanded="true" />
+                <element signature="e#6676#6677#0" expanded="true" />
+                <element signature="e#6723#6724#0" expanded="true" />
+                <element signature="e#6775#6776#0" expanded="true" />
+                <element signature="e#6824#6825#0" expanded="true" />
+                <element signature="e#6870#6871#0" expanded="true" />
+                <element signature="e#6920#6921#0" expanded="true" />
+                <element signature="e#6976#6977#0" expanded="true" />
+                <element signature="method#getDriverAvailable#0;class#SQLiteExecutor#0" expanded="false" />
+                <element signature="e#7166#7167#0" expanded="true" />
+                <element signature="e#7216#7217#0" expanded="true" />
+                <element signature="e#7260#7261#0" expanded="true" />
+                <element signature="e#7309#7310#0" expanded="true" />
+                <element signature="e#7355#7356#0" expanded="true" />
+                <element signature="e#7399#7400#0" expanded="true" />
+                <element signature="e#7448#7449#0" expanded="true" />
+                <element signature="e#7502#7503#0" expanded="true" />
+                <element signature="e#7823#7824#0" expanded="true" />
+                <element signature="e#7876#7877#0" expanded="true" />
+                <element signature="e#8093#8094#0" expanded="true" />
+                <element signature="e#8148#8149#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CustomerSQLiteService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/CustomerSQLiteService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="526">
+              <caret line="37" column="26" lean-forward="false" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#editCustomerInfo#0;class#CustomerSQLiteService#0" expanded="false" />
-                <element signature="method#changeCustomerPassword#0;class#CustomerSQLiteService#0" expanded="false" />
-                <element signature="method#getCustomer#0;class#CustomerSQLiteService#0" expanded="false" />
+                <element signature="e#219#220#0" expanded="true" />
+                <element signature="e#245#246#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,16 +163,18 @@
       <file leaf-file-name="DriverSQLiteService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/DriverSQLiteService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
+            <state relative-caret-position="261">
               <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getDriverAvailable#0;class#DriverSQLiteService#0" expanded="false" />
-                <element signature="e#2810#3668#0" expanded="false" />
+                <element signature="e#358#359#0" expanded="true" />
+                <element signature="e#384#385#0" expanded="true" />
                 <element signature="method#getDrivers#0;class#DriverSQLiteService#0" expanded="false" />
-                <element signature="method#editDriver#0;class#DriverSQLiteService#0" expanded="false" />
-                <element signature="method#deleteDriver#1;class#DriverSQLiteService#0" expanded="false" />
+                <element signature="e#5524#5525#0" expanded="true" />
+                <element signature="e#5568#5569#0" expanded="true" />
                 <element signature="method#getDriverJobTypes#0;class#DriverSQLiteService#0" expanded="false" />
+                <element signature="e#6372#6373#0" expanded="true" />
+                <element signature="e#6428#6429#0" expanded="true" />
                 <element signature="method#getDriverSchedule#1;class#DriverSQLiteService#0" expanded="false" />
                 <element signature="method#deleteDriverSchedule#0;class#DriverSQLiteService#0" expanded="false" />
                 <element signature="method#editDriverSchedule#0;class#DriverSQLiteService#0" expanded="false" />
@@ -68,106 +184,85 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="VanSQLiteService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1080">
+              <caret line="203" column="48" lean-forward="false" selection-start-line="203" selection-start-column="48" selection-end-line="203" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#289#290#0" expanded="true" />
+                <element signature="e#315#316#0" expanded="true" />
+                <element signature="method#getVans#0;class#VanSQLiteService#0" expanded="false" />
+                <element signature="method#getVanAvailable#0;class#VanSQLiteService#0" expanded="false" />
+                <element signature="method#getVanAvailableAmount#0;class#VanSQLiteService#0" expanded="false" />
+                <element signature="method#editVan#0;class#VanSQLiteService#0" expanded="false" />
+                <element signature="method#deleteVan#1;class#VanSQLiteService#0" expanded="false" />
+                <element signature="method#getVan#0;class#VanSQLiteService#0" expanded="false" />
+                <element signature="method#getVanSchedule#0;class#VanSQLiteService#0" expanded="false" />
+                <element signature="method#editVanSchedule#0;class#VanSQLiteService#0" expanded="false" />
+                <element signature="method#getVanJobTypes#0;class#VanSQLiteService#0" expanded="false" />
+                <element signature="method#addVanJob#0;class#VanSQLiteService#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Customer/src/main/java/MainApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="32" column="30" lean-forward="false" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SceneManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/SceneManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="106">
+              <caret line="76" column="58" lean-forward="false" selection-start-line="76" selection-start-column="58" selection-end-line="76" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="106">
               <caret line="14" column="77" lean-forward="false" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server_config.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="server_config.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/src/main/resources/server_config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="70" column="71" lean-forward="false" selection-start-line="70" selection-start-column="71" selection-end-line="70" selection-end-column="71" />
+            <state relative-caret-position="1425">
+              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/API/src/main/java/services/CustomerService.java">
+      <file leaf-file-name="ManagerApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/ManagerApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            <state relative-caret-position="356">
+              <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VanExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/delegations/VanExecutor.java">
+      <file leaf-file-name="manager_config.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/resources/manager_config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="258" column="23" lean-forward="false" selection-start-line="258" selection-start-column="23" selection-end-line="258" selection-end-column="23" />
-              <folding>
-                <element signature="method#getVan#0;class#VanExecutor#0" expanded="false" />
-                <element signature="method#getVans#0;class#VanExecutor#0" expanded="false" />
-                <element signature="method#editVan#0;class#VanExecutor#0" expanded="false" />
-                <element signature="method#deleteVan#0;class#VanExecutor#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VanSQLiteService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomerExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/delegations/CustomerExecutor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="42" column="52" lean-forward="false" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
-              <folding>
-                <element signature="method#getCustomer#0;class#CustomerExecutor#0" expanded="false" />
-                <element signature="method#editCustomerInfo#0;class#CustomerExecutor#0" expanded="false" />
-                <element signature="method#changeCustomerPassword#0;class#CustomerExecutor#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SQLiteExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/SQLiteExecutor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="133" column="30" lean-forward="true" selection-start-line="133" selection-start-column="30" selection-end-line="133" selection-end-column="30" />
-              <folding>
-                <element signature="method#editVanSchedule#0;class#SQLiteExecutor#0" expanded="false" />
-                <element signature="method#getPrice#0;class#SQLiteExecutor#0" expanded="false" />
-                <element signature="method#addReservation#0;class#SQLiteExecutor#0" expanded="false" />
-                <element signature="method#assignDriver#0;class#SQLiteExecutor#0" expanded="false" />
-                <element signature="method#assignDriver#1;class#SQLiteExecutor#0" expanded="false" />
-                <element signature="method#editDriverSchedule#0;class#SQLiteExecutor#0" expanded="false" />
-                <element signature="method#addMeeting#0;class#SQLiteExecutor#0" expanded="false" />
-                <element signature="method#addMeeting#1;class#SQLiteExecutor#0" expanded="false" />
-                <element signature="method#confirmDeposit#0;class#SQLiteExecutor#0" expanded="false" />
-                <element signature="method#confirmDeposit#1;class#SQLiteExecutor#0" expanded="false" />
-                <element signature="method#getHistoryReservation#0;class#SQLiteExecutor#0" expanded="false" />
-                <element signature="method#getVanAvailable#0;class#SQLiteExecutor#0" expanded="false" />
-                <element signature="method#getDriverAvailable#0;class#SQLiteExecutor#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FakeMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/FakeMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-145">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="211">
+              <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -191,9 +286,12 @@
       <find>price</find>
       <find>DAY</find>
       <find>deleteVan</find>
+      <find>Executor</find>
+      <find>service</find>
     </findStrings>
     <replaceStrings>
       <replace>DISTANCE</replace>
+      <replace>Service</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -243,7 +341,6 @@
         <option value="$PROJECT_DIR$/Customer/src/main/resources/customer_config.xml" />
         <option value="$PROJECT_DIR$/Manager/src/main/resources/manager_config.xml" />
         <option value="$PROJECT_DIR$/Customer/src/main/java/controller/SceneManager.java" />
-        <option value="$PROJECT_DIR$/Customer/src/main/java/MainApplication.java" />
         <option value="$PROJECT_DIR$/Customer/src/main/java/controller/CustomerController.java" />
         <option value="$PROJECT_DIR$/Customer/src/main/java/controller/PriceController.java" />
         <option value="$PROJECT_DIR$/Customer/src/main/java/controller/VanController.java" />
@@ -257,6 +354,7 @@
         <option value="$PROJECT_DIR$/Manager/src/main/java/controllers/ReservationController.java" />
         <option value="$PROJECT_DIR$/Manager/src/main/java/controllers/VanController.java" />
         <option value="$PROJECT_DIR$/Manager/src/main/java/controllers/DriverController.java" />
+        <option value="$PROJECT_DIR$/Customer/src/main/java/MainApplication.java" />
         <option value="$PROJECT_DIR$/Server/src/main/resources/server_config.xml" />
       </list>
     </option>
@@ -290,8 +388,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -355,6 +451,67 @@
             <path>
               <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
               <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
               <item name="Manager" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -385,7 +542,26 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
@@ -465,7 +641,9 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -495,8 +673,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/delegations/VanExecutor.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -590,6 +766,652 @@
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="SWITCHED" />
       </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/delegations/VanExecutor.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java</PATH>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
     </UpdatedFiles>
   </component>
   <component name="RunDashboard">
@@ -604,7 +1426,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.ManagerApplication">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
     <configuration name="FakeMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="FakeMain" />
@@ -661,13 +1490,6 @@
       <module name="Manager" />
       <envs />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -701,12 +1523,6 @@
       </option>
       <envs />
       <patterns />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -742,6 +1558,12 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
     <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.MainApplication" />
@@ -750,8 +1572,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="Application.ManagerApplication" />
+        <item index="0" class="java.lang.String" itemvalue="Application.ManagerApplication" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
         <item index="2" class="java.lang.String" itemvalue="Application.MainApplication" />
         <item index="3" class="java.lang.String" itemvalue="Application.FakeMain" />
       </list>
@@ -1127,30 +1949,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730263" sideWeight="0.4935553" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730263" sideWeight="0.5327605" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.4935553" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762557" sideWeight="0.5327605" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40296805" sideWeight="0.47959185" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26973686" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16611843" sideWeight="0.52040815" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3127854" sideWeight="0.52040815" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39726028" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25416037" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17883995" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.49785176" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762557" sideWeight="0.4914071" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25725028" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997722" sideWeight="0.72502685" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997722" sideWeight="0.72502685" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1166,14 +1989,16 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997722" sideWeight="0.72502685" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.4935553" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730263" sideWeight="0.5327605" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3127854" sideWeight="0.52040815" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39794755" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3127854" sideWeight="0.52040815" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17883995" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762557" sideWeight="0.4914071" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
     </layout>
@@ -1257,16 +2082,16 @@
         <state relative-caret-position="177">
           <caret line="44" column="18" lean-forward="false" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
           <folding>
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#731#732#0" expanded="true" />
-            <element signature="e#767#768#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#837#838#0" expanded="true" />
-            <element signature="e#868#869#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#928#929#0" expanded="true" />
-            <element signature="e#962#963#0" expanded="true" />
-            <element signature="e#992#993#0" expanded="true" />
+            <element signature="e#695#696#0" expanded="false" />
+            <element signature="e#731#732#0" expanded="false" />
+            <element signature="e#767#768#0" expanded="false" />
+            <element signature="e#801#802#0" expanded="false" />
+            <element signature="e#837#838#0" expanded="false" />
+            <element signature="e#868#869#0" expanded="false" />
+            <element signature="e#900#901#0" expanded="false" />
+            <element signature="e#928#929#0" expanded="false" />
+            <element signature="e#962#963#0" expanded="false" />
+            <element signature="e#992#993#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1416,10 +2241,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/ReservationSQLiteService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2244">
-          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+        <state relative-caret-position="384">
+          <caret line="126" column="30" lean-forward="false" selection-start-line="126" selection-start-column="30" selection-end-line="126" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#350#351#0" expanded="false" />
+            <element signature="e#376#377#0" expanded="false" />
+            <element signature="e#460#461#0" expanded="false" />
+            <element signature="e#519#520#0" expanded="false" />
+            <element signature="method#assignVan#1;class#ReservationSQLiteService#0" expanded="false" />
+            <element signature="method#assignDriver#1;class#ReservationSQLiteService#0" expanded="false" />
+            <element signature="method#addMeeting#0;class#ReservationSQLiteService#0" expanded="false" />
+            <element signature="method#addMeeting#1;class#ReservationSQLiteService#0" expanded="false" />
+            <element signature="e#2550#2551#0" expanded="false" />
+            <element signature="e#2606#2607#0" expanded="false" />
+            <element signature="method#confirmDeposit#1;class#ReservationSQLiteService#0" expanded="false" />
+            <element signature="method#getReservations#0;class#ReservationSQLiteService#0" expanded="false" />
+            <element signature="method#addReservation#0;class#ReservationSQLiteService#0" expanded="false" />
+            <element signature="e#6834#6835#0" expanded="false" />
+            <element signature="e#6895#6896#0" expanded="false" />
+            <element signature="method#deleteReservation#1;class#ReservationSQLiteService#0" expanded="false" />
+            <element signature="method#getHistoryReservation#0;class#ReservationSQLiteService#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1440,40 +2282,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/resources/manager_config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="11" lean-forward="true" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Customer/src/main/java/models/CustomerInfoManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/SceneManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="76" column="58" lean-forward="false" selection-start-line="76" selection-start-column="58" selection-end-line="76" selection-end-column="58" />
-          <folding>
-            <element signature="e#2337#2338#0" expanded="true" />
-            <element signature="e#2548#2549#0" expanded="true" />
-            <element signature="e#2602#2603#0" expanded="true" />
-            <element signature="e#2822#2823#0" expanded="true" />
-            <element signature="e#2872#2873#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/MainApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="34" column="23" lean-forward="false" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1534,30 +2346,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/ManagerApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/CustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/API/src/main/java/services/DriverService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        <state relative-caret-position="118">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1577,15 +2378,15 @@
         <state relative-caret-position="272">
           <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/API/src/main/java/services/ReservationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+        <state relative-caret-position="-36">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1596,9 +2397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1606,9 +2404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1616,9 +2411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1626,9 +2418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
           <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1654,15 +2443,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="155" column="78" lean-forward="false" selection-start-line="155" selection-start-column="78" selection-end-line="155" selection-end-column="78" />
-          <folding>
-            <element signature="method#showMainView#0;class#StageController#0" expanded="false" />
-            <element signature="method#showVanMenuView#0;class#StageController#0" expanded="false" />
-            <element signature="method#showReservationView#0;class#StageController#0" expanded="false" />
-            <element signature="method#showDriverMenu#0;class#StageController#0" expanded="false" />
-            <element signature="method#showFeeMenuView#0;class#StageController#0" expanded="false" />
-            <element signature="method#showPartnerMenuView#0;class#StageController#0" expanded="false" />
-            <element signature="method#showConfirmReservationMenu#0;class#StageController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1670,62 +2450,57 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="424">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/delegations/CustomerExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="42" column="52" lean-forward="false" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
+        <state relative-caret-position="504">
+          <caret line="58" column="34" lean-forward="false" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
           <folding>
-            <element signature="method#getCustomer#0;class#CustomerExecutor#0" expanded="false" />
-            <element signature="method#editCustomerInfo#0;class#CustomerExecutor#0" expanded="false" />
-            <element signature="method#changeCustomerPassword#0;class#CustomerExecutor#0" expanded="false" />
+            <element signature="e#683#693#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/delegations/VanExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="258" column="23" lean-forward="false" selection-start-line="258" selection-start-column="23" selection-end-line="258" selection-end-column="23" />
+        <state relative-caret-position="99">
+          <caret line="234" column="53" lean-forward="false" selection-start-line="234" selection-start-column="53" selection-end-line="234" selection-end-column="53" />
           <folding>
             <element signature="method#getVan#0;class#VanExecutor#0" expanded="false" />
             <element signature="method#getVans#0;class#VanExecutor#0" expanded="false" />
+            <element signature="method#getVanAvailableAmount#0;class#VanExecutor#0" expanded="false" />
+            <element signature="method#getVanAvailable#0;class#VanExecutor#0" expanded="false" />
+            <element signature="method#getVanSchedule#0;class#VanExecutor#0" expanded="false" />
+            <element signature="method#getVanJobTypes#0;class#VanExecutor#0" expanded="false" />
+            <element signature="method#addVanJob#0;class#VanExecutor#0" expanded="false" />
             <element signature="method#editVan#0;class#VanExecutor#0" expanded="false" />
-            <element signature="method#deleteVan#0;class#VanExecutor#0" expanded="false" />
+            <element signature="method#editVanSchedule#0;class#VanExecutor#0" expanded="false" />
+            <element signature="method#deleteVanSchedule#0;class#VanExecutor#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/DriverSQLiteService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
+        <state relative-caret-position="261">
           <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getDriverAvailable#0;class#DriverSQLiteService#0" expanded="false" />
-            <element signature="e#2810#3668#0" expanded="false" />
+            <element signature="e#358#359#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
             <element signature="method#getDrivers#0;class#DriverSQLiteService#0" expanded="false" />
-            <element signature="method#editDriver#0;class#DriverSQLiteService#0" expanded="false" />
-            <element signature="method#deleteDriver#1;class#DriverSQLiteService#0" expanded="false" />
+            <element signature="e#5524#5525#0" expanded="true" />
+            <element signature="e#5568#5569#0" expanded="true" />
             <element signature="method#getDriverJobTypes#0;class#DriverSQLiteService#0" expanded="false" />
+            <element signature="e#6372#6373#0" expanded="true" />
+            <element signature="e#6428#6429#0" expanded="true" />
             <element signature="method#getDriverSchedule#1;class#DriverSQLiteService#0" expanded="false" />
             <element signature="method#deleteDriverSchedule#0;class#DriverSQLiteService#0" expanded="false" />
             <element signature="method#editDriverSchedule#0;class#DriverSQLiteService#0" expanded="false" />
             <element signature="method#addDriverJob#0;class#DriverSQLiteService#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="77" lean-forward="false" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1739,35 +2514,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/CustomerSQLiteService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="526">
+          <caret line="37" column="26" lean-forward="false" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#editCustomerInfo#0;class#CustomerSQLiteService#0" expanded="false" />
-            <element signature="method#changeCustomerPassword#0;class#CustomerSQLiteService#0" expanded="false" />
-            <element signature="method#getCustomer#0;class#CustomerSQLiteService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/SQLiteExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="133" column="30" lean-forward="true" selection-start-line="133" selection-start-column="30" selection-end-line="133" selection-end-column="30" />
-          <folding>
-            <element signature="method#editVanSchedule#0;class#SQLiteExecutor#0" expanded="false" />
-            <element signature="method#getPrice#0;class#SQLiteExecutor#0" expanded="false" />
-            <element signature="method#addReservation#0;class#SQLiteExecutor#0" expanded="false" />
-            <element signature="method#assignDriver#0;class#SQLiteExecutor#0" expanded="false" />
-            <element signature="method#assignDriver#1;class#SQLiteExecutor#0" expanded="false" />
-            <element signature="method#editDriverSchedule#0;class#SQLiteExecutor#0" expanded="false" />
-            <element signature="method#addMeeting#0;class#SQLiteExecutor#0" expanded="false" />
-            <element signature="method#addMeeting#1;class#SQLiteExecutor#0" expanded="false" />
-            <element signature="method#confirmDeposit#0;class#SQLiteExecutor#0" expanded="false" />
-            <element signature="method#confirmDeposit#1;class#SQLiteExecutor#0" expanded="false" />
-            <element signature="method#getHistoryReservation#0;class#SQLiteExecutor#0" expanded="false" />
-            <element signature="method#getVanAvailable#0;class#SQLiteExecutor#0" expanded="false" />
-            <element signature="method#getDriverAvailable#0;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="e#219#220#0" expanded="true" />
+            <element signature="e#245#246#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1782,18 +2534,150 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state relative-caret-position="1080">
+          <caret line="203" column="48" lean-forward="false" selection-start-line="203" selection-start-column="48" selection-end-line="203" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#289#290#0" expanded="true" />
+            <element signature="e#315#316#0" expanded="true" />
+            <element signature="method#getVans#0;class#VanSQLiteService#0" expanded="false" />
+            <element signature="method#getVanAvailable#0;class#VanSQLiteService#0" expanded="false" />
+            <element signature="method#getVanAvailableAmount#0;class#VanSQLiteService#0" expanded="false" />
+            <element signature="method#editVan#0;class#VanSQLiteService#0" expanded="false" />
+            <element signature="method#deleteVan#1;class#VanSQLiteService#0" expanded="false" />
+            <element signature="method#getVan#0;class#VanSQLiteService#0" expanded="false" />
+            <element signature="method#getVanSchedule#0;class#VanSQLiteService#0" expanded="false" />
+            <element signature="method#editVanSchedule#0;class#VanSQLiteService#0" expanded="false" />
+            <element signature="method#getVanJobTypes#0;class#VanSQLiteService#0" expanded="false" />
+            <element signature="method#addVanJob#0;class#VanSQLiteService#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/MainApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="32" column="30" lean-forward="false" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/SceneManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="76" column="58" lean-forward="false" selection-start-line="76" selection-start-column="58" selection-end-line="76" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="14" column="77" lean-forward="false" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/SQLiteExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="41" />
+          <folding>
+            <element signature="e#1397#1398#0" expanded="true" />
+            <element signature="e#1456#1457#0" expanded="true" />
+            <element signature="e#1534#1535#0" expanded="true" />
+            <element signature="e#1601#1602#0" expanded="true" />
+            <element signature="e#1852#1853#0" expanded="true" />
+            <element signature="e#1900#1901#0" expanded="true" />
+            <element signature="e#2191#2192#0" expanded="true" />
+            <element signature="e#2246#2247#0" expanded="true" />
+            <element signature="method#editVanSchedule#0;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="e#2587#2588#0" expanded="true" />
+            <element signature="e#2653#2654#0" expanded="true" />
+            <element signature="e#2697#2698#0" expanded="true" />
+            <element signature="e#2748#2749#0" expanded="true" />
+            <element signature="method#getPrice#0;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="method#addReservation#0;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="e#3584#3585#0" expanded="true" />
+            <element signature="e#3645#3646#0" expanded="true" />
+            <element signature="e#3702#3703#0" expanded="true" />
+            <element signature="e#3770#3771#0" expanded="true" />
+            <element signature="method#assignDriver#0;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="method#assignDriver#1;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="e#4107#4108#0" expanded="true" />
+            <element signature="e#4164#4165#0" expanded="true" />
+            <element signature="e#4225#4226#0" expanded="true" />
+            <element signature="e#4281#4282#0" expanded="true" />
+            <element signature="e#4345#4346#0" expanded="true" />
+            <element signature="e#4411#4412#0" expanded="true" />
+            <element signature="e#4469#4470#0" expanded="true" />
+            <element signature="e#4530#4531#0" expanded="true" />
+            <element signature="method#editDriverSchedule#0;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="method#addMeeting#0;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="method#addMeeting#1;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="method#confirmDeposit#0;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="method#confirmDeposit#1;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="e#5568#5569#0" expanded="true" />
+            <element signature="e#5628#5629#0" expanded="true" />
+            <element signature="method#getHistoryReservation#0;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="e#5931#5932#0" expanded="true" />
+            <element signature="e#5982#5983#0" expanded="true" />
+            <element signature="e#6038#6039#0" expanded="true" />
+            <element signature="e#6097#6098#0" expanded="true" />
+            <element signature="e#6130#6131#0" expanded="true" />
+            <element signature="e#6174#6175#0" expanded="true" />
+            <element signature="method#getVanAvailable#0;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="e#6361#6362#0" expanded="true" />
+            <element signature="e#6401#6402#0" expanded="true" />
+            <element signature="e#6438#6439#0" expanded="true" />
+            <element signature="e#6485#6486#0" expanded="true" />
+            <element signature="e#6533#6534#0" expanded="true" />
+            <element signature="e#6583#6584#0" expanded="true" />
+            <element signature="e#6624#6625#0" expanded="true" />
+            <element signature="e#6676#6677#0" expanded="true" />
+            <element signature="e#6723#6724#0" expanded="true" />
+            <element signature="e#6775#6776#0" expanded="true" />
+            <element signature="e#6824#6825#0" expanded="true" />
+            <element signature="e#6870#6871#0" expanded="true" />
+            <element signature="e#6920#6921#0" expanded="true" />
+            <element signature="e#6976#6977#0" expanded="true" />
+            <element signature="method#getDriverAvailable#0;class#SQLiteExecutor#0" expanded="false" />
+            <element signature="e#7166#7167#0" expanded="true" />
+            <element signature="e#7216#7217#0" expanded="true" />
+            <element signature="e#7260#7261#0" expanded="true" />
+            <element signature="e#7309#7310#0" expanded="true" />
+            <element signature="e#7355#7356#0" expanded="true" />
+            <element signature="e#7399#7400#0" expanded="true" />
+            <element signature="e#7448#7449#0" expanded="true" />
+            <element signature="e#7502#7503#0" expanded="true" />
+            <element signature="e#7823#7824#0" expanded="true" />
+            <element signature="e#7876#7877#0" expanded="true" />
+            <element signature="e#8093#8094#0" expanded="true" />
+            <element signature="e#8148#8149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/ManagerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/main/resources/server_config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="70" column="71" lean-forward="false" selection-start-line="70" selection-start-column="71" selection-end-line="70" selection-end-column="71" />
+        <state relative-caret-position="1425">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/resources/manager_config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
           <folding />
         </state>
       </provider>

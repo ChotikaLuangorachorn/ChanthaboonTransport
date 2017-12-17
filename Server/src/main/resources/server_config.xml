@@ -21,57 +21,66 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
         <property name="registryPort" value="5185"/>
     </bean>
 
+    <bean id="db-url" class="java.lang.String">
+        <constructor-arg value="vanScheduler.db"/>
+    </bean>
 
-    <bean id="customerExecutor" class="controllers.services.CustomerSQLiteService">
+    <bean id="customerService" class="controllers.services.CustomerSQLiteService">
+        <constructor-arg ref="db-url"/>
     </bean>
 
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <property name="service" ref="customerExecutor"/>
+        <property name="service" ref="customerService"/>
         <property name="serviceName" value="CustomerService"/>
         <property name="serviceInterface" value="services.CustomerService"/>
         <property name="registryPort" value="5801"/>
     </bean>
 
-    <bean id="driverExecutor" class="controllers.services.DriverSQLiteService">
+    <bean id="driverService" class="controllers.services.DriverSQLiteService">
+        <constructor-arg ref="db-url"/>
     </bean>
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <property name="service" ref="driverExecutor"/>
+        <property name="service" ref="driverService"/>
         <property name="serviceName" value="DriverService"/>
         <property name="serviceInterface" value="services.DriverService"/>
         <property name="registryPort" value="5802"/>
     </bean>
 
-    <bean id="partnerExecutor" class="controllers.services.PartnerSQLiteService">
+    <bean id="partnerService" class="controllers.services.PartnerSQLiteService">
+        <constructor-arg ref="db-url"/>
     </bean>
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <property name="service" ref="partnerExecutor"/>
+        <property name="service" ref="partnerService"/>
         <property name="serviceName" value="PartnerService"/>
         <property name="serviceInterface" value="services.PartnerService"/>
         <property name="registryPort" value="5803"/>
     </bean>
 
-    <bean id="priceExecutor" class="controllers.services.PartnerSQLiteService">
+    <bean id="priceService" class="controllers.services.PriceSQLiteService">
+        <constructor-arg ref="db-url"/>
     </bean>
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <property name="service" ref="priceExecutor"/>
+        <property name="service" ref="priceService"/>
         <property name="serviceName" value="PriceService"/>
         <property name="serviceInterface" value="services.PriceService"/>
         <property name="registryPort" value="5804"/>
     </bean>
 
-    <bean id="reservationExecutor" class="controllers.services.ReservationSQLiteService">
+    <bean id="reservationService" class="controllers.services.ReservationSQLiteService">
+        <constructor-arg ref="db-url"/>
     </bean>
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <property name="service" ref="reservationExecutor"/>
+        <property name="service" ref="reservationService"/>
         <property name="serviceName" value="ReservationService"/>
         <property name="serviceInterface" value="services.ReservationService"/>
         <property name="registryPort" value="5805"/>
     </bean>
 
-    <bean id="vanExecutor" class="controllers.services.VanSQLiteService">
+    <bean id="vanService" class="controllers.services.VanSQLiteService">
+        <constructor-arg ref="db-url"/>
     </bean>
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <property name="service" ref="vanExecutor"/>
+        <property name="service" ref="vanService"/>
         <property name="serviceName" value="VanService"/>
         <property name="serviceInterface" value="services.VanService"/>
         <property name="registryPort" value="5806"/>

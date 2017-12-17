@@ -30,7 +30,7 @@ public class MainApplication extends Application {
 
         this.sceneManager = new SceneManager();
         this.sceneManager.setStage(this.primaryStage);
-        this.sceneManager.setController(this.controller);
+//        this.sceneManager.setController(this.controller);
         // new Version
         this.sceneManager.setCustomerController(customerController);
         this.sceneManager.setPriceController(priceController);
