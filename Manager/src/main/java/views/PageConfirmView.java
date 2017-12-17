@@ -155,7 +155,7 @@ public class PageConfirmView implements Initializable {
                     alert.setTitle("ไม่สามารถยืนยันได้");
                     alert.setHeaderText("ข้อมูลไม่ครบถ้วน");
 
-                    if(cbbIsDeposit.getValue().toString().equals("ยังไม่ชำระค่ามัดจำ")){
+                    if(cbbIsDeposit.getValue().toString().equals("ยังไม่ชำระ")){
                         s += "ท่านยังไม่ได้เเปลี่ยนสถานะค่ามัดจำ\n";
                     }
                     if(reservation.getAmtVip() != ccbSelectVanVip.getCheckModel().getCheckedItems().size() || reservation.getAmtNormal() != ccbSelectVanNormal.getCheckModel().getCheckedItems().size()){
@@ -202,13 +202,6 @@ public class PageConfirmView implements Initializable {
             }
         });
 
-    }
-    public void showWarningDialog(){
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("ไม่สามารถยืนยันได้");
-        alert.setHeaderText("ข้อมูลไม่ครบถ้วน");
-        alert.setContentText("กรุณาตรวจสอบข้อมูลให้ครบถ้วน ก่อนกดยืนยัน");
-        alert.showAndWait();
     }
 
     public void showConfirmDialog(){
