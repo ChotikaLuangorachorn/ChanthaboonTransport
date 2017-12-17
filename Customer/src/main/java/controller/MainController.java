@@ -6,6 +6,7 @@ import models.Destination;
 import models.Reservation;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import services.CustomerService;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -16,10 +17,12 @@ import java.util.Map;
 
 public class MainController {
 
-    private CustomerDatabaseManager executor;
+//    private CustomerDatabaseManager executor;
+    private CustomerService executor;
     public MainController() {
         ApplicationContext bf = new ClassPathXmlApplicationContext("customer_config.xml");
-        executor = (CustomerDatabaseManager) bf.getBean("CustomerDbManager");
+//        executor = (CustomerDatabaseManager) bf.getBean("CustomerDbManager");
+        executor = (CustomerService) bf.getBean("CustomerService");
     }
     public Date getMinimumDate(Destination destination, Date startDate){
         return executor.getMinimumDate(destination, startDate);
