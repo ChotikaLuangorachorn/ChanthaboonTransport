@@ -180,7 +180,7 @@ public class FeeMenuView implements Initializable{
             textFields[i].setText(String.format("%,.2f",values[i]));
         }
     }
-    
+
     public void setPriceController(PriceController priceController) {
         this.priceController = priceController;
         initData();
