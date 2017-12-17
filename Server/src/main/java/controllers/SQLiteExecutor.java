@@ -189,7 +189,7 @@ public class SQLiteExecutor implements CustomerDatabaseManager, ManagerDatabaseM
         // TODO edit reservation
     }
     public boolean changeCustomerPassword(String citizenId, String oldPwd, String newPwd) {
-        return changeCustomerPassword(citizenId, oldPwd, newPwd);
+        return customerExecutor.changeCustomerPassword(citizenId, oldPwd, newPwd);
     }
     public PriceFactor getPriceFactor() {
         return priceExecutor.getPriceFactor();

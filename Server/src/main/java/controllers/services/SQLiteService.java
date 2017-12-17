@@ -2,15 +2,19 @@ package controllers.services;
 
 import controllers.assistants.QueryExecutionAssistant;
 import org.springframework.lang.NonNull;
+import utils.ReservationDateFormatter;
 
 import java.sql.*;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class SQLiteService {
     protected String url;
+    protected SimpleDateFormat formatter;
 
     public SQLiteService(String url) {
         this.url = url;
+        this.formatter = ReservationDateFormatter.getInstance().getDbFormatter();
     }
 
     public <T> T executeQuery(String sql, QueryExecutionAssistant.OnResultSetCallback<T> callback, T defaultResult){

@@ -1,6 +1,7 @@
 package services;
 
 import models.Destination;
+import models.Driver;
 import models.Reservation;
 import models.Van;
 
@@ -11,8 +12,9 @@ import java.util.Map;
 public interface ReservationService {
     void assignVan(List<Van> vans, Reservation reservation);
     void assignVan(List<Van> vans, String reservationId);
+    void assignDriver(List<Driver> drivers, Reservation reservation);
+    void assignDriver(List<Driver> drivers, String reservationId);
 
-    void editReservation(Reservation reservation);
 
 
     void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation);

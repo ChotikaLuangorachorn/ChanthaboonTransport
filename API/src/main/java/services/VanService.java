@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface VanService {
+    String VIP = "VIP";
+    String NORMAL = "NORMAL";
     List<Van> getVans();
     Map<String, List<Van>> getVanAvailable(Date startDate, Date endDate);
     Map<String, Integer> getVanAvailableAmount(Destination destination, Date startDate, Date endDate);

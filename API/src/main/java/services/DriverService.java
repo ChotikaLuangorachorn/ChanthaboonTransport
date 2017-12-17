@@ -13,8 +13,7 @@ public interface DriverService {
     List<Driver> getDrivers();
     void editDriver(Driver driver);
     void deleteDriver(Driver driver);
-    void assignDriver(List<Driver> drivers, Reservation reservation);
-    void assignDriver(List<Driver> drivers, String reservationId);
+
     void deleteDriver(String citizenId);
     List<JobType> getDriverJobTypes();
     List<Schedule> getDriverSchedule(Driver driver);
