@@ -55,7 +55,6 @@ public class VanExecutor {
     }
     @Nullable
     public Map<String, Integer> getVanAvailableAmount(Destination destination, Date startDate, Date endDate) {
-        // TODO use assistant
         System.out.println("request getVanAvailableAmount");
         Map<String, Integer> amtMap = new HashMap<>();
         amtMap.put(CustomerDatabaseManager.VIP, 0);
