@@ -64,7 +64,7 @@ public class StageController {
             loader.setLocation(getClass().getResource("/reservation_menu.fxml"));
             AnchorPane mainLayout = loader.load();
             ReservationMenuView reservationMenuView = loader.getController();
-            reservationMenuView.setController(controller);
+            reservationMenuView.setReservationController(reservationController);
             reservationMenuView.setStageController(this);
 
             // Show the scene containing the root layout.
@@ -101,7 +101,7 @@ public class StageController {
             loader.setLocation(getClass().getResource("/fee_menu.fxml"));
             AnchorPane mainLayout = loader.load();
             FeeMenuView feeMenuView = loader.getController();
-            feeMenuView.setController(controller);
+            feeMenuView.setPriceController(priceController);
             feeMenuView.setStageController(this);
 
             // Show the scene containing the root layout.
@@ -119,7 +119,7 @@ public class StageController {
             loader.setLocation(getClass().getResource("/partner_menu.fxml"));
             AnchorPane mainLayout = loader.load();
             PartnerMenuView partnerMenuView = loader.getController();
-            partnerMenuView.setController(controller);
+            partnerMenuView.setPartnerController(partnerController);
             partnerMenuView.setStageController(this);
 
             // Show the scene containing the root layout.

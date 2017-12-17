@@ -1,6 +1,7 @@
 package views;
 
 import controllers.MainController;
+import controllers.ReservationController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -24,7 +25,7 @@ public class ReservationEditView implements Initializable {
     @FXML private Button btnConfirm;
 
     private Reservation reservation;
-    private MainController controller;
+    private ReservationController reservationController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -50,7 +51,7 @@ public class ReservationEditView implements Initializable {
                 int mi = (int) spnMin.getValueFactory().getValue();
                 reservation.getStartDate().setHours(hr);
                 reservation.getStartDate().setMinutes(mi);
-                controller.addMeeting(taPlace.getText(), reservation.getStartDate(), reservation);
+                reservationController.addMeeting(taPlace.getText(), reservation.getStartDate(), reservation);
 
                 Stage stage = (Stage) taPlace.getScene().getWindow();
                 stage.close();
@@ -64,7 +65,7 @@ public class ReservationEditView implements Initializable {
         setDataReservation();
     }
 
-    public void setController(MainController controller) {
-        this.controller = controller;
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
     }
 }

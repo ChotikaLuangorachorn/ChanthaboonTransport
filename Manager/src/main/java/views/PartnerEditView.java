@@ -1,6 +1,7 @@
 package views;
 
 import controllers.MainController;
+import controllers.PartnerController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,7 +19,7 @@ public class PartnerEditView implements Initializable {
     @FXML private Label lb_id, lb_error;
     @FXML private TextField tf_name, tf_company, tf_phone;
     @FXML private Button btn_cancel, btn_submit;
-    private MainController controller;
+    private PartnerController partnerController;
     private Partner partner;
     private PartnerMenuView partnerMenuView;
 
@@ -69,7 +70,7 @@ public class PartnerEditView implements Initializable {
                     lb_error.setText("");
                     // TODO partner last name
                     Partner newPartner = new Partner(partner.getId(),tf_name.getText(), "", tf_company.getText(),tf_phone.getText());
-                    controller.editPartner(newPartner);
+                    partnerController.editPartner(newPartner);
                     Stage stage = (Stage) btn_submit.getScene().getWindow();
                     stage.close();
                     partnerMenuView.refreshPartnerTable();
@@ -78,14 +79,14 @@ public class PartnerEditView implements Initializable {
         });
     }
     public void showDetailPartner(){
-        String id = String.format("%05d",partner.getId());
+        String id = String.format("%05d",Integer.parseInt(partner.getId()));
         lb_id.setText(id);
         tf_name.setText(partner.getFirstName());
         tf_company.setText(partner.getCompany());
         tf_phone.setText(partner.getCompanyPhone());
     }
-    public void setController(MainController controller){
-        this.controller = controller;
+    public void setPartnerController(PartnerController partnerController){
+        this.partnerController = partnerController;
     }
     public void setPartner(Partner partner){
         this.partner = partner;

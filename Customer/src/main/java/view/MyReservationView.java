@@ -123,7 +123,14 @@ public class MyReservationView implements Initializable{
 //        col_isDeposited.setCellValueFactory(new PropertyValueFactory<Reservation,String>("isDeposited"));
         col_isDeposited.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation,String>, ObservableValue<String>>() {
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation,String> reservation) {
-                String isDeposited = (reservation.getValue().getIsDeposited().equals("true"))?"ชำระแล้ว":"ยังไม่ชำระ";
+                String isDeposited = "";
+                if (reservation.getValue().getIsDeposited().equals("true")){
+                    isDeposited = "ชำระแล้ว";
+                }
+                else {
+                    isDeposited = "ยังไม่ชำระ";
+                }
+//                String isDeposited = (reservation.getValue().getIsDeposited().equals("true"))?"ชำระแล้ว":"ยังไม่ชำระ";
                 return new SimpleStringProperty(isDeposited);
             }
         });

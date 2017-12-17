@@ -121,6 +121,11 @@
                </font>
             </Label>
             <TextField fx:id="tf_rateDay_vip" alignment="CENTER_RIGHT" editable="false" layoutX="597.0" layoutY="330.0" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #fcee86;" text="2000.00" />
+            <Label fx:id="lb_error" layoutX="22.0" layoutY="385.0" prefHeight="27.0" prefWidth="526.0" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
