@@ -77,7 +77,7 @@ public class PriceFactor implements Serializable{
     }
     public void setFactor(int reserveType, int vanType, int value, double factor){
         int factorV = reserveType + vanType + value;
-        System.out.println("setFactor " + factorV + " " + factor);
+//        System.out.println("setFactor " + factorV + " " + factor);
         switch (factorV){
             case 111:
                 dayVipBase = factor;
