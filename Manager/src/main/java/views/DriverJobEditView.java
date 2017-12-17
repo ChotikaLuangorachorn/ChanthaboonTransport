@@ -1,5 +1,6 @@
 package views;
 
+import controllers.DriverController;
 import controllers.MainController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,7 +33,7 @@ public class DriverJobEditView implements Initializable{
     @FXML private Spinner sp_startHr, sp_startMin, sp_endHr, sp_endMin;
     @FXML private ComboBox cb_status;
     @FXML private Button btn_cancel, btn_submit;
-    private MainController controller;
+    private DriverController driverController;
     private DriverDetailView driverDetailView;
     private Schedule schedule;
     @Override
@@ -57,7 +58,7 @@ public class DriverJobEditView implements Initializable{
                     String status = cb_status.getValue().toString();
 
                     Schedule newSchedule = new Schedule(driverId,start,end,status,Schedule.JOB);
-                    controller.editDriverSchedule(schedule,newSchedule);
+                    driverController.editDriverSchedule(schedule,newSchedule);
                     driverDetailView.refreshScheduleTable();
                     Stage stage = (Stage) btn_submit.getScene().getWindow();
                     stage.close();
@@ -78,8 +79,8 @@ public class DriverJobEditView implements Initializable{
             }
         });
     }
-    public void setController(MainController controller) {
-        this.controller = controller;
+    public void setDriverController(DriverController driverController) {
+        this.driverController = driverController;
         if (dp_startDate!=null){
 //            onClickCancelEdit();
 //            onClickSubmit();
@@ -115,7 +116,7 @@ public class DriverJobEditView implements Initializable{
         this.sp_endMin.getValueFactory().setValue(min);
     }
     public void setStatus(){
-        List<JobType> types = controller.getDriverJobTypes();
+        List<JobType> types = driverController.getDriverJobTypes();
         ObservableList<String> statuses = FXCollections.observableArrayList();
         for (JobType t: types) {
             statuses.add(t.getDescription());

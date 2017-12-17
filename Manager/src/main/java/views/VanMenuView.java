@@ -1,7 +1,9 @@
 package views;
 
 import controllers.MainController;
+import controllers.ReservationController;
 import controllers.StageController;
+import controllers.VanController;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,7 +36,8 @@ public class VanMenuView implements Initializable{
     @FXML private Label lbCometoMain;
 
     private List<Van> vans;
-    private MainController controller;
+    private VanController vanController;
+    private ReservationController reservationController;
     private StageController stageController;
 
     public void setStageController(StageController stageController) {
@@ -58,7 +61,7 @@ public class VanMenuView implements Initializable{
             @Override
             public void handle(ActionEvent event) {
                 Van van = (Van) table_van.getSelectionModel().getSelectedItem();
-                List<Schedule> jobs = controller.getVanSchedule(van.getRegisNumber());
+                List<Schedule> jobs = vanController.getVanSchedule(van.getRegisNumber());
                 if(van!=null){
                     if (jobs.size()==0){
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -70,7 +73,7 @@ public class VanMenuView implements Initializable{
 
                         Optional<ButtonType> result = alert.showAndWait();
                         if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-                            controller.deleteVan(van);
+                            vanController.deleteVan(van);
                             table_van.getSelectionModel().clearSelection();
                             refreshVanTable();
                         }
@@ -100,7 +103,8 @@ public class VanMenuView implements Initializable{
                     loader.setLocation(getClass().getResource("/van_detail.fxml"));
                     Pane detailLayout = loader.load();
                     VanDetailView vanDetailView = loader.getController();
-                    vanDetailView.setController(controller);
+                    vanDetailView.setVanController(vanController);
+                    vanDetailView.setReservationController(reservationController);
                     vanDetailView.setVan(van);
                     vanDetailView.setVanMenuView(VanMenuView.this);
 
@@ -132,11 +136,15 @@ public class VanMenuView implements Initializable{
     }
 
     public void refreshVanTable(){
-        this.vans = controller.getVans();
+        this.vans = vanController.getVans();
         initData();
     }
-    public void setController(MainController controller) {
-        this.controller = controller;
+    public void setVanController(VanController vanController) {
+        this.vanController = vanController;
         refreshVanTable();
+    }
+
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
     }
 }

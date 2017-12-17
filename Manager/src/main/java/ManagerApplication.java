@@ -26,6 +26,12 @@ public class ManagerApplication extends Application {
         this.stageController = new StageController();
         this.stageController.setController(controller);
         // new Version -----------
+        this.customerController = new CustomerController();
+        this.driverController = new DriverController();
+        this.partnerController = new PartnerController();
+        this.priceController = new PriceController();
+        this.reservationController = new ReservationController();
+        this.vanController = new VanController();
         this.stageController.setCustomerController(customerController);
         this.stageController.setDriverController(driverController);
         this.stageController.setPartnerController(partnerController);

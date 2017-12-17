@@ -1,5 +1,6 @@
 package views;
 
+import controllers.DriverController;
 import controllers.MainController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,7 +28,7 @@ public class DriverDetailEditView implements Initializable {
 
     private DriverDetailView dirverDetailView;
     private Driver driver;
-    private MainController controller;
+    private DriverController driverController;
     private DriverMenuView driverMenuView;
 
     @Override
@@ -92,7 +93,7 @@ public class DriverDetailEditView implements Initializable {
                     Date birthDay = driver.getDateOfBirth();
 
                     Driver newDriver = new Driver(citizenId,fName,lName,license,birthDay,nName,phone,address);
-                    controller.editDriver(newDriver);
+                    driverController.editDriver(newDriver);
 
                     dirverDetailView.setLb_fName(newDriver.getFirstName());
                     dirverDetailView.setLb_lName(newDriver.getLastName());
@@ -121,8 +122,8 @@ public class DriverDetailEditView implements Initializable {
         });
     }
 
-    public void setController(MainController controller){
-        this.controller = controller;
+    public void setDriverController(DriverController driverController){
+        this.driverController = driverController;
 
     }
 

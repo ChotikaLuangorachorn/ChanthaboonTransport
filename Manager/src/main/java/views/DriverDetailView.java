@@ -1,6 +1,8 @@
 package views;
 
+import controllers.DriverController;
 import controllers.MainController;
+import controllers.ReservationController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -36,7 +38,8 @@ public class DriverDetailView implements Initializable {
     @FXML private TableColumn col_startDate, col_endDate, col_jobStatus;
     @FXML private Button btn_editDriver, btn_editSchedule, btn_deleteSchedule, btn_addSchedule;
 
-    private MainController controller;
+    private DriverController driverController;
+    private ReservationController reservationController;
     private Driver driver;
     private List<Schedule> jobs;
     private DriverMenuView driverMenuView;
@@ -79,7 +82,7 @@ public class DriverDetailView implements Initializable {
                     loader.setLocation(getClass().getResource("/driver_detail_edit.fxml"));
                     Pane detail = loader.load();
                     DriverDetailEditView driverDetailEditView = loader.getController();
-                    driverDetailEditView.setController(controller);
+                    driverDetailEditView.setDriverController(driverController);
                     driver = new Driver(driver.getId(),lb_fName.getText(),lb_lName.getText(),driver.getDriverLicense(),driver.getDateOfBirth(),lb_nName.getText(),lb_phone.getText(),lb_address.getText());
                     driverDetailEditView.setDriver(driver);
                     driverDetailEditView.setDriverDetailEditView(DriverDetailView.this);
@@ -132,7 +135,7 @@ public class DriverDetailView implements Initializable {
 
                     Optional<ButtonType> result = alert.showAndWait();
                     if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-                        controller.deleteDriverSchedule(schedule);
+                        driverController.deleteDriverSchedule(schedule);
                         refreshScheduleTable();
                     }
                     table_schedule.getSelectionModel().clearSelection();
@@ -154,7 +157,8 @@ public class DriverDetailView implements Initializable {
                             loader.setLocation(getClass().getResource("/driver_reservation_edit.fxml"));
                             AnchorPane detail = loader.load();
                             DriverReservationEditView driverReservationEditView = loader.getController();
-                            driverReservationEditView.setController(controller);
+                            driverReservationEditView.setDriverController(driverController);
+                            driverReservationEditView.setReservationController(reservationController);
                             driverReservationEditView.setSchedule(schedule);
                             driverReservationEditView.setDriverDetailView(DriverDetailView.this);
                             driverReservationEditView.setStartDay(schedule.getStartDate());
@@ -178,7 +182,7 @@ public class DriverDetailView implements Initializable {
                             loader.setLocation(getClass().getResource("/driver_job_edit.fxml"));
                             AnchorPane detail = loader.load();
                             DriverJobEditView driverJobEditView = loader.getController();
-                            driverJobEditView.setController(controller);
+                            driverJobEditView.setDriverController(driverController);
                             driverJobEditView.setSchedule(schedule);
                             driverJobEditView.setDriverDetailView(DriverDetailView.this);
                             driverJobEditView.setStartDay(schedule.getStartDate());
@@ -212,7 +216,7 @@ public class DriverDetailView implements Initializable {
                         loader.setLocation(getClass().getResource("/driver_job_add.fxml"));
                         AnchorPane detail = loader.load();
                         DriverJobAddView driverJobAddView = loader.getController();
-                        driverJobAddView.setController(controller);
+                        driverJobAddView.setDriverController(driverController);
                         driverJobAddView.setDriverDetailView(DriverDetailView.this);
                         driverJobAddView.setStatus();
                         driverJobAddView.setDriver(driver);
@@ -268,13 +272,16 @@ public class DriverDetailView implements Initializable {
     }
 
     public void refreshScheduleTable(){
-        this.jobs = controller.getDriverSchedule(driver.getId());
+        this.jobs = driverController.getDriverSchedule(driver.getId());
         initData();
     }
 
-    public void setController(MainController controller){
-        this.controller = controller;
+    public void setDriverController(DriverController driverController){
+        this.driverController = driverController;
+    }
 
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
     }
 
     public void setDriver(Driver driver) {

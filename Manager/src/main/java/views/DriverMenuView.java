@@ -1,7 +1,6 @@
 package views;
 
-import controllers.MainController;
-import controllers.StageController;
+import controllers.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,7 +31,8 @@ public class DriverMenuView implements Initializable{
     @FXML private Button btn_deleteDriver;
     @FXML private Label lbCometoMain;
 
-    private MainController controller;
+    private DriverController driverController;
+    private ReservationController reservationController;
     private StageController stageController;
     private List<Driver> drivers;
 
@@ -59,7 +59,7 @@ public class DriverMenuView implements Initializable{
             @Override
             public void handle(ActionEvent event) {
                 Driver driver = (Driver) table_driver.getSelectionModel().getSelectedItem();
-                List<Schedule> schedules = controller.getDriverSchedule(driver.getId());
+                List<Schedule> schedules = driverController.getDriverSchedule(driver.getId());
                 if(driver!=null){
                     if (schedules.size()==0){
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -71,7 +71,7 @@ public class DriverMenuView implements Initializable{
 
                         Optional<ButtonType> result = alert.showAndWait();
                         if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-                            controller.deleteDriver(driver);
+                            driverController.deleteDriver(driver);
                             table_driver.getSelectionModel().clearSelection();
                             refreshDriverTable();
                         }
@@ -102,7 +102,8 @@ public class DriverMenuView implements Initializable{
                     loader.setLocation(getClass().getResource("/driver_detail.fxml"));
                     Pane detailLayout = loader.load();
                     DriverDetailView driverDetailView = loader.getController();
-                    driverDetailView.setController(controller);
+                    driverDetailView.setDriverController(driverController);
+                    driverDetailView.setReservationController(reservationController);
                     driverDetailView.setDriver(driver);
                     driverDetailView.setDriverMenuView(DriverMenuView.this);
 
@@ -135,14 +136,16 @@ public class DriverMenuView implements Initializable{
     }
 
     public void refreshDriverTable(){
-        this.drivers = controller.getDrivers();
+        this.drivers = driverController.getDrivers();
         initData();
     }
-    public void setController(MainController controller) {
-        this.controller = controller;
+    public void setDriverController(DriverController driverController) {
+        this.driverController = driverController;
         refreshDriverTable();
     }
 
-
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
+    }
 }
 

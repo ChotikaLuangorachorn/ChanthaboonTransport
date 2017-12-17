@@ -1,6 +1,8 @@
 package views;
 
 import controllers.MainController;
+import controllers.ReservationController;
+import controllers.VanController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,7 +27,8 @@ public class VanReservationEditView implements Initializable{
     @FXML private Label lb_startDate, lb_startTime, lb_endDate, lb_endTime;
     @FXML private ComboBox cb_reserveId;
     @FXML private Button btn_cancel, btn_submit;
-    private MainController controller;
+    private VanController vanController;
+    private ReservationController reservationController;
     private VanDetailView vanDetailView;
     private Schedule schedule;
 
@@ -52,7 +55,7 @@ public class VanReservationEditView implements Initializable{
                 String vanId = schedule.getId();
                 int reserveId = Integer.parseInt(cb_reserveId.getValue().toString());
                 Schedule newSchedule = new Schedule(vanId,null,null,reserveId+"",Schedule.RESERVE);
-                controller.editVanSchedule(schedule,newSchedule);
+                vanController.editVanSchedule(schedule,newSchedule);
                 vanDetailView.refreshScheduleTable();
                 Stage stage = (Stage) btn_submit.getScene().getWindow();
                 stage.close();
@@ -60,12 +63,16 @@ public class VanReservationEditView implements Initializable{
         });
     }
 
-    public void setController(MainController controller) {
-        this.controller = controller;
+    public void setVanController(VanController vanController) {
+        this.vanController = vanController;
         if (lb_startDate!=null){
             onClickCancelEdit();
             onClickSubmit();
         }
+    }
+
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
     }
 
     public void setVanDetailView(VanDetailView vanDetailView){
@@ -89,7 +96,7 @@ public class VanReservationEditView implements Initializable{
         this.lb_endTime.setText(time);
     }
     public void setReservationId(){
-        List<Reservation> reservations = controller.getReservations();
+        List<Reservation> reservations = reservationController.getReservations();
         ObservableList<String> ids = FXCollections.observableArrayList();
         for (Reservation r: reservations) {
             ids.add(String.format("%05d",Integer.parseInt(r.getReserveId())));

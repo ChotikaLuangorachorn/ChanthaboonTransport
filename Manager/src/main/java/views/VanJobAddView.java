@@ -1,6 +1,7 @@
 package views;
 
 import controllers.MainController;
+import controllers.VanController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -29,7 +30,7 @@ public class VanJobAddView implements Initializable {
     @FXML private Spinner sp_startHr, sp_startMin, sp_endHr, sp_endMin;
     @FXML private ComboBox cb_status;
     @FXML private Button btn_cancel, btn_submit;
-    private MainController controller;
+    private VanController vanController;
     private VanDetailView vanDetailView;
     private Van van;
 
@@ -49,7 +50,7 @@ public class VanJobAddView implements Initializable {
                     Date end = ReservationDateFormatter.getInstance().getDbFormatter().parse(endDate+" "+endTime);
                     JobType status = (JobType) cb_status.getValue();
 
-                    controller.addVanJob(van,start,end,status);
+                    vanController.addVanJob(van,start,end,status);
                     vanDetailView.refreshScheduleTable();
                     Stage stage = (Stage) btn_submit.getScene().getWindow();
                     stage.close();
@@ -91,8 +92,8 @@ public class VanJobAddView implements Initializable {
         });
     }
 
-    public void setController(MainController controller) {
-        this.controller = controller;
+    public void setVanController(VanController vanController) {
+        this.vanController = vanController;
     }
 
     public void setVan(Van van){
@@ -110,7 +111,7 @@ public class VanJobAddView implements Initializable {
     }
 
     public void setStatus(){
-        List<JobType> types = controller.getVanJobTypes();
+        List<JobType> types = vanController.getVanJobTypes();
 //        ObservableList<String> statuses = FXCollections.observableArrayList();
 //        for (JobType t: types) {
 //            statuses.add(t.getDescription());

@@ -1,6 +1,8 @@
 package views;
 
 import controllers.MainController;
+import controllers.ReservationController;
+import controllers.VanController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -35,7 +37,8 @@ public class VanDetailView implements Initializable{
     @FXML private TableColumn col_startDate, col_endDate, col_jobStatus;
     @FXML private Button btn_editVan, btn_deleteSchedule, btn_editSchedule,btn_addSchedule;
 
-    private MainController controller;
+    private VanController vanController;
+    private ReservationController reservationController;
     private Van van;
     private List<Schedule> jobs;
     private VanMenuView vanMenuView;
@@ -71,7 +74,7 @@ public class VanDetailView implements Initializable{
                     loader.setLocation(getClass().getResource("/van_detail_edit.fxml"));
                     AnchorPane detail = loader.load();
                     VanDetailEditView vanDetailEditView = loader.getController();
-                    vanDetailEditView.setController(controller);
+                    vanDetailEditView.setVanController(vanController);
                     String type = (lb_name.getText().substring(0,1).equals("V"))?"VIP":"NORMAL";
                     van = new Van(van.getRegisNumber(),null,type,lb_name.getText());
                     vanDetailEditView.setVan(van);
@@ -125,7 +128,7 @@ public class VanDetailView implements Initializable{
 
                     Optional<ButtonType> result = alert.showAndWait();
                     if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-                        controller.deleteVanSchedule(schedule);
+                        vanController.deleteVanSchedule(schedule);
                         refreshScheduleTable();
                     }
                     table_vanSchedule.getSelectionModel().clearSelection();
@@ -147,7 +150,8 @@ public class VanDetailView implements Initializable{
                             loader.setLocation(getClass().getResource("/van_reservation_edit.fxml"));
                             AnchorPane detail = loader.load();
                             VanReservationEditView vanReservationEditView = loader.getController();
-                            vanReservationEditView.setController(controller);
+                            vanReservationEditView.setVanController(vanController);
+                            vanReservationEditView.setReservationController(reservationController);
                             vanReservationEditView.setSchedule(schedule);
                             vanReservationEditView.setVanDetailView(VanDetailView.this);
                             vanReservationEditView.setStartDay(schedule.getStartDate());
@@ -171,7 +175,7 @@ public class VanDetailView implements Initializable{
                             loader.setLocation(getClass().getResource("/van_job_edit.fxml"));
                             AnchorPane detail = loader.load();
                             VanJobEditView vanJobEditView = loader.getController();
-                            vanJobEditView.setController(controller);
+                            vanJobEditView.setVanController(vanController);
                             vanJobEditView.setSchedule(schedule);
                             vanJobEditView.setVanDetailView(VanDetailView.this);
                             vanJobEditView.setStartDay(schedule.getStartDate());
@@ -205,7 +209,7 @@ public class VanDetailView implements Initializable{
                     loader.setLocation(getClass().getResource("/van_job_add.fxml"));
                     AnchorPane detail = loader.load();
                     VanJobAddView vanJobAddView = loader.getController();
-                    vanJobAddView.setController(controller);
+                    vanJobAddView.setVanController(vanController);
                     vanJobAddView.setVanDetailView(VanDetailView.this);
                     vanJobAddView.setStatus();
                     vanJobAddView.setVan(van);
@@ -261,13 +265,16 @@ public class VanDetailView implements Initializable{
     }
 
     public void refreshScheduleTable(){
-        this.jobs = controller.getVanSchedule(van.getRegisNumber());
+        this.jobs = vanController.getVanSchedule(van.getRegisNumber());
         initData();
     }
 
-    public void setController(MainController controller){
-        this.controller = controller;
+    public void setVanController(VanController vanController){
+        this.vanController = vanController;
+    }
 
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
     }
 
     public void setVan(Van van) {

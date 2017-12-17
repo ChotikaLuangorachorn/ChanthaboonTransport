@@ -1,5 +1,6 @@
 package views;
 
+import controllers.DriverController;
 import controllers.MainController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,7 +32,7 @@ public class DriverJobAddView implements Initializable {
     @FXML private Spinner sp_startHr, sp_startMin, sp_endHr, sp_endMin;
     @FXML private ComboBox cb_status;
     @FXML private Button btn_cancel, btn_submit;
-    private MainController controller;
+    private DriverController driverController;
     private DriverDetailView driverDetailView;
     private Schedule schedule;
     private Driver driver;
@@ -52,7 +53,7 @@ public class DriverJobAddView implements Initializable {
                     Date end = ReservationDateFormatter.getInstance().getDbFormatter().parse(endDate+" "+endTime);
                     JobType status = (JobType) cb_status.getValue();
 
-                    controller.addDriverJob(driver,start,end,status);
+                    driverController.addDriverJob(driver,start,end,status);
                     driverDetailView.refreshScheduleTable();
                     Stage stage = (Stage) btn_submit.getScene().getWindow();
                     stage.close();
@@ -94,8 +95,8 @@ public class DriverJobAddView implements Initializable {
         });
     }
 
-    public void setController(MainController controller) {
-        this.controller = controller;
+    public void setDriverController(DriverController driverController) {
+        this.driverController = driverController;
     }
 
     public void setDriver(Driver driver){
@@ -113,7 +114,7 @@ public class DriverJobAddView implements Initializable {
     }
 
     public void setStatus(){
-        List<JobType> types = controller.getDriverJobTypes();
+        List<JobType> types = driverController.getDriverJobTypes();
         cb_status.getItems().addAll(types);
         cb_status.setValue(types.get(0));
         cb_status.setConverter(new StringConverter() {
