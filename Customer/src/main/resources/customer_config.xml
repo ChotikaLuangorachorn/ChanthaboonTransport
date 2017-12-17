@@ -14,5 +14,21 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
         <property name="serviceUrl" value="rmi://localhost:5801/CustomerService" />
         <property name="serviceInterface" value="services.CustomerService" />
     </bean>
+    <bean id="PriceService"
+          class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://localhost:5804/PriceService" />
+        <property name="serviceInterface" value="services.PriceService" />
+    </bean>
+    <bean id="ReservationService"
+          class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://localhost:5805/ReservationService" />
+        <property name="serviceInterface" value="services.ReservationService" />
+    </bean>
+
+    <bean id="VanService"
+          class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://localhost:5806/VanService" />
+        <property name="serviceInterface" value="services.VanService" />
+    </bean>
 
 </beans>

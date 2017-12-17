@@ -4,11 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <!--<bean id="ManagerDbManager"-->
-          <!--class="org.springframework.remoting.rmi.RmiProxyFactoryBean">-->
-        <!--<property name="serviceUrl" value="rmi://localhost:5185/ManagerService" />-->
-        <!--<property name="serviceInterface" value="managers.ManagerDatabaseManager" />-->
-    <!--</bean>-->
+    <bean id="ManagerDbManager"
+          class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://localhost:5185/ManagerService" />
+        <property name="serviceInterface" value="managers.ManagerDatabaseManager" />
+    </bean>
 
     <bean id="DriverService"
           class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
