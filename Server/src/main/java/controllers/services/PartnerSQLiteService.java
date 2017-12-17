@@ -32,7 +32,7 @@ public class PartnerSQLiteService extends SQLiteService implements PartnerServic
     }
 
     @Override
-    public void editPartner(Partner partner) {
+    public boolean editPartner(Partner partner) {
         // TODO partner last name
         String sql = String.format("update partner " +
                         "set name='%s'," +
@@ -42,18 +42,19 @@ public class PartnerSQLiteService extends SQLiteService implements PartnerServic
                 partner.getFirstName(), partner.getCompany(),
                 partner.getCompanyPhone(), partner.getId());
         int result = executeUpdate(sql);
-        System.out.println("result = " + result);
+        return result > 0;
     }
 
     @Override
-    public void deletePartner(Partner partner) {
-        deletePartner(partner.getId());
+    public boolean deletePartner(Partner partner) {
+        return deletePartner(partner.getId());
     }
 
     @Override
-    public void deletePartner(String partnerId) {
+    public boolean deletePartner(String partnerId) {
         System.out.println("request deletePartner");
         String sql = "delete from partner where id='" + partnerId + "'";
-        executeUpdate(sql);
+        int result = executeUpdate(sql);
+        return result > 0;
     }
 }

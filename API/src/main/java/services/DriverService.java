@@ -11,14 +11,14 @@ import java.util.List;
 public interface DriverService {
     List<Driver> getDriverAvailable(Date startDate, Date endDate);
     List<Driver> getDrivers();
-    void editDriver(Driver driver);
-    void deleteDriver(Driver driver);
+    boolean editDriver(Driver driver);
+    boolean deleteDriver(Driver driver);
 
-    void deleteDriver(String citizenId);
+    boolean deleteDriver(String citizenId);
     List<JobType> getDriverJobTypes();
     List<Schedule> getDriverSchedule(Driver driver);
     List<Schedule> getDriverSchedule(String citizenId);
-    void deleteDriverSchedule(Schedule schedule);
-    void editDriverSchedule(Schedule oldSchedule, Schedule newSchedule);
-    void addDriverJob(Driver driver, Date startDate, Date endDate, JobType type);
+    boolean deleteDriverSchedule(Schedule schedule);
+    boolean editDriverSchedule(Schedule oldSchedule, Schedule newSchedule);
+    boolean addDriverJob(Driver driver, Date startDate, Date endDate, JobType type);
 }

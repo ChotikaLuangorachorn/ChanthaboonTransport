@@ -15,12 +15,12 @@ public class ReservationSQLiteService extends SQLiteService implements Reservati
     }
 
     @Override
-    public void assignVan(List<Van> vans, Reservation reservation) {
-        assignVan(vans, reservation.getReserveId());
+    public boolean assignVan(List<Van> vans, Reservation reservation) {
+        return assignVan(vans, reservation.getReserveId());
     }
 
     @Override
-    public void assignVan(List<Van> vans, String reservationId) {
+    public boolean assignVan(List<Van> vans, String reservationId) {
         String sql = String.format("insert into van_reserve_schedule " +
                 "select van.regis_number, '%s' " +
                 "from van " +
@@ -30,16 +30,16 @@ public class ReservationSQLiteService extends SQLiteService implements Reservati
             vanIds.add("'" + van.getRegisNumber() + "'");
         sql += "(" + String.join(",", vanIds) + ")";
         int result = executeUpdate(sql);
-        System.out.println("result = " + result);
+        return result>0;
     }
 
     @Override
-    public void assignDriver(List<Driver> drivers, Reservation reservation) {
-        assignDriver(drivers, reservation.getReserveId());
+    public boolean assignDriver(List<Driver> drivers, Reservation reservation) {
+        return assignDriver(drivers, reservation.getReserveId());
     }
 
     @Override
-    public void assignDriver(List<Driver> drivers, String reservationId) {
+    public boolean assignDriver(List<Driver> drivers, String reservationId) {
         String sql = String.format("insert into driver_reserve_schedule " +
                 "select driver.citizen_id, '%s' " +
                 "from driver " +
@@ -49,35 +49,36 @@ public class ReservationSQLiteService extends SQLiteService implements Reservati
             driverIds.add("'" + driver.getId() + "'");
         sql += "(" + String.join(",", driverIds) + ")";
         int result = executeUpdate(sql);
-        System.out.println("result = " + result);
+        return result > 0;
     }
 
 
 
     @Override
-    public void addMeeting(String meetingPlace, Date meetingTime, Reservation reservation) {
-        addMeeting(meetingPlace, meetingTime, reservation.getReserveId());
+    public boolean addMeeting(String meetingPlace, Date meetingTime, Reservation reservation) {
+        return addMeeting(meetingPlace, meetingTime, reservation.getReserveId());
     }
 
     @Override
-    public void addMeeting(String meetingPlace, Date meetingTime, String reservationId) {
+    public boolean addMeeting(String meetingPlace, Date meetingTime, String reservationId) {
         String sql = String.format("update reservation " +
                         "set meeting_place='%s', meeting_time='%s' " +
                         "where id='%s'",
                 meetingPlace, formatter.format(meetingTime), reservationId);
         int result = executeUpdate(sql);
+        return result > 0;
     }
 
     @Override
-    public void confirmDeposit(Reservation reservation, Date depositDate) {
-        confirmDeposit(reservation, depositDate);
+    public boolean confirmDeposit(Reservation reservation, Date depositDate) {
+        return confirmDeposit(reservation, depositDate);
     }
 
     @Override
-    public void confirmDeposit(String reservationId, Date depositDate) {
+    public boolean confirmDeposit(String reservationId, Date depositDate) {
         String sql = "update reservation set isDeposited='true', deposit_date='" + formatter.format(depositDate) + "' where id='" + reservationId + "'";
         int result = executeUpdate(sql);
-        System.out.println("result = " + result);
+        return result > 0;
     }
 
     @Override
@@ -129,7 +130,7 @@ public class ReservationSQLiteService extends SQLiteService implements Reservati
     }
 
     @Override
-    public void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, Date reserveDate, double price, double deposit) {
+    public boolean addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, Date reserveDate, double price, double deposit) {
         System.out.println("request addReservation");
         String reserveDateString = formatter.format(reserveDate);
         String startDateString = formatter.format(startDate);
@@ -137,16 +138,16 @@ public class ReservationSQLiteService extends SQLiteService implements Reservati
         String sql = String.format("insert into reservation (customer_id, reserve_date, start_working_date, end_working_date, fee, province, district, place, isDeposit, isDeposited, deposit_fee, amt_vip, amt_normal) values ('%s', '%s', '%s', '%s', %f, '%s', '%s', '%s', '%s', '%s', %f, %d, %d)",
                 customerId, reserveDateString, startDateString, endDateString, price, destination.getProvince(), destination.getDistrict(), destination.getPlace(), "true", "false", deposit, vanAmt.get(VanService.VIP), vanAmt.get(VanService.NORMAL));
         int result = executeUpdate(sql);
-        System.out.println("result = " + result);
+        return result > 0;
     }
 
     @Override
-    public void deleteReservation(Reservation reservation) {
-        deleteReservation(reservation.getReserveId());
+    public boolean deleteReservation(Reservation reservation) {
+        return deleteReservation(reservation.getReserveId());
     }
 
     @Override
-    public void deleteReservation(String reservationId) {
+    public boolean deleteReservation(String reservationId) {
         System.out.println("request delete reservation");
         System.out.println("reservationId = " + reservationId);
         String sqlr = "delete from reservation where id='" + reservationId + "'";
@@ -158,6 +159,7 @@ public class ReservationSQLiteService extends SQLiteService implements Reservati
             executeUpdate(sqlv);
             executeUpdate(sqld);
         }
+        return result > 0;
     }
 
     @Override
