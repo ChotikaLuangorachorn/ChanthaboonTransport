@@ -19,7 +19,7 @@ public class LoginView {
     @FXML private PasswordField tf_pwd;
     @FXML private Button btn_login;
     @FXML private Label lb_notification;
-    private CustomerController controller;
+    private CustomerController customerController;
     private SceneManager sceneManager;
 
     @FXML
@@ -30,7 +30,7 @@ public class LoginView {
     public void onClickLogin(){
         btn_login.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-                Customer customer = controller.getCustomer(tf_critizenId.getText().toString(), tf_pwd.getText().toString());
+                Customer customer = customerController.getCustomer(tf_critizenId.getText().toString(), tf_pwd.getText().toString());
                 if( customer != null){
                     CustomerInfoManager customerInfo = CustomerInfoManager.getInstance();
                     customerInfo.setCustomer(customer);
@@ -43,7 +43,7 @@ public class LoginView {
     }
 
     public void setController(CustomerController controller) {
-        this.controller = controller;
+        this.customerController = controller;
         onClickLogin();
     }
 
