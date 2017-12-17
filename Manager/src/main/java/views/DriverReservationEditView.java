@@ -1,6 +1,8 @@
 package views;
 
+import controllers.DriverController;
 import controllers.MainController;
+import controllers.ReservationController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,7 +26,8 @@ public class DriverReservationEditView  implements Initializable{
     @FXML private Label lb_startDate, lb_startTime, lb_endDate, lb_endTime;
     @FXML private ComboBox cb_reserveId;
     @FXML private Button btn_cancel, btn_submit;
-    private MainController controller;
+    private DriverController driverController;
+    private ReservationController reservationController;
     private DriverDetailView driverDetailView;
     private Schedule schedule;
     @Override
@@ -41,7 +44,7 @@ public class DriverReservationEditView  implements Initializable{
                 String driverId = schedule.getId();
                 int reserveId = Integer.parseInt(cb_reserveId.getValue().toString());
                 Schedule newSchedule = new Schedule(driverId,null,null,reserveId+"",Schedule.RESERVE);
-                controller.editDriverSchedule(schedule,newSchedule);
+                driverController.editDriverSchedule(schedule,newSchedule);
                 driverDetailView.refreshScheduleTable();
                 Stage stage = (Stage) btn_submit.getScene().getWindow();
                 stage.close();
@@ -57,13 +60,18 @@ public class DriverReservationEditView  implements Initializable{
             }
         });
     }
-    public void setController(MainController controller) {
-        this.controller = controller;
+    public void setDriverController(DriverController driverController) {
+        this.driverController = driverController;
         if (lb_startDate!=null){
             onClickCancelEdit();
             onClickSubmit();
         }
     }
+
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
+    }
+
     public void setDriverDetailView(DriverDetailView driverDetailView){
         this.driverDetailView =driverDetailView;
     }
@@ -85,7 +93,7 @@ public class DriverReservationEditView  implements Initializable{
         this.lb_endTime.setText(time);
     }
     public void setReservationId(){
-        List<Reservation> reservations = controller.getReservations();
+        List<Reservation> reservations = reservationController.getReservations();
         ObservableList<String> ids = FXCollections.observableArrayList();
         for (Reservation r: reservations) {
             ids.add(String.format("%05d",Integer.parseInt(r.getReserveId())));

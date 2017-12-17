@@ -82,7 +82,8 @@ public class StageController {
             loader.setLocation(getClass().getResource("/driver_menu.fxml"));
             AnchorPane mainLayout = loader.load();
             DriverMenuView driverMenuView = loader.getController();
-            driverMenuView.setController(controller);
+            driverMenuView.setDriverController(driverController);
+            driverMenuView.setReservationController(reservationController);
             driverMenuView.setStageController(this);
 
             // Show the scene containing the root layout.
