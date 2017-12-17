@@ -44,7 +44,9 @@ public class StageController {
             loader.setLocation(getClass().getResource("/van_menu.fxml"));
             AnchorPane mainLayout = loader.load();
             VanMenuView vanMenuView = loader.getController();
-            vanMenuView.setController(controller);
+            vanMenuView.setVanController(vanController);
+            vanMenuView.setReservationController(reservationController);
+
             vanMenuView.setStageController(this);
 
             // Show the scene containing the root layout.

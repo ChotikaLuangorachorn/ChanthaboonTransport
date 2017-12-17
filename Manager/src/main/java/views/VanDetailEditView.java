@@ -1,6 +1,7 @@
 package views;
 
 import controllers.MainController;
+import controllers.VanController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,7 +27,7 @@ public class VanDetailEditView implements Initializable{
     @FXML private TextField tf_typeNum;
     @FXML private ComboBox<String> cb_type;
     @FXML private Button btn_confirm, btn_cancel;
-    private MainController controller;
+    private VanController vanController;
     private Van van;
     private VanDetailView vanDetailView;
     private VanMenuView vanMenuView;
@@ -110,9 +111,9 @@ public class VanDetailEditView implements Initializable{
                     String vanType= (lb_typeName.getText().equals("V"))?"VIP":"NORMAL";
                     String name = lb_typeName.getText() + tf_typeNum.getText();
                     Van newVan = new Van(van.getRegisNumber(),null,vanType,name);
-                    controller.editVan(newVan);
+                    vanController.editVan(newVan);
 
-                    newVan = controller.getVan(van.getRegisNumber());
+                    newVan = vanController.getVan(van.getRegisNumber());
                     vanDetailView.setLb_name(newVan.getName());
                     vanType = (newVan.getType().equals("VIP"))?"VIP (9 ที่นั่ง)":"ธรรมดา (15 ที่นั่ง)";
                     vanDetailView.setLb_type(vanType);
@@ -134,7 +135,7 @@ public class VanDetailEditView implements Initializable{
     }
 
     public List<List<String>> checkNumberVan(){
-        List<Van> vans= controller.getVans();
+        List<Van> vans= vanController.getVans();
         List<String> normal = new ArrayList<>();
         List<String> vip = new ArrayList<>();
         for(Van v : vans){
@@ -151,8 +152,8 @@ public class VanDetailEditView implements Initializable{
         return numbers;
 
     }
-    public void setController(MainController controller){
-        this.controller = controller;
+    public void setVanController(VanController vanController){
+        this.vanController = vanController;
 
     }
 

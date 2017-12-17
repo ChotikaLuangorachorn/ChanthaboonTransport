@@ -38,7 +38,7 @@
          <columns>
             <TableColumn fx:id="col_startDate" editable="false" prefWidth="181.0" style="-fx-alignment: center_left;" text="วันที่ไป" />
             <TableColumn fx:id="col_endDate" prefWidth="188.0" style="-fx-alignment: center_left;" text="วันที่กลับ" />
-            <TableColumn fx:id="col_jobStatus" prefWidth="294.0" style="-fx-alignment: center;" text="สถานะ" />
+            <TableColumn fx:id="col_jobStatus" prefWidth="294.0" style="-fx-alignment: center_left;" text="สถานะ" />
          </columns>
       </TableView>
       <Label layoutX="501.0" layoutY="64.0" text="ที่อยู่:">
