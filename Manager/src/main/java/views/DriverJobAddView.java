@@ -18,6 +18,7 @@ import utils.ReservationDateFormatter;
 
 import java.net.URL;
 import java.text.ParseException;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -74,6 +75,15 @@ public class DriverJobAddView implements Initializable {
             }
         });
     }
+    public void onClickStartDatePicker(){
+        dp_startDate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                setEndDatePicker();
+            }
+        });
+    }
+
     public void setStartDatePicker(){
         dp_startDate.setValue(LocalDate.now());
         dp_startDate.setDayCellFactory(param -> new DateCell(){
@@ -85,14 +95,30 @@ public class DriverJobAddView implements Initializable {
         });
     }
     public void setEndDatePicker(){
-        dp_endDate.setValue(LocalDate.now());
+//        dp_endDate.setValue(LocalDate.now());
+        LocalDate startLocal = dp_startDate.getValue();
+        Date minimumDate = convertToDateStart(startLocal);
+        LocalDate minimun = minimumDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        dp_endDate.setValue(minimun);
         dp_endDate.setDayCellFactory(param -> new DateCell(){
             @Override
             public void updateItem(LocalDate item, boolean empty) {
                 super.updateItem(item, empty);
-                setDisable(empty || item.isBefore(LocalDate.now()));
+                setDisable(empty || item.isBefore(minimun));
             }
         });
+    }
+    public Date convertToDateStart(LocalDate localDate){
+        try {
+            Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+            Date date = Date.from(instant);
+            date.setHours(Integer.parseInt(sp_startHr.getValue().toString()));
+            date.setMinutes(Integer.parseInt(sp_startMin.getValue().toString()));
+            return date;
+        }catch (NullPointerException e){
+            System.out.println("not set hr or min");
+        }
+        return null;
     }
 
     public void setDriverController(DriverController driverController) {
@@ -106,6 +132,7 @@ public class DriverJobAddView implements Initializable {
             onClickSubmit();
             setStartDatePicker();
             setEndDatePicker();
+            onClickStartDatePicker();
         }
     }
 

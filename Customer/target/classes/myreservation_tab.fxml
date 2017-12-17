@@ -15,13 +15,13 @@
       </Label>
       <TableView fx:id="table_reserve" cache="true" layoutX="14.0" layoutY="69.0" prefHeight="345.0" prefWidth="742.0" style="-fx-fixed-cell-size: 30;">
         <columns>
-          <TableColumn fx:id="col_reserveId" editable="false" prefWidth="95.0" resizable="false" sortable="false" style="-fx-alignment: center;" text="หมายเลขการจอง" />
-          <TableColumn fx:id="col_reserveDate" editable="false" prefWidth="130.0" resizable="false" sortable="false" style="-fx-alignment: center_left;" text="วันที่จอง" />
-            <TableColumn fx:id="col_province" editable="false" prefWidth="100.0" resizable="false" sortable="false" style="-fx-alignment: center_left;" text="จังหวัด" />
-            <TableColumn fx:id="col_district" editable="false" prefWidth="95.0" resizable="false" sortable="false" style="-fx-alignment: center_left;" text="อำเภอ/เขต" />
-            <TableColumn fx:id="col_startDate" editable="false" prefWidth="115.0" resizable="false" sortable="false" style="-fx-alignment: center_left;" text="วันที่ไป" />
-            <TableColumn fx:id="col_endDate" editable="false" prefWidth="115.0" resizable="false" sortable="false" style="-fx-alignment: center_left;" text="วันที่กลับ" />
-            <TableColumn fx:id="col_isDeposited" editable="false" prefWidth="90.0" resizable="false" sortable="false" style="-fx-alignment: center;" text="สถานะค่ามัดจำ" />
+          <TableColumn fx:id="col_reserveId" editable="false" prefWidth="95.0" resizable="false" style="-fx-alignment: center;" text="หมายเลขการจอง" />
+          <TableColumn fx:id="col_reserveDate" editable="false" prefWidth="130.0" resizable="false" style="-fx-alignment: center_left;" text="วันที่จอง" />
+            <TableColumn fx:id="col_province" editable="false" prefWidth="100.0" resizable="false" style="-fx-alignment: center_left;" text="จังหวัด" />
+            <TableColumn fx:id="col_district" editable="false" prefWidth="95.0" resizable="false" style="-fx-alignment: center_left;" text="อำเภอ/เขต" />
+            <TableColumn fx:id="col_startDate" editable="false" prefWidth="115.0" resizable="false" style="-fx-alignment: center_left;" text="วันที่ไป" />
+            <TableColumn fx:id="col_endDate" editable="false" prefWidth="115.0" resizable="false" style="-fx-alignment: center_left;" text="วันที่กลับ" />
+            <TableColumn fx:id="col_isDeposited" editable="false" prefWidth="90.0" resizable="false" style="-fx-alignment: center;" text="สถานะค่ามัดจำ" />
         </columns>
       </TableView>
    </children>
