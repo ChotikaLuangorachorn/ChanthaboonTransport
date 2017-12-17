@@ -9,11 +9,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cb9efd3-4d93-4e53-b370-51345613bcbf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/src/main/java/controller/CustomerController.java" afterPath="$PROJECT_DIR$/Customer/src/main/java/controller/CustomerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/src/main/java/controller/PriceController.java" afterPath="$PROJECT_DIR$/Customer/src/main/java/controller/PriceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/src/main/java/controller/ReservationController.java" afterPath="$PROJECT_DIR$/Customer/src/main/java/controller/ReservationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/src/main/java/controller/VanController.java" afterPath="$PROJECT_DIR$/Customer/src/main/java/controller/VanController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Manager/src/main/java/controllers/CustomerController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Manager/src/main/java/controllers/DriverController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Manager/src/main/java/controllers/PartnerController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Manager/src/main/java/controllers/PriceController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Manager/src/main/java/controllers/ReservationController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Manager/src/main/java/controllers/VanController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/src/main/java/ManagerApplication.java" afterPath="$PROJECT_DIR$/Manager/src/main/java/ManagerApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/src/main/java/controllers/MainController.java" afterPath="$PROJECT_DIR$/Manager/src/main/java/controllers/MainController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/src/main/java/controllers/StageController.java" afterPath="$PROJECT_DIR$/Manager/src/main/java/controllers/StageController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,108 +36,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="CustomerSQLiteService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/CustomerSQLiteService.java">
+      <file leaf-file-name="PriceService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/API/src/main/java/services/PriceService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="272">
+              <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#editCustomerInfo#0;class#CustomerSQLiteService#0" expanded="false" />
-                <element signature="method#changeCustomerPassword#0;class#CustomerSQLiteService#0" expanded="false" />
-                <element signature="method#getCustomer#0;class#CustomerSQLiteService#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DriverSQLiteService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/DriverSQLiteService.java">
+      <file leaf-file-name="DriverController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/DriverController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state relative-caret-position="339">
+              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getDriverAvailable#0;class#DriverSQLiteService#0" expanded="false" />
-                <element signature="e#2810#3668#0" expanded="false" />
-                <element signature="method#getDrivers#0;class#DriverSQLiteService#0" expanded="false" />
-                <element signature="method#editDriver#0;class#DriverSQLiteService#0" expanded="false" />
-                <element signature="method#deleteDriver#1;class#DriverSQLiteService#0" expanded="false" />
-                <element signature="method#getDriverJobTypes#0;class#DriverSQLiteService#0" expanded="false" />
-                <element signature="method#getDriverSchedule#1;class#DriverSQLiteService#0" expanded="false" />
-                <element signature="method#deleteDriverSchedule#0;class#DriverSQLiteService#0" expanded="false" />
-                <element signature="method#editDriverSchedule#0;class#DriverSQLiteService#0" expanded="false" />
-                <element signature="method#addDriverJob#0;class#DriverSQLiteService#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/delegations/CustomerExecutor.java">
+      <file leaf-file-name="ReservationController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/ReservationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DriverService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/API/src/main/java/services/DriverService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PartnerService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/API/src/main/java/services/PartnerService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="42" column="52" lean-forward="false" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
-              <folding>
-                <element signature="method#getCustomer#0;class#CustomerExecutor#0" expanded="false" />
-                <element signature="e#683#693#0" expanded="true" />
-                <element signature="method#editCustomerInfo#0;class#CustomerExecutor#0" expanded="false" />
-                <element signature="method#changeCustomerPassword#0;class#CustomerExecutor#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VanExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/delegations/VanExecutor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="259" column="23" lean-forward="true" selection-start-line="259" selection-start-column="23" selection-end-line="259" selection-end-column="23" />
-              <folding>
-                <element signature="method#getVan#0;class#VanExecutor#0" expanded="false" />
-                <element signature="method#getVans#0;class#VanExecutor#0" expanded="false" />
-                <element signature="method#editVan#0;class#VanExecutor#0" expanded="false" />
-                <element signature="method#deleteVan#0;class#VanExecutor#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/CustomerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="23" column="57" lean-forward="false" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="63" selection-end-column="5" />
-              <folding>
-                <element signature="method#getMinimumDate#0;class#MainController#0" expanded="false" />
-                <element signature="method#getVanAvailable#0;class#MainController#0" expanded="false" />
-                <element signature="method#getPrice#0;class#MainController#0" expanded="false" />
-                <element signature="method#getPrice#1;class#MainController#0" expanded="false" />
-                <element signature="method#addReservation#0;class#MainController#0" expanded="false" />
-                <element signature="method#editCustomerInfo#0;class#MainController#0" expanded="false" />
-                <element signature="method#changeCustomerPassword#0;class#MainController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PriceController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/PriceController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,7 +99,7 @@
       <file leaf-file-name="ReservationService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/API/src/main/java/services/ReservationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
+            <state relative-caret-position="481">
               <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -152,11 +108,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReservationController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/ReservationController.java">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="30" column="48" lean-forward="true" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+            <state relative-caret-position="237">
+              <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+              <folding>
+                <element signature="method#confirmDeposit#0;class#MainController#0" expanded="false" />
+                <element signature="method#addMeeting#0;class#MainController#0" expanded="false" />
+                <element signature="method#getDriverAvailable#0;class#MainController#0" expanded="false" />
+                <element signature="method#assignDriver#0;class#MainController#0" expanded="false" />
+                <element signature="method#editDriverSchedule#0;class#MainController#0" expanded="false" />
+                <element signature="method#addDriverJob#0;class#MainController#0" expanded="false" />
+                <element signature="method#getVanAvailable#0;class#MainController#0" expanded="false" />
+                <element signature="method#editVanSchedule#0;class#MainController#0" expanded="false" />
+                <element signature="method#addVanJob#0;class#MainController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PriceController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/PriceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -165,10 +141,22 @@
         </entry>
       </file>
       <file leaf-file-name="VanController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/VanController.java">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/VanController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="305">
+              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PartnerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/PartnerController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -183,6 +171,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="Singleton" />
         <option value="Class" />
       </list>
     </option>
@@ -209,15 +198,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/API/src/main/java/models/Reservation.java" />
-        <option value="$PROJECT_DIR$/Server/src/main/java/controllers/delegations/UtilExecutor.java" />
-        <option value="$PROJECT_DIR$/Server/src/main/java/controllers/assistants/QueryExecutionAssistant.java" />
-        <option value="$PROJECT_DIR$/Server/src/main/java/controllers/delegations/PriceExecutor.java" />
-        <option value="$PROJECT_DIR$/API/src/main/java/managers/CustomerDatabaseManager.java" />
-        <option value="$PROJECT_DIR$/Server/src/main/java/controllers/delegations/VanExecutor.java" />
-        <option value="$PROJECT_DIR$/Server/src/main/java/FakeMain.java" />
-        <option value="$PROJECT_DIR$/API/src/main/java/models/Person.java" />
-        <option value="$PROJECT_DIR$/API/src/main/java/models/Customer.java" />
         <option value="$PROJECT_DIR$/Customer/src/main/java/view/InformationEditView.java" />
         <option value="$PROJECT_DIR$/Manager/src/main/java/views/DriverDetailEditView.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/controllers/delegations/DriverExecutor.java" />
@@ -260,6 +240,15 @@
         <option value="$PROJECT_DIR$/Customer/src/main/java/controller/PriceController.java" />
         <option value="$PROJECT_DIR$/Customer/src/main/java/controller/VanController.java" />
         <option value="$PROJECT_DIR$/Customer/src/main/java/controller/ReservationController.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/controllers/CustomerController.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/controllers/StageController.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/ManagerApplication.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/controllers/MainController.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/controllers/PartnerController.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/controllers/PriceController.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/controllers/ReservationController.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/controllers/VanController.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/controllers/DriverController.java" />
       </list>
     </option>
   </component>
@@ -357,58 +346,6 @@
             <path>
               <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
               <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
               <item name="Manager" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -440,23 +377,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
-              <item name="Manager" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
-              <item name="Manager" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
@@ -566,18 +486,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/API/src/main/java/services/DriverService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/API/src/main/java/services/PartnerService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/API/src/main/java/services/ReservationService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/API/src/main/java/services/VanService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/SQLiteExecutor.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/services/CustomerSQLiteService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/services/DriverSQLiteService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/services/PartnerSQLiteService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/services/PriceSQLiteService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/services/ReservationSQLiteService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/services/SQLiteService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/delegations/VanExecutor.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -851,13 +761,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1510813974093</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Server: implemented getVans">
-      <created>1511337364359</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1511337364359</updated>
     </task>
     <task id="LOCAL-00049" summary="Server: implemented deleteVan, create Update assistant">
       <created>1511345414320</created>
@@ -1195,7 +1098,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513495973009</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="Customer : move method in ManinController to each controller">
+      <created>1513496552372</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1513496552372</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1212,18 +1122,19 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.4935553" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730263" sideWeight="0.4935553" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40296805" sideWeight="0.47959185" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39794755" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0756579" sideWeight="0.52040815" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27960527" sideWeight="0.52040815" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25416037" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762557" sideWeight="0.4914071" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25725028" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1254,7 +1165,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39794755" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17883995" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762557" sideWeight="0.4914071" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
     </layout>
@@ -1299,7 +1209,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Server: fixbug update price factor" />
     <MESSAGE value="Server: delegating SQLiteExecutor" />
     <MESSAGE value="Server: implement deleteVanSchedule" />
     <MESSAGE value="Server: implement getVanJobTypes" />
@@ -1324,77 +1233,16 @@
     <MESSAGE value="API,Server: create services" />
     <MESSAGE value="Customer : create controllers" />
     <MESSAGE value="Customer : sent controllers to SceneManager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Customer : sent controllers to SceneManager" />
+    <MESSAGE value="Customer : move method in ManinController to each controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Customer : move method in ManinController to each controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/API/src/main/java/models/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/main/java/models/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/view/InformationEditView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverDetailEditView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="45" column="37" lean-forward="false" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverDetailView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="82" column="46" lean-forward="false" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/PageConfirmView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2412">
-          <caret line="108" column="46" lean-forward="false" selection-start-line="108" selection-start-column="46" selection-end-line="108" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverMenuView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1330">
-          <caret line="61" column="82" lean-forward="false" selection-start-line="61" selection-start-column="82" selection-end-line="61" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/view/InformationView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="259" column="105" lean-forward="false" selection-start-line="259" selection-start-column="105" selection-end-line="259" selection-end-column="105" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Customer/src/main/java/view/MyReservationView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -1415,6 +1263,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="44" column="18" lean-forward="false" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+          <folding>
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#767#768#0" expanded="true" />
+            <element signature="e#801#802#0" expanded="true" />
+            <element signature="e#837#838#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#900#901#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1475,40 +1335,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/API/src/main/java/services/Temp.java" />
-    <entry file="file://$PROJECT_DIR$/API/src/main/java/services/PriceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#337#338#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-            <element signature="e#535#536#0" expanded="true" />
-            <element signature="e#562#563#0" expanded="true" />
-            <element signature="e#954#955#0" expanded="true" />
-            <element signature="e#981#982#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
-            <element signature="e#1153#1154#0" expanded="true" />
-            <element signature="e#1180#1181#0" expanded="true" />
-            <element signature="e#1416#1417#0" expanded="true" />
-            <element signature="e#1443#1444#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/PartnerSQLiteService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -1519,16 +1345,6 @@
             <element signature="e#350#351#0" expanded="false" />
             <element signature="e#1690#1691#0" expanded="false" />
             <element signature="e#1736#1737#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/main/java/services/PartnerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1545,6 +1361,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="155" column="22" lean-forward="true" selection-start-line="155" selection-start-column="22" selection-end-line="155" selection-end-column="22" />
+          <folding>
+            <element signature="method#createUpdatePriceFactorQuery#0;class#PriceExecutor#0" expanded="false" />
+            <element signature="method#getDistance#0;class#PriceExecutor#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1582,16 +1402,6 @@
             <element signature="method#getDrivers#0;class#DriverExecutor#0" expanded="false" />
             <element signature="method#editDriverSchedule#0;class#DriverExecutor#0" expanded="false" />
             <element signature="method#editDriver#0;class#DriverExecutor#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/main/java/services/DriverService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1701,14 +1511,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="20" column="39" lean-forward="false" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/API/src/main/java/services/VanService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1771,18 +1573,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/main/java/services/CustomerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/DriverSQLiteService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="438">
-          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getDriverAvailable#0;class#DriverSQLiteService#0" expanded="false" />
@@ -1818,32 +1612,9 @@
           <caret line="42" column="52" lean-forward="false" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
           <folding>
             <element signature="method#getCustomer#0;class#CustomerExecutor#0" expanded="false" />
-            <element signature="e#683#693#0" expanded="true" />
+            <element signature="e#683#693#0" expanded="false" />
             <element signature="method#editCustomerInfo#0;class#CustomerExecutor#0" expanded="false" />
             <element signature="method#changeCustomerPassword#0;class#CustomerExecutor#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/delegations/VanExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="259" column="23" lean-forward="true" selection-start-line="259" selection-start-column="23" selection-end-line="259" selection-end-column="23" />
-          <folding>
-            <element signature="method#getVan#0;class#VanExecutor#0" expanded="false" />
-            <element signature="method#getVans#0;class#VanExecutor#0" expanded="false" />
-            <element signature="method#editVan#0;class#VanExecutor#0" expanded="false" />
-            <element signature="method#deleteVan#0;class#VanExecutor#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/CustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="23" column="57" lean-forward="false" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1853,27 +1624,7 @@
         <state relative-caret-position="310">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/VanController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/main/java/services/ReservationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1894,12 +1645,211 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/ReservationController.java">
+    <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/delegations/VanExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="30" column="48" lean-forward="true" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+        <state relative-caret-position="30">
+          <caret line="258" column="23" lean-forward="false" selection-start-line="258" selection-start-column="23" selection-end-line="258" selection-end-column="23" />
+          <folding>
+            <element signature="method#getVan#0;class#VanExecutor#0" expanded="false" />
+            <element signature="method#getVans#0;class#VanExecutor#0" expanded="false" />
+            <marker date="1513496566094" expanded="false" signature="11605:12155" ph="{...}" />
+            <marker date="1513496566094" expanded="false" signature="13636:13994" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="23" column="57" lean-forward="false" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/VanController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/ReservationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/ManagerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/StageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="155" column="78" lean-forward="false" selection-start-line="155" selection-start-column="78" selection-end-line="155" selection-end-column="78" />
+          <folding>
+            <element signature="method#showMainView#0;class#StageController#0" expanded="false" />
+            <element signature="method#showVanMenuView#0;class#StageController#0" expanded="false" />
+            <element signature="method#showReservationView#0;class#StageController#0" expanded="false" />
+            <element signature="method#showDriverMenu#0;class#StageController#0" expanded="false" />
+            <element signature="method#showFeeMenuView#0;class#StageController#0" expanded="false" />
+            <element signature="method#showPartnerMenuView#0;class#StageController#0" expanded="false" />
+            <element signature="method#showConfirmReservationMenu#0;class#StageController#0" expanded="false" />
+            <element signature="e#5927#5928#0" expanded="true" />
+            <element signature="e#5983#5984#0" expanded="true" />
+            <element signature="e#6189#6190#0" expanded="true" />
+            <element signature="e#6243#6244#0" expanded="true" />
+            <element signature="e#6463#6464#0" expanded="true" />
+            <element signature="e#6513#6514#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/src/main/java/services/CustomerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/src/main/java/services/DriverService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/src/main/java/services/PartnerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/src/main/java/services/PriceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/src/main/java/services/ReservationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/PartnerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/PriceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/ReservationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/VanController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/DriverController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding>
+            <element signature="method#confirmDeposit#0;class#MainController#0" expanded="false" />
+            <element signature="method#addMeeting#0;class#MainController#0" expanded="false" />
+            <element signature="method#getDriverAvailable#0;class#MainController#0" expanded="false" />
+            <element signature="method#assignDriver#0;class#MainController#0" expanded="false" />
+            <element signature="method#editDriverSchedule#0;class#MainController#0" expanded="false" />
+            <element signature="method#addDriverJob#0;class#MainController#0" expanded="false" />
+            <element signature="method#getVanAvailable#0;class#MainController#0" expanded="false" />
+            <element signature="method#editVanSchedule#0;class#MainController#0" expanded="false" />
+            <element signature="method#addVanJob#0;class#MainController#0" expanded="false" />
           </folding>
         </state>
       </provider>

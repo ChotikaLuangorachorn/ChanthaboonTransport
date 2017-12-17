@@ -11,6 +11,13 @@ import java.io.IOException;
 public class StageController {
     private Stage primaryStage;
     private MainController controller;
+    // new Version
+    private CustomerController customerController;
+    private DriverController driverController;
+    private PartnerController partnerController;
+    private PriceController priceController;
+    private ReservationController reservationController;
+    private VanController vanController;
 
     public void showMainView(){
         System.out.println("Manager: showMainView");
@@ -138,12 +145,35 @@ public class StageController {
         }
     }
 
-
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
     public void setController(MainController controller) {
         this.controller = controller;
+    }
+
+    public void setCustomerController(CustomerController customerController) {
+        this.customerController = customerController;
+    }
+
+    public void setDriverController(DriverController driverController) {
+        this.driverController = driverController;
+    }
+
+    public void setPartnerController(PartnerController partnerController) {
+        this.partnerController = partnerController;
+    }
+
+    public void setPriceController(PriceController priceController) {
+        this.priceController = priceController;
+    }
+
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
+    }
+
+    public void setVanController(VanController vanController) {
+        this.vanController = vanController;
     }
 }
