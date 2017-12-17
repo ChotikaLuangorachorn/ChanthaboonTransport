@@ -9,7 +9,7 @@ public class CustomerSQLiteService extends SQLiteService implements CustomerServ
     }
 
     @Override
-    public void editCustomerInfo(Customer customer) {
+    public boolean editCustomerInfo(Customer customer) {
         System.out.println("request editCustomerInfo");
         System.out.println("customer = " + customer);
         String sql = String.format("update customer " +
@@ -27,6 +27,7 @@ public class CustomerSQLiteService extends SQLiteService implements CustomerServ
                 customer.getId());
         int result = executeUpdate(sql);
         System.out.println("result = " + result);
+        return result > 0;
     }
 
     @Override

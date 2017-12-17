@@ -52,10 +52,11 @@ public class PriceSQLiteService extends SQLiteService implements PriceService{
     }
 
     @Override
-    public void updatePriceFactor(PriceFactor factor) {
+    public boolean updatePriceFactor(PriceFactor factor) {
         System.out.println("request update price factor");
         String[] rtypes = {"day", "distance"};
         String[] vtype = {"VIP", "NORMAL"};
+        boolean isSuccess = true;
         for (int i=0; i<2; i++){
             for (int j=0; j<2; j++){
                 double base = factor.getFactor(i+1, (j+1)*10, 100);
@@ -63,9 +64,11 @@ public class PriceSQLiteService extends SQLiteService implements PriceService{
                 double free = factor.getFactor(i+1, (j+1)*10, 300);
                 String sql = createUpdatePriceFactorQuery(rtypes[i], vtype[j], base, rate, free);
                 System.out.println(sql);
-                executeUpdate(sql);
+                int result = executeUpdate(sql);
+                isSuccess = isSuccess && (result > 0);
             }
         }
+        return isSuccess;
     }
 
     @Override

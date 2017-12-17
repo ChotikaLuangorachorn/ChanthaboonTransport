@@ -75,7 +75,7 @@ public class DriverSQLiteService extends SQLiteService implements DriverService{
     }
 
     @Override
-    public void editDriver(Driver driver) {
+    public boolean editDriver(Driver driver) {
         String sql = String.format("update driver " +
                         "set driver_license='%s'," +
                         "date_of_birth='%s'," +
@@ -89,18 +89,20 @@ public class DriverSQLiteService extends SQLiteService implements DriverService{
                 driver.getFirstName(), driver.getLastName(), driver.getNickname(),
                 driver.getPhone(), driver.getAddress(), driver.getId());
         int result = executeUpdate(sql);
+        return result>0;
     }
 
     @Override
-    public void deleteDriver(Driver driver) {
-        deleteDriver(driver.getId());
+    public boolean deleteDriver(Driver driver) {
+        return deleteDriver(driver.getId());
     }
 
 
     @Override
-    public void deleteDriver(String citizenId) {
+    public boolean deleteDriver(String citizenId) {
         String sql = "delete from driver where citizen_id='" + citizenId + "'";
-        executeUpdate(sql);
+        int result = executeUpdate(sql);
+        return result > 0;
     }
 
     @Override
@@ -162,7 +164,7 @@ public class DriverSQLiteService extends SQLiteService implements DriverService{
     }
 
     @Override
-    public void deleteDriverSchedule(Schedule schedule) {
+    public boolean deleteDriverSchedule(Schedule schedule) {
         String sql;
         String startTime = formatter.format(schedule.getStartDate());
         String endTime = formatter.format(schedule.getEndDate());
@@ -177,11 +179,11 @@ public class DriverSQLiteService extends SQLiteService implements DriverService{
                     "reservation_id='" + schedule.getNote() + "'";
         }
         int result = executeUpdate(sql);
-        System.out.println("result = " + result);
+        return result > 0;
     }
 
     @Override
-    public void editDriverSchedule(Schedule oldSchedule, Schedule newSchedule) {
+    public boolean editDriverSchedule(Schedule oldSchedule, Schedule newSchedule) {
         String sql;
         if (Schedule.JOB.equals(newSchedule.getType())){
             String oldStartTime = formatter.format(oldSchedule.getStartDate());
@@ -201,18 +203,17 @@ public class DriverSQLiteService extends SQLiteService implements DriverService{
                     "reservation_id='" + oldSchedule.getNote() + "'");
         }
         int result = executeUpdate(sql);
-        System.out.println("result = " + result);
+        return result > 0;
     }
 
     @Override
-    public void addDriverJob(Driver driver, Date startDate, Date endDate, JobType type) {
+    public boolean addDriverJob(Driver driver, Date startDate, Date endDate, JobType type) {
         String startS = formatter.format(startDate);
         String endS = formatter.format(endDate);
         String sql = String.format("insert into driver_job_schedule " +
                         "values ('%s', '%s', '%s', '%s')",
                 driver.getId(), startS, endS, type.getId()+"");
-        System.out.println("sql = " + sql);
         int result = executeUpdate(sql);
-        System.out.println("result = " + result);
+        return result > 0;
     }
 }

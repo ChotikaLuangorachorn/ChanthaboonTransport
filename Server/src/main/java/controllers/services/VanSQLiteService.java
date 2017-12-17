@@ -108,7 +108,7 @@ public class VanSQLiteService extends SQLiteService implements VanService{
     }
 
     @Override
-    public void editVan(Van van) {
+    public boolean editVan(Van van) {
         System.out.println("request edit van");
         String sql = String.format("update van " +
                         "set name='%s', partner_id=%s, type='%s' " +
@@ -117,21 +117,21 @@ public class VanSQLiteService extends SQLiteService implements VanService{
                 (van.getPartnerId()==null)?"null":"'"+van.getPartnerId()+"'",
                 van.getType(), van.getRegisNumber());
         int result = executeUpdate(sql);
-        System.out.println(result);
+        return result > 0;
     }
 
     @Override
-    public void deleteVan(Van van) {
-        deleteVan(van.getRegisNumber());
+    public boolean deleteVan(Van van) {
+        return deleteVan(van.getRegisNumber());
     }
 
     @Override
-    public void deleteVan(String regisNumber) {
+    public boolean deleteVan(String regisNumber) {
         System.out.println("request deleteVan");
         System.out.println("regisNumber = " + regisNumber);
         String sql = "delete from van where regis_number='" + regisNumber + "'";
         int result = executeUpdate(sql);
-        System.out.println(result);
+        return result > 0;
     }
 
     @Override
@@ -190,7 +190,7 @@ public class VanSQLiteService extends SQLiteService implements VanService{
     }
 
     @Override
-    public void deleteVanSchedule(Schedule schedule) {
+    public boolean deleteVanSchedule(Schedule schedule) {
         String sql;
         String startTime = formatter.format(schedule.getStartDate());
         String endTime = formatter.format(schedule.getEndDate());
@@ -205,11 +205,11 @@ public class VanSQLiteService extends SQLiteService implements VanService{
                     "reservation_id='" + schedule.getNote() + "'";
         }
         int result = executeUpdate(sql);
-        System.out.println("result = " + result);
+        return result > 0;
     }
 
     @Override
-    public void editVanSchedule(Schedule oldSchedule, Schedule newSchedule) {
+    public boolean editVanSchedule(Schedule oldSchedule, Schedule newSchedule) {
         String sql;
         if (Schedule.JOB.equals(newSchedule.getType())){
             String oldStartTime = formatter.format(oldSchedule.getStartDate());
@@ -229,7 +229,7 @@ public class VanSQLiteService extends SQLiteService implements VanService{
                     "reservation_id='" + oldSchedule.getNote() + "'");
         }
         int result = executeUpdate(sql);
-        System.out.println("result = " + result);
+        return result > 0;
     }
 
     @Override
@@ -248,14 +248,14 @@ public class VanSQLiteService extends SQLiteService implements VanService{
     }
 
     @Override
-    public void addVanJob(Van van, Date startDate, Date endDate, JobType type) {
+    public boolean addVanJob(Van van, Date startDate, Date endDate, JobType type) {
         String startS = formatter.format(startDate);
         String endS = formatter.format(endDate);
         String sql = String.format("insert into van_job_schedule " +
                         "values ('%s', '%s', '%s', '%s')",
                 van.getRegisNumber(), startS, endS, type.getId()+"");
         int result = executeUpdate(sql);
-        System.out.println("result = " + result);
+        return result > 0;
     }
 
     private boolean checkPossibleDay(Destination destination, Date startDate, Date endDate){

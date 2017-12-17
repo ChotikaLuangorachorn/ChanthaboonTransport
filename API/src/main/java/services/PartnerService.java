@@ -7,7 +7,7 @@ import java.util.List;
 public interface PartnerService {
 
     List<Partner> getPartners();
-    void editPartner(Partner partner);
-    void deletePartner(Partner partner);
-    void deletePartner(String partnerId);
+    boolean editPartner(Partner partner);
+    boolean deletePartner(Partner partner);
+    boolean deletePartner(String partnerId);
 }
