@@ -8,11 +8,14 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cb9efd3-4d93-4e53-b370-51345613bcbf" name="Default" comment="Manager : Driver edit controller + bug">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/target/classes/MainApplication.class" afterPath="$PROJECT_DIR$/Customer/target/classes/MainApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/ManagerApplication.class" afterPath="$PROJECT_DIR$/Manager/target/classes/ManagerApplication.class" />
+    <list default="true" id="1cb9efd3-4d93-4e53-b370-51345613bcbf" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$2.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$3.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$4.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$5.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$6.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/src/main/java/MainApplication.java" afterPath="$PROJECT_DIR$/Customer/src/main/java/MainApplication.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Customer/src/main/java/view/ReservationView.java" afterPath="$PROJECT_DIR$/Customer/src/main/java/view/ReservationView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -54,8 +57,8 @@
       <file leaf-file-name="ReservationView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Customer/src/main/java/view/ReservationView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="171" column="40" lean-forward="true" selection-start-line="171" selection-start-column="40" selection-end-line="171" selection-end-column="40" />
+            <state relative-caret-position="144">
+              <caret line="159" column="53" lean-forward="false" selection-start-line="159" selection-start-column="53" selection-end-line="159" selection-end-column="53" />
               <folding>
                 <element signature="e#2454#2455#0" expanded="true" />
                 <element signature="e#2494#2495#0" expanded="true" />
@@ -493,6 +496,122 @@
       <recent name="E:\Projects\SA\ChanthaboonTransport" />
     </key>
   </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/src/main/java/controllers/StageController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/src/main/java/views/DriverMenuView.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/src/main/java/views/PartnerEditView.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/src/main/java/views/PartnerMenuView.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/src/main/resources/driver_detail_edit.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/src/main/resources/van_detail_edit.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/vanScheduler.db</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -671,13 +790,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1510813974093</updated>
-    </task>
-    <task id="LOCAL-00053" summary="API,Server: add attribute 'name' to Van">
-      <created>1511348047467</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1511348047467</updated>
     </task>
     <task id="LOCAL-00054" summary="DB: add suchart4">
       <created>1511348354464</created>
@@ -1015,7 +1127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513507098713</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="customer: fix bug time on same day">
+      <created>1513511742791</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1513511742791</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1103,7 +1222,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Server: implement editVanSchedule" />
     <MESSAGE value="Server: implement getDriverJobTypes" />
     <MESSAGE value="Server: implement deleteDriverSchedule, editDriverSchedule" />
     <MESSAGE value="API: add depositDate" />
@@ -1128,7 +1246,8 @@
     <MESSAGE value="Manager : add xml" />
     <MESSAGE value="Manager : Van edit controller" />
     <MESSAGE value="Manager : Driver edit controller + bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Manager : Driver edit controller + bug" />
+    <MESSAGE value="customer: fix bug time on same day" />
+    <option name="LAST_COMMIT_MESSAGE" value="customer: fix bug time on same day" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1520,8 +1639,6 @@
           <folding>
             <element signature="method#showVanMenuView#0;class#StageController#0" expanded="false" />
             <element signature="method#showReservationView#0;class#StageController#0" expanded="false" />
-            <element signature="e#6095#6096#0" expanded="false" />
-            <element signature="e#6151#6152#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1644,8 +1761,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Customer/src/main/java/view/ReservationView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="171" column="40" lean-forward="true" selection-start-line="171" selection-start-column="40" selection-end-line="171" selection-end-column="40" />
+        <state relative-caret-position="144">
+          <caret line="159" column="53" lean-forward="false" selection-start-line="159" selection-start-column="53" selection-end-line="159" selection-end-column="53" />
           <folding>
             <element signature="e#2454#2455#0" expanded="true" />
             <element signature="e#2494#2495#0" expanded="true" />
