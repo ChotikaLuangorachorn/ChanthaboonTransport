@@ -116,7 +116,7 @@ public class FeeMenuView implements Initializable{
                         lb_error.setText("กรอกข้อมูลผิดพลาด โปรดกรอกข้อมูลเป็นจำนวนตัวเลข");
                         tf_rateDst_normal.setStyle("-fx-border-color: Red");
                     }
-                    try {
+                    try{
                         rateDay_normal = Double.parseDouble(tf_rateDay_normal.getText());
                     }catch (Exception e){
                         lb_error.setText("กรอกข้อมูลผิดพลาด โปรดกรอกข้อมูลเป็นจำนวนตัวเลข");
@@ -180,6 +180,7 @@ public class FeeMenuView implements Initializable{
             textFields[i].setText(String.format("%,.2f",values[i]));
         }
     }
+    
     public void setPriceController(PriceController priceController) {
         this.priceController = priceController;
         initData();
