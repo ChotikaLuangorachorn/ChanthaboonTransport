@@ -61,6 +61,12 @@ public class ReservationView extends AnchorPane implements Initializable{
 
             }
         });
+        cbb_district.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                getVan();
+            }
+        });
     }
 
     public void setStartDatePicker(){
@@ -151,34 +157,51 @@ public class ReservationView extends AnchorPane implements Initializable{
             public void handle(ActionEvent event) {
                 LocalDate startLocal = dp_startDate.getValue();
                 LocalDate endLocal = dp_endStart.getValue();
-                amtVanTotal = new HashMap<>();
-                amtVanTotal.put(CustomerDatabaseManager.NORMAL, Integer.parseInt(spn_normal.getValue().toString()));
-                amtVanTotal.put(CustomerDatabaseManager.VIP, Integer.parseInt(spn_vip.getValue().toString()));
-                double price = 0;
+                if("".equals(ta_place.getText()) || (convertToDateStart(startLocal).equals(convertToDateEnd(endLocal)) && Integer.parseInt(spn_start_hr.getValue().toString()) > Integer.parseInt(spn_end_hr.getValue().toString()))){
+                    String s = "";
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("โปรดกรอกข้อมูลให่ถูกต้อง");
+                    alert.setHeaderText("โปรดสังเกต มีข้อมูลบางจุดที่ไม่ถูกต้อง");
+                    if("".equals(ta_place.getText())){
+                        s += "ท่านยังไม่กรอกข้อมูลสถานที่\n";
+                    }
+                    if (startLocal.equals(endLocal) && Integer.parseInt(spn_start_hr.getValue().toString()) > Integer.parseInt(spn_end_hr.getValue().toString())){
+                        s += "เวลาไปกลับของท่านไม่ถูกต้อง\n";
+                    }
+                    alert.setContentText(s);
+                    alert.showAndWait();
 
-                if (rd_daily.isSelected()){
-                    System.out.println("in daily Radio");
-                    System.out.println("priceController = " + priceController);
-                    price = priceController.getPrice(amtVanTotal, convertToDateStart(startLocal), convertToDateEnd(endLocal));
-                }else if(rd_distance.isSelected()){
-                    System.out.println("in distance Radio");
-                    price = priceController.getPrice(amtVanTotal, new Destination(cbb_province.getValue(), cbb_district.getValue(), ta_place.getText()));
+                }else{
+                    amtVanTotal = new HashMap<>();
+                    amtVanTotal.put(CustomerDatabaseManager.NORMAL, Integer.parseInt(spn_normal.getValue().toString()));
+                    amtVanTotal.put(CustomerDatabaseManager.VIP, Integer.parseInt(spn_vip.getValue().toString()));
+                    double price = 0;
+
+                    if (rd_daily.isSelected()){
+                        System.out.println("in daily Radio");
+                        System.out.println("priceController = " + priceController);
+                        price = priceController.getPrice(amtVanTotal, convertToDateStart(startLocal), convertToDateEnd(endLocal));
+                    }else if(rd_distance.isSelected()){
+                        System.out.println("in distance Radio");
+                        price = priceController.getPrice(amtVanTotal, new Destination(cbb_province.getValue(), cbb_district.getValue(), ta_place.getText()));
+                    }
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Confirm reservation");
+                    String s = "ยืนยันการจองรถตู้ของคุณ\n"
+                            +"จังหวัด:\t\t" + cbb_province.getValue() + "\n"
+                            +"อำเภอ/เขต:\t" + cbb_district.getValue() + "\n"
+                            +"จำนวนรถตู้:\tรถธรรมดา(15 ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.NORMAL) + " คัน\n\t\t\tรถVIP(9 ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.VIP) + " คัน\n"
+                            +"ราคาทั้งหมด:\t" + String.format("%,.2f",price) +" บาท" + "\n"
+                            +"ราคาค่ามัดจำ:\t" + String.format("%,.2f",price/2) +" บาท";
+                    alert.setContentText(s);
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+                        reservationController.addReservation(CustomerInfoManager.getInstance().getCustomer().getId(), amtVanTotal,
+                                new Destination(cbb_province.getValue(), cbb_district.getValue(), ta_place.getText()),convertToDateStart(startLocal), convertToDateEnd(endLocal), price);
+                        myReservationView.refreshReservationTable();
+                    }
                 }
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Confirm reservation");
-                String s = "ยืนยันการจองรถตู้ของคุณ\n"
-                        +"จังหวัด:\t\t" + cbb_province.getValue() + "\n"
-                        +"อำเภอ/เขต:\t" + cbb_district.getValue() + "\n"
-                        +"จำนวนรถตู้:\tรถธรรมดา(15 ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.NORMAL) + " คัน\n\t\t\tรถVIP(9 ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.VIP) + " คัน\n"
-                        +"ราคาทั้งหมด:\t" + String.format("%,.2f",price) +" บาท" + "\n"
-                        +"ราคาค่ามัดจำ:\t" + String.format("%,.2f",price/2) +" บาท";
-                alert.setContentText(s);
-                Optional<ButtonType> result = alert.showAndWait();
-                if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-                    reservationController.addReservation(CustomerInfoManager.getInstance().getCustomer().getId(), amtVanTotal,
-                            new Destination(cbb_province.getValue(), cbb_district.getValue(), ta_place.getText()),convertToDateStart(startLocal), convertToDateEnd(endLocal), price);
-                    myReservationView.refreshReservationTable();
-                }
+
 
             }
         });

@@ -20,7 +20,7 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.controller = new MainController();
+//        this.controller = new MainController();
         // new Version ----------
         this.customerController = new CustomerController();
         this.priceController = new PriceController();
