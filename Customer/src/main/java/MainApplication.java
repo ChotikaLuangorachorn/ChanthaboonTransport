@@ -31,6 +31,11 @@ public class MainApplication extends Application {
         this.sceneManager = new SceneManager();
         this.sceneManager.setStage(this.primaryStage);
         this.sceneManager.setController(this.controller);
+        // new Version
+        this.sceneManager.setCustomerController(customerController);
+        this.sceneManager.setPriceController(priceController);
+        this.sceneManager.setReservationController(reservationController);
+        this.sceneManager.setVanController(vanController);
         this.sceneManager.showLoginView();
         this.primaryStage.show();
     }
