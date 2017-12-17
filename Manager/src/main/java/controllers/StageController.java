@@ -101,7 +101,7 @@ public class StageController {
             loader.setLocation(getClass().getResource("/fee_menu.fxml"));
             AnchorPane mainLayout = loader.load();
             FeeMenuView feeMenuView = loader.getController();
-            feeMenuView.setController(controller);
+            feeMenuView.setPriceController(priceController);
             feeMenuView.setStageController(this);
 
             // Show the scene containing the root layout.
