@@ -157,7 +157,7 @@ public class ReservationView extends AnchorPane implements Initializable{
             public void handle(ActionEvent event) {
                 LocalDate startLocal = dp_startDate.getValue();
                 LocalDate endLocal = dp_endStart.getValue();
-                if("".equals(ta_place.getText()) || (convertToDateStart(startLocal).equals(convertToDateEnd(endLocal)) && Integer.parseInt(spn_start_hr.getValue().toString()) > Integer.parseInt(spn_end_hr.getValue().toString()))){
+                if("".equals(ta_place.getText()) || (startLocal.equals(endLocal) && Integer.parseInt(spn_start_hr.getValue().toString()) > Integer.parseInt(spn_end_hr.getValue().toString()))){
                     String s = "";
                     Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.setTitle("โปรดกรอกข้อมูลให่ถูกต้อง");
