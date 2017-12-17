@@ -117,6 +117,16 @@ public class VanJobAddView implements Initializable {
         }
         return null;
     }
+    public void setTimeSpinner(){
+        Date dateNow = new Date();
+        Spinner<Integer> hr = new Spinner<>(dateNow.getHours(),23,dateNow.getHours());
+        sp_startHr.setValueFactory(hr.getValueFactory());
+        sp_endHr.setValueFactory(hr.getValueFactory());
+
+        Spinner<Integer> min = new Spinner<>(dateNow.getMinutes(),59,dateNow.getMinutes());
+        sp_startMin.setValueFactory(min.getValueFactory());
+        sp_endMin.setValueFactory(min.getValueFactory());
+    }
 
     public void setVanController(VanController vanController) {
         this.vanController = vanController;
@@ -130,6 +140,7 @@ public class VanJobAddView implements Initializable {
             setStartDatePicker();
             setEndDatePicker();
             onClickStartDatePicker();
+            setTimeSpinner();
         }
     }
 
