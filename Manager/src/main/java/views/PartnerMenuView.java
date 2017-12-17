@@ -1,6 +1,7 @@
 package views;
 
 import controllers.MainController;
+import controllers.PartnerController;
 import controllers.StageController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -37,7 +38,7 @@ public class PartnerMenuView  implements Initializable{
     @FXML private Button btn_deletePartner, btn_editPartner;
     @FXML private Label lbCometoMain;
 
-    private MainController controller;
+    private PartnerController partnerController;
     private StageController stageController;
     private List<Partner> partners;
     final HBox hBox = new HBox();
@@ -75,7 +76,7 @@ public class PartnerMenuView  implements Initializable{
 
                     Optional<ButtonType> result = alert.showAndWait();
                     if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-                        controller.deletePartner(partner);
+                        partnerController.deletePartner(partner);
                         table_partner.getSelectionModel().clearSelection();
                         refreshPartnerTable();
                 }
@@ -95,7 +96,7 @@ public class PartnerMenuView  implements Initializable{
                         loader.setLocation(getClass().getResource("/partner_edit.fxml"));
                         Pane detail = loader.load();
                         PartnerEditView partnerEditView = loader.getController();
-                        partnerEditView.setController(controller);
+                        partnerEditView.setPartnerController(partnerController);
                         partnerEditView.setPartner(partner);
                         partnerEditView.setPartnerMenuView(PartnerMenuView.this);
 
@@ -117,11 +118,11 @@ public class PartnerMenuView  implements Initializable{
     public void initCol(){
         col_id.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Partner,String>, ObservableValue<String>>() {
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Partner,String> partner) {
-                String id = String.format("%05d",partner.getValue().getId());
+                String id = String.format("%05d",Integer.parseInt(partner.getValue().getId()));
                 return new SimpleStringProperty(id);
             }
         });
-        col_name.setCellValueFactory(new PropertyValueFactory<Partner,String>("name"));
+        col_name.setCellValueFactory(new PropertyValueFactory<Partner,String>("firstName"));
         col_company.setCellValueFactory(new PropertyValueFactory<Partner,String>("company"));
         col_companyPhone.setCellValueFactory(new PropertyValueFactory<Partner,String>("companyPhone"));
 
@@ -134,11 +135,11 @@ public class PartnerMenuView  implements Initializable{
     }
 
     public void refreshPartnerTable(){
-        this.partners = controller.getPartners();
+        this.partners = partnerController.getPartners();
         initData();
     }
-    public void setController(MainController controller) {
-        this.controller = controller;
+    public void setPartnerController(PartnerController partnerController) {
+        this.partnerController = partnerController;
         refreshPartnerTable();
     }
 

@@ -29,12 +29,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btn_cancel" layoutX="228.0" layoutY="155.0" mnemonicParsing="false" text="ยกเลิก">
+      <Button fx:id="btn_cancel" layoutX="38.0" layoutY="148.0" mnemonicParsing="false" text="ยกเลิก">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_confirm" layoutX="37.0" layoutY="155.0" mnemonicParsing="false" text="ยืนยัน">
+      <Button fx:id="btn_confirm" layoutX="231.0" layoutY="148.0" mnemonicParsing="false" text="ยืนยัน">
          <font>
             <Font size="14.0" />
          </font>

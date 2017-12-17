@@ -123,8 +123,8 @@ public class DriverMenuView implements Initializable{
     }
 
     public void initCol(){
-        col_fName.setCellValueFactory(new PropertyValueFactory<Driver,String>("firstname"));
-        col_lName.setCellValueFactory(new PropertyValueFactory<Driver,String>("lastname"));
+        col_fName.setCellValueFactory(new PropertyValueFactory<Driver,String>("firstName"));
+        col_lName.setCellValueFactory(new PropertyValueFactory<Driver,String>("lastName"));
         col_nName.setCellValueFactory(new PropertyValueFactory<Driver,String>("nickname"));
         col_phone.setCellValueFactory(new PropertyValueFactory<Driver,String>("phone"));
         col_license.setCellValueFactory(new PropertyValueFactory<Driver,String>("driverLicense"));

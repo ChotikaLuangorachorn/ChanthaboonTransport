@@ -119,7 +119,7 @@ public class StageController {
             loader.setLocation(getClass().getResource("/partner_menu.fxml"));
             AnchorPane mainLayout = loader.load();
             PartnerMenuView partnerMenuView = loader.getController();
-            partnerMenuView.setController(controller);
+            partnerMenuView.setPartnerController(partnerController);
             partnerMenuView.setStageController(this);
 
             // Show the scene containing the root layout.
