@@ -145,12 +145,27 @@ public class PageConfirmView implements Initializable {
         btnConfirm.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(cbbIsDeposit.getValue().toString().equals("ยังไม่ชำระค่ามัดจำ")
+                if(cbbIsDeposit.getValue().toString().equals("ยังไม่ชำระ")
                         || (reservation.getAmtVip() != ccbSelectVanVip.getCheckModel().getCheckedItems().size())
                         || (reservation.getAmtNormal() != ccbSelectVanNormal.getCheckModel().getCheckedItems().size())
                         || ((reservation.getAmtNormal() + reservation.getAmtVip()) != ccbSelectDriver.getCheckModel().getCheckedItems().size())){
 
-                        showWarningDialog();
+                    String s = "";
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("ไม่สามารถยืนยันได้");
+                    alert.setHeaderText("ข้อมูลไม่ครบถ้วน");
+
+                    if(cbbIsDeposit.getValue().toString().equals("ยังไม่ชำระ")){
+                        s += "ท่านยังไม่ได้เปลี่ยนสถานะค่ามัดจำ\n";
+                    }
+                    if(reservation.getAmtVip() != ccbSelectVanVip.getCheckModel().getCheckedItems().size() || reservation.getAmtNormal() != ccbSelectVanNormal.getCheckModel().getCheckedItems().size()){
+                        s += "ท่านเลือกจำนวนรถ ไม่ตรงตามที่ต้องการ\n";
+                    }
+                    if((reservation.getAmtNormal() + reservation.getAmtVip()) != ccbSelectDriver.getCheckModel().getCheckedItems().size()){
+                        s += "ท่านเลือกจำนวนคนขับ ไม่ตรงตามที่ต้องการ\n";
+                    }
+                    alert.setContentText(s);
+                    alert.showAndWait();
                 }else{
                     LocalDate localDate = dpkDeposit.getValue();
                     Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
@@ -187,13 +202,6 @@ public class PageConfirmView implements Initializable {
             }
         });
 
-    }
-    public void showWarningDialog(){
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("ไม่สามารถยืนยันได้");
-        alert.setHeaderText("ข้อมูลไม่ครบถ้วน");
-        alert.setContentText("กรุณาตรวจสอบข้อมูลให้ครบถ้วน ก่อนกดยืนยัน");
-        alert.showAndWait();
     }
 
     public void showConfirmDialog(){

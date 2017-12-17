@@ -10,11 +10,13 @@ import utils.ReservationDateFormatter;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class MyReservationDetailView implements Initializable
 {
-    @FXML private Label lb_reserveId, lb_province, lb_district, lb_startDate, lb_startTime, lb_endDate, lb_endTime, lb_normalAmt, lb_vipAmt, lb_reserveDate, lb_reserveTime, lb_price,lb_deposit,lb_isDeposited, lb_meetingDate, lb_meetingTime;
+    @FXML private Label lb_reserveId, lb_province, lb_district, lb_startDate, lb_startTime, lb_endDate, lb_endTime, lb_normalAmt, lb_vipAmt, lb_reserveDate, lb_reserveTime, lb_price,lb_deposit,lb_isDeposited, lb_meetingDate, lb_meetingTime, lbBeforeDeposit;
     @FXML private TextArea ta_place, ta_meetingPlace;
     private Reservation reservation;
 
@@ -43,6 +45,13 @@ public class MyReservationDetailView implements Initializable
         String place = (reservation.getDestination().getPlace()!=null)?reservation.getDestination().getPlace():"-";
         String meetingPlace = (reservation.getMeetingPlace()!=null)?reservation.getMeetingPlace():"-";
 
+        Date beforeDate = reservation.getReserveDate();
+        int day = 3;
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(beforeDate);
+        calendar.add(Calendar.DATE, day);
+        String stringBeforeDate = ReservationDateFormatter.getInstance().getUiDateFormatter().format(calendar.getTime());
+
         lb_reserveId.setText(id);
         lb_province.setText(province);
         lb_district.setText(district);
@@ -61,6 +70,7 @@ public class MyReservationDetailView implements Initializable
         ta_meetingPlace.setText(meetingPlace);
         lb_meetingDate.setText(meetingDate);
         lb_meetingTime.setText(meetingTime);
+        lbBeforeDeposit.setText(stringBeforeDate);
 
     }
 
