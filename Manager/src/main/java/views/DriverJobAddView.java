@@ -9,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import models.Driver;
@@ -40,6 +41,28 @@ public class DriverJobAddView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    }
+    public void onClickSpinnerStartHr(){
+        sp_startHr.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+                Spinner<Integer> s = new Spinner<>((Integer)sp_startHr.getValue(),23,(Integer) sp_startHr.getValue());
+                sp_endHr.setValueFactory(s.getValueFactory());
+                }
+            }
+        });
+    }
+    public void onClickSpinnerStartMin(){
+        sp_startMin.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+                    Spinner<Integer> s = new Spinner<>((Integer)sp_startMin.getValue(),59,(Integer) sp_startMin.getValue());
+                    sp_endMin.setValueFactory(s.getValueFactory());
+                }
+            }
+        });
     }
     public void onClickSubmit(){
         btn_submit.setOnAction(new EventHandler<ActionEvent>() {
@@ -83,6 +106,26 @@ public class DriverJobAddView implements Initializable {
             }
         });
     }
+    public void onClickEndDatePicker(){
+        dp_endDate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (!dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+                    Spinner<Integer> hr = new Spinner<>(0,23,(Integer)sp_startHr.getValue());
+                    sp_endHr.setValueFactory(hr.getValueFactory());
+
+                    Spinner<Integer> min = new Spinner<>(0,59,(Integer)sp_startMin.getValue());
+                    sp_endMin.setValueFactory(min.getValueFactory());
+                }else {
+                    Spinner<Integer> hr = new Spinner<>((Integer)sp_startHr.getValue(),23,(Integer)sp_startHr.getValue());
+                    sp_endHr.setValueFactory(hr.getValueFactory());
+
+                    Spinner<Integer> min = new Spinner<>((Integer)sp_startMin.getValue(),59,(Integer)sp_startMin.getValue());
+                    sp_endMin.setValueFactory(min.getValueFactory());
+                }
+            }
+        });
+    }
     public void setStartDatePicker(){
         dp_startDate.setValue(LocalDate.now());
         dp_startDate.setDayCellFactory(param -> new DateCell(){
@@ -97,16 +140,17 @@ public class DriverJobAddView implements Initializable {
 //        dp_endDate.setValue(LocalDate.now());
         LocalDate startLocal = dp_startDate.getValue();
         Date minimumDate = convertToDateStart(startLocal);
-        LocalDate minimun = minimumDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        dp_endDate.setValue(minimun);
+        LocalDate minimum = minimumDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        dp_endDate.setValue(minimum);
         dp_endDate.setDayCellFactory(param -> new DateCell(){
             @Override
             public void updateItem(LocalDate item, boolean empty) {
                 super.updateItem(item, empty);
-                setDisable(empty || item.isBefore(minimun));
+                setDisable(empty || item.isBefore(minimum));
             }
         });
     }
+
     public Date convertToDateStart(LocalDate localDate){
         try {
             Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
@@ -123,15 +167,29 @@ public class DriverJobAddView implements Initializable {
     public void setDriverController(DriverController driverController) {
         this.driverController = driverController;
     }
+    public void setTimeSpinner(){
+        Date dateNow = new Date();
+        Spinner<Integer> hr = new Spinner<>(dateNow.getHours(),23,dateNow.getHours());
+        sp_startHr.setValueFactory(hr.getValueFactory());
+        sp_endHr.setValueFactory(hr.getValueFactory());
 
+        Spinner<Integer> min = new Spinner<>(dateNow.getMinutes(),59,dateNow.getMinutes());
+        sp_startMin.setValueFactory(min.getValueFactory());
+        sp_endMin.setValueFactory(min.getValueFactory());
+    }
     public void setDriver(Driver driver){
         this.driver = driver;
         if(dp_startDate!=null){
             onClickCancelEdit();
             onClickSubmit();
+            setTimeSpinner();
+            onClickStartDatePicker();
+            onClickEndDatePicker();
+            onClickSpinnerStartHr();
+            onClickSpinnerStartMin();
             setStartDatePicker();
             setEndDatePicker();
-            onClickStartDatePicker();
+
         }
     }
 

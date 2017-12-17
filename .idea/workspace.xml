@@ -9,28 +9,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cb9efd3-4d93-4e53-b370-51345613bcbf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverDetailView$3.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverDetailView$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverDetailView$4.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverDetailView$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverDetailView$5.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverDetailView$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverDetailView$6.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverDetailView$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverDetailView$7.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverDetailView$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverDetailView.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverDetailView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverMenuView$2.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverMenuView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverMenuView.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverMenuView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverReservationEditView$1.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverReservationEditView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverReservationEditView$2.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverReservationEditView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverReservationEditView.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverReservationEditView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/VanDetailView$3.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/VanDetailView$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/VanDetailView$4.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/VanDetailView$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/VanDetailView$5.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/VanDetailView$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/VanDetailView$6.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/VanDetailView$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/VanDetailView$7.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/VanDetailView$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/VanDetailView.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/VanDetailView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/VanReservationEditView.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/VanReservationEditView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobAddView$1.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobAddView$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobAddView$2.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobAddView$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobAddView$3.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobAddView$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobAddView$4.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobAddView$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobAddView$5.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobAddView$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobAddView.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobAddView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobEditView$1.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobEditView$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobEditView$2.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobEditView$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobEditView.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/DriverJobEditView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/VanJobAddView.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/VanJobAddView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/VanJobEditView$1.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/VanJobEditView$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/VanJobEditView$2.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/VanJobEditView$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/target/classes/views/VanJobEditView.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/VanJobEditView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/src/main/java/views/DriverDetailView.java" afterPath="$PROJECT_DIR$/Manager/src/main/java/views/DriverDetailView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/src/main/java/views/DriverMenuView.java" afterPath="$PROJECT_DIR$/Manager/src/main/java/views/DriverMenuView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/src/main/java/views/VanDetailView.java" afterPath="$PROJECT_DIR$/Manager/src/main/java/views/VanDetailView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/src/main/java/views/DriverJobAddView.java" afterPath="$PROJECT_DIR$/Manager/src/main/java/views/DriverJobAddView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/src/main/java/views/DriverJobEditView.java" afterPath="$PROJECT_DIR$/Manager/src/main/java/views/DriverJobEditView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/src/main/java/views/VanJobAddView.java" afterPath="$PROJECT_DIR$/Manager/src/main/java/views/VanJobAddView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/src/main/java/views/VanJobEditView.java" afterPath="$PROJECT_DIR$/Manager/src/main/java/views/VanJobEditView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vanScheduler.db" afterPath="$PROJECT_DIR$/vanScheduler.db" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,21 +45,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="DriverJobAddView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverJobAddView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="169" column="0" lean-forward="false" selection-start-line="169" selection-start-column="0" selection-end-line="178" selection-end-column="5" />
+              <folding>
+                <element signature="method#onClickSpinnerStartHr#0;class#DriverJobAddView#0" expanded="false" />
+                <element signature="method#onClickSpinnerStartMin#0;class#DriverJobAddView#0" expanded="false" />
+                <element signature="method#onClickSubmit#0;class#DriverJobAddView#0" expanded="false" />
+                <element signature="method#onClickCancelEdit#0;class#DriverJobAddView#0" expanded="false" />
+                <element signature="e#4195#4196#0" expanded="true" />
+                <element signature="e#4245#4246#0" expanded="true" />
+                <element signature="method#onClickEndDatePicker#0;class#DriverJobAddView#0" expanded="false" />
+                <element signature="method#convertToDateStart#0;class#DriverJobAddView#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DriverJobEditView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverJobEditView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-247">
-              <caret line="83" column="16" lean-forward="false" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
+            <state relative-caret-position="50">
+              <caret line="140" column="46" lean-forward="true" selection-start-line="140" selection-start-column="46" selection-end-line="140" selection-end-column="46" />
               <folding>
-                <element signature="e#3328#3329#0" expanded="true" />
-                <element signature="e#3378#3379#0" expanded="true" />
+                <element signature="method#initialize#0;class#DriverJobEditView#0" expanded="false" />
+                <element signature="method#onClickSubmit#0;class#DriverJobEditView#0" expanded="false" />
+                <element signature="method#onClickCancelEdit#0;class#DriverJobEditView#0" expanded="false" />
+                <element signature="e#3366#3367#0" expanded="true" />
+                <element signature="e#3416#3417#0" expanded="true" />
+                <element signature="method#onClickEndDatePicker#0;class#DriverJobEditView#0" expanded="false" />
+                <element signature="method#onClickSpinnerStartHr#0;class#DriverJobEditView#0" expanded="false" />
+                <element signature="method#onClickSpinnerStartMin#0;class#DriverJobEditView#0" expanded="false" />
                 <element signature="method#setDriverController#0;class#DriverJobEditView#0" expanded="false" />
-                <element signature="e#3706#3707#0" expanded="true" />
-                <element signature="e#3761#3762#0" expanded="true" />
-                <element signature="e#4536#4781#0" expanded="true" />
-                <element signature="e#4780#4781#0" expanded="true" />
-                <element signature="e#5906#6143#0" expanded="true" />
-                <element signature="e#6142#6143#0" expanded="true" />
+                <element signature="method#setStartDay#0;class#DriverJobEditView#0" expanded="false" />
+                <element signature="method#setEndDay#0;class#DriverJobEditView#0" expanded="false" />
                 <element signature="method#convertToDateStart#0;class#DriverJobEditView#0" expanded="false" />
                 <element signature="method#setStatus#0;class#DriverJobEditView#0" expanded="false" />
               </folding>
@@ -70,124 +88,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DriverReservationEditView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverReservationEditView.java">
+      <file leaf-file-name="VanJobEditView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/VanJobEditView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="102" column="33" lean-forward="true" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="33" />
+            <state relative-caret-position="237">
+              <caret line="175" column="41" lean-forward="false" selection-start-line="175" selection-start-column="41" selection-end-line="175" selection-end-column="41" />
               <folding>
-                <element signature="method#onClickCancelEdit#0;class#DriverReservationEditView#0" expanded="false" />
-                <element signature="method#setDriverController#0;class#DriverReservationEditView#0" expanded="false" />
-                <element signature="method#setStartDay#0;class#DriverReservationEditView#0" expanded="false" />
-                <element signature="method#setEndDay#0;class#DriverReservationEditView#0" expanded="false" />
+                <element signature="method#onClickSpinnerStartHr#0;class#VanJobEditView#0" expanded="false" />
+                <element signature="method#onClickSpinnerStartMin#0;class#VanJobEditView#0" expanded="false" />
+                <element signature="method#onClickCancelEdit#0;class#VanJobEditView#0" expanded="false" />
+                <element signature="method#onClickSubmit#0;class#VanJobEditView#0" expanded="false" />
+                <element signature="method#onClickStartDatePicker#0;class#VanJobEditView#0" expanded="false" />
+                <element signature="method#setTimeSpinner#0;class#VanJobEditView#0" expanded="false" />
+                <element signature="method#setStartDay#0;class#VanJobEditView#0" expanded="false" />
+                <element signature="e#7400#7637#0" expanded="true" />
+                <element signature="e#7636#7637#0" expanded="true" />
+                <element signature="method#convertToDateStart#0;class#VanJobEditView#0" expanded="false" />
+                <element signature="method#setStatus#0;class#VanJobEditView#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="driver_detail.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Manager/src/main/resources/driver_detail.fxml">
+      <file leaf-file-name="VanJobAddView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/VanJobAddView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-153">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="driver_job_edit.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Manager/src/main/resources/driver_job_edit.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="68" column="82" lean-forward="false" selection-start-line="68" selection-start-column="82" selection-end-line="68" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VanReservationEditView.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/VanReservationEditView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="91" column="37" lean-forward="true" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DriverDetailEditView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverDetailEditView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="95" column="36" lean-forward="false" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DriverDetailView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverDetailView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1057">
-              <caret line="204" column="21" lean-forward="true" selection-start-line="204" selection-start-column="21" selection-end-line="211" selection-end-column="21" />
+            <state relative-caret-position="67">
+              <caret line="125" column="91" lean-forward="true" selection-start-line="125" selection-start-column="91" selection-end-line="125" selection-end-column="91" />
               <folding>
-                <element signature="method#onClickAddSchedule#0;class#DriverDetailView#0" expanded="false" />
-                <element signature="method#initCol#0;class#DriverDetailView#0" expanded="false" />
-                <element signature="method#initData#0;class#DriverDetailView#0" expanded="false" />
-                <element signature="method#refreshScheduleTable#0;class#DriverDetailView#0" expanded="false" />
-                <element signature="method#setReservationController#0;class#DriverDetailView#0" expanded="false" />
-                <element signature="method#setDriver#0;class#DriverDetailView#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VanDetailView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/VanDetailView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="848">
-              <caret line="187" column="54" lean-forward="true" selection-start-line="187" selection-start-column="54" selection-end-line="187" selection-end-column="54" />
-              <folding>
-                <element signature="method#onClickEditVan#0;class#VanDetailView#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DriverMenuView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverMenuView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="86" column="21" lean-forward="true" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
-              <folding>
-                <element signature="method#onDoubleClickDriver#0;class#DriverMenuView#0" expanded="false" />
-                <element signature="method#initCol#0;class#DriverMenuView#0" expanded="false" />
-                <element signature="method#initData#0;class#DriverMenuView#0" expanded="false" />
-                <element signature="method#refreshDriverTable#0;class#DriverMenuView#0" expanded="false" />
-                <element signature="method#setDriverController#0;class#DriverMenuView#0" expanded="false" />
-                <element signature="method#setReservationController#0;class#DriverMenuView#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DriverJobAddView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverJobAddView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="77" column="4" lean-forward="false" selection-start-line="77" selection-start-column="4" selection-end-line="84" selection-end-column="5" />
-              <folding>
-                <element signature="method#onClickSubmit#0;class#DriverJobAddView#0" expanded="false" />
-                <element signature="method#onClickCancelEdit#0;class#DriverJobAddView#0" expanded="false" />
-                <element signature="method#onClickStartDatePicker#0;class#DriverJobAddView#0" expanded="false" />
-                <element signature="method#setStartDatePicker#0;class#DriverJobAddView#0" expanded="false" />
-                <element signature="method#convertToDateStart#0;class#DriverJobAddView#0" expanded="false" />
+                <element signature="method#onClickSubmit#0;class#VanJobAddView#0" expanded="false" />
+                <element signature="method#onClickCancelEdit#0;class#VanJobAddView#0" expanded="false" />
+                <element signature="method#onClickStartDatePicker#0;class#VanJobAddView#0" expanded="false" />
+                <element signature="method#setStartDatePicker#0;class#VanJobAddView#0" expanded="false" />
+                <element signature="method#setEndDatePicker#0;class#VanJobAddView#0" expanded="false" />
+                <element signature="method#convertToDateStart#0;class#VanJobAddView#0" expanded="false" />
+                <element signature="method#setStatus#0;class#VanJobAddView#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -230,7 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/API/src/main/java/services/PriceService.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/controllers/delegations/CustomerExecutor.java" />
         <option value="$PROJECT_DIR$/Server/src/main/java/controllers/services/CustomerSQLiteService.java" />
@@ -272,15 +206,16 @@
         <option value="$PROJECT_DIR$/Manager/src/main/java/views/ReservationEditView.java" />
         <option value="$PROJECT_DIR$/Manager/src/main/java/views/ReservationMenuView.java" />
         <option value="$PROJECT_DIR$/Customer/src/main/java/view/MyReservationView.java" />
-        <option value="$PROJECT_DIR$/Manager/src/main/java/views/VanJobAddView.java" />
-        <option value="$PROJECT_DIR$/Manager/src/main/java/views/DriverJobAddView.java" />
-        <option value="$PROJECT_DIR$/Manager/src/main/java/views/DriverJobEditView.java" />
-        <option value="$PROJECT_DIR$/Manager/src/main/java/views/VanJobEditView.java" />
         <option value="$PROJECT_DIR$/Manager/src/main/java/views/DriverReservationEditView.java" />
         <option value="$PROJECT_DIR$/Manager/src/main/java/views/VanReservationEditView.java" />
         <option value="$PROJECT_DIR$/Manager/src/main/java/views/DriverMenuView.java" />
         <option value="$PROJECT_DIR$/Manager/src/main/java/views/DriverDetailView.java" />
         <option value="$PROJECT_DIR$/Manager/src/main/java/views/VanDetailView.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/resources/driver_job_add.fxml" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/views/DriverJobEditView.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/views/VanJobEditView.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/views/DriverJobAddView.java" />
+        <option value="$PROJECT_DIR$/Manager/src/main/java/views/VanJobAddView.java" />
       </list>
     </option>
   </component>
@@ -376,6 +311,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="API" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
@@ -868,13 +812,6 @@
       <option name="presentableId" value="Default" />
       <updated>1510813974093</updated>
     </task>
-    <task id="LOCAL-00062" summary="Server: implement getVan">
-      <created>1511427469574</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1511427469574</updated>
-    </task>
     <task id="LOCAL-00063" summary="Server: refactor with van manager">
       <created>1511430577023</created>
       <option name="number" value="00063" />
@@ -1211,7 +1148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513517116305</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Manger: debug Job / reservation after dateNow">
+      <created>1513518005864</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1513518005864</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1229,13 +1173,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730263" sideWeight="0.4935553" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39144737" sideWeight="0.5327605" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3536184" sideWeight="0.5327605" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40296805" sideWeight="0.47959185" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14309211" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3618421" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2598684" sideWeight="0.52040815" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1276,6 +1220,35 @@
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40296805" sideWeight="0.47959185" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.49785176" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25725028" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997722" sideWeight="0.72502685" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.4935553" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730263" sideWeight="0.5327605" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39794755" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3127854" sideWeight="0.52040815" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17883995" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762557" sideWeight="0.4914071" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -1317,7 +1290,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Server: fixbug editDriverSchedule" />
     <MESSAGE value="fixbug getPrice with destination" />
     <MESSAGE value="Server: fixbug getPrice, delete reservation and its schedule" />
     <MESSAGE value="Server: implement getMinimumDate" />
@@ -1342,39 +1314,16 @@
     <MESSAGE value="Manger: edit default og date" />
     <MESSAGE value="Manger: edit default of date" />
     <MESSAGE value="Manger: edit show list of reservation after dateNow when edit reservation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Manger: edit show list of reservation after dateNow when edit reservation" />
+    <MESSAGE value="Manger: debug Job / reservation after dateNow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Manger: debug Job / reservation after dateNow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="20" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="63" selection-end-column="5" />
-          <folding>
-            <element signature="method#getMinimumDate#0;class#MainController#0" expanded="false" />
-            <element signature="method#getVanAvailable#0;class#MainController#0" expanded="false" />
-            <element signature="method#getPrice#0;class#MainController#0" expanded="false" />
-            <element signature="method#getPrice#1;class#MainController#0" expanded="false" />
-            <element signature="method#addReservation#0;class#MainController#0" expanded="false" />
-            <element signature="method#editCustomerInfo#0;class#MainController#0" expanded="false" />
-            <element signature="method#changeCustomerPassword#0;class#MainController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/SceneManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="76" column="58" lean-forward="false" selection-start-line="76" selection-start-column="58" selection-end-line="76" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/CustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1699,42 +1648,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/VanJobAddView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="132" column="9" lean-forward="false" selection-start-line="132" selection-start-column="9" selection-end-line="132" selection-end-column="9" />
-          <folding>
-            <element signature="method#onClickSubmit#0;class#VanJobAddView#0" expanded="false" />
-            <element signature="method#onClickCancelEdit#0;class#VanJobAddView#0" expanded="false" />
-            <element signature="e#3027#3028#0" expanded="true" />
-            <element signature="e#3077#3078#0" expanded="true" />
-            <element signature="method#convertToDateStart#0;class#VanJobAddView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/main/java/FakeMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/VanJobEditView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="145" column="11" lean-forward="true" selection-start-line="145" selection-start-column="11" selection-end-line="145" selection-end-column="11" />
-          <folding>
-            <element signature="method#onClickSubmit#0;class#VanJobEditView#0" expanded="false" />
-            <element signature="e#3242#3243#0" expanded="true" />
-            <element signature="e#3292#3293#0" expanded="true" />
-            <element signature="e#4312#4557#0" expanded="true" />
-            <element signature="e#4556#4557#0" expanded="true" />
-            <element signature="e#5681#5918#0" expanded="true" />
-            <element signature="e#5917#5918#0" expanded="true" />
-            <element signature="method#convertToDateStart#0;class#VanJobEditView#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1757,99 +1675,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/resources/driver_job_edit.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="68" column="82" lean-forward="false" selection-start-line="68" selection-start-column="82" selection-end-line="68" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverJobAddView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="77" column="4" lean-forward="false" selection-start-line="77" selection-start-column="4" selection-end-line="84" selection-end-column="5" />
-          <folding>
-            <element signature="method#onClickSubmit#0;class#DriverJobAddView#0" expanded="false" />
-            <element signature="method#onClickCancelEdit#0;class#DriverJobAddView#0" expanded="false" />
-            <element signature="method#onClickStartDatePicker#0;class#DriverJobAddView#0" expanded="false" />
-            <element signature="method#setStartDatePicker#0;class#DriverJobAddView#0" expanded="false" />
-            <element signature="method#convertToDateStart#0;class#DriverJobAddView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverDetailEditView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="95" column="36" lean-forward="false" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/VanDetailView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="848">
-          <caret line="187" column="54" lean-forward="true" selection-start-line="187" selection-start-column="54" selection-end-line="187" selection-end-column="54" />
-          <folding>
-            <element signature="method#onClickEditVan#0;class#VanDetailView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverMenuView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="86" column="21" lean-forward="true" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
-          <folding>
-            <element signature="method#onDoubleClickDriver#0;class#DriverMenuView#0" expanded="false" />
-            <element signature="method#initCol#0;class#DriverMenuView#0" expanded="false" />
-            <element signature="method#initData#0;class#DriverMenuView#0" expanded="false" />
-            <element signature="method#refreshDriverTable#0;class#DriverMenuView#0" expanded="false" />
-            <element signature="method#setDriverController#0;class#DriverMenuView#0" expanded="false" />
-            <element signature="method#setReservationController#0;class#DriverMenuView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverDetailView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1057">
-          <caret line="204" column="21" lean-forward="true" selection-start-line="204" selection-start-column="21" selection-end-line="211" selection-end-column="21" />
-          <folding>
-            <element signature="method#onClickAddSchedule#0;class#DriverDetailView#0" expanded="false" />
-            <element signature="method#initCol#0;class#DriverDetailView#0" expanded="false" />
-            <element signature="method#initData#0;class#DriverDetailView#0" expanded="false" />
-            <element signature="method#refreshScheduleTable#0;class#DriverDetailView#0" expanded="false" />
-            <element signature="method#setReservationController#0;class#DriverDetailView#0" expanded="false" />
-            <element signature="method#setDriver#0;class#DriverDetailView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverJobEditView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-247">
-          <caret line="83" column="16" lean-forward="false" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
-          <folding>
-            <element signature="e#3328#3329#0" expanded="true" />
-            <element signature="e#3378#3379#0" expanded="true" />
-            <element signature="method#setDriverController#0;class#DriverJobEditView#0" expanded="false" />
-            <element signature="e#3706#3707#0" expanded="true" />
-            <element signature="e#3761#3762#0" expanded="true" />
-            <element signature="e#4536#4781#0" expanded="true" />
-            <element signature="e#4780#4781#0" expanded="true" />
-            <element signature="e#5906#6143#0" expanded="true" />
-            <element signature="e#6142#6143#0" expanded="true" />
-            <element signature="method#convertToDateStart#0;class#DriverJobEditView#0" expanded="false" />
-            <element signature="method#setStatus#0;class#DriverJobEditView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverReservationEditView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
@@ -1865,9 +1690,165 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/VanReservationEditView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
+        <state relative-caret-position="365">
           <caret line="91" column="37" lean-forward="true" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/resources/driver_job_add.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/resources/driver_job_edit.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="68" column="82" lean-forward="false" selection-start-line="68" selection-start-column="82" selection-end-line="68" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverDetailEditView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="95" column="36" lean-forward="false" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/VanDetailView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="183" column="47" lean-forward="false" selection-start-line="183" selection-start-column="47" selection-end-line="183" selection-end-column="47" />
+          <folding>
+            <element signature="method#onClickEditVan#0;class#VanDetailView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/src/main/java/utils/ReservationDateFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <element signature="e#960#961#0" expanded="true" />
+            <element signature="e#998#999#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverMenuView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="91" column="37" lean-forward="false" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
+          <folding>
+            <element signature="method#onClickDeleteDriver#0;class#DriverMenuView#0" expanded="false" />
+            <element signature="method#onDoubleClickDriver#0;class#DriverMenuView#0" expanded="false" />
+            <element signature="method#initCol#0;class#DriverMenuView#0" expanded="false" />
+            <element signature="method#initData#0;class#DriverMenuView#0" expanded="false" />
+            <element signature="method#refreshDriverTable#0;class#DriverMenuView#0" expanded="false" />
+            <element signature="method#setDriverController#0;class#DriverMenuView#0" expanded="false" />
+            <element signature="method#setReservationController#0;class#DriverMenuView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverJobEditView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="140" column="46" lean-forward="true" selection-start-line="140" selection-start-column="46" selection-end-line="140" selection-end-column="46" />
+          <folding>
+            <element signature="method#initialize#0;class#DriverJobEditView#0" expanded="false" />
+            <element signature="method#onClickSubmit#0;class#DriverJobEditView#0" expanded="false" />
+            <element signature="method#onClickCancelEdit#0;class#DriverJobEditView#0" expanded="false" />
+            <element signature="e#3366#3367#0" expanded="true" />
+            <element signature="e#3416#3417#0" expanded="true" />
+            <element signature="method#onClickEndDatePicker#0;class#DriverJobEditView#0" expanded="false" />
+            <element signature="method#onClickSpinnerStartHr#0;class#DriverJobEditView#0" expanded="false" />
+            <element signature="method#onClickSpinnerStartMin#0;class#DriverJobEditView#0" expanded="false" />
+            <element signature="method#setDriverController#0;class#DriverJobEditView#0" expanded="false" />
+            <element signature="method#setStartDay#0;class#DriverJobEditView#0" expanded="false" />
+            <element signature="method#setEndDay#0;class#DriverJobEditView#0" expanded="false" />
+            <element signature="method#convertToDateStart#0;class#DriverJobEditView#0" expanded="false" />
+            <element signature="method#setStatus#0;class#DriverJobEditView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverDetailView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="232" column="46" lean-forward="false" selection-start-line="232" selection-start-column="46" selection-end-line="232" selection-end-column="46" />
+          <folding>
+            <element signature="method#initCol#0;class#DriverDetailView#0" expanded="false" />
+            <element signature="method#initData#0;class#DriverDetailView#0" expanded="false" />
+            <element signature="method#refreshScheduleTable#0;class#DriverDetailView#0" expanded="false" />
+            <element signature="method#setReservationController#0;class#DriverDetailView#0" expanded="false" />
+            <element signature="method#setDriver#0;class#DriverDetailView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/VanJobEditView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="175" column="41" lean-forward="false" selection-start-line="175" selection-start-column="41" selection-end-line="175" selection-end-column="41" />
+          <folding>
+            <element signature="method#onClickSpinnerStartHr#0;class#VanJobEditView#0" expanded="false" />
+            <element signature="method#onClickSpinnerStartMin#0;class#VanJobEditView#0" expanded="false" />
+            <element signature="method#onClickCancelEdit#0;class#VanJobEditView#0" expanded="false" />
+            <element signature="method#onClickSubmit#0;class#VanJobEditView#0" expanded="false" />
+            <element signature="method#onClickStartDatePicker#0;class#VanJobEditView#0" expanded="false" />
+            <element signature="method#setTimeSpinner#0;class#VanJobEditView#0" expanded="false" />
+            <element signature="method#setStartDay#0;class#VanJobEditView#0" expanded="false" />
+            <element signature="e#7400#7637#0" expanded="true" />
+            <element signature="e#7636#7637#0" expanded="true" />
+            <element signature="method#convertToDateStart#0;class#VanJobEditView#0" expanded="false" />
+            <element signature="method#setStatus#0;class#VanJobEditView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/DriverJobAddView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="169" column="0" lean-forward="false" selection-start-line="169" selection-start-column="0" selection-end-line="178" selection-end-column="5" />
+          <folding>
+            <element signature="method#onClickSpinnerStartHr#0;class#DriverJobAddView#0" expanded="false" />
+            <element signature="method#onClickSpinnerStartMin#0;class#DriverJobAddView#0" expanded="false" />
+            <element signature="method#onClickSubmit#0;class#DriverJobAddView#0" expanded="false" />
+            <element signature="method#onClickCancelEdit#0;class#DriverJobAddView#0" expanded="false" />
+            <element signature="e#4195#4196#0" expanded="true" />
+            <element signature="e#4245#4246#0" expanded="true" />
+            <element signature="method#onClickEndDatePicker#0;class#DriverJobAddView#0" expanded="false" />
+            <element signature="method#convertToDateStart#0;class#DriverJobAddView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/VanJobAddView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="125" column="91" lean-forward="true" selection-start-line="125" selection-start-column="91" selection-end-line="125" selection-end-column="91" />
+          <folding>
+            <element signature="method#onClickSubmit#0;class#VanJobAddView#0" expanded="false" />
+            <element signature="method#onClickCancelEdit#0;class#VanJobAddView#0" expanded="false" />
+            <element signature="method#onClickStartDatePicker#0;class#VanJobAddView#0" expanded="false" />
+            <element signature="method#setStartDatePicker#0;class#VanJobAddView#0" expanded="false" />
+            <element signature="method#setEndDatePicker#0;class#VanJobAddView#0" expanded="false" />
+            <element signature="method#convertToDateStart#0;class#VanJobAddView#0" expanded="false" />
+            <element signature="method#setStatus#0;class#VanJobAddView#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -9,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import models.JobType;
 import models.Schedule;
@@ -40,6 +41,28 @@ public class VanJobEditView implements Initializable {
             onClickCancelEdit();
             onClickSubmit();
         }
+    }
+    public void onClickSpinnerStartHr(){
+        sp_startHr.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+                    Spinner<Integer> s = new Spinner<>((Integer)sp_startHr.getValue(),23,(Integer) sp_startHr.getValue());
+                    sp_endHr.setValueFactory(s.getValueFactory());
+                }
+            }
+        });
+    }
+    public void onClickSpinnerStartMin(){
+        sp_startMin.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+                    Spinner<Integer> s = new Spinner<>((Integer)sp_startMin.getValue(),59,(Integer) sp_startMin.getValue());
+                    sp_endMin.setValueFactory(s.getValueFactory());
+                }
+            }
+        });
     }
     public void onClickCancelEdit(){
         btn_cancel.setOnAction(new EventHandler<ActionEvent>() {
@@ -85,12 +108,25 @@ public class VanJobEditView implements Initializable {
             }
         });
     }
+    public void setTimeSpinner(){
+        Date dateNow = new Date();
+        Spinner<Integer> hr = new Spinner<>(dateNow.getHours(),23,dateNow.getHours());
+        sp_startHr.setValueFactory(hr.getValueFactory());
+        sp_endHr.setValueFactory(hr.getValueFactory());
+
+        Spinner<Integer> min = new Spinner<>(dateNow.getMinutes(),59,dateNow.getMinutes());
+        sp_startMin.setValueFactory(min.getValueFactory());
+        sp_endMin.setValueFactory(min.getValueFactory());
+    }
     public void setVanController(VanController vanController) {
         this.vanController = vanController;
         if (dp_startDate!=null){
             onClickCancelEdit();
             onClickSubmit();
             onClickStartDatePicker();
+            setTimeSpinner();
+            onClickSpinnerStartHr();
+            onClickSpinnerStartMin();
         }
     }
     public void setVanDetailView(VanDetailView vanDetailView){
@@ -136,7 +172,9 @@ public class VanJobEditView implements Initializable {
         LocalDate startLocal = dp_startDate.getValue();
         Date minimumDate = convertToDateStart(startLocal);
         LocalDate minimun = minimumDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        dp_endDate.setValue(minimun);
+        if(dp_startDate.getValue().isAfter(dp_endDate.getValue())){
+            dp_endDate.setValue(minimun);
+        }
         dp_endDate.setDayCellFactory(param -> new DateCell(){
             @Override
             public void updateItem(LocalDate item, boolean empty) {

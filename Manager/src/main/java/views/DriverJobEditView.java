@@ -9,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import models.JobType;
 import models.Schedule;
@@ -85,6 +86,48 @@ public class DriverJobEditView implements Initializable{
             }
         });
     }
+    public void onClickEndDatePicker(){
+        dp_endDate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (!dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+                    Spinner<Integer> hr = new Spinner<>(0,23,(Integer)sp_startHr.getValue());
+                    sp_endHr.setValueFactory(hr.getValueFactory());
+
+                    Spinner<Integer> min = new Spinner<>(0,59,(Integer)sp_startMin.getValue());
+                    sp_endMin.setValueFactory(min.getValueFactory());
+                }else {
+                    Spinner<Integer> hr = new Spinner<>((Integer)sp_startHr.getValue(),23,(Integer)sp_startHr.getValue());
+                    sp_endHr.setValueFactory(hr.getValueFactory());
+
+                    Spinner<Integer> min = new Spinner<>((Integer)sp_startMin.getValue(),59,(Integer)sp_startMin.getValue());
+                    sp_endMin.setValueFactory(min.getValueFactory());
+                }
+            }
+        });
+    }
+    public void onClickSpinnerStartHr(){
+        sp_startHr.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+                    Spinner<Integer> s = new Spinner<>((Integer)sp_startHr.getValue(),23,(Integer) sp_startHr.getValue());
+                    sp_endHr.setValueFactory(s.getValueFactory());
+                }
+            }
+        });
+    }
+    public void onClickSpinnerStartMin(){
+        sp_startMin.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+                    Spinner<Integer> s = new Spinner<>((Integer)sp_startMin.getValue(),59,(Integer) sp_startMin.getValue());
+                    sp_endMin.setValueFactory(s.getValueFactory());
+                }
+            }
+        });
+    }
     public void setDriverController(DriverController driverController) {
         this.driverController = driverController;
         if (dp_startDate!=null){
@@ -101,6 +144,10 @@ public class DriverJobEditView implements Initializable{
             onClickCancelEdit();
             onClickSubmit();
             onClickStartDatePicker();
+            onClickEndDatePicker();
+            setTimeSpinner();
+            onClickSpinnerStartHr();
+            onClickSpinnerStartMin();
         }
     }
     public void setStartDay(Date start) {
@@ -141,7 +188,9 @@ public class DriverJobEditView implements Initializable{
         LocalDate startLocal = dp_startDate.getValue();
         Date minimumDate = convertToDateStart(startLocal);
         LocalDate minimun = minimumDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        dp_endDate.setValue(minimun);
+        if(dp_startDate.getValue().isAfter(dp_endDate.getValue())){
+            dp_endDate.setValue(minimun);
+        }
         dp_endDate.setDayCellFactory(param -> new DateCell(){
             @Override
             public void updateItem(LocalDate item, boolean empty) {
@@ -149,6 +198,12 @@ public class DriverJobEditView implements Initializable{
                 setDisable(empty || item.isBefore(minimun));
             }
         });
+    }
+    public void setTimeSpinner(){
+        sp_startHr.getValueFactory().setValue(schedule.getStartDate().getHours());
+        sp_startMin.getValueFactory().setValue(schedule.getStartDate().getMinutes());
+        sp_endHr.getValueFactory().setValue(schedule.getEndDate().getHours());
+        sp_endMin.getValueFactory().setValue(schedule.getEndDate().getMinutes());
     }
     public Date convertToDateStart(LocalDate localDate){
         try {
