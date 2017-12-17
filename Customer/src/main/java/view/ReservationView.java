@@ -201,8 +201,6 @@ public class ReservationView extends AnchorPane implements Initializable{
                         myReservationView.refreshReservationTable();
                     }
                 }
-
-
             }
         });
 

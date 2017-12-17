@@ -25,6 +25,7 @@ public class Mainview {
 
     @FXML
     public void initialize(){
+
     }
 
     public void initTabInformation(){
@@ -52,6 +53,7 @@ public class Mainview {
             reservationView.setReservationController(reservationController);
             reservationView.setVanController(vanController);
             reservationView.setMyReservationView(myReservationView);
+            System.out.println("myReservationView = " + myReservationView);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -76,9 +78,9 @@ public class Mainview {
 
     public void setSceneManager(SceneManager sceneManager) {
         this.sceneManager = sceneManager;
-        initTabReservation();
         initTabMyReservation();
         initTabInformation();
+        initTabReservation();
     }
 
     public void setReservationController(ReservationController reservationController) {
