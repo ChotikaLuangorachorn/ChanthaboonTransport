@@ -1,10 +1,12 @@
 package services;
 
+import models.Destination;
 import models.Reservation;
 import models.Van;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public interface ReservationService {
     void assignVan(List<Van> vans, Reservation reservation);
@@ -21,4 +23,9 @@ public interface ReservationService {
     List<Reservation> getReservations();
 
     Reservation getReservation(String reserveId);
+    void addReservation(String customerId, Map<String, Integer> vanAmt, Destination destination, Date startDate, Date endDate, Date reserveDate, double price, double deposit);
+
+    void deleteReservation(Reservation reservation);
+    void deleteReservation(String reservationId);
+    List<Reservation> getHistoryReservation(String citizenId);
 }

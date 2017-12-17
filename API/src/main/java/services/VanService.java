@@ -1,5 +1,6 @@
 package services;
 
+import models.Destination;
 import models.JobType;
 import models.Schedule;
 import models.Van;
@@ -11,6 +12,7 @@ import java.util.Map;
 public interface VanService {
     List<Van> getVans();
     Map<String, List<Van>> getVanAvailable(Date startDate, Date endDate);
+    Map<String, Integer> getVanAvailableAmount(Destination destination, Date startDate, Date endDate);
     void editVan(Van van);
     void deleteVan(Van van);
     void deleteVan(String regisNumber);

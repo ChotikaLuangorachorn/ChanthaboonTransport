@@ -1,5 +1,6 @@
 package controllers.services;
 
+import models.Destination;
 import models.JobType;
 import models.Schedule;
 import models.Van;
@@ -21,6 +22,11 @@ public class VanSQLiteService extends SQLiteService implements VanService{
 
     @Override
     public Map<String, List<Van>> getVanAvailable(Date startDate, Date endDate) {
+        return null;
+    }
+
+    @Override
+    public Map<String, Integer> getVanAvailableAmount(Destination destination, Date startDate, Date endDate) {
         return null;
     }
 

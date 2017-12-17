@@ -17,4 +17,9 @@ public class CustomerSQLiteService extends SQLiteService implements CustomerServ
     public boolean changeCustomerPassword(String citizenId, String oldPwd, String newPwd) {
         return false;
     }
+
+    @Override
+    public Customer getCustomer(String citizenId, String pwd) {
+        return null;
+    }
 }
