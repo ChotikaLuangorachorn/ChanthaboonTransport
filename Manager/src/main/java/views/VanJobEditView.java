@@ -46,8 +46,25 @@ public class VanJobEditView implements Initializable {
         sp_startHr.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                Integer start = (Integer)sp_startHr.getValue();
+                Integer end = (Integer)sp_endHr.getValue();
                 if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
-                    Spinner<Integer> s = new Spinner<>((Integer)sp_startHr.getValue(),23,(Integer) sp_startHr.getValue());
+                    if (start>=end){
+                        Spinner<Integer> s = new Spinner<>(start,23,start);
+                        sp_endHr.setValueFactory(s.getValueFactory());
+                    }
+                    else {
+                        Spinner<Integer> s = new Spinner<>(start,23,end);
+                        sp_endHr.setValueFactory(s.getValueFactory());
+                    }
+                    Date dateNow = new Date();
+                    if(dateNow.getHours()<start){
+                        Spinner<Integer> s = new Spinner<>(0,59,(Integer) sp_startMin.getValue());
+                        sp_startMin.setValueFactory(s.getValueFactory());
+                    }
+
+                }else {
+                    Spinner<Integer> s = new Spinner<>(0,23, end);
                     sp_endHr.setValueFactory(s.getValueFactory());
                 }
             }
@@ -57,9 +74,55 @@ public class VanJobEditView implements Initializable {
         sp_startMin.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                Integer startH = (Integer)sp_startHr.getValue();
+                Integer endH = (Integer)sp_endHr.getValue();
+                Integer startM = (Integer)sp_startMin.getValue();
+                Integer endM = (Integer)sp_endMin.getValue();
                 if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
-                    Spinner<Integer> s = new Spinner<>((Integer)sp_startMin.getValue(),59,(Integer) sp_startMin.getValue());
+                    if (startH>=endH && startM>=endM) {
+                        Spinner<Integer> s = new Spinner<>(startM, 59, startM);
+                        sp_endMin.setValueFactory(s.getValueFactory());
+                    }else if (startH>=endH && startM<endM){
+                        Spinner<Integer> s = new Spinner<>(startM, 59, endM);
+                        sp_endMin.setValueFactory(s.getValueFactory());
+                    }
+                    else {
+                        Spinner<Integer> s = new Spinner<>(0, 59, endM);
+                        sp_endMin.setValueFactory(s.getValueFactory());
+                    }
+                }else {
+                    Spinner<Integer> s = new Spinner<>(0,59,endM);
                     sp_endMin.setValueFactory(s.getValueFactory());
+                }
+            }
+        });
+    }
+    public void onClickSpinnerEndHr(){
+        sp_endHr.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Integer startH = (Integer)sp_startHr.getValue();
+                Integer endH = (Integer)sp_endHr.getValue();
+                Integer startM = (Integer)sp_startMin.getValue();
+                Integer endM = (Integer)sp_endMin.getValue();
+                if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+                    if(startH<endH){
+                        Spinner<Integer> s = new Spinner<>(0,59,endM);
+                        sp_endMin.setValueFactory(s.getValueFactory());
+                    }
+                    else {
+                        if(startM>=endM){
+                            Spinner<Integer> s = new Spinner<>(startM,59,startM);
+                            sp_endMin.setValueFactory(s.getValueFactory());
+                        }else{
+                            Spinner<Integer> s = new Spinner<>(startM,59,endM);
+                            sp_endMin.setValueFactory(s.getValueFactory());
+                        }
+                    }
+
+                }else {
+                    Spinner<Integer> s = new Spinner<>(0,23, endH);
+                    sp_endHr.setValueFactory(s.getValueFactory());
                 }
             }
         });
@@ -148,6 +211,7 @@ public class VanJobEditView implements Initializable {
             setTimeSpinner();
             onClickSpinnerStartHr();
             onClickSpinnerStartMin();
+            onClickSpinnerEndHr();
         }
     }
     public void setVanDetailView(VanDetailView vanDetailView){
@@ -181,6 +245,12 @@ public class VanJobEditView implements Initializable {
         int min = Integer.parseInt(time.split(":")[1]);
         this.sp_endHr.getValueFactory().setValue(hr);
         this.sp_endMin.getValueFactory().setValue(min);
+        if(dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+            Spinner<Integer> hour = new Spinner<>((Integer) sp_startHr.getValue(),23,hr);
+            sp_endHr.setValueFactory(hour.getValueFactory());
+            Spinner<Integer> minute = new Spinner<>((Integer) sp_endHr.getValue(),59,min);
+            sp_endMin.setValueFactory(minute.getValueFactory());
+        }
         dp_endDate.setDayCellFactory(param -> new DateCell(){
             @Override
             public void updateItem(LocalDate item, boolean empty) {
@@ -189,20 +259,28 @@ public class VanJobEditView implements Initializable {
             }
         });
     }
+
     public void setEndDatePicker(){
         LocalDate startLocal = dp_startDate.getValue();
         Date minimumDate = convertToDateStart(startLocal);
-        LocalDate minimun = minimumDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate minimum = minimumDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         if(dp_startDate.getValue().isAfter(dp_endDate.getValue())){
-            dp_endDate.setValue(minimun);
+            dp_endDate.setValue(minimum);
         }
+
         dp_endDate.setDayCellFactory(param -> new DateCell(){
             @Override
             public void updateItem(LocalDate item, boolean empty) {
                 super.updateItem(item, empty);
-                setDisable(empty || item.isBefore(minimun));
+                setDisable(empty || item.isBefore(minimum));
             }
         });
+        if (!startLocal.isEqual(LocalDate.now())){
+            Spinner<Integer> s1 = new Spinner<>(0,23,(Integer)sp_startHr.getValue());
+            sp_startHr.setValueFactory(s1.getValueFactory());
+            Spinner<Integer> s2 = new Spinner<>(0,59,(Integer)sp_startMin.getValue());
+            sp_startMin.setValueFactory(s2.getValueFactory());
+        }
     }
     public Date convertToDateStart(LocalDate localDate){
         try {

@@ -100,6 +100,26 @@ public class VanJobAddView implements Initializable {
             }
         });
     }
+    public void onClickEndDatePicker(){
+        dp_endDate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (!dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+                    Spinner<Integer> hr = new Spinner<>(0,23,(Integer)sp_startHr.getValue());
+                    sp_endHr.setValueFactory(hr.getValueFactory());
+
+                    Spinner<Integer> min = new Spinner<>(0,59,(Integer)sp_startMin.getValue());
+                    sp_endMin.setValueFactory(min.getValueFactory());
+                }else {
+                    Spinner<Integer> hr = new Spinner<>((Integer)sp_startHr.getValue(),23,(Integer)sp_startHr.getValue());
+                    sp_endHr.setValueFactory(hr.getValueFactory());
+
+                    Spinner<Integer> min = new Spinner<>((Integer)sp_startMin.getValue(),59,(Integer)sp_startMin.getValue());
+                    sp_endMin.setValueFactory(min.getValueFactory());
+                }
+            }
+        });
+    }
     public void setStartDatePicker(){
         dp_startDate.setValue(LocalDate.now());
         dp_startDate.setDayCellFactory(param -> new DateCell(){
@@ -140,10 +160,12 @@ public class VanJobAddView implements Initializable {
         Date dateNow = new Date();
         Spinner<Integer> hr = new Spinner<>(dateNow.getHours(),23,dateNow.getHours());
         sp_startHr.setValueFactory(hr.getValueFactory());
+        hr = new Spinner<>(dateNow.getHours(),23,dateNow.getHours());
         sp_endHr.setValueFactory(hr.getValueFactory());
 
         Spinner<Integer> min = new Spinner<>(dateNow.getMinutes(),59,dateNow.getMinutes());
         sp_startMin.setValueFactory(min.getValueFactory());
+        min = new Spinner<>(dateNow.getMinutes(),59,dateNow.getMinutes());
         sp_endMin.setValueFactory(min.getValueFactory());
     }
     public void onClickSpinnerStartHr(){
@@ -153,8 +175,20 @@ public class VanJobAddView implements Initializable {
                 Integer start = (Integer)sp_startHr.getValue();
                 Integer end = (Integer)sp_endHr.getValue();
                 if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
-                    Spinner<Integer> s = new Spinner<>((Integer)sp_startHr.getValue(),23,(Integer) start);
-                    sp_endHr.setValueFactory(s.getValueFactory());
+                    if (start>=end){
+                        Spinner<Integer> s = new Spinner<>(start,23,start);
+                        sp_endHr.setValueFactory(s.getValueFactory());
+                    }
+                    else {
+                        Spinner<Integer> s = new Spinner<>(start,23,end);
+                        sp_endHr.setValueFactory(s.getValueFactory());
+                    }
+                    Date dateNow = new Date();
+                    if(dateNow.getHours()<start){
+                        Spinner<Integer> s = new Spinner<>(0,59,(Integer) sp_startMin.getValue());
+                        sp_startMin.setValueFactory(s.getValueFactory());
+                    }
+
                 }else {
                     Spinner<Integer> s = new Spinner<>(0,23, end);
                     sp_endHr.setValueFactory(s.getValueFactory());
@@ -166,14 +200,55 @@ public class VanJobAddView implements Initializable {
         sp_startMin.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Integer start = (Integer)sp_startMin.getValue();
-                Integer end = (Integer)sp_endMin.getValue();
+                Integer startH = (Integer)sp_startHr.getValue();
+                Integer endH = (Integer)sp_endHr.getValue();
+                Integer startM = (Integer)sp_startMin.getValue();
+                Integer endM = (Integer)sp_endMin.getValue();
                 if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
-                    Spinner<Integer> s = new Spinner<>(start,59,(Integer) start);
-                    sp_endMin.setValueFactory(s.getValueFactory());
+                    if (startH>=endH && startM>=endM) {
+                        Spinner<Integer> s = new Spinner<>(startM, 59, startM);
+                        sp_endMin.setValueFactory(s.getValueFactory());
+                    }else if (startH>=endH && startM<endM){
+                        Spinner<Integer> s = new Spinner<>(startM, 59, endM);
+                        sp_endMin.setValueFactory(s.getValueFactory());
+                    }
+                    else {
+                        Spinner<Integer> s = new Spinner<>(0, 59, endM);
+                        sp_endMin.setValueFactory(s.getValueFactory());
+                    }
                 }else {
-                    Spinner<Integer> s = new Spinner<>(0,59,end);
+                    Spinner<Integer> s = new Spinner<>(0,59,endM);
                     sp_endMin.setValueFactory(s.getValueFactory());
+                }
+            }
+        });
+    }
+    public void onClickSpinnerEndHr(){
+        sp_endHr.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Integer startH = (Integer)sp_startHr.getValue();
+                Integer endH = (Integer)sp_endHr.getValue();
+                Integer startM = (Integer)sp_startMin.getValue();
+                Integer endM = (Integer)sp_endMin.getValue();
+                if (dp_startDate.getValue().isEqual(dp_endDate.getValue())){
+                    if(startH<endH){
+                        Spinner<Integer> s = new Spinner<>(0,59,endM);
+                        sp_endMin.setValueFactory(s.getValueFactory());
+                    }
+                    else {
+                        if(startM>=endM){
+                            Spinner<Integer> s = new Spinner<>(startM,59,startM);
+                            sp_endMin.setValueFactory(s.getValueFactory());
+                        }else{
+                            Spinner<Integer> s = new Spinner<>(startM,59,endM);
+                            sp_endMin.setValueFactory(s.getValueFactory());
+                        }
+                    }
+
+                }else {
+                    Spinner<Integer> s = new Spinner<>(0,23, endH);
+                    sp_endHr.setValueFactory(s.getValueFactory());
                 }
             }
         });
@@ -190,9 +265,11 @@ public class VanJobAddView implements Initializable {
             setStartDatePicker();
             setEndDatePicker();
             onClickStartDatePicker();
+            onClickEndDatePicker();
             setTimeSpinner();
             onClickSpinnerStartHr();
             onClickSpinnerStartMin();
+            onClickSpinnerEndHr();
         }
     }
 
