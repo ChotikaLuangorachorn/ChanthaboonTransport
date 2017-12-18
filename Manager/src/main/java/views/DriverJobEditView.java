@@ -215,6 +215,7 @@ public class DriverJobEditView implements Initializable{
             onClickSpinnerEndHr();
         }
     }
+
     public void setStartDay(Date start) {
         LocalDate date = start.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         this.dp_startDate.setValue(date);
@@ -232,7 +233,6 @@ public class DriverJobEditView implements Initializable{
         });
 
     }
-
     public void setEndDay(Date end) {
         LocalDate date = end.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         this.dp_endDate.setValue(date);
@@ -255,7 +255,6 @@ public class DriverJobEditView implements Initializable{
             }
         });
     }
-
     public void setEndDatePicker(){
         LocalDate startLocal = dp_startDate.getValue();
         Date minimumDate = convertToDateStart(startLocal);
@@ -284,6 +283,7 @@ public class DriverJobEditView implements Initializable{
         sp_endHr.getValueFactory().setValue(schedule.getEndDate().getHours());
         sp_endMin.getValueFactory().setValue(schedule.getEndDate().getMinutes());
     }
+    
     public Date convertToDateStart(LocalDate localDate){
         try {
             Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
