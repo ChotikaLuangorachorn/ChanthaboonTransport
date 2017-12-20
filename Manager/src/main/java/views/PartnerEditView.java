@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class PartnerEditView implements Initializable {
     @FXML private Label lb_id, lb_error;
-    @FXML private TextField tf_name, tf_company, tf_phone;
+    @FXML private TextField tf_fName, tf_lName, tf_company, tf_phone;
     @FXML private Button btn_cancel, btn_submit;
     private PartnerController partnerController;
     private Partner partner;
@@ -44,11 +44,17 @@ public class PartnerEditView implements Initializable {
         btn_submit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(tf_name.getText().equals("")){
-                    tf_name.setStyle("-fx-border-color: RED");
+                if(tf_fName.getText().equals("")){
+                    tf_fName.setStyle("-fx-border-color: RED");
                 }
-                else if(!tf_name.getText().equals("")){
-                    tf_name.setStyle("{-fx-border-color: }");
+                else if(!tf_fName.getText().equals("")){
+                    tf_fName.setStyle("{-fx-border-color: }");
+                }
+                if(tf_lName.getText().equals("")){
+                    tf_lName.setStyle("-fx-border-color: RED");
+                }
+                else if(!tf_lName.getText().equals("")){
+                    tf_lName.setStyle("{-fx-border-color: }");
                 }
                 if(tf_company.getText().equals("")){
                     tf_company.setStyle("-fx-border-color: RED");
@@ -61,15 +67,26 @@ public class PartnerEditView implements Initializable {
                 }
                 else if(!tf_phone.getText().equals("")){
                     tf_phone.setStyle("{-fx-border-color: }");
+                    lb_error.setText("");
+                    try{
+                        Integer phone = Integer.parseInt(tf_phone.getText());
+                        if(tf_phone.getText().length()!=10){
+                            tf_phone.setStyle("-fx-border-color: RED");
+                            lb_error.setText("กรุณากรอกหมายเลขโทรศัพท์เป็นตัวเลข10หลัก ");
+                        }
+                    }catch (Exception e){
+                        tf_phone.setStyle("-fx-border-color: RED");
+                        lb_error.setText("กรุณากรอกหมายเลขโทรศัพท์เป็นตัวเลข10หลัก ");
+                    }
                 }
 
-                if(tf_name.getText().equals("") || tf_company.getText().equals("") ||tf_phone.getText().equals("")){
-                    lb_error.setText("กรอกข้อมุลไม่ครบถ้วน");
+                if(tf_fName.getText().equals("") || tf_lName.getText().equals("") || tf_company.getText().equals("") ||tf_phone.getText().equals("")){
+                    lb_error.setText(lb_error.getText() + "กรอกข้อมุลไม่ครบถ้วน");
                 }
-                else {
+                else if (lb_error.getText().equals("")){
                     lb_error.setText("");
                     // TODO partner last name
-                    Partner newPartner = new Partner(partner.getId(),tf_name.getText(), "", tf_company.getText(),tf_phone.getText());
+                    Partner newPartner = new Partner(partner.getId(),tf_fName.getText(), tf_lName.getText(), tf_company.getText(),tf_phone.getText());
                     partnerController.editPartner(newPartner);
                     Stage stage = (Stage) btn_submit.getScene().getWindow();
                     stage.close();
@@ -81,7 +98,8 @@ public class PartnerEditView implements Initializable {
     public void showDetailPartner(){
         String id = String.format("%05d",Integer.parseInt(partner.getId()));
         lb_id.setText(id);
-        tf_name.setText(partner.getFirstName());
+        tf_fName.setText(partner.getFirstName());
+        tf_lName.setText(partner.getLastName());
         tf_company.setText(partner.getCompany());
         tf_phone.setText(partner.getCompanyPhone());
     }

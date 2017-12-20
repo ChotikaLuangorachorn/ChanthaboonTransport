@@ -34,7 +34,7 @@ import java.util.ResourceBundle;
 
 public class PartnerMenuView  implements Initializable{
     @FXML private TableView table_partner;
-    @FXML private TableColumn col_id, col_name, col_company, col_companyPhone;
+    @FXML private TableColumn col_id, col_fName, col_lName, col_company, col_companyPhone;
     @FXML private Button btn_deletePartner, btn_editPartner;
     @FXML private Label lbCometoMain;
 
@@ -70,7 +70,7 @@ public class PartnerMenuView  implements Initializable{
                     alert.setTitle("ยืนยันการลบข้อมูลพันธมิตร");
                     alert.setHeaderText("ยืนยันการลบข้อมูลพันธมิตร");
                     // TODO partner last name
-                    String s = "ชื่อ:\t\t" + partner.getFirstName() + "\n"
+                    String s = "ชื่อ:\t\t" + partner.getFirstName() +"  " + partner.getLastName()+ "\n"
                             +"บริษัท:\t" + partner.getCompany();
                     alert.setContentText(s);
 
@@ -122,7 +122,8 @@ public class PartnerMenuView  implements Initializable{
                 return new SimpleStringProperty(id);
             }
         });
-        col_name.setCellValueFactory(new PropertyValueFactory<Partner,String>("firstName"));
+        col_fName.setCellValueFactory(new PropertyValueFactory<Partner,String>("firstName"));
+        col_lName.setCellValueFactory(new PropertyValueFactory<Partner,String>("lastName"));
         col_company.setCellValueFactory(new PropertyValueFactory<Partner,String>("company"));
         col_companyPhone.setCellValueFactory(new PropertyValueFactory<Partner,String>("companyPhone"));
 

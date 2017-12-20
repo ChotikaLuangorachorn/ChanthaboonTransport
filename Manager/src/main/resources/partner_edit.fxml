@@ -18,27 +18,27 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="111.0" text="ชื่อ:">
+      <Label layoutX="53.0" layoutY="108.0" text="ชื่อ:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btn_cancel" layoutX="53.0" layoutY="290.0" mnemonicParsing="false" text="ยกเลิกการแก้ไข">
+      <Button fx:id="btn_cancel" layoutX="53.0" layoutY="298.0" mnemonicParsing="false" text="ยกเลิกการแก้ไข">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_submit" layoutX="336.0" layoutY="290.0" mnemonicParsing="false" text="ยืนยันการแก้ไข">
+      <Button fx:id="btn_submit" layoutX="336.0" layoutY="298.0" mnemonicParsing="false" text="ยืนยันการแก้ไข">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="53.0" layoutY="161.0" text="บริษัท:">
+      <Label layoutX="53.0" layoutY="187.0" text="บริษัท:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="211.0" text="หมายเลขโทรศัพท์:">
+      <Label layoutX="53.0" layoutY="226.0" text="หมายเลขโทรศัพท์:">
          <font>
             <Font size="18.0" />
          </font>
@@ -48,22 +48,32 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tf_name" layoutX="250.0" layoutY="109.0">
+      <TextField fx:id="tf_fName" layoutX="250.0" layoutY="106.0">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <TextField fx:id="tf_company" layoutX="250.0" layoutY="159.0">
+      <TextField fx:id="tf_company" layoutX="250.0" layoutY="185.0">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <TextField fx:id="tf_phone" layoutX="250.0" layoutY="209.0">
+      <TextField fx:id="tf_phone" layoutX="250.0" layoutY="224.0">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <Label fx:id="lb_error" layoutX="250.0" layoutY="251.0" textFill="RED">
+      <Label fx:id="lb_error" layoutX="57.0" layoutY="265.0" textFill="RED">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <Label layoutX="53.0" layoutY="147.0" text="นามสกุล:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tf_lName" layoutX="250.0" layoutY="145.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

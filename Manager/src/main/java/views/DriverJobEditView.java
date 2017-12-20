@@ -283,7 +283,7 @@ public class DriverJobEditView implements Initializable{
         sp_endHr.getValueFactory().setValue(schedule.getEndDate().getHours());
         sp_endMin.getValueFactory().setValue(schedule.getEndDate().getMinutes());
     }
-    
+
     public Date convertToDateStart(LocalDate localDate){
         try {
             Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
