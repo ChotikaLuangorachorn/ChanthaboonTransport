@@ -262,7 +262,7 @@ public class VanSQLiteService extends SQLiteService implements VanService{
         double distance = getDistance(destination);
         long diff = endDate.getTime() - startDate.getTime();
         int days = (int) diff / (24*60*60*1000);
-        if (distance/720 > days)
+        if (distance*2/720 > days)
             return false;
         return true;
     }

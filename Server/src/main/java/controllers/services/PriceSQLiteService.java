@@ -73,9 +73,8 @@ public class PriceSQLiteService extends SQLiteService implements PriceService{
 
     @Override
     public Date getMinimumDate(Destination destination, Date startDate) {
-        // TODO edit formula
         double distance = getDistance(destination);
-        int days = (int) Math.ceil(distance/720);
+        int days = (int) Math.ceil(distance*2/720);
         days = days - 1;
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(startDate);
