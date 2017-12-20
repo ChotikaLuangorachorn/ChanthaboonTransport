@@ -1,13 +1,8 @@
-import controllers.SQLiteExecutor;
 import controllers.services.PriceSQLiteService;
-import models.PriceFactor;
-import models.Schedule;
 import services.PriceService;
 import services.VanService;
-import utils.ReservationDateFormatter;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class FakeMain {

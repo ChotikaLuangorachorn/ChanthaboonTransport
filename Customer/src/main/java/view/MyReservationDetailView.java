@@ -1,6 +1,5 @@
 package view;
 
-import controller.MainController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -9,7 +8,6 @@ import models.Reservation;
 import utils.ReservationDateFormatter;
 
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;

@@ -14,9 +14,5 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception {
         ApplicationContext bf = new ClassPathXmlApplicationContext("server_config.xml");
         System.out.println("Server start...");
-//        controllers.SQLiteExecutor sqLiteExecutor = new controllers.SQLiteExecutor();
-//        Customer customer = sqLiteExecutor.getCustomer("1234567890123", "naruto0068");
-//        System.out.println("customer %Y = " + customer);
-//        System.out.println(String.format("sada %%Y %s", "as"));
     }
 }

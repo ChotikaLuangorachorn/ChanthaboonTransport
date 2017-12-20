@@ -1,7 +1,6 @@
 package view;
 
 import controller.CustomerController;
-import controller.MainController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

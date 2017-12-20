@@ -1,6 +1,5 @@
 package controllers.services;
 
-import controllers.assistants.UpdateExecutionAssistant;
 import models.Partner;
 import services.PartnerService;
 

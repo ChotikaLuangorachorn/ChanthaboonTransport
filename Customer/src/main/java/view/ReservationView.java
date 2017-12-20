@@ -9,9 +9,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import managers.CustomerDatabaseManager;
 import models.CustomerInfoManager;
 import models.Destination;
+import services.VanService;
 
 import java.net.URL;
 import java.time.Instant;
@@ -173,8 +173,8 @@ public class ReservationView extends AnchorPane implements Initializable{
 
                 }else{
                     amtVanTotal = new HashMap<>();
-                    amtVanTotal.put(CustomerDatabaseManager.NORMAL, Integer.parseInt(spn_normal.getValue().toString()));
-                    amtVanTotal.put(CustomerDatabaseManager.VIP, Integer.parseInt(spn_vip.getValue().toString()));
+                    amtVanTotal.put(VanService.NORMAL, Integer.parseInt(spn_normal.getValue().toString()));
+                    amtVanTotal.put(VanService.VIP, Integer.parseInt(spn_vip.getValue().toString()));
                     double price = 0;
 
                     if (rd_daily.isSelected()){
@@ -190,7 +190,7 @@ public class ReservationView extends AnchorPane implements Initializable{
                     String s = "ยืนยันการจองรถตู้ของคุณ\n"
                             +"จังหวัด:\t\t" + cbb_province.getValue() + "\n"
                             +"อำเภอ/เขต:\t" + cbb_district.getValue() + "\n"
-                            +"จำนวนรถตู้:\tรถธรรมดา(15 ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.NORMAL) + " คัน\n\t\t\tรถVIP(9 ที่นั่ง) " + amtVanTotal.get(CustomerDatabaseManager.VIP) + " คัน\n"
+                            +"จำนวนรถตู้:\tรถธรรมดา(15 ที่นั่ง) " + amtVanTotal.get(VanService.NORMAL) + " คัน\n\t\t\tรถVIP(9 ที่นั่ง) " + amtVanTotal.get(VanService.VIP) + " คัน\n"
                             +"ราคาทั้งหมด:\t" + String.format("%,.2f",price) +" บาท" + "\n"
                             +"ราคาค่ามัดจำ:\t" + String.format("%,.2f",price/2) +" บาท";
                     alert.setContentText(s);
@@ -215,10 +215,10 @@ public class ReservationView extends AnchorPane implements Initializable{
         LocalDate endLocal = dp_endStart.getValue();
         Map<String, Integer> amtVan = vanController.getVanAvailable(destination, convertToDateStart(startLocal), convertToDateEnd(endLocal));
         System.out.println(amtVan.toString());
-        lb_amtNormalVan.setText(amtVan.get(CustomerDatabaseManager.NORMAL).toString());
-        lb_amtVipVan.setText(amtVan.get(CustomerDatabaseManager.VIP).toString());
-        spn_normal.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.NORMAL)));
-        spn_vip.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(CustomerDatabaseManager.VIP)));
+        lb_amtNormalVan.setText(amtVan.get(VanService.NORMAL).toString());
+        lb_amtVipVan.setText(amtVan.get(VanService.VIP).toString());
+        spn_normal.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(VanService.NORMAL)));
+        spn_vip.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(VanService.VIP)));
     }
 
 

@@ -1,7 +1,6 @@
 import controller.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import managers.CustomerDatabaseManager;
 
 public class MainApplication extends Application {
     private SceneManager sceneManager;

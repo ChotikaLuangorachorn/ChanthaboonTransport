@@ -1,6 +1,5 @@
 package controllers.services;
 
-import controllers.assistants.QueryExecutionAssistant;
 import org.springframework.lang.NonNull;
 import utils.ReservationDateFormatter;
 
@@ -17,7 +16,7 @@ public class SQLiteService {
         this.formatter = ReservationDateFormatter.getInstance().getDbFormatter();
     }
 
-    public <T> T executeQuery(String sql, QueryExecutionAssistant.OnResultSetCallback<T> callback, T defaultResult){
+    public <T> T executeQuery(String sql, OnResultSetCallback<T> callback, T defaultResult){
         Connection connection = null;
         try{
             connection = prepareConnection();

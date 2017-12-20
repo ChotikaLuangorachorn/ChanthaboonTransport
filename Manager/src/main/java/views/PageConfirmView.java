@@ -11,11 +11,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-import managers.ManagerDatabaseManager;
 import models.Driver;
 import models.Reservation;
 import models.Van;
 import org.controlsfx.control.CheckComboBox;
+import services.VanService;
 import utils.ReservationDateFormatter;
 
 import java.net.URL;
@@ -85,7 +85,7 @@ public class PageConfirmView implements Initializable {
 
         Date startDate = reservation.getStartDate();
         Date endDate = reservation.getEndDate();
-        ccbSelectVanVip.getItems().addAll(vanController.getVanAvailable(startDate, endDate).get(ManagerDatabaseManager.VIP));
+        ccbSelectVanVip.getItems().addAll(vanController.getVanAvailable(startDate, endDate).get(VanService.VIP));
         ccbSelectVanVip.setConverter(new StringConverter() {
             @Override
             public String toString(Object object) {
@@ -99,7 +99,7 @@ public class PageConfirmView implements Initializable {
                 return null;
             }
         });
-        ccbSelectVanNormal.getItems().addAll(vanController.getVanAvailable(startDate, endDate).get(ManagerDatabaseManager.NORMAL));
+        ccbSelectVanNormal.getItems().addAll(vanController.getVanAvailable(startDate, endDate).get(VanService.NORMAL));
         ccbSelectVanNormal.setConverter(new StringConverter() {
             @Override
             public String toString(Object object) {
