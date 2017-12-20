@@ -20,11 +20,12 @@ public class PartnerSQLiteService extends SQLiteService implements PartnerServic
         return executeQuery(sql, resultSet -> {
             while (resultSet.next()){
                 String id = resultSet.getString("id");
-                String name = resultSet.getString("name");
+                String fname = resultSet.getString("first_name");
+                String lname = resultSet.getString("last_name");
                 String company = resultSet.getString("company");
                 String companyPhone = resultSet.getString("company_phone");
                 // TODO partner last name
-                Partner partner = new Partner(id, name, "", company, companyPhone);
+                Partner partner = new Partner(id, fname, lname, company, companyPhone);
                 partners.add(partner);
             }
             return partners;
@@ -35,11 +36,12 @@ public class PartnerSQLiteService extends SQLiteService implements PartnerServic
     public boolean editPartner(Partner partner) {
         // TODO partner last name
         String sql = String.format("update partner " +
-                        "set name='%s'," +
+                        "set first_name='%s'," +
+                        "last_name='%s',"+
                         "company='%s'," +
                         "company_phone='%s' " +
                         "where id='%s'",
-                partner.getFirstName(), partner.getCompany(),
+                partner.getFirstName(), partner.getLastName(), partner.getCompany(),
                 partner.getCompanyPhone(), partner.getId());
         int result = executeUpdate(sql);
         return result > 0;
