@@ -12,7 +12,6 @@ public class StageController {
     private Stage primaryStage;
     private MainController controller;
     // new Version
-    private CustomerController customerController;
     private DriverController driverController;
     private PartnerController partnerController;
     private PriceController priceController;
@@ -156,9 +155,6 @@ public class StageController {
         this.controller = controller;
     }
 
-    public void setCustomerController(CustomerController customerController) {
-        this.customerController = customerController;
-    }
 
     public void setDriverController(DriverController driverController) {
         this.driverController = driverController;
