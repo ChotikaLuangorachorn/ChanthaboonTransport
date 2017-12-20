@@ -5,7 +5,7 @@ import managers.CustomerDatabaseManager;
 
 public class MainApplication extends Application {
     private SceneManager sceneManager;
-    private MainController controller;
+//    private MainController controller;
     // new Version
     private CustomerController customerController;
     private PriceController priceController;

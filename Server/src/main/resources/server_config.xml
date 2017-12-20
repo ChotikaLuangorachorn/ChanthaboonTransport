@@ -6,20 +6,8 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <bean id="sqlExecutor" class="controllers.SQLiteExecutor">
     </bean>
+    
 
-    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <property name="service" ref="sqlExecutor"/>
-        <property name="serviceName" value="CustomerService"/>
-        <property name="serviceInterface" value="managers.CustomerDatabaseManager"/>
-        <property name="registryPort" value="1099"/>
-    </bean>
-
-    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <property name="service" ref="sqlExecutor"/>
-        <property name="serviceName" value="ManagerService"/>
-        <property name="serviceInterface" value="managers.ManagerDatabaseManager"/>
-        <property name="registryPort" value="5185"/>
-    </bean>
 
     <bean id="db-url" class="java.lang.String">
         <constructor-arg value="vanScheduler.db"/>
