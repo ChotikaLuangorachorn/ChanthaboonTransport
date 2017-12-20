@@ -60,6 +60,7 @@ public class SceneManager {
             primaryStage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
+
         }
     }
 
