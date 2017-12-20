@@ -1,6 +1,5 @@
 package views;
 
-import controllers.MainController;
 import controllers.VanController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,8 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.Van;
 

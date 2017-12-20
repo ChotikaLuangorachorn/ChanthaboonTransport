@@ -10,7 +10,6 @@ import java.io.IOException;
 
 public class StageController {
     private Stage primaryStage;
-    private MainController controller;
     // new Version
     private DriverController driverController;
     private PartnerController partnerController;
@@ -25,7 +24,6 @@ public class StageController {
             loader.setLocation(getClass().getResource("/mainviewmanage.fxml"));
             AnchorPane mainLayout = loader.load();
             MainView mainView = loader.getController();
-            mainView.setController(controller);
             mainView.setStageController(this);
 
             // Show the scene containing the root layout.
@@ -136,7 +134,9 @@ public class StageController {
             loader.setLocation(getClass().getResource("/confirmReservation_menu.fxml"));
             AnchorPane mainLayout = loader.load();
             ConfirmReservationMenuView confirmReservationMenu = loader.getController();
-            confirmReservationMenu.setController(controller);
+            confirmReservationMenu.setReservationController(reservationController);
+            confirmReservationMenu.setDriverController(driverController);
+            confirmReservationMenu.setVanController(vanController);
             confirmReservationMenu.setStageController(this);
 
             // Show the scene containing the root layout.
@@ -151,9 +151,6 @@ public class StageController {
         this.primaryStage = primaryStage;
     }
 
-    public void setController(MainController controller) {
-        this.controller = controller;
-    }
 
 
     public void setDriverController(DriverController driverController) {

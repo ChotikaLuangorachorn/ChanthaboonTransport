@@ -1,6 +1,5 @@
 package views;
 
-import controllers.MainController;
 import controllers.VanController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -10,9 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-import models.Driver;
 import models.JobType;
-import models.Schedule;
 import models.Van;
 import utils.ReservationDateFormatter;
 

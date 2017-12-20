@@ -1,6 +1,5 @@
 package views;
 
-import controllers.MainController;
 import controllers.StageController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,7 +13,6 @@ import java.util.ResourceBundle;
 
 public class MainView implements Initializable{
     @FXML private Button btn_van, btn_driver, btn_reserve, btn_fee, btn_confirmReserve, btn_partner;
-    private MainController controller;
     private StageController stageController;
 
     public void onClickButton(){
@@ -61,11 +59,6 @@ public class MainView implements Initializable{
         });
     }
 
-
-    public void setController(MainController controller) {
-        this.controller = controller;
-
-    }
 
     public void setStageController(StageController stageController) {
         this.stageController = stageController;

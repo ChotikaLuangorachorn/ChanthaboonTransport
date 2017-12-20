@@ -1,6 +1,5 @@
 package views;
 
-import controllers.MainController;
 import controllers.VanController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

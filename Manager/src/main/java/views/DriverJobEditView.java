@@ -1,7 +1,6 @@
 package views;
 
 import controllers.DriverController;
-import controllers.MainController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

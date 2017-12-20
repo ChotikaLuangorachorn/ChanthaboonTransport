@@ -1,6 +1,5 @@
 package views;
 
-import controllers.MainController;
 import controllers.ReservationController;
 import controllers.VanController;
 import javafx.beans.property.SimpleStringProperty;
@@ -17,7 +16,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;

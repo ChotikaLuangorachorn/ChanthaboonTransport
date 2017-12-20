@@ -1,7 +1,6 @@
 package views;
 
-import controllers.MainController;
-import controllers.StageController;
+import controllers.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -32,15 +31,23 @@ public class ConfirmReservationMenuView implements Initializable{
     @FXML private TableColumn<Reservation, String> col_fee, col_reserveId, col_firstName, col_lastName, col_isDeposited;
     @FXML private Label lbCometoMain;
     private List<Reservation> reservations;
-    private MainController controller;
+    private ReservationController reservationController;
     private StageController stageController;
+    private VanController vanController;
+    private DriverController driverController;
 
-    public void setController(MainController controller) {
-        this.controller = controller;
-        reservations = this.controller.getReservations();
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
+        reservations = this.reservationController.getReservations();
         initColumn();
         initData();
         onDoubleClickReservation();
+    }
+    public void setVanController(VanController vanController) {
+        this.vanController = vanController;
+    }
+    public void setDriverController(DriverController driverController) {
+        this.driverController = driverController;
     }
 
     public void setStageController(StageController stageController) {
@@ -73,7 +80,9 @@ public class ConfirmReservationMenuView implements Initializable{
                         loader.setLocation(getClass().getResource("/reservation_confirm.fxml"));
                         Pane confirmLayout = loader.load();
                         PageConfirmView pageConfirmView = loader.getController();
-                        pageConfirmView.setController(controller);
+                        pageConfirmView.setReservationController(reservationController);
+                        pageConfirmView.setDriverController(driverController);
+                        pageConfirmView.setVanController(vanController);
                         pageConfirmView.setReservation(reservation);
                         pageConfirmView.setConfirmReservationMenu(ConfirmReservationMenuView.this);
 
@@ -142,7 +151,7 @@ public class ConfirmReservationMenuView implements Initializable{
         table_confirmReserve.setItems(reservationObservableList);
     }
     public void refreshReservationTable(){
-        this.reservations = controller.getReservations();
+        this.reservations = reservationController.getReservations();
         this.initData();
     }
 }

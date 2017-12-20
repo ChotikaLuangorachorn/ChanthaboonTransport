@@ -1,6 +1,5 @@
 package views;
 
-import controllers.MainController;
 import controllers.PriceController;
 import controllers.StageController;
 import javafx.event.ActionEvent;
@@ -10,9 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import models.PriceFactor;
-import sun.font.TrueTypeFont;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 

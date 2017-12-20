@@ -1,6 +1,8 @@
 package views;
 
-import controllers.MainController;
+import controllers.DriverController;
+import controllers.ReservationController;
+import controllers.VanController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -31,13 +33,21 @@ public class PageConfirmView implements Initializable {
     @FXML private Button btnConfirm;
     @FXML private AnchorPane confirmLayout;
     @FXML private DatePicker dpkDeposit;
-    private MainController controller;
+    private ReservationController reservationController;
     private CheckComboBox ccbSelectVanVip, ccbSelectVanNormal, ccbSelectDriver;
     private Reservation reservation;
     private ConfirmReservationMenuView confirmReservationMenu;
+    private VanController vanController;
+    private DriverController driverController;
 
-    public void setController(MainController controller) {
-        this.controller = controller;
+    public void setReservationController(ReservationController reservationController) {
+        this.reservationController = reservationController;
+    }
+    public void setVanController(VanController vanController) {
+        this.vanController = vanController;
+    }
+    public void setDriverController(DriverController driverController) {
+        this.driverController = driverController;
     }
 
     public void setConfirmReservationMenu(ConfirmReservationMenuView confirmReservationMenu) {
@@ -75,7 +85,7 @@ public class PageConfirmView implements Initializable {
 
         Date startDate = reservation.getStartDate();
         Date endDate = reservation.getEndDate();
-        ccbSelectVanVip.getItems().addAll(controller.getVanAvailable(startDate, endDate).get(ManagerDatabaseManager.VIP));
+        ccbSelectVanVip.getItems().addAll(vanController.getVanAvailable(startDate, endDate).get(ManagerDatabaseManager.VIP));
         ccbSelectVanVip.setConverter(new StringConverter() {
             @Override
             public String toString(Object object) {
@@ -89,7 +99,7 @@ public class PageConfirmView implements Initializable {
                 return null;
             }
         });
-        ccbSelectVanNormal.getItems().addAll(controller.getVanAvailable(startDate, endDate).get(ManagerDatabaseManager.NORMAL));
+        ccbSelectVanNormal.getItems().addAll(vanController.getVanAvailable(startDate, endDate).get(ManagerDatabaseManager.NORMAL));
         ccbSelectVanNormal.setConverter(new StringConverter() {
             @Override
             public String toString(Object object) {
@@ -102,7 +112,7 @@ public class PageConfirmView implements Initializable {
                 return null;
             }
         });
-        ccbSelectDriver.getItems().addAll(controller.getDriverAvailable(startDate, endDate));
+        ccbSelectDriver.getItems().addAll(driverController.getDriverAvailable(startDate, endDate));
         ccbSelectDriver.setConverter(new StringConverter() {
             @Override
             public String toString(Object object) {
@@ -170,8 +180,8 @@ public class PageConfirmView implements Initializable {
                     LocalDate localDate = dpkDeposit.getValue();
                     Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
                     System.out.println(taPlace.getText());
-                    controller.addMeeting(taPlace.getText(), reservation.getStartDate(), reservation);
-                    controller.confirmDeposit(reservation.getReserveId(), Date.from(instant));
+                    reservationController.addMeeting(taPlace.getText(), reservation.getStartDate(), reservation);
+                    reservationController.confirmDeposit(reservation.getReserveId(), Date.from(instant));
 
                     List<Van> vans = new ArrayList<>();
                     for (Object i : ccbSelectVanVip.getCheckModel().getCheckedItems()) {
@@ -181,14 +191,14 @@ public class PageConfirmView implements Initializable {
                         vans.add((Van) j);
                     }
 
-                    controller.assignVan(vans, reservation);
+                    reservationController.assignVan(vans, reservation);
 
                     List<Driver> drivers = new ArrayList<>();
                     for(Object d : ccbSelectDriver.getCheckModel().getCheckedItems()){
                         drivers.add((Driver) d);
                     }
 
-                    controller.assignDriver(drivers, reservation);
+                    reservationController.assignDriver(drivers, reservation);
                     System.out.println(ccbSelectVanVip.getCheckModel().getCheckedItems());
                     System.out.println(ccbSelectVanNormal.getCheckModel().getCheckedIndices());
                     System.out.println(ccbSelectDriver.getCheckModel().getCheckedIndices());

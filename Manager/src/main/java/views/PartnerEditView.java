@@ -1,6 +1,5 @@
 package views;
 
-import controllers.MainController;
 import controllers.PartnerController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

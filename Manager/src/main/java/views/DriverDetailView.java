@@ -1,7 +1,6 @@
 package views;
 
 import controllers.DriverController;
-import controllers.MainController;
 import controllers.ReservationController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;

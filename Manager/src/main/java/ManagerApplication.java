@@ -4,7 +4,6 @@ import javafx.stage.Stage;
 import sun.applet.Main;
 
 public class ManagerApplication extends Application {
-    private MainController controller;
     private StageController stageController;
     private Stage primaryStage;
     // new Version
@@ -22,9 +21,7 @@ public class ManagerApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.controller = new MainController();
         this.stageController = new StageController();
-        this.stageController.setController(controller);
         // new Version -----------
         this.driverController = new DriverController();
         this.partnerController = new PartnerController();

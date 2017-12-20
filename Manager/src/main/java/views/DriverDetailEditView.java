@@ -1,7 +1,6 @@
 package views;
 
 import controllers.DriverController;
-import controllers.MainController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,7 +11,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import models.Driver;
-import models.Van;
 import utils.ReservationDateFormatter;
 
 import java.net.URL;

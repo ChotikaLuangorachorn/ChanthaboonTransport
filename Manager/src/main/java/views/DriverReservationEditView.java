@@ -1,7 +1,6 @@
 package views;
 
 import controllers.DriverController;
-import controllers.MainController;
 import controllers.ReservationController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,10 +17,8 @@ import models.Schedule;
 import utils.ReservationDateFormatter;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class DriverReservationEditView  implements Initializable{
