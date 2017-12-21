@@ -23,7 +23,6 @@ public class PartnerSQLiteService extends SQLiteService implements PartnerServic
                 String lname = resultSet.getString("last_name");
                 String company = resultSet.getString("company");
                 String companyPhone = resultSet.getString("company_phone");
-                // TODO partner last name
                 Partner partner = new Partner(id, fname, lname, company, companyPhone);
                 partners.add(partner);
             }
@@ -33,7 +32,6 @@ public class PartnerSQLiteService extends SQLiteService implements PartnerServic
 
     @Override
     public boolean editPartner(Partner partner) {
-        // TODO partner last name
         String sql = String.format("update partner " +
                         "set first_name='%s'," +
                         "last_name='%s',"+
