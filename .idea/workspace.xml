@@ -11,6 +11,17 @@
     <list default="true" id="1cb9efd3-4d93-4e53-b370-51345613bcbf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Manager/src/main/java/views/ReservationMenuView.java" afterPath="$PROJECT_DIR$/Manager/src/main/java/views/ReservationMenuView.java" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$1.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$1.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$2.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$2.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$3.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$3.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$4.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$4.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$5.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$5.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$6.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$6.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$7.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$7.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$8.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$8.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$9.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$9.class" />
+      <change beforePath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView.class" afterPath="$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView.class" />
+      <change beforePath="$PROJECT_DIR$/vanScheduler.db" afterPath="$PROJECT_DIR$/vanScheduler.db" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -89,8 +100,8 @@
       <file leaf-file-name="ReservationView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Customer/src/main/java/view/ReservationView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2375">
-              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="334">
+              <caret line="98" column="5" lean-forward="true" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#convertToDateEnd#0;class#ReservationView#0" expanded="false" />
@@ -112,18 +123,18 @@
       <file leaf-file-name="ReservationMenuView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/ReservationMenuView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="163" column="20" lean-forward="false" selection-start-line="163" selection-start-column="20" selection-end-line="163" selection-end-column="20" />
+            <state relative-caret-position="231">
+              <caret line="164" column="23" lean-forward="false" selection-start-line="164" selection-start-column="23" selection-end-line="164" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SQLiteService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/SQLiteService.java">
+      <file leaf-file-name="PageConfirmView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/PageConfirmView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="399">
+              <caret line="213" column="0" lean-forward="true" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -655,13 +666,6 @@
       <option name="presentableId" value="Default" />
       <updated>1510813974093</updated>
     </task>
-    <task id="LOCAL-00073" summary="Server: delegating SQLiteExecutor">
-      <created>1512801390193</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1512801390193</updated>
-    </task>
     <task id="LOCAL-00074" summary="Server: implement deleteVanSchedule">
       <created>1512803437172</created>
       <option name="number" value="00074" />
@@ -998,7 +1002,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513766709959</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="Manager: implement showWarning when delete reservation">
+      <created>1513852666987</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1513852666992</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1012,7 +1023,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1024,7 +1034,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40296805" sideWeight="0.47959185" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38533178" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38533178" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3105023" sideWeight="0.52040815" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1116,7 +1126,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="API,Server: create services" />
     <MESSAGE value="Customer : create controllers" />
     <MESSAGE value="Customer : sent controllers to SceneManager" />
     <MESSAGE value="Customer : move method in ManinController to each controller" />
@@ -1141,7 +1150,8 @@
     <MESSAGE value="Manager: delete MainController Class &amp; edit controller ConfirmReservationView Class" />
     <MESSAGE value="All: edit XML config - delete RMI of oldService" />
     <MESSAGE value="Clean Project (delete unused class)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean Project (delete unused class)" />
+    <MESSAGE value="Manager: implement showWarning when delete reservation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Manager: implement showWarning when delete reservation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1414,20 +1424,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/PageConfirmView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1462">
-          <caret line="151" column="5" lean-forward="false" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1638#1639#0" expanded="false" />
-            <element signature="e#1688#1689#0" expanded="false" />
-            <element signature="e#1761#1762#0" expanded="false" />
-            <element signature="e#1817#1818#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/SceneManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2242">
@@ -1544,8 +1540,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Customer/src/main/java/view/ReservationView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2375">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        <state relative-caret-position="334">
+          <caret line="98" column="5" lean-forward="true" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#convertToDateEnd#0;class#ReservationView#0" expanded="false" />
@@ -1553,10 +1549,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/PageConfirmView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="213" column="0" lean-forward="true" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Manager/src/main/java/views/ReservationMenuView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="163" column="20" lean-forward="false" selection-start-line="163" selection-start-column="20" selection-end-line="163" selection-end-column="20" />
+        <state relative-caret-position="231">
+          <caret line="164" column="23" lean-forward="false" selection-start-line="164" selection-start-column="23" selection-end-line="164" selection-end-column="23" />
           <folding />
         </state>
       </provider>

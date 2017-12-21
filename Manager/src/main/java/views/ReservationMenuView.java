@@ -161,13 +161,15 @@ public class ReservationMenuView implements Initializable{
             public void handle(ActionEvent event) {
                 Reservation reservation = (Reservation) table_reserves.getSelectionModel().getSelectedItem();
                 LocalDate meeting = reservation.getMeetingDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                if(!meeting.equals(LocalDate.now())){
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("ไม่สามารถลบการจองได้");
-                    alert.setHeaderText("ไม่สามารถลบการจองได้");
-                    alert.setContentText("เนื่องจากหมายเลขการจองที่ "+String.format("%05d",Integer.parseInt(reservation.getReserveId()))+" ได้ดำเนินการผ่านมาแล้ว");
-                    alert.showAndWait();
-                    return;
+                if(meeting != null){
+                    if(meeting.isBefore(LocalDate.now())){
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("ไม่สามารถลบการจองได้");
+                        alert.setHeaderText("ไม่สามารถลบการจองได้");
+                        alert.setContentText("เนื่องจากหมายเลขการจองที่ "+String.format("%05d",Integer.parseInt(reservation.getReserveId()))+" ได้ดำเนินการผ่านมาแล้ว");
+                        alert.showAndWait();
+                        return;
+                    }
                 }
                 if(reservation!=null){
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
