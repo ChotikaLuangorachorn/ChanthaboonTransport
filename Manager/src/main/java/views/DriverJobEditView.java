@@ -205,7 +205,7 @@ public class DriverJobEditView implements Initializable{
         if(dp_startDate!=null){
             onClickCancelEdit();
             onClickSubmit();
-            setTimeSpinner();
+//            setTimeSpinner();
             onClickStartDatePicker();
             onClickEndDatePicker();
 

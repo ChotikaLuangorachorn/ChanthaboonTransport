@@ -24,6 +24,9 @@ import utils.ReservationDateFormatter;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -157,7 +160,17 @@ public class ReservationMenuView implements Initializable{
             @Override
             public void handle(ActionEvent event) {
                 Reservation reservation = (Reservation) table_reserves.getSelectionModel().getSelectedItem();
-
+                LocalDate meeting = reservation.getMeetingDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                if(meeting != null){
+                    if(meeting.isBefore(LocalDate.now())){
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("ไม่สามารถลบการจองได้");
+                        alert.setHeaderText("ไม่สามารถลบการจองได้");
+                        alert.setContentText("เนื่องจากหมายเลขการจองที่ "+String.format("%05d",Integer.parseInt(reservation.getReserveId()))+" ได้ดำเนินการผ่านมาแล้ว");
+                        alert.showAndWait();
+                        return;
+                    }
+                }
                 if(reservation!=null){
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("ยืนยันการลบการจองของลูกค้า");

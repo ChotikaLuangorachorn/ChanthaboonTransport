@@ -52,19 +52,30 @@ public class ReservationView extends AnchorPane implements Initializable{
         cbb_district.getSelectionModel().selectFirst();
         cbb_province.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-                cbb_district.getItems().clear();
-                String province = cbb_province.getValue();
-                List<String> districts = priceController.getdistrict(province);
-                cbb_district.getItems().addAll(districts);
-                cbb_district.getSelectionModel().selectFirst();
-                setEndDatePicker();
+                try {
+                    cbb_district.getItems().clear();
+                    String province = cbb_province.getValue();
+                    List<String> districts = priceController.getdistrict(province);
+                    cbb_district.getItems().addAll(districts);
+                    cbb_district.getSelectionModel().selectFirst();
+                    setEndDatePicker();
+                }catch (NullPointerException e){
+                    System.out.println("Not get Available van yet");
+                }
+
 
             }
         });
         cbb_district.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                getVan();
+                try {
+                    getVan();
+                }
+                catch (NullPointerException e){
+                    System.out.println("Not get Available van yet");
+                }
+
             }
         });
     }
