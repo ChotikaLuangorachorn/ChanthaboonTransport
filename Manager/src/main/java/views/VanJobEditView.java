@@ -250,11 +250,12 @@ public class VanJobEditView implements Initializable {
             Spinner<Integer> minute = new Spinner<>((Integer) sp_endHr.getValue(),59,min);
             sp_endMin.setValueFactory(minute.getValueFactory());
         }
+        LocalDate dateStart = schedule.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         dp_endDate.setDayCellFactory(param -> new DateCell(){
             @Override
             public void updateItem(LocalDate item, boolean empty) {
                 super.updateItem(item, empty);
-                setDisable(empty || item.isBefore(LocalDate.now()));
+                setDisable(empty || item.isBefore(dateStart));
             }
         });
     }
