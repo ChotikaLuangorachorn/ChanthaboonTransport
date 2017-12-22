@@ -157,7 +157,6 @@ public class VanSQLiteService extends SQLiteService implements VanService{
                 "join van_job_type " +
                 "on van_job_schedule.type_id = van_job_type.id " +
                 "where regis_number='"+regisNumber+"'";
-        System.out.println("sql = " + sql);
         executeQuery(sql, (resultSet -> {
             while(resultSet.next()){
                 Date startDate = formatter.parse(resultSet.getString("start_date"));

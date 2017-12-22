@@ -135,7 +135,6 @@ public class DriverSQLiteService extends SQLiteService implements DriverService{
                 "join driver_job_type " +
                 "on driver_job_schedule.type_id = driver_job_type.id " +
                 "where driver_id='"+citizenId+"'";
-        System.out.println("sql = " + sql);
         executeQuery(sql, (resultSet -> {
             while(resultSet.next()){
                 Date startDate = formatter.parse(resultSet.getString("start_date"));

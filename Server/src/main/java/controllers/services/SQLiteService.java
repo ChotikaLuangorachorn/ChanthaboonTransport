@@ -17,6 +17,7 @@ public class SQLiteService {
     }
 
     public <T> T executeQuery(String sql, OnResultSetCallback<T> callback, T defaultResult){
+        System.out.println("--- sql query ---\n" + sql);
         Connection connection = null;
         try{
             connection = prepareConnection();
@@ -41,6 +42,7 @@ public class SQLiteService {
     }
 
     protected int executeUpdate(@NonNull String sql){
+        System.out.println("--- sql update ---\n" + sql);
         Connection connection = null;
         try{
             connection = prepareConnection();

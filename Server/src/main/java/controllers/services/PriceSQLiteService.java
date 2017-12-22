@@ -63,7 +63,6 @@ public class PriceSQLiteService extends SQLiteService implements PriceService{
                 double rate = factor.getFactor(i+1, (j+1)*10, 200);
                 double free = factor.getFactor(i+1, (j+1)*10, 300);
                 String sql = createUpdatePriceFactorQuery(rtypes[i], vtype[j], base, rate, free);
-                System.out.println(sql);
                 int result = executeUpdate(sql);
                 isSuccess = isSuccess && (result > 0);
             }
