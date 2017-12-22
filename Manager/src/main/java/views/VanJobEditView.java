@@ -207,7 +207,7 @@ public class VanJobEditView implements Initializable {
             onClickSubmit();
             onClickStartDatePicker();
             onClickEndDatePicker();
-            setTimeSpinner();
+//            setTimeSpinner();
             onClickSpinnerStartHr();
             onClickSpinnerStartMin();
             onClickSpinnerEndHr();
