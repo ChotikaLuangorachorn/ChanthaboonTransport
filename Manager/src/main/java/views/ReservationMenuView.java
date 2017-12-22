@@ -63,6 +63,17 @@ public class ReservationMenuView implements Initializable{
                 Reservation reservation = (Reservation) table_reserves.getSelectionModel().getSelectedItem();
                 if(event.getClickCount() == 2 && (reservation!=null)){
                     try {
+                        LocalDate meeting = reservation.getMeetingDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                        if(meeting != null){
+                            if(meeting.isBefore(LocalDate.now())){
+                                Alert alert = new Alert(Alert.AlertType.WARNING);
+                                alert.setTitle("ไม่สามารถลบการจองได้");
+                                alert.setHeaderText("ไม่สามารถลบการจองได้");
+                                alert.setContentText("เนื่องจากหมายเลขการจองที่ "+String.format("%05d",Integer.parseInt(reservation.getReserveId()))+" ได้ดำเนินการผ่านมาแล้ว");
+                                alert.showAndWait();
+                                return;
+                            }
+                        }
                         System.out.println("on double click in ReservationView");
                         Stage secondStage = new Stage();
                         FXMLLoader loader = new FXMLLoader();
