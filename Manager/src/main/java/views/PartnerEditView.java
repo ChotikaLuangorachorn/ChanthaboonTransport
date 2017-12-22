@@ -84,7 +84,7 @@ public class PartnerEditView implements Initializable {
                 }
                 else if (lb_error.getText().equals("")){
                     lb_error.setText("");
-                    // TODO partner last name
+
                     Partner newPartner = new Partner(partner.getId(),tf_fName.getText(), tf_lName.getText(), tf_company.getText(),tf_phone.getText());
                     partnerController.editPartner(newPartner);
                     Stage stage = (Stage) btn_submit.getScene().getWindow();

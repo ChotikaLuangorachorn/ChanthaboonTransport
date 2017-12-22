@@ -65,7 +65,7 @@ public class PartnerMenuView  implements Initializable{
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("ยืนยันการลบข้อมูลพันธมิตร");
                     alert.setHeaderText("ยืนยันการลบข้อมูลพันธมิตร");
-                    // TODO partner last name
+
                     String s = "ชื่อ:\t\t" + partner.getFirstName() +"  " + partner.getLastName()+ "\n"
                             +"บริษัท:\t" + partner.getCompany();
                     alert.setContentText(s);
