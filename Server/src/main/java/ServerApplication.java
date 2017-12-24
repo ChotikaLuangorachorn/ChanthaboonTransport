@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
-public class Main extends Application{
+public class ServerApplication extends Application{
 
     public static void main(String[] args) {
         launch(args);

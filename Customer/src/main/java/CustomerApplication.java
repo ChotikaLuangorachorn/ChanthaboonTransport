@@ -2,7 +2,7 @@ import controller.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class MainApplication extends Application {
+public class CustomerApplication extends Application {
     private SceneManager sceneManager;
 //    private MainController controller;
     // new Version
