@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Server.jar" size="83806" download="eager" />
+    <jar href="Server.jar" size="78791" download="eager" />
     <jar href="spring-aop-5.0.0.RELEASE.jar" size="360614" download="eager" />
     <jar href="spring-beans-5.0.0.RELEASE.jar" size="654710" download="eager" />
     <jar href="spring-context-5.0.0.RELEASE.jar" size="1070994" download="eager" />
@@ -17,6 +17,6 @@
     <jar href="spring-jcl-5.0.0.RELEASE.jar" size="15666" download="eager" />
     <jar href="sqlite-jdbc-3.20.0.jar" size="6637012" download="eager" />
   </resources>
-  <jfx:javafx-desc  width="600" height="400" main-class="Main"  name="Server" />
+  <jfx:javafx-desc  width="600" height="400" main-class="ServerApplication"  name="Server" />
   <update check="background"/>
 </jnlp>

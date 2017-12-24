@@ -76,6 +76,7 @@ public class VanSQLiteService extends SQLiteService implements VanService{
         amtMap.put(VanService.VIP, 0);
         amtMap.put(VanService.NORMAL, 0);
         boolean possible = checkPossibleDay(destination, startDate, endDate);
+        System.out.println("possible = " + possible);
         if (possible){
             String start = formatter.format(startDate);
             String end = formatter.format(endDate);
@@ -258,9 +259,10 @@ public class VanSQLiteService extends SQLiteService implements VanService{
     }
 
     private boolean checkPossibleDay(Destination destination, Date startDate, Date endDate){
+        System.out.println("checkPossibleDay");
         double distance = getDistance(destination);
         long diff = endDate.getTime() - startDate.getTime();
-        int days = (int) diff / (24*60*60*1000);
+        int days = (int) Math.ceil(diff*1.0 / (24*60*60*1000))+1;
         if (distance*2/720 > days)
             return false;
         return true;
