@@ -107,6 +107,7 @@ public class ReservationView extends AnchorPane implements Initializable{
                 setDisable(empty || item.isBefore(minimun));
             }
         });
+
     }
 
 
@@ -221,11 +222,16 @@ public class ReservationView extends AnchorPane implements Initializable{
         String province = cbb_province.getValue();
         String district = cbb_district.getValue();
         String place = ta_place.getText();
+
+        System.out.println(place);
         Destination destination = new Destination(province, district, place);
         LocalDate startLocal = dp_startDate.getValue();
+        System.out.println("startLocal = " + startLocal);
         LocalDate endLocal = dp_endStart.getValue();
+        System.out.println("endLocal = " + endLocal);
+        System.out.println("vanController = " + vanController);
         Map<String, Integer> amtVan = vanController.getVanAvailable(destination, convertToDateStart(startLocal), convertToDateEnd(endLocal));
-        System.out.println(amtVan.toString());
+        System.out.println("amtVan = " + amtVan);
         lb_amtNormalVan.setText(amtVan.get(VanService.NORMAL).toString());
         lb_amtVipVan.setText(amtVan.get(VanService.VIP).toString());
         spn_normal.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, amtVan.get(VanService.NORMAL)));
@@ -238,6 +244,7 @@ public class ReservationView extends AnchorPane implements Initializable{
         setCbb_province();
         setStartDatePicker();
         setEndDatePicker();
+
     }
 
     public void setReservationController(ReservationController reservationController) {
@@ -245,10 +252,12 @@ public class ReservationView extends AnchorPane implements Initializable{
     }
 
     public void setVanController(VanController vanController) {
+
         this.vanController = vanController;
     }
 
     public void setMyReservationView(MyReservationView myReservationView) {
         this.myReservationView = myReservationView;
+        getVan();
     }
 }
