@@ -148,7 +148,9 @@ public class StageController {
     }
 
     public void setPrimaryStage(Stage primaryStage) {
+
         this.primaryStage = primaryStage;
+        this.primaryStage.setTitle("Chanthaboon Transport - โปรแกรมบริหารจัดการธุรกิจรถตู้");
     }
 
 

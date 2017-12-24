@@ -22,6 +22,7 @@ public class SceneManager {
     public void setStage(Stage stage){
 
         this.primaryStage = stage;
+        this.primaryStage.setTitle("Chanthaboon Transport - โปรแกรมจองรถตู้");
     }
 
     public void showLoginView(){
