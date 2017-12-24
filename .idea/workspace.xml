@@ -11,6 +11,9 @@
     <list default="true" id="1cb9efd3-4d93-4e53-b370-51345613bcbf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Customer/src/main/java/view/ReservationView.java" afterPath="$PROJECT_DIR$/Customer/src/main/java/view/ReservationView.java" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$5.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$5.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$6.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView$6.class" />
+      <change beforePath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView.class" afterPath="$PROJECT_DIR$/Customer/target/classes/view/ReservationView.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -47,11 +50,15 @@
       <file leaf-file-name="ReservationView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Customer/src/main/java/view/ReservationView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="224" column="0" lean-forward="false" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+            <state relative-caret-position="1180">
+              <caret line="259" column="1" lean-forward="true" selection-start-line="259" selection-start-column="1" selection-end-line="259" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#convertToDateEnd#0;class#ReservationView#0" expanded="false" />
+                <element signature="e#10660#10661#0" expanded="true" />
+                <element signature="e#10709#10710#0" expanded="true" />
+                <element signature="e#10929#10930#0" expanded="true" />
+                <element signature="e#10979#10980#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,8 +67,8 @@
       <file leaf-file-name="VanSQLiteService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1842">
-              <caret line="159" column="41" lean-forward="false" selection-start-line="159" selection-start-column="41" selection-end-line="159" selection-end-column="41" />
+            <state relative-caret-position="1905">
+              <caret line="160" column="41" lean-forward="false" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -102,8 +109,8 @@
       <file leaf-file-name="SceneManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/SceneManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="55" column="49" lean-forward="false" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
+            <state relative-caret-position="420">
+              <caret line="55" column="46" lean-forward="true" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,7 +122,7 @@
         <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/StageController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="234">
-              <caret line="150" column="0" lean-forward="true" selection-start-line="149" selection-start-column="53" selection-end-line="150" selection-end-column="0" />
+              <caret line="150" column="0" lean-forward="false" selection-start-line="149" selection-start-column="53" selection-end-line="150" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -124,7 +131,7 @@
       <file leaf-file-name="CustomerApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Customer/src/main/java/CustomerApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-441">
+            <state relative-caret-position="-261">
               <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
@@ -357,6 +364,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChanthaboonTransport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChanthaboonTransport" type="462c0819:PsiDirectoryNode" />
+              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -466,7 +482,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="SearchEverywhereHistoryKey" value="stat&#9;null&#9;null&#10;GitTool&#9;null&#9;null" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.30147058" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/vanScheduler.db" />
@@ -490,18 +506,28 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/target/classes/views/DriverJobEditView.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$2.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$3.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$4.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$5.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$6.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$7.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$8.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView$9.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Manager/target/classes/views/ReservationMenuView.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/vanScheduler.db</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/artifacts/Customer.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/artifacts/Server.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Customer/Customer.jar</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Customer/Customer.jnlp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Customer/models/Customer.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Customer/models/Driver.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Customer/models/Partner.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Customer/models/PriceFactor.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Manager/Manager.jar</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Manager/Manager.jnlp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Manager/models/Customer.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Manager/models/Driver.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Manager/models/Partner.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Manager/models/PriceFactor.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Server/Server.jar</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Server/Server.jnlp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Server/models/Customer.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Server/models/Driver.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Server/models/Partner.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Server/models/PriceFactor.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Server/vanScheduler.db</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -509,8 +535,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Customer/src/main/java/CustomerApplication.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/ServerApplication.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -518,10 +542,12 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Customer/src/main/java/MainApplication.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/FakeMain.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/src/main/java/Main.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Server/target/classes/FakeMain.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Customer/managers/CustomerDatabaseManager.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Customer/managers/ManagerDatabaseManager.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Manager/managers/CustomerDatabaseManager.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Manager/managers/ManagerDatabaseManager.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Server/managers/CustomerDatabaseManager.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/artifacts/Server/managers/ManagerDatabaseManager.class</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -615,7 +641,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CustomerApplication">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -781,13 +807,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1510813974093</updated>
-    </task>
-    <task id="LOCAL-00078" summary="Server: implement getDriverJobTypes">
-      <created>1512810346412</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1512810346412</updated>
     </task>
     <task id="LOCAL-00079" summary="Server: implement deleteDriverSchedule, editDriverSchedule">
       <created>1512811137574</created>
@@ -1125,7 +1144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1514112340972</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="Customer: fix bug getVan">
+      <created>1514125593617</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1514125593617</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1139,6 +1165,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1150,7 +1177,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40296805" sideWeight="0.47959185" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.677532" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41559952" sideWeight="0.58915144" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4959255" sideWeight="0.52040815" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1264,7 +1291,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Manager : add xml" />
     <MESSAGE value="Manager : Van edit controller" />
     <MESSAGE value="Manager : Driver edit controller + bug" />
     <MESSAGE value="Manager : Fee" />
@@ -1289,7 +1315,8 @@
     <MESSAGE value="Customer: add try catch NullPointer" />
     <MESSAGE value="Customer: Up DB" />
     <MESSAGE value="Set title stage program." />
-    <option name="LAST_COMMIT_MESSAGE" value="Set title stage program." />
+    <MESSAGE value="Customer: fix bug getVan" />
+    <option name="LAST_COMMIT_MESSAGE" value="Customer: fix bug getVan" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1499,7 +1526,7 @@
         <state relative-caret-position="84">
           <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1615,18 +1642,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/CustomerApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-441">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Manager/src/main/java/controllers/StageController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
-          <caret line="150" column="0" lean-forward="true" selection-start-line="149" selection-start-column="53" selection-end-line="150" selection-end-column="0" />
+          <caret line="150" column="0" lean-forward="false" selection-start-line="149" selection-start-column="53" selection-end-line="150" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1639,31 +1658,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1905">
+          <caret line="160" column="41" lean-forward="false" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Customer/src/main/java/CustomerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-261">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Customer/src/main/java/controller/SceneManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="55" column="49" lean-forward="false" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
+        <state relative-caret-position="420">
+          <caret line="55" column="46" lean-forward="true" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/main/java/controllers/services/VanSQLiteService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1842">
-          <caret line="159" column="41" lean-forward="false" selection-start-line="159" selection-start-column="41" selection-end-line="159" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Customer/src/main/java/view/ReservationView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="224" column="0" lean-forward="false" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+        <state relative-caret-position="1180">
+          <caret line="259" column="1" lean-forward="true" selection-start-line="259" selection-start-column="1" selection-end-line="259" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#convertToDateEnd#0;class#ReservationView#0" expanded="false" />
+            <element signature="e#10660#10661#0" expanded="true" />
+            <element signature="e#10709#10710#0" expanded="true" />
+            <element signature="e#10929#10930#0" expanded="true" />
+            <element signature="e#10979#10980#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1702,7 +1733,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.30147058" />
               </list>
             </option>
           </splitter-proportions>
@@ -1714,7 +1745,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.30147058" />
               </list>
             </option>
           </splitter-proportions>
@@ -1722,7 +1753,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Server</last-edited>
+          <last-edited>Customer</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1739,7 +1770,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.30147058" />
               </list>
             </option>
           </splitter-proportions>

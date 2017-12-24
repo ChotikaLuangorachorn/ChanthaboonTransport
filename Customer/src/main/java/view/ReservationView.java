@@ -222,8 +222,7 @@ public class ReservationView extends AnchorPane implements Initializable{
         String province = cbb_province.getValue();
         String district = cbb_district.getValue();
         String place = ta_place.getText();
-
-        System.out.println(place);
+        System.out.println("place = " + place);
         Destination destination = new Destination(province, district, place);
         LocalDate startLocal = dp_startDate.getValue();
         System.out.println("startLocal = " + startLocal);
@@ -241,10 +240,6 @@ public class ReservationView extends AnchorPane implements Initializable{
 
     public void setPriceController(PriceController controller) {
         this.priceController = controller;
-        setCbb_province();
-        setStartDatePicker();
-        setEndDatePicker();
-
     }
 
     public void setReservationController(ReservationController reservationController) {
@@ -252,12 +247,14 @@ public class ReservationView extends AnchorPane implements Initializable{
     }
 
     public void setVanController(VanController vanController) {
-
         this.vanController = vanController;
     }
 
     public void setMyReservationView(MyReservationView myReservationView) {
         this.myReservationView = myReservationView;
+        setCbb_province();
+        setStartDatePicker();
+        setEndDatePicker();
         getVan();
     }
 }
